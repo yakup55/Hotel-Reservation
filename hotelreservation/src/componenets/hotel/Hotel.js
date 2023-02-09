@@ -19,9 +19,10 @@ import { Button, Typography } from "@mui/material";
 export default function Hotel() {
   return (
     <div>
+      <Typography mt={5} mb={3} variant="h5" fontStyle={"italic"}>Bu Fiyata Kaçmaz</Typography>
          <Box sx={{ flexGrow: 1 , display: { xs: 'none', md: 'flex' }}}>
       <Grid container spacing={1}>
-        <Grid container item spacing={1}>
+        <Grid container item spacing={3}>
           <Grid item xs={3}>
             <Card maxW="xl">
               <CardBody>
@@ -173,7 +174,7 @@ export default function Hotel() {
     </Box>
        <Box sx={{ flexGrow: 1 , display: { xs: 'flex', md: 'none' }}}>
       <Grid container spacing={1}>
-        <Grid container item spacing={1}>
+        <Grid container item spacing={3}>
           <Grid item xs={6}>
             <Card maxW="xl">
               <CardBody>

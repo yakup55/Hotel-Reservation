@@ -16,11 +16,8 @@ function App() {
         <main>
           <Paths></Paths>
         </main>
-        <br></br>
-       
-        <br></br>
-        <Footer></Footer>
       </div>
+      <Footer></Footer>
     </>
   );
 }
