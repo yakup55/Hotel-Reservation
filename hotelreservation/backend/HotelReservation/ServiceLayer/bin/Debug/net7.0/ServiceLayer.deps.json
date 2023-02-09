@@ -1,0 +1,62 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "ServiceLayer/1.0.0": {
+        "dependencies": {
+          "RepositoryLayer": "1.0.0"
+        },
+        "runtime": {
+          "ServiceLayer.dll": {}
+        }
+      },
+      "CoreLayer/1.0.0": {
+        "dependencies": {
+          "SharedLibray": "1.0.0"
+        },
+        "runtime": {
+          "CoreLayer.dll": {}
+        }
+      },
+      "RepositoryLayer/1.0.0": {
+        "dependencies": {
+          "CoreLayer": "1.0.0"
+        },
+        "runtime": {
+          "RepositoryLayer.dll": {}
+        }
+      },
+      "SharedLibray/1.0.0": {
+        "runtime": {
+          "SharedLibray.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ServiceLayer/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CoreLayer/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RepositoryLayer/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SharedLibray/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
