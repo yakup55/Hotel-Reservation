@@ -12,8 +12,11 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import { ButtonGroup, createTheme, ThemeProvider } from '@mui/material';
+import {createTheme, ThemeProvider } from '@mui/material';
 import LuggageIcon from '@mui/icons-material/Luggage';
+import LoginIcon from '@mui/icons-material/Login';
+import HowToRegIcon from '@mui/icons-material/HowToReg';
+import { useNavigate } from 'react-router-dom';
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -43,7 +46,7 @@ function NavBar() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-
+const navigate=useNavigate()
   return (
         <ThemeProvider theme={darkTheme}>
         <AppBar position="static">
@@ -104,7 +107,7 @@ function NavBar() {
               ))}
             </Menu>
           </Box>
-   
+
      
           <Typography
             variant="h5"
@@ -135,11 +138,14 @@ function NavBar() {
               </Button>
             ))}
           </Box>
-          
+          {/* Button Kısımları */}
+          <Button onClick={()=>navigate("/register")} startIcon={<HowToRegIcon></HowToRegIcon>} variant='contained' color='warning'>Register</Button>
+          <Button onClick={()=>navigate("/login")} startIcon={<LoginIcon></LoginIcon>}  style={{marginLeft:10,marginRight:10}} variant='contained' color='warning'>Login</Button>
+
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="" src="/static/images/avatar/2.jpg" />
+                <Avatar style={{backgroundColor:"white"}} alt="" src="/static/images/avatar/2.jpg" />
               </IconButton>
             </Tooltip>
             <Menu
@@ -160,7 +166,7 @@ function NavBar() {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+                <Button variant='contained' style={{backgroundColor:"black",width:150}}>{setting}</Button>
                 </MenuItem>
               ))}
             </Menu>
