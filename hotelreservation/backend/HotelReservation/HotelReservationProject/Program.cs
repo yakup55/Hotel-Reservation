@@ -1,13 +1,22 @@
 using Autofac;
+using Autofac.Extensions.DependencyInjection;
 using AutoMapper;
 using CoreLayer.Models;
+using CoreLayer.Repositories;
+using CoreLayer.Services;
+using CoreLayer.UnitOfWork;
 using FluentValidation.AspNetCore;
 using HotelReservationProject.Filters;
 using HotelReservationProject.Models;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RepositoryLayer.Context;
+using RepositoryLayer.Repositories;
+using RepositoryLayer.UnitOfWorks;
+using ServiceLayer.Services;
+using SharedLibray.Extensions;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -31,10 +40,10 @@ builder.Services.AddScoped(typeof(NotFoundFilters<,>));
 
 builder.Services.AddAutoMapper(typeof(Mapper));
 
-//builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
-//{
-//    containerBuilder.RegisterModule(new RepoServiceModel());
-//});
+builder.Host.ConfigureContainer<ContainerBuilder>(containerbuilder =>
+{
+    containerbuilder.RegisterModule(new RepoServiceModel());
+});
 
 builder.Services.AddDbContext<AppDbContext>(x =>
 {
@@ -49,6 +58,16 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(opt =>
     opt.User.RequireUniqueEmail = true;
     opt.Password.RequireNonAlphanumeric = false;
 }).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
+
+
+builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
+
+builder.Services.UserCustomValidationResponse();
+
+
+
+
+
 
 var app = builder.Build();
 

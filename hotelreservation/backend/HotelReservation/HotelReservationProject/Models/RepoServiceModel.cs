@@ -1,11 +1,12 @@
 ﻿using Autofac;
-using AutoMapper;
+using Autofac.Extensions.DependencyInjection;
 using CoreLayer.Repositories;
 using CoreLayer.Services;
 using CoreLayer.UnitOfWork;
 using RepositoryLayer.Context;
 using RepositoryLayer.Repositories;
 using RepositoryLayer.UnitOfWorks;
+using ServiceLayer.DtoMapper;
 using ServiceLayer.Services;
 using System.Reflection;
 using Module = Autofac.Module;
@@ -31,6 +32,7 @@ namespace HotelReservationProject.Models
             builder.RegisterAssemblyTypes(apiAssembly, repoAssembly, serviceAssembly)
              .Where(x => x.Name.EndsWith("Service")).AsImplementedInterfaces().InstancePerLifetimeScope();
 
+          
 
             base.Load(builder);
         }

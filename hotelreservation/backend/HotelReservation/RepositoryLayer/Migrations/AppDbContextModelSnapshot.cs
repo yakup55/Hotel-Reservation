@@ -106,6 +106,86 @@ namespace RepositoryLayer.Migrations
                     b.HasKey("CategoryId");
 
                     b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            CategoryId = 1,
+                            CategoryImage = "https://cdn.enuygun.com/otel/v-083f8/static/images/theme-icons/bungalov.svg",
+                            CategoryName = "Bungalov"
+                        },
+                        new
+                        {
+                            CategoryId = 2,
+                            CategoryImage = "https://cdn.enuygun.com/otel/v-083f8/static/images/theme-icons/termal.svg",
+                            CategoryName = "Termal"
+                        },
+                        new
+                        {
+                            CategoryId = 3,
+                            CategoryImage = "https://cdn.enuygun.com/otel/v-083f8/static/images/theme-icons/tatil-koyu.svg",
+                            CategoryName = "Tatil Köyleri"
+                        },
+                        new
+                        {
+                            CategoryId = 4,
+                            CategoryImage = "https://cdn.enuygun.com/otel/v-083f8/static/images/theme-icons/pansiyon.svg",
+                            CategoryName = "Pansiyonlar"
+                        },
+                        new
+                        {
+                            CategoryId = 5,
+                            CategoryImage = "https://cdn.enuygun.com/otel/v-083f8/static/images/theme-icons/butik.svg",
+                            CategoryName = "Butik"
+                        },
+                        new
+                        {
+                            CategoryId = 6,
+                            CategoryImage = "https://cdn.enuygun.com/otel/v-083f8/static/images/theme-icons/islami.svg",
+                            CategoryName = "Muhafazakar"
+                        },
+                        new
+                        {
+                            CategoryId = 7,
+                            CategoryImage = "https://cdn.enuygun.com/otel/v-083f8/static/images/theme-icons/balayi-ciftlerine-uygun.svg",
+                            CategoryName = "Balayı"
+                        },
+                        new
+                        {
+                            CategoryId = 8,
+                            CategoryImage = "https://cdn.enuygun.com/otel/v-083f8/static/images/theme-icons/engelli-dostu.svg",
+                            CategoryName = "Engelli Dostu"
+                        },
+                        new
+                        {
+                            CategoryId = 9,
+                            CategoryImage = "https://cdn.enuygun.com/otel/v-083f8/static/images/theme-icons/aquapark.svg",
+                            CategoryName = "Aquaparklı"
+                        },
+                        new
+                        {
+                            CategoryId = 10,
+                            CategoryImage = "https://cdn.enuygun.com/otel/v-083f8/static/images/theme-icons/doga.svg",
+                            CategoryName = "Doğa"
+                        },
+                        new
+                        {
+                            CategoryId = 11,
+                            CategoryImage = "https://cdn.enuygun.com/otel/v-083f8/static/images/theme-icons/dag.svg",
+                            CategoryName = "Dağ "
+                        },
+                        new
+                        {
+                            CategoryId = 12,
+                            CategoryImage = "https://cdn.enuygun.com/otel/v-083f8/static/images/theme-icons/spa.svg",
+                            CategoryName = "Spa"
+                        },
+                        new
+                        {
+                            CategoryId = 13,
+                            CategoryImage = "https://cdn.enuygun.com/otel/v-083f8/static/images/theme-icons/denize-sifir.svg",
+                            CategoryName = "Denize Sıfır"
+                        });
                 });
 
             modelBuilder.Entity("CoreLayer.Models.Hotel", b =>

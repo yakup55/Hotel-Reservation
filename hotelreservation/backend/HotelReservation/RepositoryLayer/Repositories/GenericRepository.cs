@@ -12,7 +12,7 @@ namespace RepositoryLayer.Repositories
 {
     public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
     {
-        private readonly DbContext context;
+        protected readonly AppDbContext context;
         private DbSet<TEntity> dbSet;
 
         public GenericRepository(AppDbContext context)
@@ -48,7 +48,7 @@ namespace RepositoryLayer.Repositories
 
         public TEntity UpdateAsync(TEntity entity)
         {
-          dbSet.Update(entity);
+            context.Entry(entity).State = EntityState.Modified;
             return entity;
         }
 

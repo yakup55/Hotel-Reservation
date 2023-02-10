@@ -24,7 +24,7 @@ namespace HotelReservationProject.Filters
                 return;
             }
             var id = (int)idValues;
-            context.Result = new NotFoundObjectResult(ResponseDto<NoDataDto>.Fail("not found",404));
+            context.Result = new NotFoundObjectResult(ResponseDto<NoDataDto>.Fail($"{id} not found",404));
         }
     }
 }

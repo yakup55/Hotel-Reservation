@@ -8,6 +8,7 @@ namespace CoreLayer.DTOs
 {
     public class HotelDto
     {
+        public int HotelId { get; set; }
         public string HotelName { get; set; }
         public decimal HotelPrice { get; set; }
         public string HotelImage { get; set; }

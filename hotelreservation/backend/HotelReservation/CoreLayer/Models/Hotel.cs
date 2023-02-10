@@ -17,5 +17,11 @@ namespace CoreLayer.Models
 
         public int CategoryId { get; set; }
         public Category Category { get; set; }
+
+        public ICollection<Room> Rooms { get; set; }
+        public ICollection<HotelDetail> HotelDetails { get; set; }
+        public ICollection<Comment> Comments { get; set; }
+        public ICollection<Quentions> Quentions  { get; set; }
+
     }
 }
