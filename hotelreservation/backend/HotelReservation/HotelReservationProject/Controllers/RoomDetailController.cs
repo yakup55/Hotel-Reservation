@@ -21,7 +21,7 @@ namespace HotelReservationProject.Controllers
         {
             return ActionResultInstance(await service.GetAllAsync());
         }
-        [HttpGet]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetByDetail(int id)
         {
             return ActionResultInstance(await service.GetByIdAsync(id));    

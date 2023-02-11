@@ -25,7 +25,7 @@ namespace HotelReservationProject.Controllers
         {
             return ActionResultInstance(await service.LastHotel());
         }
-        [HttpGet]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetByHotel(int id)
         {
             return ActionResultInstance(await service.GetByIdAsync(id));
@@ -41,7 +41,7 @@ namespace HotelReservationProject.Controllers
             return ActionResultInstance(await service.UpdateAsync(dto, dto.HotelId));
         }
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> DeleteHotel(int id)
         {
             return ActionResultInstance(await service.DeleteAsync(id));
         }

@@ -37,7 +37,23 @@ export default function ReservationInquire() {
         <TextField
         id=""
         name=""
-        label="Tarih Belirle"
+        label="Geliş Tarihi Belirle"
+        color="success"
+      type={"date"}
+      InputProps={{
+        startAdornment: (
+          <InputAdornment position="start">
+      
+          </InputAdornment>
+        ),
+      }}
+        ></TextField>
+      </FormControl>
+      <FormControl style={{ width: 300 }} sx={{ m: 1 ,mt:4}}  variant="standard">
+        <TextField
+        id=""
+        name=""
+        label="Çıkış Tarih Belirle"
         color="success"
       type={"date"}
       InputProps={{

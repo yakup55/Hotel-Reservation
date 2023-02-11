@@ -23,7 +23,7 @@ namespace HotelReservationProject.Controllers
         {
             return ActionResultInstance(await service.GetAllAsync());
         }
-        [HttpGet]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetByCategory(int id)
         {
             return ActionResultInstance(await service.GetByIdAsync(id));
@@ -39,9 +39,9 @@ namespace HotelReservationProject.Controllers
             return ActionResultInstance(await service.AddAsync(dto));
         }
         [HttpPut]
-        public async Task<IActionResult> UpdateCategory(CategoryDto dto, int id)
+        public async Task<IActionResult> UpdateCategory(CategoryDto dto)
         {
-            return ActionResultInstance(await service.UpdateAsync(dto, id));
+            return ActionResultInstance(await service.UpdateAsync(dto, dto.CategoryId));
         }
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCategory(int id)
