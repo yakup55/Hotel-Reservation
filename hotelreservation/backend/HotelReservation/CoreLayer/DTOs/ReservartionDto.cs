@@ -8,6 +8,7 @@ namespace CoreLayer.DTOs
 {
     public class ReservartionDto
     {
+        public int ReservationId { get; set; }
         public DateTime ArrivalDate { get; set; }
         public DateTime ReturnDate { get; set; }
 
