@@ -12,7 +12,7 @@ export default function Login() {
       event.preventDefault();
     };
   return (
-    <Container style={{ marginTop: 10 }}>
+    <Container style={{ marginBottom: 60 }}>
       <Stack spacing={3}>
         <AccountCircleIcon
           style={{ width: 100, height: 100, margin: "auto", display: "block" }}

@@ -1,0 +1,52 @@
+import HotelService from "../services/hotelService";
+export const GET_HOTEL_LIST = "GET_HOTEL_LIST";
+export const LAST_HOTEL_LIST = "LAST_HOTEL_LIST";
+export const GET_BY_HOTEL = "GET_BY_HOTEL";
+export const ADD_HOTEL = "ADD_HOTEL";
+export const UPDATE_HOTEL = "UPDATE_HOTEL";
+export const DELETE_HOTEL = "DELETE_HOTEL";
+
+const hotelService = new HotelService();
+
+export function getHotelList() {
+  return function (dispacth) {
+    hotelService
+      .getHotelList()
+      .then((resp) => dispacth({ type: GET_HOTEL_LIST, payload: resp }));
+  };
+}
+export function lastHotelList() {
+  return function (dispacth) {
+    hotelService
+      .lastHotelList()
+      .then((resp) => dispacth({ type: LAST_HOTEL_LIST, payload: resp }));
+  };
+}
+export function getByHotel(id) {
+  return function (dispacth) {
+    hotelService
+      .getByHotel(id)
+      .then((resp) => dispacth({ type: GET_BY_HOTEL, payload: resp }));
+  };
+}
+export function addHotel(hotel) {
+  return function (dispacth) {
+    hotelService
+      .addHotel(hotel)
+      .then((resp) => dispacth({ type: ADD_HOTEL, payload: resp }));
+  };
+}
+export function updateHotel(hotel) {
+  return function (dispacth) {
+    hotelService
+      .updateHotel(hotel)
+      .then((resp) => dispacth({ type: UPDATE_HOTEL, payload: resp }));
+  };
+}
+export function deleteHotel(id) {
+  return function (dispacth) {
+    hotelService
+      .deleteHotel(id)
+      .then((resp) => dispacth({ type: DELETE_HOTEL, payload: id }));
+  };
+}

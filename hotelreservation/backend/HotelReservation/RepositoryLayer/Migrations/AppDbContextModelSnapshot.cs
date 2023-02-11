@@ -22,6 +22,68 @@ namespace RepositoryLayer.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("CoreLayer.Models.About", b =>
+                {
+                    b.Property<int>("AboutId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AboutId"));
+
+                    b.Property<DateTime>("AboutDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("AboutDescription")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AboutImage")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AboutName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("AboutId");
+
+                    b.ToTable("Abouts");
+
+                    b.HasData(
+                        new
+                        {
+                            AboutId = 1,
+                            AboutDate = new DateTime(2023, 2, 11, 23, 40, 49, 334, DateTimeKind.Local).AddTicks(477),
+                            AboutDescription = "10 larca oteli tercihlerinize göre filtreleyerek saniyeler içinde size en uygun otelleri bulabilirsiniz",
+                            AboutImage = "https://cdn.enuygun.com/otel/v-083f8/static/images/icons/option.svg",
+                            AboutName = "Sayısız Seçenek"
+                        },
+                        new
+                        {
+                            AboutId = 2,
+                            AboutDate = new DateTime(2023, 2, 11, 23, 40, 49, 334, DateTimeKind.Local).AddTicks(489),
+                            AboutDescription = "Kafanızı karıştıran fiyat ve hizmet seçenekleri arasında kaybolmayın, tercihlerinizi belirleyip size en uygun otelde odanızı hemen ayırtın.",
+                            AboutImage = "https://cdn.enuygun.com/otel/v-083f8/static/images/icons/option.svg",
+                            AboutName = "Uygun Oteller"
+                        },
+                        new
+                        {
+                            AboutId = 3,
+                            AboutDate = new DateTime(2023, 2, 11, 23, 40, 49, 334, DateTimeKind.Local).AddTicks(490),
+                            AboutDescription = "Enuygun sayesinde aradığınız oteli bulmak için sadece birkaç saniyeye ihtiyacınız var.",
+                            AboutImage = "https://cdn.enuygun.com/otel/v-083f8/static/images/icons/option.svg",
+                            AboutName = "Hızlı Ve Kolay"
+                        },
+                        new
+                        {
+                            AboutId = 4,
+                            AboutDate = new DateTime(2023, 2, 11, 23, 40, 49, 334, DateTimeKind.Local).AddTicks(494),
+                            AboutDescription = "Tüm ödeme işleriniz, dünyanın önde gelen güvenlik sertifikası şirketi DigiCert koruması altındadır.",
+                            AboutImage = "https://cdn.enuygun.com/otel/v-083f8/static/images/icons/option.svg",
+                            AboutName = "Güvenle Alın"
+                        });
+                });
+
             modelBuilder.Entity("CoreLayer.Models.AppUser", b =>
                 {
                     b.Property<string>("Id")

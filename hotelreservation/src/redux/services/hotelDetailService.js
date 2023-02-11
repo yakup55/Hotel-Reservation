@@ -25,3 +25,4 @@ class HotelDetailService {
     return await axios.delete(url).then((resp) => resp.data);
   }
 }
+export default HotelDetailService;

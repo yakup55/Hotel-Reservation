@@ -4,6 +4,7 @@ export const ADD_CATEGORY = "ADD_CATEGORY";
 export const UPDATE_CATEGORY = "UPDATE_CATEGORY";
 export const DELETE_CATEGORY = "DELETE_CATEGORY";
 export const GET_CATEGORY_LIST = "GET_CATEGORY_LIST";
+export const GET_BY_CATEGORY = "GET_BY_CATEGORY";
 export const LAST_CATEGORY_LIST = "LAST_CATEGORY_LIST";
 
 export const categoryService = new CategoryService();
@@ -22,6 +23,14 @@ export function getCategoryList() {
       .then((resp) => dispacth({ type: GET_CATEGORY_LIST, payload: resp }));
   };
 }
+export function getByCategory(id) {
+  return function (dispacth) {
+    categoryService
+      .getByCategory(id)
+      .then((resp) => dispacth({ type: GET_BY_CATEGORY, payload: resp }));
+  };
+}
+
 export function LastCategory() {
   return function (dispacth) {
     categoryService

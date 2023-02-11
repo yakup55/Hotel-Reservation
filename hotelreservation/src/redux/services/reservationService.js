@@ -12,7 +12,7 @@ class ReservationService {
     const url = `${this.baseUrl}/GetByReservation/${id}`;
     return await axios.get(url).then((resp) => resp.data);
   }
-  async AddReservation(reservation) {
+  async addReservation(reservation) {
     const url = `${this.baseUrl}/AddReservation`;
     return await axios.post(url, reservation).then((resp) => resp.data);
   }
