@@ -17,8 +17,13 @@ namespace RepositoryLayer.Context
 
         }
         public DbSet<Hotel> Hotels { get; set; }
+        public DbSet<HotelDetail> HotelDetails { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Reservation> Reservations { get; set; }
+        public DbSet<Room> Rooms { get; set; }
+        public DbSet<RoomDetail> RoomDetails { get; set; }
+        public DbSet<Quentions> Quentions { get; set; }
+        public DbSet<Comment> Comments { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

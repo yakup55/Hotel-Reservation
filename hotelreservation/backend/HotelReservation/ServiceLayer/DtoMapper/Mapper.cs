@@ -16,6 +16,9 @@ namespace ServiceLayer.DtoMapper
             CreateMap<HotelDto, Hotel>().ReverseMap();
             CreateMap<CategoryDto,Category>().ReverseMap();
             CreateMap<ReservartionDto, Reservation>().ReverseMap();
+            CreateMap<HotelDetailDto, HotelDetail>().ReverseMap();
+            CreateMap<RoomDto, Room>().ReverseMap();
+            CreateMap<RoomDetailDto, RoomDetail>().ReverseMap();
         }
     }
 }

@@ -15,11 +15,11 @@ namespace RepositoryLayer.Configuration
         {
             builder.HasKey(x => x.HotelId);
             builder.Property(x => x.HotelName).IsRequired();
-            builder.Property(x=>x.HotelImage).IsRequired();
+            builder.Property(x => x.HotelImage).IsRequired();
             builder.Property(x => x.HotelPrice).IsRequired().HasColumnType("decimal(18,3)");
-            builder.Property(x=>x.CategoryId).IsRequired();
+            builder.Property(x => x.CategoryId).IsRequired();
 
-            builder.HasOne(x=>x.Category).WithMany(x=>x.Hotels).HasForeignKey(x=>x.CategoryId);
+            builder.HasOne(x => x.Category).WithMany(x => x.Hotels).HasForeignKey(x => x.CategoryId);
         }
     }
 }
