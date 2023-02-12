@@ -31,21 +31,21 @@ namespace RepositoryLayer.Configuration
                     AboutId = 2,
                     AboutName = "Uygun Oteller",
                     AboutDescription = "Kafanızı karıştıran fiyat ve hizmet seçenekleri arasında kaybolmayın, tercihlerinizi belirleyip size en uygun otelde odanızı hemen ayırtın.",
-                    AboutImage= "https://cdn.enuygun.com/otel/v-083f8/static/images/icons/option.svg",
+                    AboutImage= "https://cdn.enuygun.com/otel/v-083f8/static/images/icons/location.svg",
                     AboutDate = DateTime.Now,
                 },new About
                 {
                     AboutId = 3,
                     AboutName = "Hızlı Ve Kolay",
                     AboutDescription = "Enuygun sayesinde aradığınız oteli bulmak için sadece birkaç saniyeye ihtiyacınız var.",
-                    AboutImage= "https://cdn.enuygun.com/otel/v-083f8/static/images/icons/option.svg",
+                    AboutImage= "https://cdn.enuygun.com/otel/v-083f8/static/images/icons/fast-easy.svg",
                     AboutDate = DateTime.Now,
                 },new About
                 {
                     AboutId = 4,
                     AboutName = "Güvenle Alın",
                     AboutDescription = "Tüm ödeme işleriniz, dünyanın önde gelen güvenlik sertifikası şirketi DigiCert koruması altındadır.",
-                    AboutImage= "https://cdn.enuygun.com/otel/v-083f8/static/images/icons/option.svg",
+                    AboutImage= "https://cdn.enuygun.com/otel/v-083f8/static/images/icons/trust.svg",
                     AboutDate = DateTime.Now,
                 }
                 );

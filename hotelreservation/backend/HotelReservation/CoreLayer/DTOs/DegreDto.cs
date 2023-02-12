@@ -1,0 +1,15 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CoreLayer.DTOs
+{
+    public class DegreDto
+    {
+        public int DegreId { get; set; }
+        public string DegreName { get; set; }
+        public int DegreValue { get; set; }
+    }
+}

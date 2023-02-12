@@ -11,26 +11,22 @@ export default function Category({ category }) {
   const dispacth = useDispatch();
   const navigate = useNavigate();
 
-  console.log(category?.categoryName);
   return (
-    <Container style={{ marginTop: 50 }}>
-      <Typography mt={5} mb={3} variant="h5" fontStyle={"italic"}>
-        Tatil Temaları
-      </Typography>
+    <Container style={{marginLeft:20 }}>
       <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
         <Grid container spacing={1}>
           <Grid container item spacing={3}>
             <Grid item xs={3}>
-              <Card sx={{ width: 200, height: 200 }}>
+              <Card sx={{ width: 250, height: 300 }}>
                 <CardActionArea>
                   <CardMedia
                     component="img"
-                    height="140"
+                    height="200"
                     image={`${category?.categoryImage}`}
-                    alt="green iguana"
+                    alt={category?.categoryName}
                   />
                   <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
+                    <Typography gutterBottom variant="h6" component="div">
                       {category?.categoryName}
                     </Typography>
                   </CardContent>
@@ -40,77 +36,26 @@ export default function Category({ category }) {
           </Grid>
         </Grid>
       </Box>
-      <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+      <Box sx={{ ml: 10, flexGrow: 1, display: { xs: "flex", md: "none" } }}>
         <Grid container spacing={1}>
           <Grid container item spacing={3}>
-            <Grid item xs={4}>
-              <Card sx={{ width: 200, height: 200 }}>
+            <Grid item xs={6}>
+              <Card sx={{ width: 250, height: 300 }}>
                 <CardActionArea>
                   <CardMedia
                     component="img"
-                    height="140"
+                    height="200"
                     image={`${category?.categoryImage}`}
-                    alt="green iguana"
+                    alt={category?.categoryName}
                   />
                   <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
+                    <Typography gutterBottom variant="h6" component="div">
                       {category?.categoryName}
                     </Typography>
                   </CardContent>
                 </CardActionArea>
               </Card>
             </Grid>
-            {/* <Grid item xs={4}>
-              <Card sx={{ width: 200, height: 200 }}>
-                <CardActionArea>
-                  <CardMedia
-                    component="img"
-                    height="140"
-                    image="https://cdn.enuygun.com/otel/v-d645c/static/images/theme-icons/bungalov.svg"
-                    alt="green iguana"
-                  />
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                      Lizard
-                    </Typography>
-                  </CardContent>
-                </CardActionArea>
-              </Card>
-            </Grid>
-            <Grid item xs={4}>
-              <Card sx={{ width: 200, height: 200 }}>
-                <CardActionArea>
-                  <CardMedia
-                    component="img"
-                    height="140"
-                    image="https://cdn.enuygun.com/otel/v-d645c/static/images/theme-icons/bungalov.svg"
-                    alt="green iguana"
-                  />
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                      Lizard
-                    </Typography>
-                  </CardContent>
-                </CardActionArea>
-              </Card>
-            </Grid>
-            <Grid item xs={4}>
-              <Card sx={{ width: 200, height: 200 }}>
-                <CardActionArea>
-                  <CardMedia
-                    component="img"
-                    height="140"
-                    image="https://cdn.enuygun.com/otel/v-d645c/static/images/theme-icons/bungalov.svg"
-                    alt="green iguana"
-                  />
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                      Lizard
-                    </Typography>
-                  </CardContent>
-                </CardActionArea>
-              </Card>
-            </Grid> */}
           </Grid>
         </Grid>
       </Box>

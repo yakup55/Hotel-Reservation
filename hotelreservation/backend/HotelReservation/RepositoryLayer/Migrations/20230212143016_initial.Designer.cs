@@ -12,8 +12,8 @@ using RepositoryLayer.Context;
 namespace RepositoryLayer.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230211091529_second")]
-    partial class second
+    [Migration("20230212143016_initial")]
+    partial class initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,6 +24,68 @@ namespace RepositoryLayer.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("CoreLayer.Models.About", b =>
+                {
+                    b.Property<int>("AboutId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AboutId"));
+
+                    b.Property<DateTime>("AboutDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("AboutDescription")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AboutImage")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AboutName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("AboutId");
+
+                    b.ToTable("Abouts");
+
+                    b.HasData(
+                        new
+                        {
+                            AboutId = 1,
+                            AboutDate = new DateTime(2023, 2, 12, 17, 30, 16, 512, DateTimeKind.Local).AddTicks(7755),
+                            AboutDescription = "10 larca oteli tercihlerinize göre filtreleyerek saniyeler içinde size en uygun otelleri bulabilirsiniz",
+                            AboutImage = "https://cdn.enuygun.com/otel/v-083f8/static/images/icons/option.svg",
+                            AboutName = "Sayısız Seçenek"
+                        },
+                        new
+                        {
+                            AboutId = 2,
+                            AboutDate = new DateTime(2023, 2, 12, 17, 30, 16, 512, DateTimeKind.Local).AddTicks(7768),
+                            AboutDescription = "Kafanızı karıştıran fiyat ve hizmet seçenekleri arasında kaybolmayın, tercihlerinizi belirleyip size en uygun otelde odanızı hemen ayırtın.",
+                            AboutImage = "https://cdn.enuygun.com/otel/v-083f8/static/images/icons/location.svg",
+                            AboutName = "Uygun Oteller"
+                        },
+                        new
+                        {
+                            AboutId = 3,
+                            AboutDate = new DateTime(2023, 2, 12, 17, 30, 16, 512, DateTimeKind.Local).AddTicks(7769),
+                            AboutDescription = "Enuygun sayesinde aradığınız oteli bulmak için sadece birkaç saniyeye ihtiyacınız var.",
+                            AboutImage = "https://cdn.enuygun.com/otel/v-083f8/static/images/icons/fast-easy.svg",
+                            AboutName = "Hızlı Ve Kolay"
+                        },
+                        new
+                        {
+                            AboutId = 4,
+                            AboutDate = new DateTime(2023, 2, 12, 17, 30, 16, 512, DateTimeKind.Local).AddTicks(7770),
+                            AboutDescription = "Tüm ödeme işleriniz, dünyanın önde gelen güvenlik sertifikası şirketi DigiCert koruması altındadır.",
+                            AboutImage = "https://cdn.enuygun.com/otel/v-083f8/static/images/icons/trust.svg",
+                            AboutName = "Güvenle Alın"
+                        });
+                });
 
             modelBuilder.Entity("CoreLayer.Models.AppUser", b =>
                 {
@@ -220,6 +282,58 @@ namespace RepositoryLayer.Migrations
                     b.ToTable("Comments");
                 });
 
+            modelBuilder.Entity("CoreLayer.Models.Degre", b =>
+                {
+                    b.Property<int>("DegreId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DegreId"));
+
+                    b.Property<string>("DegreName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("DegreValue")
+                        .HasColumnType("int");
+
+                    b.HasKey("DegreId");
+
+                    b.ToTable("Degres");
+
+                    b.HasData(
+                        new
+                        {
+                            DegreId = 1,
+                            DegreName = "Olağanüstü",
+                            DegreValue = 10
+                        },
+                        new
+                        {
+                            DegreId = 2,
+                            DegreName = "Mükemmel",
+                            DegreValue = 9
+                        },
+                        new
+                        {
+                            DegreId = 3,
+                            DegreName = "Harika",
+                            DegreValue = 8
+                        },
+                        new
+                        {
+                            DegreId = 4,
+                            DegreName = "Çok İyi",
+                            DegreValue = 7
+                        },
+                        new
+                        {
+                            DegreId = 5,
+                            DegreName = " İyi",
+                            DegreValue = 6
+                        });
+                });
+
             modelBuilder.Entity("CoreLayer.Models.Hotel", b =>
                 {
                     b.Property<int>("HotelId")
@@ -231,7 +345,14 @@ namespace RepositoryLayer.Migrations
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
+                    b.Property<int>("DegreId")
+                        .HasColumnType("int");
+
                     b.Property<string>("HotelImage")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("HotelLocation")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -246,7 +367,41 @@ namespace RepositoryLayer.Migrations
 
                     b.HasIndex("CategoryId");
 
+                    b.HasIndex("DegreId");
+
                     b.ToTable("Hotels");
+
+                    b.HasData(
+                        new
+                        {
+                            HotelId = 1,
+                            CategoryId = 9,
+                            DegreId = 1,
+                            HotelImage = "https://cdn3.enuygun.com/media/lib/1x250/uploads/image/green-garden-resort-hotel-antalya-genel-38176775.jpg",
+                            HotelLocation = "Obagöl Mevkii. Obaçay Cad., 2. Sk., 07460 Alanya/Antalya",
+                            HotelName = "Green Garden Resort Hotel",
+                            HotelPrice = 21318m
+                        },
+                        new
+                        {
+                            HotelId = 2,
+                            CategoryId = 9,
+                            DegreId = 1,
+                            HotelImage = "https://cdn3.enuygun.com/media/lib/1x250/uploads/image/susesi-luxury-resort-antalya-genel-39097853.jpg",
+                            HotelLocation = "İskele Mevkii, 07450 Belek/Serik/Antalya",
+                            HotelName = "Susesi Luxury Resort   ",
+                            HotelPrice = 40475m
+                        },
+                        new
+                        {
+                            HotelId = 3,
+                            CategoryId = 9,
+                            DegreId = 4,
+                            HotelImage = "https://cdn3.enuygun.com/media/lib/1x250/uploads/image/buyuk-anadolu-girne-hotel-kibris-genel-38526922.jpg",
+                            HotelLocation = "Girne/Kuzey Kıbrıs Türk Cumhuriyeti",
+                            HotelName = "Büyük Anadolu Girne Hotel",
+                            HotelPrice = 8356m
+                        });
                 });
 
             modelBuilder.Entity("CoreLayer.Models.HotelDetail", b =>
@@ -553,7 +708,15 @@ namespace RepositoryLayer.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("CoreLayer.Models.Degre", "Degre")
+                        .WithMany("Hotels")
+                        .HasForeignKey("DegreId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Category");
+
+                    b.Navigation("Degre");
                 });
 
             modelBuilder.Entity("CoreLayer.Models.HotelDetail", b =>
@@ -652,6 +815,11 @@ namespace RepositoryLayer.Migrations
                 });
 
             modelBuilder.Entity("CoreLayer.Models.Category", b =>
+                {
+                    b.Navigation("Hotels");
+                });
+
+            modelBuilder.Entity("CoreLayer.Models.Degre", b =>
                 {
                     b.Navigation("Hotels");
                 });

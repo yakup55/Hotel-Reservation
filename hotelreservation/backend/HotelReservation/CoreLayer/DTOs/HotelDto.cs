@@ -12,7 +12,9 @@ namespace CoreLayer.DTOs
         public string HotelName { get; set; }
         public decimal HotelPrice { get; set; }
         public string HotelImage { get; set; }
+        public string HotelLocation { get; set; }
 
         public int CategoryId { get; set; }
+        public int DegreId { get; set; }
     }
 }
