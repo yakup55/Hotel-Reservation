@@ -23,7 +23,6 @@ C:\Users\90544\Desktop\ReactProject\HotelProject\hotelreservation\backend\HotelR
 C:\Users\90544\Desktop\ReactProject\HotelProject\hotelreservation\backend\HotelReservation\HotelReservationProject\obj\Debug\net7.0\HotelReservationProject.AssemblyInfoInputs.cache
 C:\Users\90544\Desktop\ReactProject\HotelProject\hotelreservation\backend\HotelReservation\HotelReservationProject\obj\Debug\net7.0\HotelReservationProject.AssemblyInfo.cs
 C:\Users\90544\Desktop\ReactProject\HotelProject\hotelreservation\backend\HotelReservation\HotelReservationProject\obj\Debug\net7.0\HotelReservationProject.csproj.CoreCompileInputs.cache
-C:\Users\90544\Desktop\ReactProject\HotelProject\hotelreservation\backend\HotelReservation\HotelReservationProject\obj\Debug\net7.0\HotelReservationProject.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\90544\Desktop\ReactProject\HotelProject\hotelreservation\backend\HotelReservation\HotelReservationProject\obj\Debug\net7.0\HotelReservationProject.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\90544\Desktop\ReactProject\HotelProject\hotelreservation\backend\HotelReservation\HotelReservationProject\obj\Debug\net7.0\staticwebassets\msbuild.HotelReservationProject.Microsoft.AspNetCore.StaticWebAssets.props
 C:\Users\90544\Desktop\ReactProject\HotelProject\hotelreservation\backend\HotelReservation\HotelReservationProject\obj\Debug\net7.0\staticwebassets\msbuild.build.HotelReservationProject.props

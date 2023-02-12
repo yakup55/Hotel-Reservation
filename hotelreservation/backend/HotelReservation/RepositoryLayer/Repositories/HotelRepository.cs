@@ -17,6 +17,18 @@ namespace RepositoryLayer.Repositories
         {
         }
 
+        public async Task<List<Hotel>> HotelCategoryList(int id)
+        {
+            return await context.Hotels.Where(x => x.CategoryId == id).OrderByDescending(x=>x.HotelId).ToListAsync() ;
+        }
+         
+        public async Task<Hotel> HotelOneDetail(int id)
+        {
+            return await context.Hotels.Include(x => x.HotelDetails).Include(x=>x.Category).Include(x=>x.Degre).Include(x=>x.Rooms).Where(x=>x.HotelId==id).SingleOrDefaultAsync();
+        }
+
+        
+
         public async Task<List<Hotel>> LastHotel()
         {
             return await context.Hotels.Take(9).OrderByDescending(x=>x.HotelId).ToListAsync();

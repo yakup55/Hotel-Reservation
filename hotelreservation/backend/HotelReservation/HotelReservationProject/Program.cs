@@ -19,6 +19,9 @@ using RepositoryLayer.UnitOfWorks;
 using ServiceLayer.Services;
 using SharedLibray.Extensions;
 using System.Reflection;
+using System.Text.Json.Serialization;
+using System.Text.Json;
+using Microsoft.AspNetCore.Mvc.Formatters;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -72,6 +75,12 @@ builder.Services.AddCors(options =>
 });
 
 
+//sonradan ekledim HoteOneDetail
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+    options.JsonSerializerOptions.WriteIndented = true;
+});
 
 var app = builder.Build();
 

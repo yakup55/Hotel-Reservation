@@ -24,5 +24,9 @@ class RoomService {
     const url = `${this.baseUrl}/DeleteRoom/${id}`;
     return await axios.delete(url).then((resp) => resp.data);
   }
+  async roomOneDetail(id) {
+    const url = `${this.baseUrl}/RoomOneDetail/${id}`;
+    return await axios.get(url).then((resp) => resp.data);
+  }
 }
 export default RoomService;

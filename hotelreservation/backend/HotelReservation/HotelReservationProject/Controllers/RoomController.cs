@@ -25,6 +25,11 @@ namespace HotelReservationProject.Controllers
         {
             return ActionResultInstance(await service.GetByIdAsync(id));
         }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> RoomOneDetail(int id)
+        {
+            return ActionResultInstance(await service.RoomOneDetail(id));
+        }
         [HttpPost]
         public async Task<IActionResult> AddRoom(RoomDto dto)
         {

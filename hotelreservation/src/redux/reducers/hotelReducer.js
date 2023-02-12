@@ -3,6 +3,8 @@ import {
   DELETE_HOTEL,
   GET_BY_HOTEL,
   GET_HOTEL_LIST,
+  HOTEL_CATEGORY_LIST,
+  HOTEL_ONE_DETAIL,
   LAST_HOTEL_LIST,
   UPDATE_HOTEL,
 } from "../actions/hotelActions";
@@ -45,6 +47,16 @@ export default function hotelReducer(state = initialVales, { type, payload }) {
           ...state.hotels.filter((x) => x.hotelId !== payload.hotelId),
           payload,
         ],
+      };
+    case HOTEL_CATEGORY_LIST:
+      return {
+        ...state,
+        hotels: payload,
+      };
+    case HOTEL_ONE_DETAIL:
+      return {
+        ...state,
+        hotel: payload,
       };
     default:
       return {

@@ -5,6 +5,8 @@ export const GET_BY_HOTEL = "GET_BY_HOTEL";
 export const ADD_HOTEL = "ADD_HOTEL";
 export const UPDATE_HOTEL = "UPDATE_HOTEL";
 export const DELETE_HOTEL = "DELETE_HOTEL";
+export const HOTEL_CATEGORY_LIST = "HOTEL_CATEGORY_LIST";
+export const HOTEL_ONE_DETAIL = "HOTEL_ONE_DETAIL";
 
 const hotelService = new HotelService();
 
@@ -49,4 +51,16 @@ export function deleteHotel(id) {
       .deleteHotel(id)
       .then((resp) => dispacth({ type: DELETE_HOTEL, payload: id }));
   };
+}
+export function hotelCategoryList(id) {
+  return function (dispacth) {
+    hotelService
+      .hotelCategoryList(id)
+      .then((resp) => dispacth({ type: HOTEL_CATEGORY_LIST, payload: resp }));
+  };
+}
+export function hotelOneDetail(id){
+  return function(dispacth){
+    hotelService.hotelOneDetail(id).then((resp)=>dispacth({type:HOTEL_ONE_DETAIL,payload:resp}))
+  }
 }

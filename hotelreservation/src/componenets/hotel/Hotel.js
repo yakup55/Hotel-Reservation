@@ -18,26 +18,29 @@ export default function Hotel({ hotel }) {
   const navigate = useNavigate();
   return (
     <div>
-    
-      <Box sx={{mt:2,mb:10,  flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+      <Box
+        sx={{ mt: 2, mb: 10, flexGrow: 1, display: { xs: "none", md: "flex" } }}
+      >
         <Grid container spacing={1}>
           <Grid container item spacing={3}>
-          
             <Grid item xs={3}>
-              <Card style={{width:360,height:300,marginBottom:100}}>
+              <Card style={{ width: 360, height: 300, marginBottom: 100 }}>
                 <CardBody>
                   <Image
+                    onClick={() => navigate(`/hotelonedetail/${hotel.hotelId}`)}
                     style={{ width: 350, height: 300 }}
                     src={`${hotel?.hotelImage}`}
                     alt={hotel?.hotelName}
                     borderRadius="lg"
                   />
                   <Stack mt="1">
-                    <Heading >{hotel?.hotelName}</Heading>
-                    <Typography variant="h10">{hotel?.hotelLocation}</Typography>
+                    <Heading>{hotel?.hotelName}</Heading>
+                    <Typography variant="h10">
+                      {hotel?.hotelLocation}
+                    </Typography>
                     <Typography variant="h10">{hotel?.degreId}</Typography>
                     <Typography color="red" variant="h5">
-                      {hotel?.hotelPrice} 
+                      {hotel?.hotelPrice}
                     </Typography>
                   </Stack>
                 </CardBody>
@@ -53,17 +56,14 @@ export default function Hotel({ hotel }) {
                 </CardFooter>
               </Card>
             </Grid>
-          
-           
-           
           </Grid>
         </Grid>
       </Box>
-      <Box sx={{mb:20, flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+      <Box sx={{ mb: 20, flexGrow: 1, display: { xs: "flex", md: "none" } }}>
         <Grid container spacing={1}>
           <Grid container item spacing={3}>
             <Grid item xs={6}>
-            <Card style={{width:350,height:300,marginBottom:100}}>
+              <Card style={{ width: 350, height: 300, marginBottom: 100 }}>
                 <CardBody>
                   <Image
                     style={{ width: 350, height: 300 }}
@@ -72,11 +72,13 @@ export default function Hotel({ hotel }) {
                     borderRadius="lg"
                   />
                   <Stack mt="1">
-                    <Heading >{hotel?.hotelName}</Heading>
-                    <Typography variant="h10">{hotel?.hotelLocation}</Typography>
+                    <Heading>{hotel?.hotelName}</Heading>
+                    <Typography variant="h10">
+                      {hotel?.hotelLocation}
+                    </Typography>
                     <Typography variant="h10">{hotel?.degreId}</Typography>
                     <Typography color="red" variant="h5">
-                      {hotel?.hotelPrice} 
+                      {hotel?.hotelPrice}
                     </Typography>
                   </Stack>
                 </CardBody>
@@ -87,7 +89,7 @@ export default function Hotel({ hotel }) {
                     variant="contained"
                     color="secondary"
                   >
-                  Choose
+                    Choose
                   </Button>
                 </CardFooter>
               </Card>

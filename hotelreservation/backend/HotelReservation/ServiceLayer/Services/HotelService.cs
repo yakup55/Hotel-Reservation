@@ -7,6 +7,7 @@ using SharedLibray.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,6 +20,18 @@ namespace ServiceLayer.Services
         {
             this.hotelRepository = hotelRepository;
         }
+
+        public async Task<ResponseDto<List<Hotel>>> HotelCategoryList(int id)
+        {
+            return ResponseDto<List<Hotel>>.Success(await hotelRepository.HotelCategoryList(id), 200);
+        }
+
+        public async Task<ResponseDto<Hotel>> HotelOneDetail(int id)
+        {
+           return  ResponseDto<Hotel>.Success(await hotelRepository.HotelOneDetail(id), 200);
+        }
+
+       
 
         public async Task<ResponseDto<List<Hotel>>> LastHotel()
         {

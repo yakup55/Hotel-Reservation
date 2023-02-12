@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace CoreLayer.Repositories
 {
-    public interface IRoomRepository:IGenericRepository<Room>
+    public interface IRoomRepository : IGenericRepository<Room>
     {
+        Task<Room> RoomOneDetail(int id);
     }
 }

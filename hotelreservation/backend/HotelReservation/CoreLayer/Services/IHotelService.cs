@@ -12,5 +12,8 @@ namespace CoreLayer.Services
     public interface IHotelService:IGenericService<Hotel,HotelDto>
     {
         Task<ResponseDto<List<Hotel>>> LastHotel();
+        Task<ResponseDto<List<Hotel>>> HotelCategoryList(int id);
+        Task<ResponseDto<Hotel>> HotelOneDetail(int id);
+        
     }
 }

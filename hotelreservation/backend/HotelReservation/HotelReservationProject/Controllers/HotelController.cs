@@ -30,6 +30,16 @@ namespace HotelReservationProject.Controllers
         {
             return ActionResultInstance(await service.GetByIdAsync(id));
         }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> HotelCategoryList(int id)
+        {
+            return ActionResultInstance(await service.HotelCategoryList(id));
+        }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> HotelOneDetail(int id)
+        {
+            return ActionResultInstance(await service.HotelOneDetail(id));
+        }
         [HttpPost]
         public async Task<IActionResult> AddHotel(HotelDto dto)
         {

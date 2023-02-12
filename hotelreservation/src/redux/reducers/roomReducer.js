@@ -3,6 +3,7 @@ import {
   DELETE_ROOM,
   GET_BY_ROOM,
   GET_ROOM_LIST,
+  ROOM_ONE_DETAIL,
   UPDATE_ROOM,
 } from "../actions/roomActions";
 import { room, rooms } from "../initials/roomInitials";
@@ -39,6 +40,11 @@ export default function roomReducer(state = initialvales, { type, payload }) {
           ...state.rooms.filter((x) => x.roomId !== payload.roomId),
           payload,
         ],
+      };
+    case ROOM_ONE_DETAIL:
+      return {
+        ...state,
+        rooms: payload,
       };
     default:
       return {

@@ -28,5 +28,13 @@ class HotelService {
     const url = `${this.baseUrl}/DeleteHotel/${id}`;
     return await axios.delete(url).then((resp) => resp.data);
   }
+  async hotelCategoryList(id) {
+    const url = `${this.baseUrl}/HotelCategoryList/${id}`;
+    return await axios.get(url).then((resp) => resp.data);
+  }
+  async hotelOneDetail(id) {
+    const url = `${this.baseUrl}/HotelOneDetail/${id}`;
+    return await axios.get(url).then((resp) => resp.data);
+  }
 }
 export default HotelService;

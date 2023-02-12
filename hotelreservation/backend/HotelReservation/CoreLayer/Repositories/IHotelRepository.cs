@@ -10,5 +10,8 @@ namespace CoreLayer.Repositories
     public interface IHotelRepository:IGenericRepository<Hotel>
     {
         Task<List<Hotel>> LastHotel();
+
+        Task<List<Hotel>> HotelCategoryList(int id);   
+        Task<Hotel> HotelOneDetail(int id);
     }
 }
