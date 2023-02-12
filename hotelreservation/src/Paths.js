@@ -1,7 +1,9 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import AdminHome from "./admin/home/AdminHome";
+import AdminAddHotel from "./admin/hotel/AdminAddHotel";
 import AdminHotelList from "./admin/hotel/AdminHotelList";
+import AdminUpdateHotel from "./admin/hotel/AdminUpdateHotel";
 import ErrorPage from "./componenets/errorPage/ErrorPage";
 import Home from "./componenets/home/Home";
 import HotelList from "./componenets/hotel/HotelList";
@@ -20,8 +22,18 @@ export default function Paths() {
       <Route path="/adminhome" element={<AdminHome></AdminHome>}></Route>
 
       {/*ADMİN HOTEL*/}
-      <Route path="/adminhotellist" element={<AdminHotelList></AdminHotelList>}></Route>
-
+      <Route
+        path="/adminhotellist"
+        element={<AdminHotelList></AdminHotelList>}
+      ></Route>
+      <Route
+        path="/adminaddhotel"
+        element={<AdminAddHotel></AdminAddHotel>}
+      ></Route>
+      <Route
+        path="/adminupdatehotel/:id"
+        element={<AdminUpdateHotel></AdminUpdateHotel>}
+      ></Route>
       <Route path="*" element={<ErrorPage></ErrorPage>}></Route>
     </Routes>
   );

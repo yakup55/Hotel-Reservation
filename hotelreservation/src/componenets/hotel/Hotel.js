@@ -48,7 +48,7 @@ export default function Hotel({ hotel }) {
                     variant="contained"
                     color="secondary"
                   >
-                    Buy now
+                    Choose
                   </Button>
                 </CardFooter>
               </Card>
@@ -87,7 +87,7 @@ export default function Hotel({ hotel }) {
                     variant="contained"
                     color="secondary"
                   >
-                    Buy now
+                  Choose
                   </Button>
                 </CardFooter>
               </Card>

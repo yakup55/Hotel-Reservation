@@ -1,6 +1,7 @@
 import "./App.css";
 import Footer from "./componenets/footer/Footer";
 import NavBar from "./componenets/navbar/NavBar";
+import SimpleSnacbar from "./componenets/snacbar/SimpleSnacbar";
 import Paths from "./Paths";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         </main>
       </div>
       <Footer></Footer>
+      <SimpleSnacbar></SimpleSnacbar>
     </>
   );
 }
