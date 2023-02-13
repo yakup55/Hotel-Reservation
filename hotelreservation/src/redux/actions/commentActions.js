@@ -4,6 +4,7 @@ export const GET_BY_COMMENT = "GET_BY_COMMENT";
 export const ADD_COMMENT = "ADD_COMMENT";
 export const UPDATE_COMMENT = "UPDATE_COMMENT";
 export const DELETE_COMMENT = "DELETE_COMMENT";
+export const COMMENT_HOTEL_LIST = "COMMENT_HOTEL_LIST";
 
 const commentService = new CommentService();
 
@@ -40,5 +41,13 @@ export function deleteComment(id) {
     commentService
       .deleteComment(id)
       .then((resp) => dispacth({ type: DELETE_COMMENT, payload: id }));
+  };
+}
+
+export function commentHotelList(id) {
+  return function (dispacth) {
+    commentService
+      .commentHotelList(id)
+      .then((resp) => dispacth({ type: COMMENT_HOTEL_LIST, payload: resp }));
   };
 }

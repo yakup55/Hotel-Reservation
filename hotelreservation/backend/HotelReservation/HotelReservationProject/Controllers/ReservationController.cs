@@ -29,6 +29,7 @@ namespace HotelReservationProject.Controllers
         [HttpPost]
         public async Task<IActionResult> AddReservation(ReservartionDto dto)
         {
+            dto.ArrivalDate = DateTime.Now;
             return ActionResultInstance(await service.AddAsync(dto));
         }
         [HttpPut]

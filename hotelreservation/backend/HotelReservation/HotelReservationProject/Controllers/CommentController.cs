@@ -10,12 +10,13 @@ namespace HotelReservationProject.Controllers
     [ApiController]
     public class CommentController : BaseController
     {
-        private readonly IGenericService<Comment,CommentDto> service;
+        private readonly ICommentService service;
 
-        public CommentController(IGenericService<Comment, CommentDto> service)
+        public CommentController(ICommentService service)
         {
             this.service = service;
         }
+
         [HttpGet]
         public async Task<IActionResult> GetCommentList()
         {
@@ -26,9 +27,20 @@ namespace HotelReservationProject.Controllers
         {
             return ActionResultInstance(await service.GetByIdAsync(id));    
         }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> CommentHotelList(int id)
+        {
+            return ActionResultInstance(await service.CommentHotelList(id));
+        }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> PopularCommentHotel(int id)
+        {
+            return ActionResultInstance(await service.PopularComment(id));
+        }
         [HttpPost]
         public async Task<IActionResult> AddCommnet(CommentDto dto)
         {
+            dto.CommentDate= DateTime.Now;
             return ActionResultInstance(await service.AddAsync(dto));
         }
         [HttpPut]

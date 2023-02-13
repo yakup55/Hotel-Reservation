@@ -24,5 +24,9 @@ class CommentService {
     const url = `${this.baseUrl}/UpdateComment`;
     return await axios.put(url, comment).then((resp) => resp.data);
   }
+  async commentHotelList(id) {
+    const url = `${this.baseUrl}/CommentHotelList/${id}`;
+    return await axios.get(url).then((resp) => resp.data);
+  }
 }
 export default CommentService;
