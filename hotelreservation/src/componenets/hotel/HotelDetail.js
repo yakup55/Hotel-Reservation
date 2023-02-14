@@ -27,80 +27,34 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { hotelOneDetail } from "../../redux/actions/hotelActions";
-import { commentHotelList } from "../../redux/actions/commentActions";
+import {
+  commentHotelList,
+  popularCommentHotel,
+} from "../../redux/actions/commentActions";
 import Avatar from "@mui/material/Avatar";
 import HotelService from "../../redux/services/hotelService";
 import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material";
 import { useTheme } from "styled-components";
 import { roomHotel, roomOneDetail } from "../../redux/actions/roomActions";
-import {getHotelDetailList} from "../../redux/actions/hotelDetailActions"
+import { getHotelDetailList } from "../../redux/actions/hotelDetailActions";
 
 export default function HotelDetail() {
-
   const { id } = useParams();
   const { hotel } = useSelector((state) => state.hotel);
-  const { rooms } = useSelector((state) => state.room);
-  //const {room}=useSelector((state)=>state.room)
+  //const { rooms } = useSelector((state) => state.room);
+  const { room } = useSelector((state) => state.room);
   const { comments } = useSelector((state) => state.comment);
   const { hotelDetail } = useSelector((state) => state.hotelDetail);
   const dispacth = useDispatch();
   useEffect(() => {
-    dispacth(getHotelDetailList())
-    dispacth(commentHotelList(id));
+    dispacth(getHotelDetailList());
+    dispacth(popularCommentHotel(id));
     dispacth(hotelOneDetail(id));
     dispacth(roomHotel(id));
     dispacth(roomOneDetail(id));
   }, []);
 
-  console.log(hotelDetail.data?.map((detail)=>(
-    <Typography>{detail.image1}</Typography>
-  )))
-
-
-
-  const images = [
-  
-    {
-      label: "San Francisco – Oakland Bay Bridge, United States",
-    
-      imgPath:
-      "https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60",
-    }
-    ,
-    {
-      label: "Bird",
-      imgPath:
-        "https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60",
-    },
-    {
-      label: "Bali, Indonesia",
-      imgPath:
-        "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250",
-    },
-    {
-      label: "Goč, Serbia",
-      imgPath:
-        "https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60",
-    },
-  ];
-
-  const theme = useTheme();
-  const [activeStep, setActiveStep] = React.useState(0);
-  const maxSteps = images.length;
-
-  const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-  };
-
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
-
-  const handleStepChange = (step) => {
-    setActiveStep(step);
-  };
-
-
+  console.log(room);
 
   return (
     <Box>
@@ -172,81 +126,75 @@ export default function HotelDetail() {
           </AspectRatio>
           <Typography>Categorileri Gelicek</Typography>
         </GridItem>
-        <GridItem
-          sx={{ width: 1100, ml: 10, mt: 5 }}
-          colSpan={4}
-          bg="papayawhip"
-        >
-          <Box sx={{ width: 1100, flexGrow: 1, m: "auto" }}>
-            <Paper
-              square
-              elevation={0}
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                height: 50,
-                pl: 2,
-                bgcolor: "background.default",
-              }}
-            >
-              <Typography>{images[activeStep].label}</Typography>
-            </Paper>
-            {hotel.data?.hotelDetails.map((detail)=>(
-                 <img
-              style={{ width: 1100, height: 400 }}
-              src={`${detail.image1}`}
-            ></img>
-       
-            
-            ))}
-    
-            {hotel.data?.hotelDetails.map((detail)=>(
-                 <img
-              style={{ width: 1100, height: 400 }}
-              src={`${detail.image2}`}
-            ></img>
-       
-            
-            ))}
-    
-         
-            <MobileStepper
-              steps={maxSteps}
-              position="static"
-              activeStep={activeStep}
-              nextButton={
-                <Button
-                  size="small"
-                  onClick={handleNext}
-                  disabled={activeStep === maxSteps - 1}
-                >
-                  Next
-                  {theme?.direction === "rtl" ? (
-                    <KeyboardArrowLeft />
-                  ) : (
-                    <KeyboardArrowRight />
-                  )}
-                </Button>
-              }
-              backButton={
-                <Button
-                  size="small"
-                  onClick={handleBack}
-                  disabled={activeStep === 0}
-                >
-                  {theme?.direction === "rtl" ? (
-                    <KeyboardArrowRight />
-                  ) : (
-                    <KeyboardArrowLeft />
-                  )}
-                  Back
-                </Button>
-              }
-            />
-          </Box>
+        <GridItem sx={{ width: 1100, ml: 10, mt: 5 }} colSpan={4}>
+          <Grid templateColumns="repeat(3, 1fr)" gap={0}>
+            <SimpleGrid columns={[2, null, 3]} spacing="40px">
+              {hotel.data?.hotelDetails.map((detail) => (
+                <Box bg="tomato" height="80px">
+                  <img
+                    style={{ width: 300, height: 300 }}
+                    src={`${detail.image1}`}
+                  ></img>
+                </Box>
+              ))}
+              {hotel.data?.hotelDetails.map((detail) => (
+                <Box ml={22} bg="tomato" height="80px">
+                  <img
+                    style={{ width: 300, height: 300 }}
+                    src={`${detail.image2}`}
+                  ></img>
+                </Box>
+              ))}
+              {hotel.data?.hotelDetails.map((detail) => (
+                <Box ml={44} bg="tomato" height="80px">
+                  <img
+                    style={{ width: 300, height: 300 }}
+                    src={`${detail.image3}`}
+                  ></img>
+                </Box>
+              ))}
+              {hotel.data?.hotelDetails.map((detail) => (
+                <Box mt={24} bg="tomato" height="80px">
+                  <img
+                    style={{ width: 300, height: 300 }}
+                    src={`${detail.image4}`}
+                  ></img>
+                </Box>
+              ))}
+              {hotel.data?.hotelDetails.map((detail) => (
+                <Box mt={24} ml={22} bg="tomato" height="80px">
+                  <img
+                    style={{ width: 300, height: 300 }}
+                    src={`${detail.image5}`}
+                  ></img>
+                </Box>
+              ))}
+              {hotel.data?.hotelDetails.map((detail) => (
+                <Box mt={24} ml={44} bg="tomato" height="80px">
+                  <img
+                    style={{ width: 300, height: 300 }}
+                    src={`${detail.image1}`}
+                  ></img>
+                </Box>
+              ))}
+            </SimpleGrid>
+          </Grid>
         </GridItem>
         Room Detail
-        <GridItem colSpan={4} bg="tomato"></GridItem>
+        <GridItem colSpan={4} bg="tomato">
+          <SimpleGrid columns={2} spacing={10}>
+            <Box bg="tomato" height="80px">
+              <img
+                style={{ height: 50, width: 50 }}
+                src={`${room.data?.roomImage}`}
+              ></img>
+            </Box>
+
+            <Box bg="tomato" height="80px"></Box>
+            <Box bg="tomato" height="80px"></Box>
+            <Box bg="tomato" height="80px"></Box>
+          </SimpleGrid>
+        </GridItem>
       </Grid>
     </Box>
   );

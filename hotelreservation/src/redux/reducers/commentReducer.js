@@ -5,6 +5,7 @@ import {
   DELETE_COMMENT,
   GET_BY_COMMENT,
   GET_COMMENT_LIST,
+  POPULAR_COMMENT_HOTEL,
   UPDATE_COMMENT,
 } from "../actions/commentActions";
 const initialvales = {
@@ -47,6 +48,11 @@ export default function commentReducer(
         ],
       };
     case COMMENT_HOTEL_LIST:
+      return {
+        ...state,
+        comments: payload,
+      };
+    case POPULAR_COMMENT_HOTEL:
       return {
         ...state,
         comments: payload,

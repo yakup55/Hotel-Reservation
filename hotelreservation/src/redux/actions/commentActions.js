@@ -5,6 +5,7 @@ export const ADD_COMMENT = "ADD_COMMENT";
 export const UPDATE_COMMENT = "UPDATE_COMMENT";
 export const DELETE_COMMENT = "DELETE_COMMENT";
 export const COMMENT_HOTEL_LIST = "COMMENT_HOTEL_LIST";
+export const POPULAR_COMMENT_HOTEL = "POPULAR_COMMENT_HOTEL";
 
 const commentService = new CommentService();
 
@@ -50,4 +51,9 @@ export function commentHotelList(id) {
       .commentHotelList(id)
       .then((resp) => dispacth({ type: COMMENT_HOTEL_LIST, payload: resp }));
   };
+}
+export function popularCommentHotel(id){
+  return function(dispacth){
+    commentService.popularCommentHotel(id).then((resp)=>dispacth({type:POPULAR_COMMENT_HOTEL,payload:resp}))
+  }
 }
