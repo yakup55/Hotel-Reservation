@@ -28,5 +28,9 @@ class RoomService {
     const url = `${this.baseUrl}/RoomOneDetail/${id}`;
     return await axios.get(url).then((resp) => resp.data);
   }
+  async roomHotel(id) {
+    const url = `${this.baseUrl}/RoomHotel/${id}`;
+    return await axios.get(url).then((resp) => resp.data);
+  }
 }
 export default RoomService;

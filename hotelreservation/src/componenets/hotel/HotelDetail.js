@@ -4,6 +4,7 @@ import {
   GridItem,
   Heading,
   Progress,
+  SimpleGrid,
 } from "@chakra-ui/react";
 
 import {
@@ -31,14 +32,41 @@ import Avatar from "@mui/material/Avatar";
 import HotelService from "../../redux/services/hotelService";
 import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material";
 import { useTheme } from "styled-components";
+import { roomHotel, roomOneDetail } from "../../redux/actions/roomActions";
+import {getHotelDetailList} from "../../redux/actions/hotelDetailActions"
 
 export default function HotelDetail() {
+
+  const { id } = useParams();
+  const { hotel } = useSelector((state) => state.hotel);
+  const { rooms } = useSelector((state) => state.room);
+  //const {room}=useSelector((state)=>state.room)
+  const { comments } = useSelector((state) => state.comment);
+  const { hotelDetail } = useSelector((state) => state.hotelDetail);
+  const dispacth = useDispatch();
+  useEffect(() => {
+    dispacth(getHotelDetailList())
+    dispacth(commentHotelList(id));
+    dispacth(hotelOneDetail(id));
+    dispacth(roomHotel(id));
+    dispacth(roomOneDetail(id));
+  }, []);
+
+  console.log(hotelDetail.data?.map((detail)=>(
+    <Typography>{detail.image1}</Typography>
+  )))
+
+
+
   const images = [
+  
     {
       label: "San Francisco – Oakland Bay Bridge, United States",
+    
       imgPath:
-        "https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60",
-    },
+      "https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60",
+    }
+    ,
     {
       label: "Bird",
       imgPath:
@@ -72,18 +100,12 @@ export default function HotelDetail() {
     setActiveStep(step);
   };
 
-  const { id } = useParams();
-  const { hotel } = useSelector((state) => state.hotel);
-  const { comments } = useSelector((state) => state.comment);
-  const dispacth = useDispatch();
-  useEffect(() => {
-    dispacth(commentHotelList(id));
-    dispacth(hotelOneDetail(id));
-  }, []);
+
+
   return (
     <Box>
       <Grid
-        h="1000px"
+        h="1500"
         templateRows="repeat(2, 1fr)"
         templateColumns="repeat(5, 1fr)"
         gap={0}
@@ -91,10 +113,13 @@ export default function HotelDetail() {
         <GridItem rowSpan={2} colSpan={1}>
           <Heading>{hotel.data?.hotelName}</Heading>
           <Typography variant="h6">{hotel.data?.hotelLocation}</Typography>
-          <img style={{marginLeft:20}} src={`${hotel.data?.hotelImage}`}></img>
+          <img
+            style={{ marginLeft: 20 }}
+            src={`${hotel.data?.hotelImage}`}
+          ></img>
           <Stack direction="row" spacing={1}>
             <Chip
-              sx={{ml:12, fontSize: 15, fontStyle: "italic" }}
+              sx={{ ml: 12, fontSize: 15, fontStyle: "italic" }}
               label={`${hotel.data?.degre.degreName}-${hotel.data?.degre.degreValue}`}
               color="primary"
             />
@@ -147,7 +172,6 @@ export default function HotelDetail() {
           </AspectRatio>
           <Typography>Categorileri Gelicek</Typography>
         </GridItem>
-
         <GridItem
           sx={{ width: 1100, ml: 10, mt: 5 }}
           colSpan={4}
@@ -167,11 +191,25 @@ export default function HotelDetail() {
             >
               <Typography>{images[activeStep].label}</Typography>
             </Paper>
-
-            <img
+            {hotel.data?.hotelDetails.map((detail)=>(
+                 <img
               style={{ width: 1100, height: 400 }}
-              src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250"
+              src={`${detail.image1}`}
             ></img>
+       
+            
+            ))}
+    
+            {hotel.data?.hotelDetails.map((detail)=>(
+                 <img
+              style={{ width: 1100, height: 400 }}
+              src={`${detail.image2}`}
+            ></img>
+       
+            
+            ))}
+    
+         
             <MobileStepper
               steps={maxSteps}
               position="static"
@@ -207,9 +245,8 @@ export default function HotelDetail() {
             />
           </Box>
         </GridItem>
-        <GridItem colSpan={4} bg="tomato">
-          ODALAR GELİCEK
-        </GridItem>
+        Room Detail
+        <GridItem colSpan={4} bg="tomato"></GridItem>
       </Grid>
     </Box>
   );

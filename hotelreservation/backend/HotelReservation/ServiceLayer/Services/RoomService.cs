@@ -23,6 +23,11 @@ namespace ServiceLayer.Services
             this.roomRepository = roomRepository;
         }
 
+        public async Task<ResponseDto<List<Room>>> RoomHotel(int id)
+        {
+            return ResponseDto<List<Room>>.Success(await roomRepository.RoomHotel(id),200);
+        }
+
         public async Task<ResponseDto<Room>> RoomOneDetail(int id)
         {
             return ResponseDto<Room>.Success(await roomRepository.RoomOneDetail(id), 200);

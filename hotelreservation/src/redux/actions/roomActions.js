@@ -5,6 +5,7 @@ export const ADD_ROOM = "ADD_ROOM";
 export const DELETE_ROOM = "DELETE_ROOM";
 export const UPDATE_ROOM = "UPDATE_ROOM";
 export const ROOM_ONE_DETAIL = "ROOM_ONE_DETAIL";
+export const ROOM_HOTEL = "ROOM_HOTEL";
 
 const roomService = new RoomService();
 
@@ -48,5 +49,12 @@ export function roomOneDetail(id) {
     roomService
       .roomOneDetail(id)
       .then((resp) => dispacth({ type: ROOM_ONE_DETAIL, payload: resp }));
+  };
+}
+export function roomHotel(id) {
+  return function (dispacth) {
+    roomService
+      .roomHotel(id)
+      .then((resp) => dispacth({ type: ROOM_HOTEL, payload: resp }));
   };
 }

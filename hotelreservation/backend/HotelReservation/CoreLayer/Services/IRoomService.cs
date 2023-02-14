@@ -12,5 +12,6 @@ namespace CoreLayer.Services
     public interface IRoomService:IGenericService<Room,RoomDto>
     {
         Task<ResponseDto<Room>> RoomOneDetail(int id);
+        Task<ResponseDto<List<Room>>> RoomHotel(int id);
     }
 }

@@ -3,6 +3,7 @@ import {
   DELETE_ROOM,
   GET_BY_ROOM,
   GET_ROOM_LIST,
+  ROOM_HOTEL,
   ROOM_ONE_DETAIL,
   UPDATE_ROOM,
 } from "../actions/roomActions";
@@ -42,6 +43,11 @@ export default function roomReducer(state = initialvales, { type, payload }) {
         ],
       };
     case ROOM_ONE_DETAIL:
+      return {
+        ...state,
+        rooms: payload,
+      };
+    case ROOM_HOTEL:
       return {
         ...state,
         rooms: payload,

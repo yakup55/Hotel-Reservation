@@ -16,9 +16,14 @@ namespace RepositoryLayer.Repositories
         {
         }
 
+        public async Task<List<Room>> RoomHotel(int id)
+        {
+            return await context.Rooms.Include(x => x.Hotel).Where(x => x.HotelId == id).ToListAsync();
+        }
+
         public async Task<Room> RoomOneDetail(int id)
         {
-           return await context.Rooms.Include(X=>X.RoomDetails).Include(X=>X.Hotel).Where(x=>x.HotelId== id).SingleOrDefaultAsync();
+           return await context.Rooms.Include(x=>x.RoomDetails).Include(x=>x.Hotel).Where(x=>x.RoomId==id).SingleOrDefaultAsync();
         }
     }
 }
