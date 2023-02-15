@@ -4,7 +4,6 @@ import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Unstable_Grid2";
 import {
-  Button,
   Card,
   CardBody,
   CardFooter,
@@ -22,10 +21,12 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import LuggageIcon from "@mui/icons-material/Luggage";
 import {
   Avatar,
+  Button,
   List,
   ListItem,
   ListItemAvatar,
   ListItemText,
+  TextField,
   Typography,
 } from "@mui/material";
 export default function Footer() {
@@ -33,7 +34,7 @@ export default function Footer() {
     <div>
       <Box
         bgcolor="black"
-        sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
+        sx={{height:250, flexGrow: 1, display: { xs: "none", md: "flex" } }}
       >
         <Grid container spacing={0}>
           <Grid container item spacing={0}>
@@ -74,17 +75,12 @@ export default function Footer() {
               </Card>
             </Grid>
             <Grid item xs={3}>
-              <Card maxW="xl">
+              <Card width={300}>
                 <CardBody>
-                  {/* <Image
-                  style={{ width: 350, height: 200 }}
-                  src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-                  alt="Green double couch with wooden legs"
-                  borderRadius="lg"
-                /> */}
-                  <Stack mt="1" spacing="1">
+                 
+                  <Stack mt="1" spacing="3">
                     <Heading color="white" size="md">
-                      Living room Sofa
+                     Bize Ulaş
                     </Heading>
                     <Typography color="white" variant="h10">
                       This sofa is perfect for modern tropical spaces, baroque
@@ -151,12 +147,7 @@ export default function Footer() {
           <Grid item xs={6}>
               <Card maxW="xl">
                 <CardBody>
-                  {/* <Image
-                  style={{ width: 350, height: 200 }}
-                  src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-                  alt="Green double couch with wooden legs"
-                  borderRadius="lg"
-                /> */}
+                
                   <Stack mt="1" spacing="1">
                     <Heading color="white" size="md">
                       Sosyal Medya Hesaplarım
@@ -187,15 +178,10 @@ export default function Footer() {
             <Grid item xs={6}>
               <Card maxW="xl">
                 <CardBody>
-                  {/* <Image
-                  style={{ width: 350, height: 200 }}
-                  src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-                  alt="Green double couch with wooden legs"
-                  borderRadius="lg"
-                /> */}
+                
                   <Stack mt="1" spacing="1">
                     <Heading color="white" size="md">
-                      Living room Sofa
+                    Bize Ulaş
                     </Heading>
                     <Typography color="white" variant="h10">
                       This sofa is perfect for modern tropical spaces, baroque

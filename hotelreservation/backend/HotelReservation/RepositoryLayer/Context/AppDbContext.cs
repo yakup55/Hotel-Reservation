@@ -26,6 +26,7 @@ namespace RepositoryLayer.Context
         public DbSet<Comment> Comments { get; set; }
         public DbSet<About> Abouts { get; set; }
         public DbSet<Degre> Degres { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

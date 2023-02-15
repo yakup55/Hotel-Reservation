@@ -23,6 +23,7 @@ namespace ServiceLayer.DtoMapper
             CreateMap<DegreDto, Degre>().ReverseMap();  
             CreateMap<CommentDto, Comment>().ReverseMap();
             CreateMap<QuentionsDto, Quentions>().ReverseMap();
+            CreateMap<ContactDto, Contact>().ReverseMap();
         }
     }
 }

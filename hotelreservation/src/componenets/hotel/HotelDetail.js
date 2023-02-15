@@ -45,6 +45,7 @@ import CommentHotelList from "../comment/CommentHotelList";
 import PopularCommentList from "../comment/PopularCommentList";
 import FaceIcon from "@mui/icons-material/Face";
 import Questions from "../questions/Questions";
+import Contact from "../contact/Contact";
 
 export default function HotelDetail() {
   const { id } = useParams();
@@ -55,7 +56,7 @@ export default function HotelDetail() {
   const { hotelDetail } = useSelector((state) => state.hotelDetail);
   const dispacth = useDispatch();
   useEffect(() => {
-    dispacth(getHotelDetailList());
+   
     dispacth(hotelOneDetail(id));
   }, []);
 
@@ -103,6 +104,7 @@ export default function HotelDetail() {
           />
           <CommentHotelList></CommentHotelList>
           <Questions></Questions>
+          <Contact></Contact>
         </GridItem>
         {/* Image List  */}
         <GridItem sx={{ width: 900 }} colSpan={4}>
