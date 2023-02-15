@@ -14,6 +14,10 @@ namespace RepositoryLayer.Configuration
             builder.Property(x=>x.Image3).IsRequired();
             builder.Property(x=>x.Image4).IsRequired();
             builder.Property(x=>x.Image5).IsRequired();
+            builder.Property(x=>x.Image6).IsRequired();
+            builder.Property(x=>x.Image7).IsRequired();
+            builder.Property(x=>x.Image8).IsRequired();
+            builder.Property(x=>x.Image9).IsRequired();
             builder.Property(x=>x.HotelMap).IsRequired();
             builder.Property(x=>x.HotelId).IsRequired();
 

@@ -47,11 +47,12 @@ export default function Hotel({ hotel }) {
                 <Divider />
                 <CardFooter>
                   <Button
+                  onClick={() => navigate(`/hotelonedetail/${hotel.hotelId}`)}
                     style={{ margin: "auto", display: "block" }}
                     variant="contained"
                     color="secondary"
                   >
-                    Choose
+                 seç
                   </Button>
                 </CardFooter>
               </Card>
@@ -85,11 +86,12 @@ export default function Hotel({ hotel }) {
                 <Divider />
                 <CardFooter>
                   <Button
+                  onClick={() => navigate(`/hotelonedetail/${hotel.hotelId}`)}
                     style={{ margin: "auto", display: "block" }}
                     variant="contained"
                     color="secondary"
                   >
-                    Choose
+                 seç
                   </Button>
                 </CardFooter>
               </Card>

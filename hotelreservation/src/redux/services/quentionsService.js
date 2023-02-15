@@ -24,5 +24,9 @@ class QuentionsService {
     const url = `${this.baseUrl}/DeleteQuentions/${id}`;
     return await axios.delete(url).then((resp) => resp.data);
   }
+  async hotelQuentions(id) {
+    const url = `${this.baseUrl}/HotelQuentions/${id}`;
+    return await axios.get(url).then((resp) => resp.data);
+  }
 }
 export default QuentionsService;

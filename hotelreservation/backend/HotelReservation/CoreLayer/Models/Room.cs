@@ -11,6 +11,7 @@ namespace CoreLayer.Models
     {
         [Key]
         public int RoomId { get; set; }
+        public string RoomName { get; set; }
         public string RoomImage { get; set; }
         public decimal RoomPrice { get; set;}
 

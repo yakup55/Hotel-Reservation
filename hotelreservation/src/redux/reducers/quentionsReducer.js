@@ -4,6 +4,7 @@ import {
   DELETE_QUENTIONS,
   GET_BY_QUENTIONS,
   GET_QUENTIONS_LIST,
+  HOTEL_QUENTIONS,
   UPDATE_QUENTIONS,
 } from "../actions/quentionsActions";
 const initialvales = {
@@ -45,6 +46,11 @@ export default function quenstionsReducer(
           ...state.filter((x) => x.quentionsId !== payload.quentionsId),
           payload,
         ],
+      };
+    case HOTEL_QUENTIONS:
+      return {
+        ...state,
+        quentions: payload,
       };
     default:
       return {

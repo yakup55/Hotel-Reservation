@@ -10,6 +10,7 @@ import HotelDetail from "./componenets/hotel/HotelDetail";
 import HotelList from "./componenets/hotel/HotelList";
 import Login from "./componenets/login/Login";
 import Register from "./componenets/register/Register";
+import RoomDetail from "./componenets/room/RoomDetail";
 
 export default function Paths() {
   return (
@@ -18,7 +19,13 @@ export default function Paths() {
       <Route path="/register" element={<Register></Register>}></Route>
       <Route path="/login" element={<Login></Login>}></Route>
       <Route path="/hotellist" element={<HotelList></HotelList>}></Route>
-<Route path="/hotelonedetail/:id" element={<HotelDetail></HotelDetail>}></Route>
+<Route path="/roomdetail/:id" element={<RoomDetail></RoomDetail>}></Route>
+
+      <Route
+        path="/hotelonedetail/:id"
+        element={<HotelDetail></HotelDetail>}
+      ></Route>
+
       {/*ADMİN*/}
       <Route path="/adminhome" element={<AdminHome></AdminHome>}></Route>
 

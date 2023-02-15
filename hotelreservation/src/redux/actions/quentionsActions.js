@@ -4,6 +4,7 @@ export const GET_BY_QUENTIONS = "GET_BY_QUENTIONS";
 export const ADD_QUENTIONS = "ADD_QUENTIONS";
 export const DELETE_QUENTIONS = "DELETE_QUENTIONS";
 export const UPDATE_QUENTIONS = "UPDATE_QUENTIONS";
+export const HOTEL_QUENTIONS = "HOTEL_QUENTIONS";
 
 const quentionsService = new QuentionsService();
 
@@ -40,5 +41,12 @@ export function deleteQuentions(id) {
     quentionsService
       .deleteQuentions(id)
       .then((resp) => dispacth({ type: DELETE_QUENTIONS, payload: id }));
+  };
+}
+export function hotelQuentions(id) {
+  return function (dispacth) {
+    quentionsService
+      .hotelQuentions(id)
+      .then((resp) => dispacth({ type: HOTEL_QUENTIONS, payload: resp }));
   };
 }

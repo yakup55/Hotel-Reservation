@@ -10,9 +10,9 @@ namespace HotelReservationProject.Controllers
     [ApiController]
     public class QuentionsController : BaseController
     {
-        private readonly IGenericService<Quentions, QuentionsDto> service;
+        private readonly IQuentionService service;
 
-        public QuentionsController(IGenericService<Quentions, QuentionsDto> service)
+        public QuentionsController(IQuentionService service)
         {
             this.service = service;
         }
@@ -26,6 +26,10 @@ namespace HotelReservationProject.Controllers
         public async Task<IActionResult> GetByQuentions(int id)
         {
             return ActionResultInstance(await service.GetByIdAsync(id));
+        } [HttpGet("{id}")]
+        public async Task<IActionResult> HotelQuentions(int id)
+        {
+            return ActionResultInstance(await service.HotelQuentions(id));
         }
         [HttpPost]
         public async Task<IActionResult> AddQuentions(QuentionsDto dto)

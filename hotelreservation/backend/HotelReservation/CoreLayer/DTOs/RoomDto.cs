@@ -9,6 +9,7 @@ namespace CoreLayer.DTOs
     public class RoomDto
     {
         public int RoomId { get; set; }
+        public string RoomName { get; set; }
         public string RoomImage { get; set; }
         public decimal RoomPrice { get; set; }
 

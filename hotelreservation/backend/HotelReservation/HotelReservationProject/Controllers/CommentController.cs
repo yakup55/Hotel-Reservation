@@ -41,6 +41,7 @@ namespace HotelReservationProject.Controllers
         public async Task<IActionResult> AddCommnet(CommentDto dto)
         {
             dto.CommentDate= DateTime.Now;
+            dto.CommentStatus = false;
             return ActionResultInstance(await service.AddAsync(dto));
         }
         [HttpPut]

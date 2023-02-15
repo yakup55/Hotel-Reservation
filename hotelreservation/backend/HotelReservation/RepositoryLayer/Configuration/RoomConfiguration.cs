@@ -15,6 +15,7 @@ namespace RepositoryLayer.Configuration
         {
             builder.HasKey(x => x.RoomId);
             builder.Property(x=>x.RoomImage).IsRequired();
+            builder.Property(x=>x.RoomName).IsRequired();
             builder.Property(x=>x.RoomPrice).IsRequired().HasColumnType("decimal(18,3)");
             builder.Property(x=>x.HotelId).IsRequired();
 

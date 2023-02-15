@@ -53,7 +53,7 @@ namespace RepositoryLayer.Migrations
                         new
                         {
                             AboutId = 1,
-                            AboutDate = new DateTime(2023, 2, 13, 12, 27, 48, 660, DateTimeKind.Local).AddTicks(991),
+                            AboutDate = new DateTime(2023, 2, 15, 14, 0, 46, 953, DateTimeKind.Local).AddTicks(7439),
                             AboutDescription = "10 larca oteli tercihlerinize göre filtreleyerek saniyeler içinde size en uygun otelleri bulabilirsiniz",
                             AboutImage = "https://cdn.enuygun.com/otel/v-083f8/static/images/icons/option.svg",
                             AboutName = "Sayısız Seçenek"
@@ -61,7 +61,7 @@ namespace RepositoryLayer.Migrations
                         new
                         {
                             AboutId = 2,
-                            AboutDate = new DateTime(2023, 2, 13, 12, 27, 48, 660, DateTimeKind.Local).AddTicks(1015),
+                            AboutDate = new DateTime(2023, 2, 15, 14, 0, 46, 953, DateTimeKind.Local).AddTicks(7451),
                             AboutDescription = "Kafanızı karıştıran fiyat ve hizmet seçenekleri arasında kaybolmayın, tercihlerinizi belirleyip size en uygun otelde odanızı hemen ayırtın.",
                             AboutImage = "https://cdn.enuygun.com/otel/v-083f8/static/images/icons/location.svg",
                             AboutName = "Uygun Oteller"
@@ -69,7 +69,7 @@ namespace RepositoryLayer.Migrations
                         new
                         {
                             AboutId = 3,
-                            AboutDate = new DateTime(2023, 2, 13, 12, 27, 48, 660, DateTimeKind.Local).AddTicks(1017),
+                            AboutDate = new DateTime(2023, 2, 15, 14, 0, 46, 953, DateTimeKind.Local).AddTicks(7452),
                             AboutDescription = "Enuygun sayesinde aradığınız oteli bulmak için sadece birkaç saniyeye ihtiyacınız var.",
                             AboutImage = "https://cdn.enuygun.com/otel/v-083f8/static/images/icons/fast-easy.svg",
                             AboutName = "Hızlı Ve Kolay"
@@ -77,7 +77,7 @@ namespace RepositoryLayer.Migrations
                         new
                         {
                             AboutId = 4,
-                            AboutDate = new DateTime(2023, 2, 13, 12, 27, 48, 660, DateTimeKind.Local).AddTicks(1018),
+                            AboutDate = new DateTime(2023, 2, 15, 14, 0, 46, 953, DateTimeKind.Local).AddTicks(7453),
                             AboutDescription = "Tüm ödeme işleriniz, dünyanın önde gelen güvenlik sertifikası şirketi DigiCert koruması altındadır.",
                             AboutImage = "https://cdn.enuygun.com/otel/v-083f8/static/images/icons/trust.svg",
                             AboutName = "Güvenle Alın"
@@ -446,6 +446,22 @@ namespace RepositoryLayer.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Image6")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image7")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image8")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image9")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("HotelDetailId");
 
                     b.HasIndex("HotelId");
@@ -514,6 +530,10 @@ namespace RepositoryLayer.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("RoomImage")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RoomName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
