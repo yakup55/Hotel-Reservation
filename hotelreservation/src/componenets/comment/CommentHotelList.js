@@ -20,7 +20,6 @@ export default function CommentHotelList() {
   useEffect(() => {
     dispacth(commentHotelList(id));
   }, []);
-  console.log();
   return (
     <div>
       <List
@@ -65,7 +64,7 @@ export default function CommentHotelList() {
             <Stack direction="row" spacing={1}>
               <Chip
                 sx={{ fontSize: 13, fontStyle: "italic" }}
-                label={`${comment.degre?.degreName}-${comment.commentRating}`}
+                label={`${comment.degre?.degreName}-${comment.degre?.degreValue}`}
                 color="secondary"
               />
             </Stack>

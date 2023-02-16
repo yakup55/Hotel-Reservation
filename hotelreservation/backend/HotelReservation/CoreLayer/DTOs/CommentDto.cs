@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CoreLayer.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,10 +14,11 @@ namespace CoreLayer.DTOs
         public string CommentSubject { get; set; }
         public bool CommentStatus { get; set; }
         public DateTime CommentDate { get; set; }
-        public int CommentRating { get; set; }
 
         public int HotelId { get; set; }
+
         public int DegreId { get; set; }
+
         public string UserId { get; set; }
     }
 }

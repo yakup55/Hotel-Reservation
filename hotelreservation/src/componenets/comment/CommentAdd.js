@@ -23,7 +23,6 @@ export default function CommentAdd() {
       initialValues: {
         commentMessage: "",
         commentSubject: "",
-        commentRating: 0,
         hotelId: id,
         userId: "str",
         degreId: 0,
@@ -32,10 +31,11 @@ export default function CommentAdd() {
         dispacth(addComment(values));
         dispacth(
           openSnacbar({
-            message: "Has been created",
-            severity: "succes",
+            message: "Yorumunuz İçin Teşekkürler",
+            severity: "success",
           })
         );
+        navigate("/");
       },
       validationSchema,
     });
@@ -96,24 +96,7 @@ export default function CommentAdd() {
               </MenuItem>
             ))}
           </TextField>
-          <TextField
-            select
-            label="Puanınız"
-            defaultValue="Puanınız"
-            value={values.degreId}
-            id="degreId"
-            name="degreId"
-            onChange={handleChange}
-            onBlur={handleBlur}
-            error={errors.degreId && touched.degreId}
-            helperText={errors.degreId && touched.degreId ? errors.degreId : ""}
-          >
-            {degres.data?.map((degre) => (
-              <MenuItem key={degre.degreId} value={degre.degreId}>
-                {degre.degreValue}
-              </MenuItem>
-            ))}
-          </TextField>
+
           <Button type="submit" variant="contained">
             Kaydet
           </Button>

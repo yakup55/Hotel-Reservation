@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { openSnacbar } from "../../redux/actions/appActions";
 import { addContact } from "../../redux/actions/contactActions";
 import { validationSchema } from "./validationSchema";
+
 export default function Contact() {
   const dispacth = useDispatch();
   const navigate = useNavigate();
@@ -37,6 +38,8 @@ export default function Contact() {
       <form onSubmit={handleSubmit}>
         <Stack spacing={1}>
           <TextField
+            id="contactEmail"
+            name="contactEmail"
             label="Email Adresiniz"
             placeholder="Email Adresiniz"
             color="success"
@@ -50,6 +53,8 @@ export default function Contact() {
             }
           ></TextField>
           <TextField
+            id="contactSubject"
+            name="contactSubject"
             label="Konu ?"
             placeholder="Konu ?"
             color="success"
@@ -63,6 +68,8 @@ export default function Contact() {
             }
           ></TextField>
           <TextField
+            id="contactMessage"
+            name="contactMessage"
             label="Mesajınız"
             placeholder="Mesajınız"
             color="success"

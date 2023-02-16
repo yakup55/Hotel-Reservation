@@ -15,7 +15,6 @@ namespace CoreLayer.Models
         public string CommentSubject { get; set; }
         public string CommentMessage { get; set; }
         public bool CommentStatus { get; set; }
-        public int CommentRating { get; set; }
 
         public int HotelId { get; set; }
         public Hotel Hotel { get; set; }

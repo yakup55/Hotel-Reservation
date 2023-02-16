@@ -20,11 +20,10 @@ import {
 export default function PopularCommentList() {
   const dispacth = useDispatch();
   const { id } = useParams();
-  const {  comments } = useSelector((state) => state.comment);
+  const { comments } = useSelector((state) => state.comment);
   useEffect(() => {
     dispacth(popularCommentHotel(id));
   }, []);
-  console.log(comments);
   return (
     <List
       sx={{
@@ -35,7 +34,9 @@ export default function PopularCommentList() {
         bgcolor: "background.paper",
       }}
     >
-      <Typography variant="h6" fontStyle={"italic"}>Popüler Yorumlar</Typography>
+      <Typography variant="h6" fontStyle={"italic"}>
+        Popüler Yorumlar
+      </Typography>
       {comments.data?.map((detail) => (
         <ListItem alignItems="flex-start">
           <ListItemAvatar>
@@ -64,7 +65,11 @@ export default function PopularCommentList() {
             }
           />
           <Stack direction="row" spacing={1}>
-            <Chip label={`${detail.commentRating}`} color="secondary" />
+            <Chip
+              sx={{ fontSize: 13, fontStyle: "italic" }}
+              label={`${detail.degre?.degreName}-${detail.degre?.degreValue}`}
+              color="secondary"
+            />
           </Stack>
         </ListItem>
       ))}

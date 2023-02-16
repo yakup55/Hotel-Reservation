@@ -45,7 +45,7 @@ export default function roomReducer(state = initialvales, { type, payload }) {
     case ROOM_ONE_DETAIL:
       return {
         ...state,
-        rooms: payload,
+        room: payload,
       };
     case ROOM_HOTEL:
       return {

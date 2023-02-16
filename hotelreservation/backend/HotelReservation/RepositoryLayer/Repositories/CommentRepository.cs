@@ -20,12 +20,12 @@ namespace RepositoryLayer.Repositories
 
         public Task<List<Comment>> CommentHotelList(int id)
         {
-            return context.Comments.Include(x=>x.Hotel).Include(x=>x.Degre).Where(x=>x.HotelId== id).ToListAsync();
+            return context.Comments.Include(x=>x.Hotel).Include(x=>x.Degre).Where(x=>x.HotelId== id && x.CommentStatus == true).ToListAsync();
         }
 
         public Task<List<Comment>> PopularComment(int id)
         {
-            return context.Comments.Where(x=>x.CommentRating>=9 && x.HotelId== id).Take(3).ToListAsync();
+            return context.Comments.Include(x=>x.Degre).Where(x=>x.Degre.DegreValue>=9 && x.HotelId== id &&x.CommentStatus==true).Take(3).ToListAsync();
         }
     }
 }
