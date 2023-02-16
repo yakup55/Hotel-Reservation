@@ -1,5 +1,4 @@
 import {
-  Box,
   Card,
   CardBody,
   CardFooter,
@@ -8,10 +7,12 @@ import {
   GridItem,
   Heading,
   Image,
+  SimpleGrid,
   Stack,
   Text,
 } from "@chakra-ui/react";
 import {
+  Box,
   Button,
   Checkbox,
   FormControl,
@@ -22,8 +23,27 @@ import {
   Typography,
 } from "@mui/material";
 import React from "react";
-
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { getDegreList } from "../../redux/actions/degreActions";
+import { getCategoryList } from "../../redux/actions/categoryActions";
+import { getCityList } from "../../redux/actions/cityActions";
+import { getHotelList } from "../../redux/actions/hotelActions";
+import Hotel from "./Hotel";
 export default function HotelList() {
+  const { degres } = useSelector((state) => state.degre);
+  const { categories } = useSelector((state) => state.category);
+  const { cities } = useSelector((state) => state.city);
+  const { hotels } = useSelector((state) => state.hotel);
+  const navigate = useNavigate();
+  const dispacth = useDispatch();
+  useEffect(() => {
+    dispacth(getDegreList());
+    dispacth(getCategoryList());
+    dispacth(getCityList());
+    dispacth(getHotelList());
+  }, []);
   return (
     <Grid
       h="1000"
@@ -41,26 +61,14 @@ export default function HotelList() {
             defaultValue="female"
             name="radio-buttons-group"
           >
-            <FormControlLabel
-              value="female"
-              control={<Checkbox />}
-              label="Mükemmel(9 ve üzeri)"
-            />
-            <FormControlLabel
-              value="male"
-              control={<Checkbox />}
-              label="Çok iyi (8 ve üzeri)"
-            />
-            <FormControlLabel
-              value="other"
-              control={<Checkbox />}
-              label="İyi (7 ve üzeri)"
-            />
-            <FormControlLabel
-              value="other"
-              control={<Checkbox />}
-              label="Keyifli (6 ve üzeri)"
-            />
+            {degres.data?.map((degre) => (
+              <FormControlLabel
+                onClick={() => navigate()}
+                value={degre.degreName}
+                control={<Checkbox />}
+                label={`${degre.degreName}-${degre.degreValue}`}
+              />
+            ))}
           </RadioGroup>
         </FormControl>
         <br></br>
@@ -74,125 +82,58 @@ export default function HotelList() {
             defaultValue="female"
             name="radio-buttons-group"
           >
-            <FormControlLabel
-              value="female"
-              control={<Checkbox />}
-              label="Bunglov Oteller"
-            />
-            <FormControlLabel
-              value="male"
-              control={<Checkbox />}
-              label="Termal Oteller"
-            />
-            <FormControlLabel
-              value="other"
-              control={<Checkbox />}
-              label="Tatil Köyleri"
-            />
+            {categories.data?.map((category) => (
+              <FormControlLabel
+                onClick={() => navigate()}
+                value={category.categoryName}
+                control={<Checkbox />}
+                label={category.categoryName}
+              />
+            ))}
           </RadioGroup>
         </FormControl>
         <br></br>
         <br></br>
         <FormControl>
           <FormLabel id="demo-radio-buttons-group-label">
-            Konuk Değerlendirmesi
+            Şehire Göre Listele
           </FormLabel>
           <RadioGroup
             aria-labelledby="demo-radio-buttons-group-label"
             defaultValue="female"
             name="radio-buttons-group"
           >
-            <FormControlLabel
-              value="female"
-              control={<Checkbox />}
-              label="Female"
-            />
-            <FormControlLabel
-              value="male"
-              control={<Checkbox />}
-              label="Male"
-            />
-            <FormControlLabel
-              value="other"
-              control={<Checkbox />}
-              label="Other"
-            />
+            {cities.data?.map((city) => (
+              <FormControlLabel
+                onClick={() => navigate()}
+                value={city.cityName}
+                control={<Checkbox />}
+                label={city.cityName}
+              />
+            ))}
           </RadioGroup>
         </FormControl>
       </GridItem>
-      <GridItem colSpan={4}>
-        <Card
-          style={{ marginTop: 50 }}
-          direction={{ base: "column", sm: "row" }}
-          overflow="hidden"
-          variant="outline"
-        >
-          <Image
-            objectFit="cover"
-            width={400}
-            height={300}
-            src="https://images.unsplash.com/photo-1667489022797-ab608913feeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw5fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60"
-            alt="Caffe Latte"
-          />
+      <GridItem colSpan={2}>
+        <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+          <SimpleGrid columns={3} spacingX="400px" spacingY="450px">
+            {hotels.data?.map((hotel) => (
+              <Box bg="tomato" height="80px">
+                <Hotel key={hotel.hotelId} hotel={hotel}></Hotel>
+              </Box>
+            ))}
+          </SimpleGrid>
+        </Box>
 
-          <Stack>
-            <CardBody>
-              <Heading size="md">The perfect latte</Heading>
-
-              <Text py="2">
-                Caffè latte is a coffee beverage of Italian origin made with
-                espresso and steamed milk.
-              </Text>
-            </CardBody>
-
-            <CardFooter>
-              <Button
-                style={{ marginLeft: 10 }}
-                variant="contained"
-                color="success"
-              >
-                Buy Latte
-              </Button>
-            </CardFooter>
-          </Stack>
-        </Card>
-      </GridItem>
-      <GridItem colSpan={4}>
-        <Card
-          style={{ marginTop: 50 }}
-          direction={{ base: "column", sm: "row" }}
-          overflow="hidden"
-          variant="outline"
-        >
-          <Image
-            objectFit="cover"
-            width={400}
-            height={300}
-            src="https://images.unsplash.com/photo-1667489022797-ab608913feeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw5fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60"
-            alt="Caffe Latte"
-          />
-
-          <Stack>
-            <CardBody>
-              <Heading size="md">The perfect latte</Heading>
-
-              <Text py="2">
-                Caffè latte is a coffee beverage of Italian origin made with
-                espresso and steamed milk.
-              </Text>
-            </CardBody>
-
-            <CardFooter>
-              <Button
-                style={{ marginLeft: 10 }}
-                variant="contained"
-                color="success"
-              >
-                Buy Latte
-              </Button>
-            </CardFooter>
-          </Stack>
-        </Card>
+        <Box sx={{ mt: 5, flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+          <SimpleGrid columns={2} spacingX="352" spacingY="450px">
+            {hotels.data?.map((hotel) => (
+              <Box bg="tomato" height="80px">
+                <Hotel key={hotel.hotelId} hotel={hotel}></Hotel>
+              </Box>
+            ))}
+          </SimpleGrid>
+        </Box>
       </GridItem>
     </Grid>
   );
