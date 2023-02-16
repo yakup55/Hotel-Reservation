@@ -15,5 +15,7 @@ namespace CoreLayer.Models
         public int DegreValue { get; set; }
 
         public ICollection<Hotel> Hotels { get; set; }
+        public ICollection<Facility> Facilities { get; set; }
+        public ICollection<Comment> Comments { get; set; }
     }
 }

@@ -3,6 +3,8 @@ import {
   Card,
   CardBody,
   CardFooter,
+  CardHeader,
+  CircularProgressLabel,
   Grid,
   GridItem,
   Heading,
@@ -16,6 +18,7 @@ import {
   Box,
   Button,
   Chip,
+  CircularProgress,
   Container,
   Divider,
   ImageList,
@@ -27,6 +30,7 @@ import {
   MobileStepper,
   Paper,
   Rating,
+  Slider,
   Stack,
   Typography,
 } from "@mui/material";
@@ -46,6 +50,8 @@ import PopularCommentList from "../comment/PopularCommentList";
 import FaceIcon from "@mui/icons-material/Face";
 import Questions from "../questions/Questions";
 import Contact from "../contact/Contact";
+import Footer from "../footer/Footer";
+import HotelFacility from "../facility/HotelFacility";
 
 export default function HotelDetail() {
   const { id } = useParams();
@@ -56,10 +62,12 @@ export default function HotelDetail() {
   const { hotelDetail } = useSelector((state) => state.hotelDetail);
   const dispacth = useDispatch();
   useEffect(() => {
-   
     dispacth(hotelOneDetail(id));
   }, []);
 
+  function valuetext(value) {
+    return `${value}°C`;
+  }
   return (
     <Box>
       <Grid
@@ -84,8 +92,7 @@ export default function HotelDetail() {
             <Chip label={`${comments.data?.length} Yorum`} color="success" />
           </Stack>
 
-          <PopularCommentList></PopularCommentList>
-
+          <CommentHotelList></CommentHotelList>
           <AspectRatio sx={{ ml: 2, mt: 5 }} ratio={16 / 9}>
             <iframe
               s
@@ -93,7 +100,7 @@ export default function HotelDetail() {
             />
           </AspectRatio>
           <Chip
-          style={{marginTop:10}}
+            style={{ marginTop: 10 }}
             avatar={
               <Avatar
                 alt={hotel.data?.category.categoryName}
@@ -102,8 +109,11 @@ export default function HotelDetail() {
             }
             label={hotel.data?.category.categoryName}
           />
-          <CommentHotelList></CommentHotelList>
+
           <Questions></Questions>
+          
+
+          <HotelFacility></HotelFacility>
           <Contact></Contact>
         </GridItem>
         {/* Image List  */}

@@ -38,7 +38,7 @@ namespace HotelReservationProject.Controllers
             return ActionResultInstance(await service.PopularComment(id));
         }
         [HttpPost]
-        public async Task<IActionResult> AddCommnet(CommentDto dto)
+        public async Task<IActionResult> AddComment(CommentDto dto)
         {
             dto.CommentDate= DateTime.Now;
             dto.CommentStatus = false;

@@ -10,7 +10,9 @@ import degreReducer from "./degreReducer";
 import roomDetailReducer from "./roomDetailReducer";
 import roomReducer from "./roomReducer";
 import { appReducer } from "./appReducer";
-import { contactReducer } from "./contactReducer";
+import contactReducer from "./contactReducer";
+import cityReducer from "./cityReducer";
+import facilityReducer from "./facilityReducer";
 const rootReducer = combineReducers({
   category: categoryReducer,
   about: aboutReducer,
@@ -22,7 +24,9 @@ const rootReducer = combineReducers({
   room: roomReducer,
   degre: degreReducer,
   app: appReducer,
-  // roomDetail:roomDetailReducer,
+  roomDetail: roomDetailReducer,
   contact: contactReducer,
+  city: cityReducer,
+  facility: facilityReducer,
 });
 export default rootReducer;

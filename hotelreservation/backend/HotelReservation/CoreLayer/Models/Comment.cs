@@ -19,6 +19,10 @@ namespace CoreLayer.Models
 
         public int HotelId { get; set; }
         public Hotel Hotel { get; set; }
+
+        public int DegreId { get; set; }
+        public Degre Degre { get; set; }
+
         public string UserId { get; set; }
     }
 }

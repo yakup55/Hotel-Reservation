@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { roomOneDetail } from "../../redux/actions/roomActions";
 import { getRoomDetailList } from "../../redux/actions/roomDetailActions";
+import PopularCommentList from "../comment/PopularCommentList";
 export default function RoomDetail() {
   const { id } = useParams();
   const dispacth = useDispatch();
@@ -24,6 +25,7 @@ export default function RoomDetail() {
       <GridItem rowSpan={2} colSpan={1} bg="tomato">
               <img style={{width:300,height:300}} src={`${rooms.data?.roomImage}`}></img>  
     
+              <PopularCommentList></PopularCommentList>
       </GridItem>
       <GridItem colSpan={4} bg="tomato" />
     </Grid>

@@ -20,6 +20,7 @@ export default function CommentHotelList() {
   useEffect(() => {
     dispacth(commentHotelList(id));
   }, []);
+  console.log();
   return (
     <div>
       <List
@@ -31,13 +32,17 @@ export default function CommentHotelList() {
           bgcolor: "background.paper",
         }}
       >
-        <Typography variant="h6" fontStyle={"italic"}>Tüm Yorumlar</Typography>
+        <Typography variant="h6" fontStyle={"italic"}>
+          Tüm Yorumlar
+        </Typography>
         {comments.data?.map((comment) => (
           <ListItem alignItems="flex-start">
             <ListItemAvatar>
               <Avatar
-               style={{ backgroundColor: "black" }}
-              alt="Yakup" src="/static/images/avatar/1.jpg" />
+                style={{ backgroundColor: "black" }}
+                alt="Yakup"
+                src="/static/images/avatar/1.jpg"
+              />
             </ListItemAvatar>
 
             <ListItemText
@@ -53,11 +58,16 @@ export default function CommentHotelList() {
                     Yakup
                   </Typography>
                   {`-${comment.commentMessage}`}
+                  {`-${comment.commentDate}`}
                 </React.Fragment>
               }
             />
             <Stack direction="row" spacing={1}>
-              <Chip label={`${comment.commentRating}`} color="secondary" />
+              <Chip
+                sx={{ fontSize: 13, fontStyle: "italic" }}
+                label={`${comment.degre?.degreName}-${comment.commentRating}`}
+                color="secondary"
+              />
             </Stack>
           </ListItem>
         ))}

@@ -12,15 +12,15 @@ using System.Threading.Tasks;
 
 namespace RepositoryLayer.Repositories
 {
-    public class CommentService : GenericRepository<Comment>, ICommentRepository
+    public class CommentRepository : GenericRepository<Comment>, ICommentRepository
     {
-        public CommentService(AppDbContext context) : base(context)
+        public CommentRepository(AppDbContext context) : base(context)
         {
         }
 
         public Task<List<Comment>> CommentHotelList(int id)
         {
-            return context.Comments.Include(x=>x.Hotel).Where(x=>x.HotelId== id).ToListAsync();
+            return context.Comments.Include(x=>x.Hotel).Include(x=>x.Degre).Where(x=>x.HotelId== id).ToListAsync();
         }
 
         public Task<List<Comment>> PopularComment(int id)

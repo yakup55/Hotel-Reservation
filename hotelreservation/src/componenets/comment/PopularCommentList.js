@@ -59,6 +59,7 @@ export default function PopularCommentList() {
                   Yakup
                 </Typography>
                 {`-${detail.commentMessage}`}
+                {`-${detail.commentDate}`}
               </React.Fragment>
             }
           />

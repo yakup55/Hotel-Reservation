@@ -14,7 +14,10 @@ function App() {
           <Paths></Paths>
         </main>
       </div>
-      <Footer></Footer>
+      <div style={{ marginTop: 1000 }}>
+        <Footer></Footer>
+      </div>
+
       <SimpleSnacbar></SimpleSnacbar>
     </>
   );

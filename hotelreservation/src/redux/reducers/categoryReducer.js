@@ -11,7 +11,7 @@ const initialVales = {
   category,
   categories,
 };
-export default function categoryReducer(
+export default  function categoryReducer(
   state = initialVales,
   { type, payload }
 ) {

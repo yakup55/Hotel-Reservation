@@ -10,12 +10,13 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { Button, Container, Grid, Stack, Typography } from "@mui/material";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
+import { getDegreList } from "../../redux/actions/degreActions";
 export default function Hotel({ hotel }) {
   const dispacth = useDispatch();
   const navigate = useNavigate();
+
   return (
     <div>
       <Box
@@ -38,7 +39,6 @@ export default function Hotel({ hotel }) {
                     <Typography variant="h10">
                       {hotel?.hotelLocation}
                     </Typography>
-                    <Typography variant="h10">{hotel?.degreId}</Typography>
                     <Typography color="red" variant="h5">
                       {hotel?.hotelPrice}
                     </Typography>
@@ -47,12 +47,12 @@ export default function Hotel({ hotel }) {
                 <Divider />
                 <CardFooter>
                   <Button
-                  onClick={() => navigate(`/hotelonedetail/${hotel.hotelId}`)}
+                    onClick={() => navigate(`/hotelonedetail/${hotel.hotelId}`)}
                     style={{ margin: "auto", display: "block" }}
                     variant="contained"
                     color="secondary"
                   >
-                 seç
+                    seç
                   </Button>
                 </CardFooter>
               </Card>
@@ -67,6 +67,7 @@ export default function Hotel({ hotel }) {
               <Card style={{ width: 350, height: 300, marginBottom: 100 }}>
                 <CardBody>
                   <Image
+                    onClick={() => navigate(`/hotelonedetail/${hotel.hotelId}`)}
                     style={{ width: 350, height: 300 }}
                     src={`${hotel?.hotelImage}`}
                     alt={hotel?.hotelName}
@@ -86,12 +87,12 @@ export default function Hotel({ hotel }) {
                 <Divider />
                 <CardFooter>
                   <Button
-                  onClick={() => navigate(`/hotelonedetail/${hotel.hotelId}`)}
+                    onClick={() => navigate(`/hotelonedetail/${hotel.hotelId}`)}
                     style={{ margin: "auto", display: "block" }}
                     variant="contained"
                     color="secondary"
                   >
-                 seç
+                    seç
                   </Button>
                 </CardFooter>
               </Card>

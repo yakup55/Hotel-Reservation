@@ -16,6 +16,7 @@ namespace CoreLayer.DTOs
         public int CommentRating { get; set; }
 
         public int HotelId { get; set; }
+        public int DegreId { get; set; }
         public string UserId { get; set; }
     }
 }

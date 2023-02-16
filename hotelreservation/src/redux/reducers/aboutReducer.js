@@ -11,7 +11,7 @@ const initialvales = {
   about,
   abouts,
 };
-export default function  aboutReducer(state = initialvales, { type, payload }) {
+export default  function  aboutReducer(state = initialvales, { type, payload }) {
   switch (type) {
     case GET_ABOUT_LIST:
       return {

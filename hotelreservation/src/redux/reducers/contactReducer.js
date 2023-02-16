@@ -10,7 +10,7 @@ const initialVales = {
   contact,
   contacts,
 };
-export function contactReducer(state = initialVales, { type, payload }) {
+export default function contactReducer(state = initialVales, { type, payload }) {
   switch (type) {
     case GET_CONTACT_LIST:
       return {

@@ -2,6 +2,7 @@ import React from "react";
 import About from "../about/About";
 import AboutList from "../about/AboutList";
 import CategoryList from "../category/CategoryList";
+import Footer from "../footer/Footer";
 import HotelHome from "../hotel/HotelHome";
 import PopularHotel from "../hotel/PopularHotel";
 import Questions from "../questions/Questions";
@@ -18,6 +19,8 @@ export default function Home() {
       <CategoryList></CategoryList>
       <Questions></Questions>
       <br></br>
+    
+
     </div>
   );
 }

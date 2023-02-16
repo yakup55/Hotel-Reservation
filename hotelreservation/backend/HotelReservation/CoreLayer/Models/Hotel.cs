@@ -22,10 +22,14 @@ namespace CoreLayer.Models
         public int DegreId { get; set; }
         public Degre Degre { get; set; }
 
+        public int CityId { get; set; }
+        public City City { get; set; }
+
         public ICollection<Room> Rooms { get; set; }
         public ICollection<HotelDetail> HotelDetails { get; set; }
         public ICollection<Comment> Comments { get; set; }
         public ICollection<Quentions> Quentions  { get; set; }
+        public ICollection<Facility> Facilities { get; set; }
 
     }
 }

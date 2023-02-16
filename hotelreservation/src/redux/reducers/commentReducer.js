@@ -12,7 +12,7 @@ const initialvales = {
   comment,
   comments,
 };
-export default function commentReducer(
+export default  function commentReducer(
   state = initialvales,
   { type, payload }
 ) {

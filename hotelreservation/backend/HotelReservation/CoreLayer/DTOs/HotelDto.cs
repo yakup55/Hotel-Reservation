@@ -16,5 +16,6 @@ namespace CoreLayer.DTOs
 
         public int CategoryId { get; set; }
         public int DegreId { get; set; }
+        public int CityId { get; set; }
     }
 }

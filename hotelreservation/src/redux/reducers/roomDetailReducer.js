@@ -10,7 +10,7 @@ const initialvales = {
   roomDetail,
   roomDetails,
 };
-export default function roomDetailReducer(
+export default  function roomDetailReducer(
   state = initialvales,
   { type, payload }
 ) {
@@ -28,7 +28,7 @@ export default function roomDetailReducer(
     case ADD_ROOM_DETAIL:
       return {
         ...state,
-        roomDetails: [...state.roomDetails],
+        roomDetails: [...state.roomDetails,payload],
       };
     case DELETE_ROOM_DETAIL:
       return {
@@ -48,6 +48,8 @@ export default function roomDetailReducer(
         ],
       };
     default:
-      break;
+     return{
+      ...state
+     }
   }
 }
