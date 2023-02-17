@@ -6,6 +6,9 @@ import AdminUpdateAbout from "./admin/about/AdminUpdateAbout";
 import AdminAddCategory from "./admin/category/AdminAddCategory";
 import AdminCategoryList from "./admin/category/AdminCategoryList";
 import AdminUpdateCategory from "./admin/category/AdminUpdateCategory";
+import AdminAddCity from "./admin/city/AdminAddCity";
+import AdminCityList from "./admin/city/AdminCityList";
+import AdminUpdateCity from "./admin/city/AdminUpdateCity";
 import AdminHome from "./admin/home/AdminHome";
 import AdminAddHotel from "./admin/hotel/AdminAddHotel";
 import AdminHotelList from "./admin/hotel/AdminHotelList";
@@ -75,6 +78,10 @@ export default function Paths() {
       <Route path="/admincategorylist" element={<AdminCategoryList></AdminCategoryList>}></Route>
       <Route path="/adminaddcategory" element={<AdminAddCategory></AdminAddCategory>}></Route>
       <Route path="/adminupdatecategory/:id" element={<AdminUpdateCategory></AdminUpdateCategory>}></Route>
+  {/*ADMİN CITY*/}
+  <Route path="/admincitylist" element={<AdminCityList></AdminCityList>}></Route>
+  <Route path="/adminaddcity" element={<AdminAddCity></AdminAddCity>}></Route>
+  <Route path="/adminupdatecity/:id" element={<AdminUpdateCity></AdminUpdateCity>}></Route>
 
       <Route path="*" element={<ErrorPage></ErrorPage>}></Route>
     </Routes>

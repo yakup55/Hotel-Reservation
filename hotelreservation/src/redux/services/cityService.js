@@ -18,7 +18,7 @@ class CityService {
   }
   async addCity(city) {
     const url = `${this.baseUrl}/AddCity`;
-    return await axios.get(url, city).then((resp) => resp.data);
+    return await axios.post(url, city).then((resp) => resp.data);
   }
   async updateCity(city) {
     const url = `${this.baseUrl}/UpdateCity`;

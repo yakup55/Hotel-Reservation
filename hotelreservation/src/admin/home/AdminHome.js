@@ -120,7 +120,7 @@ export default function AdminHome() {
             <ListItemText primary="Degre" />
           </ListItem>
           <ListItem>
-            <ListItemAvatar>
+            <ListItemAvatar onClick={()=>navigate("/admincitylist")}>
               <Avatar>
                 <LocationCityIcon></LocationCityIcon>
               </Avatar>
