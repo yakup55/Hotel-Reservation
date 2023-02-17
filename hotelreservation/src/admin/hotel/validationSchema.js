@@ -7,4 +7,5 @@ export const validationSchema = object({
   hotelPrice: number().required().positive().integer(),
   categoryId: number().required().positive().integer(),
   degreId: number().required().positive().integer(),
+  cityId: number().required().positive().integer(),
 });

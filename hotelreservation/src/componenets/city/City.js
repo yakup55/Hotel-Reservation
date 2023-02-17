@@ -12,8 +12,11 @@ import {
 import { Button, Container, Grid, Stack, Typography } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { hotelCityList } from "../../redux/actions/hotelActions";
 export default function City({ city }) {
   const navigate = useNavigate();
+  const dispacth = useDispatch();
+
   return (
     <div>
       <Box
@@ -25,7 +28,7 @@ export default function City({ city }) {
               <Card style={{ width: 360, height: 300, marginBottom: 100 }}>
                 <CardBody>
                   <Image
-                    onClick={() => navigate(`/hotelonedetail/${city.cityId}`)}
+                    onClick={() => navigate(`/hotelcitylist/${city.cityId}`)}
                     style={{ width: 350, height: 300 }}
                     src={`${city?.cityImage}`}
                     alt={city?.cityName}
@@ -48,7 +51,7 @@ export default function City({ city }) {
               <Card style={{ width: 360, height: 300, marginBottom: 100 }}>
                 <CardBody>
                   <Image
-                    onClick={() => navigate(`/hotelonedetail/${city.cityId}`)}
+                    onClick={() => navigate(`/hotelcitylist/${city.cityId}`)}
                     style={{ width: 350, height: 300 }}
                     src={`${city?.cityImage}`}
                     alt={city?.cityName}

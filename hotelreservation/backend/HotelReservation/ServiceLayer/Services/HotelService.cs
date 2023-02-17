@@ -26,12 +26,25 @@ namespace ServiceLayer.Services
             return ResponseDto<List<Hotel>>.Success(await hotelRepository.HotelCategoryList(id), 200);
         }
 
+        public async Task<ResponseDto<List<Hotel>>> HotelCityList(int id)
+        {
+            return ResponseDto<List<Hotel>>.Success(await hotelRepository.HotelCityList(id), 200);
+        }
+
+        public async Task<ResponseDto<List<Hotel>>> HotelDegreList(int id)
+        {
+            return ResponseDto<List<Hotel>>.Success(await hotelRepository.HotelDegreList(id),200);
+        }
+
         public async Task<ResponseDto<Hotel>> HotelOneDetail(int id)
         {
            return  ResponseDto<Hotel>.Success(await hotelRepository.HotelOneDetail(id), 200);
         }
 
-       
+        public async Task<ResponseDto<List<Hotel>>> HotelPriceList(int price,int price2)
+        {
+            return ResponseDto<List<Hotel>>.Success(await hotelRepository.HotelPriceList(price,price2),200);
+        }
 
         public async Task<ResponseDto<List<Hotel>>> LastHotel()
         {

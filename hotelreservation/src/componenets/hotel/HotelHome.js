@@ -11,7 +11,7 @@ export default function HotelHome() {
   const navigate = useNavigate();
 
   const { hotels } = useSelector((state) => state.hotel);
-  console.log(hotels);
+
   useEffect(() => dispacth(getHotelList()), []);
   return (
     <div>
@@ -40,6 +40,7 @@ export default function HotelHome() {
           </Grid>
         </Grid>
       </Box>
+    
     </div>
   );
 }

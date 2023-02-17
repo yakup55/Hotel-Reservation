@@ -16,6 +16,8 @@ namespace RepositoryLayer.Repositories
         {
         }
 
+       
+
         public Task<List<City>> PopularCity()
         {
             return context.Cities.Where(x => x.CityId == 1||x.CityId==2 || x.CityId == 3 || x.CityId == 4 || x.CityId == 5 || x.CityId == 6 || x.CityId == 7 || x.CityId == 8).ToListAsync();

@@ -16,7 +16,9 @@ import EventSeatIcon from "@mui/icons-material/EventSeat";
 import ModeCommentIcon from "@mui/icons-material/ModeComment";
 import WorkspacePremiumIcon from "@mui/icons-material/WorkspacePremium";
 import { useNavigate } from "react-router-dom";
-
+import LocationCityIcon from "@mui/icons-material/LocationCity";
+import ContactSupportIcon from "@mui/icons-material/ContactSupport";
+import ApartmentIcon from "@mui/icons-material/Apartment";
 export default function AdminHome() {
   const navigate = useNavigate();
   return (
@@ -43,7 +45,8 @@ export default function AdminHome() {
             </ListItemAvatar>
             <ListItemText primary="Hotel" />
           </ListItem>
-          <ListItem>
+
+          <ListItem  >
             <ListItemAvatar>
               <Avatar>
                 <KingBedIcon></KingBedIcon>
@@ -75,7 +78,8 @@ export default function AdminHome() {
             </ListItemAvatar>
             <ListItemText primary="Category" />
           </ListItem>
-          <ListItem>
+
+          <ListItem onClick={() => navigate("/adminaboutlist")}>
             <ListItemAvatar>
               <Avatar>
                 <InfoIcon></InfoIcon>
@@ -114,6 +118,30 @@ export default function AdminHome() {
               </Avatar>
             </ListItemAvatar>
             <ListItemText primary="Degre" />
+          </ListItem>
+          <ListItem>
+            <ListItemAvatar>
+              <Avatar>
+                <LocationCityIcon></LocationCityIcon>
+              </Avatar>
+            </ListItemAvatar>
+            <ListItemText primary="City" />
+          </ListItem>
+          <ListItem>
+            <ListItemAvatar>
+              <Avatar>
+                <ContactSupportIcon></ContactSupportIcon>
+              </Avatar>
+            </ListItemAvatar>
+            <ListItemText primary="Contact" />
+          </ListItem>
+          <ListItem>
+            <ListItemAvatar>
+              <Avatar>
+                <ApartmentIcon></ApartmentIcon>
+              </Avatar>
+            </ListItemAvatar>
+            <ListItemText primary="Facility" />
           </ListItem>
         </List>
       </GridItem>

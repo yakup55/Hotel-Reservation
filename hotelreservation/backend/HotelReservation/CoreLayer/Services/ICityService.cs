@@ -12,5 +12,7 @@ namespace CoreLayer.Services
     public interface ICityService:IGenericService<City,CityDto>
     {
         Task<ResponseDto<List<City>>> PopularCity(); 
+       
+        
     }
 }

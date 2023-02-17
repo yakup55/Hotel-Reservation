@@ -13,5 +13,8 @@ namespace CoreLayer.Repositories
 
         Task<List<Hotel>> HotelCategoryList(int id);   
         Task<Hotel> HotelOneDetail(int id);
+        Task<List<Hotel>> HotelCityList(int id);
+        Task<List<Hotel>> HotelDegreList(int id);
+        Task<List<Hotel>> HotelPriceList(int price,int price2);
     }
 }

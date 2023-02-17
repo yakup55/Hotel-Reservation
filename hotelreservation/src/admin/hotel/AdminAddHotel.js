@@ -12,15 +12,18 @@ import { addHotel } from "../../redux/actions/hotelActions";
 import AdminHome from "../home/AdminHome";
 import { validationSchema } from "./validationSchema";
 import { openSnacbar } from "../../redux/actions/appActions";
+import { getCityList } from "../../redux/actions/cityActions";
 export default function AdminAddHotel() {
   const dispacth = useDispatch();
   const navigate = useNavigate();
   useEffect(() => {
     dispacth(getCategoryList());
     dispacth(getDegreList());
+    dispacth(getCityList())
   }, []);
   const { categories } = useSelector((state) => state.category);
   const { degres } = useSelector((state) => state.degre);
+  const {cities}=useSelector((state)=>state.city)
   const { handleSubmit, handleChange, handleBlur, values, errors, touched } =
     useFormik({
       initialValues: {
@@ -30,6 +33,7 @@ export default function AdminAddHotel() {
         hotelLocation: "",
         categoryId: 0,
         degreId: 0,
+        cityId:0
       },
       onSubmit: (values) => {
         dispacth(addHotel(values));
@@ -160,6 +164,27 @@ export default function AdminAddHotel() {
                 {degres.data?.map((degre) => (
                   <MenuItem key={degre.degreId} value={degre.degreId}>
                     {degre.degreName}
+                  </MenuItem>
+                ))}
+              </TextField>
+
+              <TextField
+                select
+                label="Select your City"
+                defaultValue="Select City"
+                value={values.cityId}
+                id="cityId"
+                name="cityId"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                error={errors.cityId && touched.cityId}
+                helperText={
+                  errors.cityId && touched.cityId ? errors.cityId : ""
+                }
+              >
+                {cities.data?.map((city) => (
+                  <MenuItem key={city.cityId} value={city.cityId}>
+                    {city.cityName}
                   </MenuItem>
                 ))}
               </TextField>

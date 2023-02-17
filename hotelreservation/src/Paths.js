@@ -1,9 +1,14 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+import AdminAboutList from "./admin/about/AdminAboutList";
+import AdminAddAbout from "./admin/about/AdminAddAbout";
+import AdminUpdateAbout from "./admin/about/AdminUpdateAbout";
 import AdminHome from "./admin/home/AdminHome";
 import AdminAddHotel from "./admin/hotel/AdminAddHotel";
 import AdminHotelList from "./admin/hotel/AdminHotelList";
 import AdminUpdateHotel from "./admin/hotel/AdminUpdateHotel";
+import CategoryHotelList from "./componenets/category/CategoryHotelList";
+import CityHotelList from "./componenets/city/CityHotelList";
 import ErrorPage from "./componenets/errorPage/ErrorPage";
 import Home from "./componenets/home/Home";
 import HotelDetail from "./componenets/hotel/HotelDetail";
@@ -19,7 +24,15 @@ export default function Paths() {
       <Route path="/register" element={<Register></Register>}></Route>
       <Route path="/login" element={<Login></Login>}></Route>
       <Route path="/hotellist" element={<HotelList></HotelList>}></Route>
-<Route path="/roomdetail/:id" element={<RoomDetail></RoomDetail>}></Route>
+      <Route path="/roomdetail/:id" element={<RoomDetail></RoomDetail>}></Route>
+      <Route
+        path="/hotelcitylist/:id"
+        element={<CityHotelList></CityHotelList>}
+      ></Route>
+      <Route
+        path="/hotelcategorylist/:id"
+        element={<CategoryHotelList></CategoryHotelList>}
+      ></Route>
 
       <Route
         path="/hotelonedetail/:id"
@@ -42,6 +55,11 @@ export default function Paths() {
         path="/adminupdatehotel/:id"
         element={<AdminUpdateHotel></AdminUpdateHotel>}
       ></Route>
+ {/*ADMİN ABOUT*/}
+ <Route path="/adminaboutlist" element={<AdminAboutList></AdminAboutList>}></Route>
+ <Route path="/adminaddabout" element={<AdminAddAbout></AdminAddAbout>}></Route>
+ <Route path="/adminupdateabout/:id" element={<AdminUpdateAbout></AdminUpdateAbout>}></Route>
+
       <Route path="*" element={<ErrorPage></ErrorPage>}></Route>
     </Routes>
   );

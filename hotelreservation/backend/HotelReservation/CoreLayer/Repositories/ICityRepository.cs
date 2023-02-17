@@ -1,4 +1,5 @@
 ﻿using CoreLayer.Models;
+using SharedLibray.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,5 +11,6 @@ namespace CoreLayer.Repositories
     public interface ICityRepository:IGenericRepository<City>
     {   
         Task<List<City>> PopularCity();
+       
     }
 }

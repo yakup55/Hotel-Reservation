@@ -96,7 +96,9 @@ export default function AdminHotelList() {
                       </Button>
                     </TableCell>
                     <TableCell>
-                      <Button variant="contained" color="secondary">
+                      <Button
+                      onClick={()=>navigate(`/hotelonedetail/${hotel.hotelId}`)}
+                      variant="contained" color="secondary">
                         Detay
                       </Button>
                     </TableCell>

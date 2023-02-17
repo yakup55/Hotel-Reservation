@@ -36,5 +36,13 @@ class HotelService {
     const url = `${this.baseUrl}/HotelOneDetail/${id}`;
     return await axios.get(url).then((resp) => resp.data);
   }
+  async hotelCityList(id) {
+    const url = `${this.baseUrl}/HotelCityList/${id}`;
+    return await axios.get(url).then((resp) => resp.data);
+  }
+  async hotelDegreList(id) {
+    const url = `${this.baseUrl}/HotelDegreList/${id}`;
+    return await axios.get(url).then((resp) => resp.data);
+  }
 }
 export default HotelService;

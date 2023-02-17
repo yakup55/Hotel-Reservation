@@ -4,6 +4,8 @@ import {
   GET_BY_HOTEL,
   GET_HOTEL_LIST,
   HOTEL_CATEGORY_LIST,
+  HOTEL_CITY_LIST,
+  HOTEL_DEGRE_LIST,
   HOTEL_ONE_DETAIL,
   LAST_HOTEL_LIST,
   UPDATE_HOTEL,
@@ -57,6 +59,17 @@ export default function hotelReducer(state = initialVales, { type, payload }) {
       return {
         ...state,
         hotel: payload,
+      };
+
+    case HOTEL_CITY_LIST:
+      return {
+        ...state,
+        hotels: payload,
+      };
+    case HOTEL_DEGRE_LIST:
+      return {
+        ...state,
+        hotels: payload,
       };
     default:
       return {

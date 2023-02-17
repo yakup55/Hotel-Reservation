@@ -36,6 +36,21 @@ namespace HotelReservationProject.Controllers
             return ActionResultInstance(await service.HotelCategoryList(id));
         }
         [HttpGet("{id}")]
+        public async Task<IActionResult> HotelCityList(int id)
+        {
+            return ActionResultInstance(await service.HotelCityList(id));
+        }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> HotelDegreList(int id)
+        {
+            return ActionResultInstance(await service.HotelDegreList(id));
+        }
+        [HttpGet]
+        public async Task<IActionResult> HotelPriceList(int price,int price2)
+        {
+            return ActionResultInstance(await service.HotelPriceList(price,price2));
+        }
+        [HttpGet("{id}")]
         public async Task<IActionResult> HotelOneDetail(int id)
         {
             return ActionResultInstance(await service.HotelOneDetail(id));

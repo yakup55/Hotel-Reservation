@@ -12,7 +12,7 @@ export default function Category({ category }) {
   const navigate = useNavigate();
 
   return (
-    <Container style={{marginLeft:20 }}>
+    <Container style={{ marginLeft: 20 }}>
       <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
         <Grid container spacing={1}>
           <Grid container item spacing={3}>
@@ -20,6 +20,9 @@ export default function Category({ category }) {
               <Card sx={{ width: 250, height: 300 }}>
                 <CardActionArea>
                   <CardMedia
+                    onClick={() =>
+                      navigate(`/hotelcategorylist/${category.categoryId}`)
+                    }
                     component="img"
                     height="200"
                     image={`${category?.categoryImage}`}
@@ -43,6 +46,9 @@ export default function Category({ category }) {
               <Card sx={{ width: 250, height: 300 }}>
                 <CardActionArea>
                   <CardMedia
+                    onClick={() =>
+                      navigate(`/hotelcategorylist/${category.categoryId}`)
+                    }
                     component="img"
                     height="200"
                     image={`${category?.categoryImage}`}
