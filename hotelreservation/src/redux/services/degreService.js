@@ -18,11 +18,11 @@ class DegreService {
   }
   async updateDegre(degre) {
     const url = `${this.baseUrl}/UpdateDegre`;
-    return await axios.get(url, degre).then((resp) => resp.data);
+    return await axios.put(url, degre).then((resp) => resp.data);
   }
   async deleteDegre(id) {
     const url = `${this.baseUrl}/DeleteDegre/${id}`;
-    return await axios.get(url).then((resp) => resp.data);
+    return await axios.delete(url).then((resp) => resp.data);
   }
 }
 export default DegreService;

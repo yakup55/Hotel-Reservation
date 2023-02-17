@@ -30,12 +30,12 @@ export default function degreReducer(state = initialvales, { type, payload }) {
     case DELETE_DEGRE:
       return {
         ...state,
-        degre: [...state.degres.filter((x) => x.degreId !== payload)],
+        degres: [...state.degres.filter((x) => x.degreId !== payload)],
       };
     case UPDATE_DEGRE:
       return {
         ...state,
-        degre: [
+        degres: [
           ...state.degres.filter((x) => x.degreId !== payload.degreId),
           payload,
         ],

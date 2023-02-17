@@ -9,6 +9,11 @@ import AdminUpdateCategory from "./admin/category/AdminUpdateCategory";
 import AdminAddCity from "./admin/city/AdminAddCity";
 import AdminCityList from "./admin/city/AdminCityList";
 import AdminUpdateCity from "./admin/city/AdminUpdateCity";
+import AdminCommentList from "./admin/comment/AdminCommentList";
+import AdminContactList from "./admin/contact/AdminContactList";
+import AdminAddDegre from "./admin/degre/AdminAddDegre";
+import AdminDegreList from "./admin/degre/AdminDegreList";
+import AdminUpdateDegre from "./admin/degre/AdminUpdateDegre";
 import AdminHome from "./admin/home/AdminHome";
 import AdminAddHotel from "./admin/hotel/AdminAddHotel";
 import AdminHotelList from "./admin/hotel/AdminHotelList";
@@ -75,14 +80,55 @@ export default function Paths() {
         element={<AdminUpdateAbout></AdminUpdateAbout>}
       ></Route>
       {/*ADMİN CATEGORY*/}
-      <Route path="/admincategorylist" element={<AdminCategoryList></AdminCategoryList>}></Route>
-      <Route path="/adminaddcategory" element={<AdminAddCategory></AdminAddCategory>}></Route>
-      <Route path="/adminupdatecategory/:id" element={<AdminUpdateCategory></AdminUpdateCategory>}></Route>
-  {/*ADMİN CITY*/}
-  <Route path="/admincitylist" element={<AdminCityList></AdminCityList>}></Route>
-  <Route path="/adminaddcity" element={<AdminAddCity></AdminAddCity>}></Route>
-  <Route path="/adminupdatecity/:id" element={<AdminUpdateCity></AdminUpdateCity>}></Route>
+      <Route
+        path="/admincategorylist"
+        element={<AdminCategoryList></AdminCategoryList>}
+      ></Route>
+      <Route
+        path="/adminaddcategory"
+        element={<AdminAddCategory></AdminAddCategory>}
+      ></Route>
+      <Route
+        path="/adminupdatecategory/:id"
+        element={<AdminUpdateCategory></AdminUpdateCategory>}
+      ></Route>
+      {/*ADMİN CITY*/}
+      <Route
+        path="/admincitylist"
+        element={<AdminCityList></AdminCityList>}
+      ></Route>
+      <Route
+        path="/adminaddcity"
+        element={<AdminAddCity></AdminAddCity>}
+      ></Route>
+      <Route
+        path="/adminupdatecity/:id"
+        element={<AdminUpdateCity></AdminUpdateCity>}
+      ></Route>
 
+      {/*ADMİN COMMENT*/}
+      <Route
+        path="/admincommentlist"
+        element={<AdminCommentList></AdminCommentList>}
+      ></Route>
+      {/*ADMİN CONTACT*/}
+      <Route
+        path="/admincontactlist"
+        element={<AdminContactList></AdminContactList>}
+      ></Route>
+      {/*ADMİN DEGRE*/}
+      <Route
+        path="/admindegrelist"
+        element={<AdminDegreList></AdminDegreList>}
+      ></Route>
+      <Route
+        path="/adminupdatedegre/:id"
+        element={<AdminUpdateDegre></AdminUpdateDegre>}
+      ></Route>
+      <Route
+        path="/adminadddegre"
+        element={<AdminAddDegre></AdminAddDegre>}
+      ></Route>
       <Route path="*" element={<ErrorPage></ErrorPage>}></Route>
     </Routes>
   );

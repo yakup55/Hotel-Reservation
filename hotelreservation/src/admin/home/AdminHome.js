@@ -31,6 +31,7 @@ export default function AdminHome() {
       <GridItem rowSpan={2} colSpan={1}>
         <div style={{ margin: "auto", display: "block", marginTop: 10 }}>
           <img
+            onClick={() => navigate("/adminhome")}
             style={{ height: 250, width: 250 }}
             src="https://cdn3.enuygun.com/media/lib/1x250/uploads/image/lords-palace-spa-casino-kibris-genel-38526961.jpg"
           ></img>
@@ -103,7 +104,7 @@ export default function AdminHome() {
             </ListItemAvatar>
             <ListItemText primary="Reservation" />
           </ListItem>
-          <ListItem>
+          <ListItem onClick={() => navigate("/admincommentlist")}>
             <ListItemAvatar>
               <Avatar>
                 <ModeCommentIcon></ModeCommentIcon>
@@ -111,7 +112,7 @@ export default function AdminHome() {
             </ListItemAvatar>
             <ListItemText primary="Comment" />
           </ListItem>
-          <ListItem>
+          <ListItem onClick={()=>navigate("/admindegrelist")}> 
             <ListItemAvatar>
               <Avatar>
                 <WorkspacePremiumIcon></WorkspacePremiumIcon>
@@ -120,14 +121,14 @@ export default function AdminHome() {
             <ListItemText primary="Degre" />
           </ListItem>
           <ListItem>
-            <ListItemAvatar onClick={()=>navigate("/admincitylist")}>
+            <ListItemAvatar onClick={() => navigate("/admincitylist")}>
               <Avatar>
                 <LocationCityIcon></LocationCityIcon>
               </Avatar>
             </ListItemAvatar>
             <ListItemText primary="City" />
           </ListItem>
-          <ListItem>
+          <ListItem onClick={() => navigate("/admincontactlist")}>
             <ListItemAvatar>
               <Avatar>
                 <ContactSupportIcon></ContactSupportIcon>
