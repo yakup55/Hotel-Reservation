@@ -16,9 +16,8 @@ export default function AdminUpdateAbout() {
   const dispacth = useDispatch();
   const navigate = useNavigate();
   const service = new AboutService();
-  useEffect(() => {
-    service.getByAbout(id).then((resp) => setValues(resp));
-  }, []);
+
+   
   const {
     handleSubmit,
     handleBlur,
@@ -45,6 +44,9 @@ export default function AdminUpdateAbout() {
     },
     validationSchema,
   });
+  useEffect(() => {
+    service.getByAbout(id).then((resp) => setValues(resp));
+  }, []);
   return (
     <Grid
       h="900px"
@@ -65,10 +67,9 @@ export default function AdminUpdateAbout() {
                 id="aboutName"
                 name="aboutName"
                 label="About Name"
-                placeholder="About Name"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={values.aboutName}
+                value={values.data?.aboutName}
                 error={errors.aboutName && touched.aboutName}
                 helperText={
                   errors.aboutName && touched.aboutName ? errors.aboutName : ""
@@ -79,10 +80,9 @@ export default function AdminUpdateAbout() {
                 id="aboutImage"
                 name="aboutImage"
                 label="About Image"
-                placeholder="About Image"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={values.aboutImage}
+                value={values.data?.aboutImage}
                 error={errors.aboutImage && touched.aboutImage}
                 helperText={
                   errors.aboutImage && touched.aboutImage
@@ -91,14 +91,14 @@ export default function AdminUpdateAbout() {
                 }
               ></TextField>
               <TextField
+
                 fullWidth
                 id="aboutDescription"
                 name="aboutDescription"
                 label="About Description"
-                placeholder="About Description"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={values.aboutDescription}
+                value={values.data?.aboutDescription}
                 error={errors.aboutDescription && touched.aboutDescription}
                 helperText={
                   errors.aboutDescription && touched.aboutDescription

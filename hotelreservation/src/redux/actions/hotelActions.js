@@ -40,10 +40,10 @@ export function addHotel(hotel) {
       .then((resp) => dispacth({ type: ADD_HOTEL, payload: resp }));
   };
 }
-export function updateHotel(hotel) {
+export function updateHotel(hotel, id) {
   return function (dispacth) {
     hotelService
-      .updateHotel(hotel)
+      .updateHotel(hotel,id)
       .then((resp) => dispacth({ type: UPDATE_HOTEL, payload: resp }));
   };
 }

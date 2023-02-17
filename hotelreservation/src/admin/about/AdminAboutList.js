@@ -13,7 +13,7 @@ import {deleteAbout, getAboutList} from "../../redux/actions/aboutActions"
 import { useEffect } from 'react';
 
 export default function AdminAboutList() {
-    const actions = [{ icon: <CreateIcon></CreateIcon>, name: "Create Hotel" }];
+    const actions = [{ icon: <CreateIcon></CreateIcon>, name: "Create" }];
     const {abouts}=useSelector((state)=>state.about)
     const navigate=useNavigate();
     const dispacth=useDispatch();

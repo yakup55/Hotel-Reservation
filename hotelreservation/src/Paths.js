@@ -3,6 +3,9 @@ import { Route, Routes } from "react-router-dom";
 import AdminAboutList from "./admin/about/AdminAboutList";
 import AdminAddAbout from "./admin/about/AdminAddAbout";
 import AdminUpdateAbout from "./admin/about/AdminUpdateAbout";
+import AdminAddCategory from "./admin/category/AdminAddCategory";
+import AdminCategoryList from "./admin/category/AdminCategoryList";
+import AdminUpdateCategory from "./admin/category/AdminUpdateCategory";
 import AdminHome from "./admin/home/AdminHome";
 import AdminAddHotel from "./admin/hotel/AdminAddHotel";
 import AdminHotelList from "./admin/hotel/AdminHotelList";
@@ -55,10 +58,23 @@ export default function Paths() {
         path="/adminupdatehotel/:id"
         element={<AdminUpdateHotel></AdminUpdateHotel>}
       ></Route>
- {/*ADMİN ABOUT*/}
- <Route path="/adminaboutlist" element={<AdminAboutList></AdminAboutList>}></Route>
- <Route path="/adminaddabout" element={<AdminAddAbout></AdminAddAbout>}></Route>
- <Route path="/adminupdateabout/:id" element={<AdminUpdateAbout></AdminUpdateAbout>}></Route>
+      {/*ADMİN ABOUT*/}
+      <Route
+        path="/adminaboutlist"
+        element={<AdminAboutList></AdminAboutList>}
+      ></Route>
+      <Route
+        path="/adminaddabout"
+        element={<AdminAddAbout></AdminAddAbout>}
+      ></Route>
+      <Route
+        path="/adminupdateabout/:id"
+        element={<AdminUpdateAbout></AdminUpdateAbout>}
+      ></Route>
+      {/*ADMİN CATEGORY*/}
+      <Route path="/admincategorylist" element={<AdminCategoryList></AdminCategoryList>}></Route>
+      <Route path="/adminaddcategory" element={<AdminAddCategory></AdminAddCategory>}></Route>
+      <Route path="/adminupdatecategory/:id" element={<AdminUpdateCategory></AdminUpdateCategory>}></Route>
 
       <Route path="*" element={<ErrorPage></ErrorPage>}></Route>
     </Routes>

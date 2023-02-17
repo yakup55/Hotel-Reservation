@@ -20,8 +20,8 @@ class HotelService {
     const url = `${this.baseUrl}/AddHotel`;
     return await axios.post(url, hotel).then((resp) => resp.data);
   }
-  async updateHotel(hotel) {
-    const url = `${this.baseUrl}/UpdateHotel`;
+  async updateHotel(hotel, id) {
+    const url = `${this.baseUrl}/UpdateHotel/${id}`;
     return await axios.put(url, hotel).then((resp) => resp.data);
   }
   async deleteHotel(id) {

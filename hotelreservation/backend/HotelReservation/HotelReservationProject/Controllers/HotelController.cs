@@ -60,10 +60,10 @@ namespace HotelReservationProject.Controllers
         {
             return ActionResultInstance(await service.AddAsync(dto));
         }
-        [HttpPut]
-        public async Task<IActionResult> UpdateHotel(HotelDto dto)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateHotel(HotelDto dto,int id)
         {
-            return ActionResultInstance(await service.UpdateAsync(dto, dto.HotelId));
+            return ActionResultInstance(await service.UpdateAsync(dto,id));
         }
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteHotel(int id)

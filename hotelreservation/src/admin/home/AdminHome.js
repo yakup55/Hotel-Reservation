@@ -46,7 +46,7 @@ export default function AdminHome() {
             <ListItemText primary="Hotel" />
           </ListItem>
 
-          <ListItem  >
+          <ListItem>
             <ListItemAvatar>
               <Avatar>
                 <KingBedIcon></KingBedIcon>
@@ -70,7 +70,7 @@ export default function AdminHome() {
             </ListItemAvatar>
             <ListItemText primary="Room Detail" />
           </ListItem>
-          <ListItem>
+          <ListItem onClick={() => navigate("/admincategorylist")}>
             <ListItemAvatar>
               <Avatar>
                 <CategoryIcon></CategoryIcon>

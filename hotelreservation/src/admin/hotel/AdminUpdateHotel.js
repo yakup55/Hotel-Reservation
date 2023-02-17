@@ -38,6 +38,8 @@ export default function AdminUpdateHotel() {
     values,
   } = useFormik({
     initialValues: {
+      hotelId: id,
+
       hotelName: "",
       hotelPrice: 0,
       hotelImage: "",
@@ -47,7 +49,7 @@ export default function AdminUpdateHotel() {
       cityId: 0,
     },
     onSubmit: (values) => {
-      dispacth(updateHotel(values));
+      dispacth(updateHotel(values, id));
       dispacth(
         openSnacbar({
           message: `${values.hotelName} has been updated`,
@@ -78,7 +80,7 @@ export default function AdminUpdateHotel() {
                 id="hotelName"
                 name="hotelName"
                 label="Hotel Name"
-                value={values.hotelName}
+                value={values.data?.hotelName}
                 onChange={handleChange}
                 onBlur={handleBlur}
                 error={errors.hotelName && touched.hotelName}
@@ -94,7 +96,7 @@ export default function AdminUpdateHotel() {
                 label="Hotel Price"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={values.hotelPrice}
+                value={values.data?.hotelPrice}
                 error={errors.hotelPrice && touched.hotelPrice}
                 helperText={
                   errors.hotelPrice && touched.hotelPrice
@@ -109,7 +111,7 @@ export default function AdminUpdateHotel() {
                 label="Hotel Image"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={values.hotelImage}
+                value={values.data?.hotelImage}
                 error={errors.hotelImage && touched.hotelImage}
                 helperText={
                   errors.hotelImage && touched.hotelImage
@@ -124,7 +126,7 @@ export default function AdminUpdateHotel() {
                 label="Hotel Location"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={values.hotelLocation}
+                value={values.data?.hotelLocation}
                 error={errors.hotelLocation && touched.hotelLocation}
                 helperText={
                   errors.hotelLocation && touched.hotelLocation
@@ -137,7 +139,7 @@ export default function AdminUpdateHotel() {
                 select
                 label="Select your Category"
                 defaultValue="Select Category"
-                value={values.categoryId}
+                value={values.data?.categoryId}
                 id="categoryId"
                 name="categoryId"
                 onChange={handleChange}
@@ -162,7 +164,7 @@ export default function AdminUpdateHotel() {
                 select
                 label="Select your Degre"
                 defaultValue="Select Degre"
-                value={values.degreId}
+                value={values.data?.degreId}
                 id="degreId"
                 name="degreId"
                 onChange={handleChange}
@@ -183,7 +185,7 @@ export default function AdminUpdateHotel() {
                 select
                 label="Select your City"
                 defaultValue="Select City"
-                value={values.cityId}
+                value={values.data?.cityId}
                 id="cityId"
                 name="cityId"
                 onChange={handleChange}
