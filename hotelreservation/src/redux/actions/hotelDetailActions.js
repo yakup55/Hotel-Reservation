@@ -11,7 +11,7 @@ export function getHotelDetailList() {
   return function (dispacth) {
     detailService
       .getHotelDetailList()
-      .then((resp) => dispacth({ type: GET_BY_HOTEL_DETAIL, payload: resp }));
+      .then((resp) => dispacth({ type: GET_HOTEL_DETAIL_LIST, payload: resp }));
   };
 }
 export function getByHotelDetail(id) {

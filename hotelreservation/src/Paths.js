@@ -14,6 +14,8 @@ import AdminContactList from "./admin/contact/AdminContactList";
 import AdminAddDegre from "./admin/degre/AdminAddDegre";
 import AdminDegreList from "./admin/degre/AdminDegreList";
 import AdminUpdateDegre from "./admin/degre/AdminUpdateDegre";
+import AdminAddFacility from "./admin/facility/AdminAddFacility";
+import AdminFacilityList from "./admin/facility/AdminFacilityList";
 import AdminHome from "./admin/home/AdminHome";
 import AdminAddHotel from "./admin/hotel/AdminAddHotel";
 import AdminHotelList from "./admin/hotel/AdminHotelList";
@@ -27,7 +29,10 @@ import HotelList from "./componenets/hotel/HotelList";
 import Login from "./componenets/login/Login";
 import Register from "./componenets/register/Register";
 import RoomDetail from "./componenets/room/RoomDetail";
-
+import AdminUpdateFacility from "./admin/facility/AdminUpdateFacility";
+import AdminHoteDetailList from "./admin/hotelDetail/AdminHoteDetailList";
+import AdminAddHotelDetail from "./admin/hotelDetail/AdminAddHotelDetail";
+import AdminUpdateHotelDetail from "./admin/hotelDetail/AdminUpdateHotelDetail";
 export default function Paths() {
   return (
     <Routes>
@@ -128,6 +133,32 @@ export default function Paths() {
       <Route
         path="/adminadddegre"
         element={<AdminAddDegre></AdminAddDegre>}
+      ></Route>
+      {/*ADMİN FACILITY*/}
+      <Route
+        path="/adminfacilitylist"
+        element={<AdminFacilityList></AdminFacilityList>}
+      ></Route>
+      <Route
+        path="/adminaddfacility"
+        element={<AdminAddFacility></AdminAddFacility>}
+      ></Route>
+      <Route
+        path="/adminupdatefacility/:id"
+        element={<AdminUpdateFacility></AdminUpdateFacility>}
+      ></Route>
+      {/*ADMİN HOTELDETEIL*/}
+      <Route
+        path="/adminhoteldetaillist"
+        element={<AdminHoteDetailList></AdminHoteDetailList>}
+      ></Route>
+      <Route
+        path="/adminaddhoteldetail"
+        element={<AdminAddHotelDetail></AdminAddHotelDetail>}
+      ></Route>
+      <Route
+        path="/adminupdatehoteldetail/:id"
+        element={<AdminUpdateHotelDetail></AdminUpdateHotelDetail>}
       ></Route>
       <Route path="*" element={<ErrorPage></ErrorPage>}></Route>
     </Routes>

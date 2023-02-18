@@ -47,7 +47,7 @@ export default function AdminHome() {
             <ListItemText primary="Hotel" />
           </ListItem>
 
-          <ListItem>
+          <ListItem onClick={() => navigate("/adminhoteldetaillist")}>
             <ListItemAvatar>
               <Avatar>
                 <KingBedIcon></KingBedIcon>
@@ -112,7 +112,7 @@ export default function AdminHome() {
             </ListItemAvatar>
             <ListItemText primary="Comment" />
           </ListItem>
-          <ListItem onClick={()=>navigate("/admindegrelist")}> 
+          <ListItem onClick={() => navigate("/admindegrelist")}>
             <ListItemAvatar>
               <Avatar>
                 <WorkspacePremiumIcon></WorkspacePremiumIcon>
@@ -136,7 +136,7 @@ export default function AdminHome() {
             </ListItemAvatar>
             <ListItemText primary="Contact" />
           </ListItem>
-          <ListItem>
+          <ListItem onClick={() => navigate("/adminfacilitylist")}>
             <ListItemAvatar>
               <Avatar>
                 <ApartmentIcon></ApartmentIcon>

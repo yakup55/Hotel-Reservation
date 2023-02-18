@@ -14,7 +14,7 @@ class FacilityService {
   }
   async addFacility(facility) {
     const url = `${this.baseUrl}/AddFacility`;
-    return await axios.get(url, facility).then((resp) => resp.data);
+    return await axios.post(url, facility).then((resp) => resp.data);
   }
   async updateFacility(facility) {
     const url = `${this.baseUrl}/UpdateFacility`;
