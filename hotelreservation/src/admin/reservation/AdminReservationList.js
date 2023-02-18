@@ -57,7 +57,6 @@ dispacth(deleteReservation(id))
                       variant="contained"
                       color="error"
                     >
-                      Delete
                     </Button>
                   </TableCell>
                 </TableRow>

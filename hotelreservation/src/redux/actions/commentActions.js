@@ -6,6 +6,8 @@ export const UPDATE_COMMENT = "UPDATE_COMMENT";
 export const DELETE_COMMENT = "DELETE_COMMENT";
 export const COMMENT_HOTEL_LIST = "COMMENT_HOTEL_LIST";
 export const POPULAR_COMMENT_HOTEL = "POPULAR_COMMENT_HOTEL";
+export const COMMENT_ACTIVE = "COMMENT_ACTIVE";
+export const COMMENT_PASSIVE = "COMMENT_PASSIVE";
 
 const commentService = new CommentService();
 
@@ -52,8 +54,24 @@ export function commentHotelList(id) {
       .then((resp) => dispacth({ type: COMMENT_HOTEL_LIST, payload: resp }));
   };
 }
-export function popularCommentHotel(id){
-  return function(dispacth){
-    commentService.popularCommentHotel(id).then((resp)=>dispacth({type:POPULAR_COMMENT_HOTEL,payload:resp}))
-  }
+export function popularCommentHotel(id) {
+  return function (dispacth) {
+    commentService
+      .popularCommentHotel(id)
+      .then((resp) => dispacth({ type: POPULAR_COMMENT_HOTEL, payload: resp }));
+  };
+}
+export function commentActive(id) {
+  return function (dispacth) {
+    commentService
+      .commentActive(id)
+      .then((resp) => dispacth({ type: COMMENT_ACTIVE, payload: resp }));
+  };
+}
+export function commentPassive(id) {
+  return function (dispacth) {
+    commentService
+      .commentPassive(id)
+      .then((resp) => dispacth({ type: COMMENT_PASSIVE, payload: resp }));
+  };
 }

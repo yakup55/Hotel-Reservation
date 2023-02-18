@@ -65,7 +65,7 @@ export default function AdminCityList() {
                         navigate(`/adminupdatecity/${city.cityId}`)
                       }
                     >
-                      Update
+                     
                     </Button>
                   </TableCell>
 
@@ -76,7 +76,7 @@ export default function AdminCityList() {
                       variant="contained"
                       color="error"
                     >
-                      Delete
+                
                     </Button>
                   </TableCell>
                 </TableRow>

@@ -80,7 +80,7 @@ export default function AdminCategoryList() {
                           navigate(`/adminupdatecategory/${category.categoryId}`)
                         }
                       >
-                        Update
+                       
                       </Button>
                     </TableCell>
 
@@ -91,7 +91,7 @@ export default function AdminCategoryList() {
                         variant="contained"
                         color="error"
                       >
-                        Delete
+                     
                       </Button>
                     </TableCell>
                   </TableRow>

@@ -83,7 +83,6 @@ export default function AdminQuentionsList() {
                         variant="contained"
                         color="success"
                       >
-                        Update
                       </Button>
                     </TableCell>
                     <TableCell>
@@ -95,7 +94,6 @@ export default function AdminQuentionsList() {
                         variant="contained"
                         color="error"
                       >
-                        Delete
                       </Button>
                     </TableCell>
                   </TableRow>

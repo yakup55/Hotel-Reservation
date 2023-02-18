@@ -72,7 +72,7 @@ export default function AdminDegreList() {
                         variant="contained"
                         color="success"
                       >
-                        Update
+                        
                       </Button>
                     </TableCell>
                     <TableCell>
@@ -82,7 +82,7 @@ export default function AdminDegreList() {
                         variant="contained"
                         color="error"
                       >
-                        Delete
+                      
                       </Button>
                     </TableCell>
                   </TableRow>

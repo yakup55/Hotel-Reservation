@@ -143,7 +143,7 @@ export default function AdminHoteDetailList() {
                         variant="contained"
                         color="success"
                       >
-                        Update
+                       
                       </Button>
                     </TableCell>
                     <TableCell>
@@ -166,7 +166,6 @@ export default function AdminHoteDetailList() {
                         variant="contained"
                         color="error"
                       >
-                        Delete
                       </Button>
                     </TableCell>
                   </TableRow>

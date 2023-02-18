@@ -25,7 +25,7 @@ namespace HotelReservationProject.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetByComment(int id)
         {
-            return ActionResultInstance(await service.GetByIdAsync(id));    
+            return ActionResultInstance(await service.GetByIdAsync(id));
         }
         [HttpGet("{id}")]
         public async Task<IActionResult> CommentHotelList(int id)
@@ -37,17 +37,33 @@ namespace HotelReservationProject.Controllers
         {
             return ActionResultInstance(await service.PopularComment(id));
         }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> CommentActive(int id)
+        {
+
+            var one = await service.GetByIdAsync(id);
+            one.Data.CommentStatus = true;
+            return ActionResultInstance(await service.UpdateAsync(one.Data, one.Data.CommentId));
+        }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> CommentPassive(int id)
+        {
+
+            var one = await service.GetByIdAsync(id);
+            one.Data.CommentStatus = false;
+            return ActionResultInstance(await service.UpdateAsync(one.Data, one.Data.CommentId));
+        }
         [HttpPost]
         public async Task<IActionResult> AddComment(CommentDto dto)
         {
-            dto.CommentDate= DateTime.Now;
+            dto.CommentDate = DateTime.Now;
             dto.CommentStatus = false;
             return ActionResultInstance(await service.AddAsync(dto));
         }
         [HttpPut]
         public async Task<IActionResult> UpdateComment(CommentDto dto)
         {
-            return ActionResultInstance(await service.UpdateAsync(dto,dto.CommentId));
+            return ActionResultInstance(await service.UpdateAsync(dto, dto.CommentId));
         }
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteComment(int id)

@@ -20,8 +20,8 @@ export default function AdminAddFacility() {
     dispacth(getHotelList());
     dispacth(getDegreList());
   }, []);
-  const { handleSubmit, handleBlur, handleChange, errors, touched,values } = useFormik(
-    {
+  const { handleSubmit, handleBlur, handleChange, errors, touched, values } =
+    useFormik({
       initialValues: {
         facilityName: "",
         hotelId: 0,
@@ -38,8 +38,7 @@ export default function AdminAddFacility() {
         navigate("/adminfacilitylist");
       },
       validationSchema,
-    }
-  );
+    });
   return (
     <Grid
       h="900px"
@@ -80,16 +79,11 @@ export default function AdminAddFacility() {
                 onBlur={handleBlur}
                 error={errors.hotelId && touched.hotelId}
                 helperText={
-                  errors.hotelId && touched.hotelId
-                    ? errors.hotelId
-                    : ""
+                  errors.hotelId && touched.hotelId ? errors.hotelId : ""
                 }
               >
                 {hotels.data?.map((hotel) => (
-                  <MenuItem
-                    key={hotel.hotelId}
-                    value={hotel.hotelId}
-                  >
+                  <MenuItem key={hotel.hotelId} value={hotel.hotelId}>
                     {hotel.hotelName}
                   </MenuItem>
                 ))}
@@ -105,21 +99,18 @@ export default function AdminAddFacility() {
                 onBlur={handleBlur}
                 error={errors.degreId && touched.degreId}
                 helperText={
-                  errors.degreId && touched.degreId
-                    ? errors.degreId
-                    : ""
+                  errors.degreId && touched.degreId ? errors.degreId : ""
                 }
               >
                 {degres.data?.map((degre) => (
-                  <MenuItem
-                    key={degre.degreId}
-                    value={degre.degreId}
-                  >
+                  <MenuItem key={degre.degreId} value={degre.degreId}>
                     {degre.degreName}
                   </MenuItem>
                 ))}
               </TextField>
-              <Button type="submit" variant="contained">Add Facility</Button>
+              <Button type="submit" variant="contained">
+                Add Facility
+              </Button>
             </Stack>
           </form>
         </Container>

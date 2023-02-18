@@ -13,6 +13,8 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import {
+  commentActive,
+  commentPassive,
   deleteComment,
   getCommentList,
 } from "../../redux/actions/commentActions";
@@ -29,6 +31,12 @@ export default function AdminCommentList() {
   }, []);
   const handleDeletedComment = (id) => {
     dispacth(deleteComment(id));
+  };
+  const active = (id) => {
+    dispacth(commentActive(id));
+  };
+  const passive = (id) => {
+    dispacth(commentPassive(id));
   };
   return (
     <Grid
@@ -61,6 +69,8 @@ export default function AdminCommentList() {
                   <TableCell style={{ color: "white" }}>Hotel Id</TableCell>
                   <TableCell style={{ color: "white" }}>Degre Id</TableCell>
                   <TableCell style={{ color: "white" }}>User Id</TableCell>
+                  <TableCell style={{ color: "white" }}>Aktif</TableCell>
+                  <TableCell style={{ color: "white" }}>Pasif</TableCell>
                   <TableCell style={{ color: "white" }}>Delete</TableCell>
                 </TableRow>
                 {comments.data?.map((commnet) => (
@@ -86,12 +96,32 @@ export default function AdminCommentList() {
 
                     <TableCell>
                       <Button
+                        onClick={() => active(commnet.commentId)}
+                        startIcon={<CheckCircleIcon></CheckCircleIcon>}
+                        variant="contained"
+                        color="success"
+                      >
+                       
+                      </Button>
+                    </TableCell>
+                    <TableCell>
+                      <Button
+                        onClick={() => passive(commnet.commentId)}
+                        startIcon={<CancelIcon></CancelIcon>}
+                        variant="contained"
+                        color="inherit"
+                      >
+                     
+                      </Button>
+                    </TableCell>
+                    <TableCell>
+                      <Button
                         onClick={() => handleDeletedComment(commnet.commentId)}
                         startIcon={<DeleteOutlineIcon></DeleteOutlineIcon>}
                         variant="contained"
                         color="error"
                       >
-                        Delete
+                       
                       </Button>
                     </TableCell>
                   </TableRow>

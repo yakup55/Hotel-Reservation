@@ -9,7 +9,7 @@ class RoomService {
     return await axios.get(url).then((resp) => resp.data);
   }
   async getByRoom(id) {
-    const url = `${this.baseUrl}/GetByRoomList/${id}`;
+    const url = `${this.baseUrl}/GetByRoom/${id}`;
     return await axios.get(url).then((resp) => resp.data);
   }
   async addRoom(room) {

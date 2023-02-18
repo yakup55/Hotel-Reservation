@@ -1,7 +1,9 @@
 import { comment, comments } from "../initials/commentInitials";
 import {
   ADD_COMMENT,
+  COMMENT_ACTIVE,
   COMMENT_HOTEL_LIST,
+  COMMENT_PASSIVE,
   DELETE_COMMENT,
   GET_BY_COMMENT,
   GET_COMMENT_LIST,
@@ -12,7 +14,7 @@ const initialvales = {
   comment,
   comments,
 };
-export default  function commentReducer(
+export default function commentReducer(
   state = initialvales,
   { type, payload }
 ) {
@@ -53,6 +55,16 @@ export default  function commentReducer(
         comments: payload,
       };
     case POPULAR_COMMENT_HOTEL:
+      return {
+        ...state,
+        comments: payload,
+      };
+    case COMMENT_ACTIVE:
+      return {
+        ...state,
+        comments: payload,
+      };
+    case COMMENT_PASSIVE:
       return {
         ...state,
         comments: payload,

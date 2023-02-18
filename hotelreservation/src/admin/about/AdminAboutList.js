@@ -67,7 +67,7 @@ export default function AdminAboutList() {
                         navigate(`/adminupdateabout/${about.aboutId}`)
                       }
                     >
-                      Update
+                     
                     </Button>
                   </TableCell>
 
@@ -78,7 +78,7 @@ export default function AdminAboutList() {
                       variant="contained"
                       color="error"
                     >
-                      Delete
+                     
                     </Button>
                   </TableCell>
                 </TableRow>

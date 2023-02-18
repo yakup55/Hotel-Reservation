@@ -70,7 +70,7 @@ export default function AdminContactList() {
                         variant="contained"
                         color="error"
                       >
-                        Delete
+                    
                       </Button>
                     </TableCell>
                   </TableRow>

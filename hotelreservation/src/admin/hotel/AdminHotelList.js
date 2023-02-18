@@ -92,7 +92,7 @@ export default function AdminHotelList() {
                           navigate(`/adminupdatehotel/${hotel.hotelId}`)
                         }
                       >
-                        Update
+                      
                       </Button>
                     </TableCell>
                     <TableCell>
@@ -103,7 +103,7 @@ export default function AdminHotelList() {
                         variant="contained"
                         color="secondary"
                       >
-                        Detay
+                     Detay
                       </Button>
                     </TableCell>
                     <TableCell>
@@ -113,7 +113,7 @@ export default function AdminHotelList() {
                         variant="contained"
                         color="error"
                       >
-                        Delete
+                   
                       </Button>
                     </TableCell>
                   </TableRow>
