@@ -38,28 +38,19 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { hotelOneDetail } from "../../redux/actions/hotelActions";
-import { popularCommentHotel } from "../../redux/actions/commentActions";
 import Avatar from "@mui/material/Avatar";
-import { roomOneDetail } from "../../redux/actions/roomActions";
-import { getHotelDetailList } from "../../redux/actions/hotelDetailActions";
 import HotelImageList from "./HotelImageList";
 import RoomHotelList from "../room/RoomHotelList";
 import CommentAdd from "../comment/CommentAdd";
 import CommentHotelList from "../comment/CommentHotelList";
-import PopularCommentList from "../comment/PopularCommentList";
-import FaceIcon from "@mui/icons-material/Face";
 import Questions from "../questions/Questions";
 import Contact from "../contact/Contact";
-import Footer from "../footer/Footer";
 import HotelFacility from "../facility/HotelFacility";
 
 export default function HotelDetail() {
   const { id } = useParams();
   const { hotel } = useSelector((state) => state.hotel);
-  const { rooms } = useSelector((state) => state.room);
-  //const { room } = useSelector((state) => state.room);
   const { comments } = useSelector((state) => state.comment);
-  const { hotelDetail } = useSelector((state) => state.hotelDetail);
   const dispacth = useDispatch();
   useEffect(() => {
     dispacth(hotelOneDetail(id));

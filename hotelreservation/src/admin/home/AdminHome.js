@@ -55,7 +55,7 @@ export default function AdminHome() {
             </ListItemAvatar>
             <ListItemText primary="Hotel Detail" />
           </ListItem>
-          <ListItem>
+          <ListItem onClick={() => navigate("/adminroomlist")}>
             <ListItemAvatar>
               <Avatar>
                 <MeetingRoomIcon></MeetingRoomIcon>
@@ -63,7 +63,7 @@ export default function AdminHome() {
             </ListItemAvatar>
             <ListItemText primary="Room" />
           </ListItem>
-          <ListItem>
+          <ListItem onClick={() => navigate("/adminroomdetaillist")}>
             <ListItemAvatar>
               <Avatar>
                 <MeetingRoomIcon></MeetingRoomIcon>
@@ -88,7 +88,7 @@ export default function AdminHome() {
             </ListItemAvatar>
             <ListItemText primary="About" />
           </ListItem>
-          <ListItem>
+          <ListItem onClick={() => navigate("/adminquentionslist")}>
             <ListItemAvatar>
               <Avatar>
                 <HelpOutlineIcon></HelpOutlineIcon>
@@ -96,7 +96,7 @@ export default function AdminHome() {
             </ListItemAvatar>
             <ListItemText primary="Quentions" />
           </ListItem>
-          <ListItem>
+          <ListItem onClick={() => navigate("/adminreservationlist")}>
             <ListItemAvatar>
               <Avatar>
                 <EventSeatIcon></EventSeatIcon>

@@ -27,11 +27,11 @@ export function addReservation() {
       .then((resp) => dispacth({ type: ADD_RERSERVATION, payload: resp }));
   };
 }
-export function deleteReservation() {
+export function deleteReservation(id) {
   return function (dispacth) {
     reservationService
-      .deleteReservation()
-      .then((resp) => dispacth({ type: DELETE_RERSERVATION, payload: resp }));
+      .deleteReservation(id)
+      .then((resp) => dispacth({ type: DELETE_RERSERVATION, payload: id }));
   };
 }
 export function updateReservation() {

@@ -22,7 +22,6 @@ export default function RoomHotelList() {
   const { rooms } = useSelector((state) => state.room);
   useEffect(() => {
     dispacth(roomHotel(id));
-    dispacth(getRoomList());
   }, []);
   return (
     <div>

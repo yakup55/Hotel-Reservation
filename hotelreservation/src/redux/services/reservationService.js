@@ -20,8 +20,8 @@ class ReservationService {
     const url = `${this.baseUrl}/UpdateReservation`;
     return await axios.put(url, reservation).then((resp) => resp.data);
   }
-  async deleteReservation() {
-    const url = `${this.baseUrl}/DeleteReservation`;
+  async deleteReservation(id) {
+    const url = `${this.baseUrl}/DeleteReservation/${id}`;
     return await axios.delete(url).then((resp) => resp.data);
   }
 }

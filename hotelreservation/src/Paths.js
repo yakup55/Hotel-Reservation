@@ -33,6 +33,15 @@ import AdminUpdateFacility from "./admin/facility/AdminUpdateFacility";
 import AdminHoteDetailList from "./admin/hotelDetail/AdminHoteDetailList";
 import AdminAddHotelDetail from "./admin/hotelDetail/AdminAddHotelDetail";
 import AdminUpdateHotelDetail from "./admin/hotelDetail/AdminUpdateHotelDetail";
+import AdminQuentionsList from "./admin/quentions/AdminQuentionsList";
+import AdminUpdateQuentions from "./admin/quentions/AdminUpdateQuentions";
+import AdminReservationList from "./admin/reservation/AdminReservationList";
+import AdminRoomList from "./admin/room/AdminRoomList";
+import AdminAddRoom from "./admin/room/AdminAddRoom";
+import AdminUpdateRoom from "./admin/room/AdminUpdateRoom";
+import AdminRoomDetailList from "./admin/roomDetail/AdminRoomDetailList";
+import AdminAddRoomDetail from "./admin/roomDetail/AdminAddRoomDetail";
+import AdminUpdateRoomDetail from "./admin/roomDetail/AdminUpdateRoomDetail";
 export default function Paths() {
   return (
     <Routes>
@@ -159,6 +168,50 @@ export default function Paths() {
       <Route
         path="/adminupdatehoteldetail/:id"
         element={<AdminUpdateHotelDetail></AdminUpdateHotelDetail>}
+      ></Route>
+      {/*ADMİN QUENTIONS*/}
+      <Route
+        path="/adminquentionslist"
+        element={<AdminQuentionsList></AdminQuentionsList>}
+      ></Route>
+      <Route
+        path="/adminaddquentions"
+        element={<AdminAddHotelDetail></AdminAddHotelDetail>}
+      ></Route>
+      <Route
+        path="/adminupdatequentions/:id"
+        element={<AdminUpdateQuentions></AdminUpdateQuentions>}
+      ></Route>
+      {/*ADMİN RESERVSTION*/}
+      <Route
+        path="/adminreservationlist"
+        element={<AdminReservationList></AdminReservationList>}
+      ></Route>
+      {/*ADMİN ROOM*/}
+      <Route
+        path="/adminroomlist"
+        element={<AdminRoomList></AdminRoomList>}
+      ></Route>
+      <Route
+        path="/adminaddroom"
+        element={<AdminAddRoom></AdminAddRoom>}
+      ></Route>
+      <Route
+        path="/adminupdateroom/:id"
+        element={<AdminUpdateRoom></AdminUpdateRoom>}
+      ></Route>
+      {/*ADMİN ROOM DETAIL*/}
+      <Route
+        path="/adminroomdetaillist"
+        element={<AdminRoomDetailList></AdminRoomDetailList>}
+      ></Route>
+      <Route
+        path="/adminaddroomdetail"
+        element={<AdminAddRoomDetail></AdminAddRoomDetail>}
+      ></Route>
+      <Route
+        path="/adminupdateroomdetail/:id"
+        element={<AdminUpdateRoomDetail></AdminUpdateRoomDetail>}
       ></Route>
       <Route path="*" element={<ErrorPage></ErrorPage>}></Route>
     </Routes>

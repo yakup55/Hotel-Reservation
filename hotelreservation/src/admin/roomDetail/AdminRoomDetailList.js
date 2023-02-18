@@ -1,4 +1,4 @@
-import { AspectRatio, Grid, GridItem } from "@chakra-ui/react";
+import { Grid, GridItem } from "@chakra-ui/react";
 import {
   Button,
   Container,
@@ -14,6 +14,10 @@ import {
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import {
+  deleteRoomDetail,
+  getRoomDetailList,
+} from "../../redux/actions/roomDetailActions";
 import AdminHome from "../home/AdminHome";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import BuildIcon from "@mui/icons-material/Build";
@@ -21,21 +25,17 @@ import BuildIcon from "@mui/icons-material/Build";
 import EditIcon from "@mui/icons-material/Edit";
 import CreateIcon from "@mui/icons-material/Create";
 import { useEffect } from "react";
-import {
-  deleteHotelDetail,
-  getHotelDetailList,
-} from "../../redux/actions/hotelDetailActions";
-export default function AdminHoteDetailList() {
+export default function AdminRoomDetailList() {
   const actions = [{ icon: <CreateIcon></CreateIcon>, name: "Create" }];
   const dispacth = useDispatch();
   const navigate = useNavigate();
-  const { hotelDetails } = useSelector((state) => state.hotelDetail);
-  useEffect(() => {
-    dispacth(getHotelDetailList());
-  }, []);
-  const handleDeletedHotelDetail = (id) => {
-    dispacth(deleteHotelDetail(id));
+  const handleDeletedRoomDetail = (id) => {
+    dispacth(deleteRoomDetail(id));
   };
+  const { roomDetails } = useSelector((state) => state.roomDetail);
+  useEffect(() => {
+    dispacth(getRoomDetailList());
+  }, []);
   return (
     <Grid
       h="900px"
@@ -54,24 +54,21 @@ export default function AdminHoteDetailList() {
               <Table>
                 <TableRow style={{ backgroundColor: "black" }}>
                   <TableCell style={{ color: "white" }}>#</TableCell>
+                  <TableCell style={{ color: "white" }}>Number People</TableCell>
+                  <TableCell style={{ color: "white" }}>Number Date</TableCell>
                   <TableCell style={{ color: "white" }}>Image 1</TableCell>
                   <TableCell style={{ color: "white" }}>Image 2</TableCell>
                   <TableCell style={{ color: "white" }}>Image 3</TableCell>
-                  <TableCell style={{ color: "white" }}>Image 4</TableCell>
-                  <TableCell style={{ color: "white" }}>Image 5</TableCell>
-                  <TableCell style={{ color: "white" }}>Image 6</TableCell>
-                  <TableCell style={{ color: "white" }}>Image 7</TableCell>
-                  <TableCell style={{ color: "white" }}>Image 8</TableCell>
-                  <TableCell style={{ color: "white" }}>Image 9</TableCell>
-                  <TableCell style={{ color: "white" }}>Hotel Map</TableCell>
-                  <TableCell style={{ color: "white" }}>Hotel Id</TableCell>
+                  <TableCell style={{ color: "white" }}>Room Id</TableCell>
                   <TableCell style={{ color: "white" }}>Update</TableCell>
                   <TableCell style={{ color: "white" }}>Detay</TableCell>
                   <TableCell style={{ color: "white" }}>Delete</TableCell>
                 </TableRow>
-                {hotelDetails.data?.map((detail) => (
+                {roomDetails.data?.map((detail) => (
                   <TableRow>
-                    <TableCell>{detail.hotelDetailId}</TableCell>
+                    <TableCell>{detail.roomDetailId}</TableCell>
+                    <TableCell>{detail.numberPeople}</TableCell>
+                    <TableCell>{detail.numberDate}</TableCell>
                     <TableCell>
                       <img
                         style={{ width: 200, height: 100 }}
@@ -90,54 +87,12 @@ export default function AdminHoteDetailList() {
                         src={`${detail.image3}`}
                       ></img>
                     </TableCell>
-                    <TableCell>
-                      <img
-                        style={{ width: 200, height: 100 }}
-                        src={`${detail.image4}`}
-                      ></img>
-                    </TableCell>
-                    <TableCell>
-                      <img
-                        style={{ width: 200, height: 100 }}
-                        src={`${detail.image5}`}
-                      ></img>
-                    </TableCell>
-                    <TableCell>
-                      <img
-                        style={{ width: 200, height: 100 }}
-                        src={`${detail.image6}`}
-                      ></img>
-                    </TableCell>
-                    <TableCell>
-                      <img
-                        style={{ width: 200, height: 100 }}
-                        src={`${detail.image7}`}
-                      ></img>
-                    </TableCell>
-                    <TableCell>
-                      <img
-                        style={{ width: 200, height: 100 }}
-                        src={`${detail.image8}`}
-                      ></img>
-                    </TableCell>
-                    <TableCell>
-                      <img
-                        style={{ width: 200, height: 100 }}
-                        src={`${detail.image9}`}
-                      ></img>
-                    </TableCell>
-                    <TableCell>
-                    
-                    </TableCell>
-
-                    <TableCell>{detail.hotelId}</TableCell>
+                    <TableCell>{detail.roomId}</TableCell>
 
                     <TableCell>
                       <Button
                         onClick={() =>
-                          navigate(
-                            `/adminupdatehoteldetail/${detail.hotelDetailId}`
-                          )
+                          navigate(`/adminupdateroomdetail/${detail.roomDetailId}`)
                         }
                         startIcon={<BuildIcon></BuildIcon>}
                         variant="contained"
@@ -148,9 +103,7 @@ export default function AdminHoteDetailList() {
                     </TableCell>
                     <TableCell>
                       <Button
-                        onClick={() =>
-                          navigate(`/hotelonedetail/${detail.hotelDetailId}`)
-                        }
+                        onClick={() => navigate(`/roomdetail/${detail.roomDetailId}`)}
                         variant="contained"
                         color="secondary"
                       >
@@ -160,7 +113,7 @@ export default function AdminHoteDetailList() {
                     <TableCell>
                       <Button
                         onClick={() =>
-                          handleDeletedHotelDetail(detail.hotelDetailId)
+                          handleDeletedRoomDetail(detail.roomDetailId)
                         }
                         startIcon={<DeleteOutlineIcon></DeleteOutlineIcon>}
                         variant="contained"
@@ -183,7 +136,7 @@ export default function AdminHoteDetailList() {
       >
         {actions.map((action) => (
           <SpeedDialAction
-            onClick={() => navigate("/adminaddhoteldetail")}
+            onClick={() => navigate("/adminaddroomdetail")}
             key={action.name}
             icon={action.icon}
             tooltipTitle={action.name}
