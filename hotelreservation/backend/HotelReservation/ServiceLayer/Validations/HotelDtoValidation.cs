@@ -14,7 +14,8 @@ namespace ServiceLayer.Validations
         {
             RuleFor(x => x.HotelName).NotNull().WithMessage("{PropertyName} is required").NotEmpty().WithMessage("{PropertyName} is required").MinimumLength(10).MaximumLength(100);
             RuleFor(x => x.HotelImage).NotNull().WithMessage("{PropertyName} is required").NotEmpty().WithMessage("{PropertyName} is required");
-            RuleFor(x => x.HotelPrice).InclusiveBetween(500,10000).WithMessage("{PropertyName} must be grater 500 10000");        
+            RuleFor(x => x.HotelPrice).NotNull().WithMessage("{PropertyName} is required").NotEmpty().WithMessage("{PropertyName} is required");
+            RuleFor(x => x.HotelLocation).NotNull().WithMessage("{PropertyName} is required").NotEmpty().WithMessage("{PropertyName} is required").MaximumLength(100);
 
         }
     }

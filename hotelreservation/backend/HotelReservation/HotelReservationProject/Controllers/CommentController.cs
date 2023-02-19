@@ -1,6 +1,7 @@
 ﻿using CoreLayer.DTOs;
 using CoreLayer.Models;
 using CoreLayer.Services;
+using HotelReservationProject.Filters;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,6 +9,7 @@ namespace HotelReservationProject.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
+    [ServiceFilter(typeof(NotFoundFilters<Comment, CommentDto>))]
     public class CommentController : BaseController
     {
         private readonly ICommentService service;
@@ -51,8 +53,9 @@ namespace HotelReservationProject.Controllers
 
             var one = await service.GetByIdAsync(id);
             one.Data.CommentStatus = false;
-            return ActionResultInstance(await service.UpdateAsync(one.Data, one.Data.CommentId));
-        }
+            return ActionResultInstance(await service.UpdateAsync(one.Data, one.Data.CommentId));  
+                
+                }
         [HttpPost]
         public async Task<IActionResult> AddComment(CommentDto dto)
         {

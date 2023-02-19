@@ -21,7 +21,7 @@ import {
 import { useEffect } from "react";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import BuildIcon from "@mui/icons-material/Build";
-
+import ImportContactsIcon from '@mui/icons-material/ImportContacts';
 import EditIcon from "@mui/icons-material/Edit";
 import CreateIcon from "@mui/icons-material/Create";
 import { openSnacbar } from "../../redux/actions/appActions";
@@ -97,15 +97,15 @@ export default function AdminHotelList() {
                     </TableCell>
                     <TableCell>
                       <Button
+                      startIcon={<ImportContactsIcon></ImportContactsIcon>}
                         onClick={() =>
                           navigate(`/hotelonedetail/${hotel.hotelId}`)
                         }
                         variant="contained"
                         color="secondary"
                       >
-                     Detay
-                      </Button>
-                    </TableCell>
+                        </Button>
+                       </TableCell>
                     <TableCell>
                       <Button
                         onClick={() => handleDeletedHotel(hotel.hotelId)}

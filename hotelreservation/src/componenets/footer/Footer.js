@@ -16,17 +16,9 @@ import {
 } from "@chakra-ui/react";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import MailIcon from "@mui/icons-material/Mail";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LuggageIcon from "@mui/icons-material/Luggage";
 import {
-  Avatar,
-  Button,
-  List,
-  ListItem,
-  ListItemAvatar,
-  ListItemText,
-  TextField,
   Typography,
 } from "@mui/material";
 export default function Footer() {
@@ -41,12 +33,6 @@ export default function Footer() {
             <Grid item xs={3}>
               <Card maxW="xl">
                 <CardBody>
-                  {/* <Image
-                  style={{ width: 350, height: 200 }}
-                  src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-                  alt="Green double couch with wooden legs"
-                  borderRadius="lg"
-                /> */}
                   <Stack mt="1" spacing="1">
                     <Heading color="white" size="md">
                       Sosyal Medya Hesaplarım
@@ -80,12 +66,10 @@ export default function Footer() {
                  
                   <Stack mt="1" spacing="3">
                     <Heading color="white" size="md">
-                     Bize Ulaş
+                  Önemli Bilgi
                     </Heading>
                     <Typography color="white" variant="h10">
-                      This sofa is perfect for modern tropical spaces, baroque
-                      inspired spaces, earthy toned spaces and for people who
-                      love a chic design with a sprinkle of vintage design.
+                     Bu sitedeki veriler <Link sx={{textDecoration:"none"}} color="white" href="https://www.enuygun.com/otel/">ENUYGUN</Link> dan alınmıştır
                     </Typography>
                   </Stack>
                 </CardBody>
@@ -179,14 +163,12 @@ export default function Footer() {
               <Card maxW="xl">
                 <CardBody>
                 
-                  <Stack mt="1" spacing="1">
+                <Stack mt="1" spacing="3">
                     <Heading color="white" size="md">
-                    Bize Ulaş
+                  Önemli Bilgi
                     </Heading>
                     <Typography color="white" variant="h10">
-                      This sofa is perfect for modern tropical spaces, baroque
-                      inspired spaces, earthy toned spaces and for people who
-                      love a chic design with a sprinkle of vintage design.
+                     Bu sitedeki veriler <Link sx={{textDecoration:"none"}} color="white" href="https://www.enuygun.com/otel/">ENUYGUN</Link> dan alınmıştır
                     </Typography>
                   </Stack>
                 </CardBody>

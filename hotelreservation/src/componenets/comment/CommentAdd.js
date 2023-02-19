@@ -50,8 +50,8 @@ export default function CommentAdd() {
             fullWidth
             id="commentSubject"
             name="commentSubject"
-            label="Subject"
-            placeholder="Subject"
+            label="Konu"
+            placeholder="Konu"
             color="success"
             onChange={handleChange}
             onBlur={handleBlur}
@@ -65,8 +65,8 @@ export default function CommentAdd() {
           <TextField
             id="commentMessage"
             name="commentMessage"
-            label="Message"
-            placeholder="Message"
+            label="Mesaj"
+            placeholder="Mesaj"
             color="success"
             onChange={handleChange}
             onBlur={handleBlur}

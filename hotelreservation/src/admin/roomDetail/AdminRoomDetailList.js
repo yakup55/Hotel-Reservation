@@ -25,6 +25,7 @@ import BuildIcon from "@mui/icons-material/Build";
 import EditIcon from "@mui/icons-material/Edit";
 import CreateIcon from "@mui/icons-material/Create";
 import { useEffect } from "react";
+import ImportContactsIcon from '@mui/icons-material/ImportContacts';
 export default function AdminRoomDetailList() {
   const actions = [{ icon: <CreateIcon></CreateIcon>, name: "Create" }];
   const dispacth = useDispatch();
@@ -102,11 +103,12 @@ export default function AdminRoomDetailList() {
                     </TableCell>
                     <TableCell>
                       <Button
+                      startIcon={<ImportContactsIcon></ImportContactsIcon>}
                         onClick={() => navigate(`/roomdetail/${detail.roomDetailId}`)}
                         variant="contained"
                         color="secondary"
                       >
-                        Detay
+                      
                       </Button>
                     </TableCell>
                     <TableCell>

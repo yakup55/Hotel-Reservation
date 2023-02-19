@@ -20,6 +20,7 @@ import BuildIcon from "@mui/icons-material/Build";
 
 import EditIcon from "@mui/icons-material/Edit";
 import CreateIcon from "@mui/icons-material/Create";
+import ImportContactsIcon from '@mui/icons-material/ImportContacts';
 import { useEffect } from "react";
 import {
   deleteHotelDetail,
@@ -148,13 +149,14 @@ export default function AdminHoteDetailList() {
                     </TableCell>
                     <TableCell>
                       <Button
+                      startIcon={<ImportContactsIcon></ImportContactsIcon>}
                         onClick={() =>
                           navigate(`/hotelonedetail/${detail.hotelDetailId}`)
                         }
                         variant="contained"
                         color="secondary"
                       >
-                        Detay
+              
                       </Button>
                     </TableCell>
                     <TableCell>

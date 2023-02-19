@@ -22,7 +22,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { deleteRoom, getRoomList } from "../../redux/actions/roomActions";
 import { useEffect } from "react";
-
+import ImportContactsIcon from '@mui/icons-material/ImportContacts';
 export default function AdminRoomList() {
   const dispacth = useDispatch();
   const navigate = useNavigate();
@@ -88,13 +88,14 @@ export default function AdminRoomList() {
                     </TableCell>
                     <TableCell>
                       <Button
+                      startIcon={<ImportContactsIcon></ImportContactsIcon>}
                         onClick={() =>
                           navigate(`/roomdetail/${room.roomId}`)
                         }
                         variant="contained"
                         color="secondary"
                       >
-                        Detay
+                      
                       </Button>
                     </TableCell>
                     <TableCell>

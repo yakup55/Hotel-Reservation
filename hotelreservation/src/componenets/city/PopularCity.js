@@ -13,6 +13,7 @@ export default function PopularCity() {
   }, []);
   return (
     <div style={{marginLeft:50,marginTop:30}}>
+      <Typography variant="h5" fontStyle={"italic"}>Çok  Tercih Edilen Şehirler</Typography>
         <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
       <Grid container spacing={1}>
         <Grid container item spacing={3}>

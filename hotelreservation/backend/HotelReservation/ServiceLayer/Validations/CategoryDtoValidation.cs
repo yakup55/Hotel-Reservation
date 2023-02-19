@@ -15,6 +15,5 @@ namespace ServiceLayer.Validations
             RuleFor(x => x.CategoryName).NotEmpty().WithMessage("{PropertyName} is required").NotNull().WithMessage("{propertyName} is required").MinimumLength(10).MaximumLength(50);
             RuleFor(x => x.CategoryImage).NotEmpty().WithMessage("{PropertyName} is required").NotNull().WithMessage("{propertyName} is required");
         }
-
     }
 }
