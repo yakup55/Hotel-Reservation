@@ -9,7 +9,7 @@ class CityService {
     return await axios.get(url).then((resp) => resp.data);
   }
   async popularList() {
-    const url = `${this.baseUrl}/GetCityList`;
+    const url = `${this.baseUrl}/PopularCity`;
     return await axios.get(url).then((resp) => resp.data);
   }
   async getByCity(id) {

@@ -20,7 +20,7 @@ export default function City({ city }) {
   return (
     <div>
       <Box
-        sx={{ mt: 2, mb: 10, flexGrow: 1, display: { xs: "none", md: "flex" } }}
+        sx={{ mt: 2, flexGrow: 1, display: { xs: "none", md: "flex" } }}
       >
         <Grid container spacing={1}>
           <Grid container item spacing={3}>
@@ -44,7 +44,7 @@ export default function City({ city }) {
           </Grid>
         </Grid>
       </Box>
-      <Box sx={{ mb: 20, flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+      <Box sx={{ml:5, mt:2,flexGrow: 1, display: { xs: "flex", md: "none" } }}>
         <Grid container spacing={1}>
           <Grid container item spacing={3}>
             <Grid item xs={6}>

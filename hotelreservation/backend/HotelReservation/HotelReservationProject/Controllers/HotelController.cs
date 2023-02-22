@@ -9,7 +9,6 @@ namespace HotelReservationProject.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
-    [ServiceFilter(typeof(NotFoundFilters<Hotel, HotelDto>))]
     public class HotelController : BaseController
     {
         private readonly IHotelService service;
@@ -29,6 +28,8 @@ namespace HotelReservationProject.Controllers
             return ActionResultInstance(await service.LastHotel());
         }
         [HttpGet("{id}")]
+        [ServiceFilter(typeof(NotFoundFilters<Hotel, HotelDto>))]
+
         public async Task<IActionResult> GetByHotel(int id)
         {
             return ActionResultInstance(await service.GetByIdAsync(id));
@@ -59,16 +60,21 @@ namespace HotelReservationProject.Controllers
             return ActionResultInstance(await service.HotelOneDetail(id));
         }
         [HttpPost]
+        [ServiceFilter(typeof(NotFoundFilters<Hotel, HotelDto>))]
+
         public async Task<IActionResult> AddHotel(HotelDto dto)
         {
             return ActionResultInstance(await service.AddAsync(dto));
         }
         [HttpPut("{id}")]
+        [ServiceFilter(typeof(NotFoundFilters<Hotel, HotelDto>))]
+
         public async Task<IActionResult> UpdateHotel(HotelDto dto,int id)
         {
             return ActionResultInstance(await service.UpdateAsync(dto,id));
         }
         [HttpDelete("{id}")]
+        [ServiceFilter(typeof(NotFoundFilters<Hotel, HotelDto>))]
         public async Task<IActionResult> DeleteHotel(int id)
         {
             return ActionResultInstance(await service.DeleteAsync(id));

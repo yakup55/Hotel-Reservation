@@ -3,7 +3,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { getHotelList } from "../../redux/actions/hotelActions";
+import { getHotelList, lastHotelList } from "../../redux/actions/hotelActions";
 import Hotel from "./Hotel";
 
 export default function HotelHome() {
@@ -12,13 +12,13 @@ export default function HotelHome() {
 
   const { hotels } = useSelector((state) => state.hotel);
 
-  useEffect(() => dispacth(getHotelList()), []);
+  useEffect(() => dispacth(lastHotelList()), []);
   return (
     <div>
       <Typography mt={5} mb={3} variant="h5" fontStyle={"italic"}>
         Bu Fiyata Kaçmaz
       </Typography>
-      <Box sx={{flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+      <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
         <Grid container spacing={1}>
           <Grid container item spacing={3}>
             {hotels.data?.map((hotel) => (
@@ -29,7 +29,7 @@ export default function HotelHome() {
           </Grid>
         </Grid>
       </Box>
-      <Box sx={{ ml:10, flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+      <Box sx={{ ml: 10, flexGrow: 1, display: { xs: "flex", md: "none" } }}>
         <Grid container spacing={1}>
           <Grid container item spacing={3}>
             {hotels.data?.map((hotel) => (
@@ -40,7 +40,6 @@ export default function HotelHome() {
           </Grid>
         </Grid>
       </Box>
-    
     </div>
   );
 }

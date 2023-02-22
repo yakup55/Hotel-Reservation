@@ -9,7 +9,6 @@ namespace HotelReservationProject.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
-    [ServiceFilter(typeof(NotFoundFilters<Comment, CommentDto>))]
     public class CommentController : BaseController
     {
         private readonly ICommentService service;

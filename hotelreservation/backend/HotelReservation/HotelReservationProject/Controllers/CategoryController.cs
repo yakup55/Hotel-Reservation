@@ -9,7 +9,6 @@ namespace HotelReservationProject.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
-    [ServiceFilter(typeof(NotFoundFilters<Category, CategoryDto>))]
     public class CategoryController : BaseController
     {
         //private readonly IGenericService<Category, CategoryDto> service;
