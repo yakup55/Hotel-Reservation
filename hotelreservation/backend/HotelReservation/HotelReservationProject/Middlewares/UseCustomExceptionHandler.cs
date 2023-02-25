@@ -28,6 +28,7 @@ namespace HotelReservationProject.Middlewares
                         {
                             dto = new ErrorDto(ex.Message);
                         }
+
                         var response = ResponseDto<NoDataDto>.Fail(dto,200);
                         await context.Response.WriteAsync(JsonSerializer.Serialize(response));
 

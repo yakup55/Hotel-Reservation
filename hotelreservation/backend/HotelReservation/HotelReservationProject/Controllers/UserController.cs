@@ -1,4 +1,5 @@
 ﻿using CoreLayer.DTOs;
+using CoreLayer.Models;
 using CoreLayer.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -45,21 +46,18 @@ namespace HotelReservationProject.Controllers
         { 
             return ActionResultInstance(await service.GetByEmailAsync(id)); 
         }
+       
         [HttpPost]
         public async Task<IActionResult> CreateUser(UserCreateDto user)
         {
             return ActionResultInstance(await service.CreateUserAsync(user));
         }
-        [HttpPost]
-        public async Task<IActionResult> CreateRole(string roleName)
-        {
-            return ActionResultInstance(await service.CreateRoleAync(roleName));
-        }
-        [HttpDelete("{id}")]
-        public async Task<IActionResult>DeleteRole(string id)
-        {
-            return ActionResultInstance(await service.DeleteUserRoles(id));
-        }
+
+        //[HttpPut("{id}")]
+        //public async Task<IActionResult>UserUpdate(AppUserDto user,string id)
+        //{
+        //    return ActionResultInstance(await service.UpdateUser(user,id));
+        //}
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteUser(string id)
         {

@@ -94,3 +94,4 @@ C:\Users\90544\Desktop\ReactProject\HotelProject\hotelreservation\backend\HotelR
 C:\Users\90544\Desktop\ReactProject\HotelProject\hotelreservation\backend\HotelReservation\HotelReservationProject\bin\Debug\net7.0\Mono.TextTemplating.dll
 C:\Users\90544\Desktop\ReactProject\HotelProject\hotelreservation\backend\HotelReservation\HotelReservationProject\bin\Debug\net7.0\System.CodeDom.dll
 C:\Users\90544\Desktop\ReactProject\HotelProject\hotelreservation\backend\HotelReservation\HotelReservationProject\obj\Debug\net7.0\HotelReservationProject.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\90544\Desktop\ReactProject\HotelProject\hotelreservation\backend\HotelReservation\HotelReservationProject\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

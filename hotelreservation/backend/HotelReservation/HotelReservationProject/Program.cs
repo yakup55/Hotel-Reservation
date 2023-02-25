@@ -22,6 +22,10 @@ using System.Reflection;
 using System.Text.Json.Serialization;
 using System.Text.Json;
 using Microsoft.AspNetCore.Mvc.Formatters;
+using SharedLibray.Configuration;
+using System.Security.Claims;
+using CoreLayer.Configuration;
+using HotelReservationProject.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -74,8 +78,13 @@ builder.Services.AddCors(options =>
     options.AddPolicy("CorsPolicy", builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 });
 
+builder.Services.Configure<CustomTokenOption>(builder.Configuration.GetSection("TokenOption"));
+builder.Services.Configure<List<Client>>(builder.Configuration.GetSection("Clients"));
 
-//sonradan ekledim HoteOneDetail
+var tokenOptions = builder.Configuration.GetSection("TokenOption").Get<CustomTokenOption>();
+builder.Services.AddCustomTokenAuth(tokenOptions, builder.Configuration);
+
+//sonradan ekledim HotelOneDetail
 builder.Services.AddControllers().AddJsonOptions(options =>
 {
     options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
@@ -90,10 +99,14 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+
+app.UseCustomException();
+app.UseHttpsRedirection();
 app.UseRouting();
 app.UseAuthentication();
 
-app.UseHttpsRedirection();
+
 app.UseCors("CorsPolicy");
 app.UseAuthorization();
 

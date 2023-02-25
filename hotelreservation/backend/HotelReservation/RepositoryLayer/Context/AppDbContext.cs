@@ -29,11 +29,15 @@ namespace RepositoryLayer.Context
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<Facility> Facilities { get; set; }
         public DbSet<City> Cities { get; set; }
+        public DbSet<UserRefreshToken> UserRefreshTokens { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.ApplyConfigurationsFromAssembly(GetType().Assembly);
             base.OnModelCreating(builder);
+
+            //UserRefreshToken da key yok onun icin ekledim
+            builder.Entity<UserRefreshToken>().HasNoKey();
         }
     }
 }

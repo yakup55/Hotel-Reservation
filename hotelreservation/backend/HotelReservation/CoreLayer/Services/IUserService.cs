@@ -10,14 +10,12 @@ using System.Threading.Tasks;
 
 namespace CoreLayer.Services
 {
-    public interface IUserService:IGenericService<AppUser,AppUserDto>
+    public interface IUserService:IGenericService<AppUser, AppUser>
     {
-        Task<ResponseDto<AppUserDto>> CreateUserAsync(UserCreateDto createDto);
+        Task<ResponseDto<AppUser>> CreateUserAsync(UserCreateDto createDto);
         Task<ResponseDto<AppUserDto>>GetByEmailAsync(string userMail);
-        Task<ResponseDto<NoDataDto>> CreateRoleAync(string roleName);
-        //Task<ResponseDto<NoDataDto>> UpdateUserRoles(string roleName,string id);
-        Task<ResponseDto<NoDataDto>> DeleteUserRoles(string id);
         Task<ResponseDto<NoDataDto>> DeleteUser(string id);
+        Task<ResponseDto<AppUserDto>> UpdateUser(AppUserDto user,string id);
 
     }
 }

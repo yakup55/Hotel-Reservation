@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using CoreLayer.DTOs;
 using CoreLayer.Models;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,7 +27,8 @@ namespace ServiceLayer.DtoMapper
             CreateMap<ContactDto, Contact>().ReverseMap();
             CreateMap<FaciltyDto,Facility>().ReverseMap();
             CreateMap<CityDto, City>().ReverseMap();
-            CreateMap<AppUserDto, AppUser>().ReverseMap();  
+            CreateMap<AppUser, AppUserDto>().ReverseMap();  
+            CreateMap<IdentityRole,IdentityRole>().ReverseMap();
         }
     }
 }

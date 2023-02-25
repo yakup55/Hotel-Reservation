@@ -16,19 +16,18 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ServiceLayer.Services
 {
-    public class UserService : GenericService<AppUser,AppUserDto>,IUserService
+    public class UserService : GenericService<AppUser, AppUser>, IUserService
     {
         private readonly UserManager<AppUser> userManager;
-        private readonly RoleManager<IdentityRole> roleManager;
         private readonly IUserRepository userRepository;
 
-        public UserService(IUnitOfWork unitOfWork, IGenericRepository<AppUser> repository, UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager) : base(unitOfWork, repository)
+        public UserService(IUnitOfWork unitOfWork, IGenericRepository<AppUser> repository, UserManager<AppUser> userManager, IUserRepository userRepository) : base(unitOfWork, repository)
         {
             this.userManager = userManager;
-            this.roleManager = roleManager;
+            this.userRepository = userRepository;
         }
 
-        public async Task<ResponseDto<AppUserDto>> CreateUserAsync(UserCreateDto createDto)
+        public async Task<ResponseDto<AppUser>> CreateUserAsync(UserCreateDto createDto)
         {
             var user = new AppUser()
             {
@@ -40,49 +39,21 @@ namespace ServiceLayer.Services
             if (!result.Succeeded)
             {
                 var errors = result.Errors.Select(x => x.Description).ToList();
-                return ResponseDto<AppUserDto>.Fail(new ErrorDto(errors), 400);
+                return ResponseDto<AppUser>.Fail(new ErrorDto(errors), 400);
             }
-            return ResponseDto<AppUserDto>.Success(ObjectMapper.Mapper.Map<AppUserDto>(user), 200);
+            return ResponseDto<AppUser>.Success(ObjectMapper.Mapper.Map<AppUser>(user), 200);
         }
 
         public async Task<ResponseDto<NoDataDto>> DeleteUser(string id)
         {
-           var user=await userManager.FindByIdAsync(id);
-            if (user==null)
+            var user = await userManager.FindByIdAsync(id);
+            if (user == null)
             {
                 ResponseDto<NoDataDto>.Fail("User Yok", 404);
             }
             await userManager.DeleteAsync(user);
             return ResponseDto<NoDataDto>.Success(200);
         }
-
-
-
-
-        public async Task<ResponseDto<NoDataDto>> CreateRoleAync(string roleName)
-        {
-            var result = await roleManager.CreateAsync(new IdentityRole()
-            {
-                Name = roleName
-            });
-            if (!result.Succeeded)
-            {
-                return ResponseDto<NoDataDto>.Fail("Hatalı", 400);
-            }
-            return ResponseDto<NoDataDto>.Success(200);
-        }
-
-        public async Task<ResponseDto<NoDataDto>> DeleteUserRoles(string id)
-        {
-            var roleDelete = await roleManager.FindByIdAsync(id);
-            if (roleDelete == null)
-            {
-                return ResponseDto<NoDataDto>.Fail("Role Yok", 404);
-            }
-            await roleManager.DeleteAsync(roleDelete);
-            return ResponseDto<NoDataDto>.Success(200);
-        }
-
         public async Task<ResponseDto<AppUserDto>> GetByEmailAsync(string userMail)
         {
             var user = await userManager.FindByEmailAsync(userMail);
@@ -93,9 +64,17 @@ namespace ServiceLayer.Services
             return ResponseDto<AppUserDto>.Success(ObjectMapper.Mapper.Map<AppUserDto>(user), 200);
         }
 
-        //        public async Task<ResponseDto<NoDataDto>> UpdateUserRoles(string roleName, string id)
-        //        {
-        //throw new NotImplementedException();
-        //        }
+        public async Task<ResponseDto<AppUserDto>> UpdateUser(AppUserDto user, string id)
+        {
+            var currentUser = await userManager.FindByIdAsync(id);
+            currentUser.Email = user.UserEmail;
+            currentUser.UserName = user.UserName;
+            currentUser.PhoneNumber = user.UserNumber;
+            await userManager.UpdateAsync(currentUser);
+            return ResponseDto<AppUserDto>.Success(200);
+
+
+        }
+
     }
 }

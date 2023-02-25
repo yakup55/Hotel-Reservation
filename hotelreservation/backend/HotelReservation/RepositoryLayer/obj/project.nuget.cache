@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Gm8hh6dN4pauLT39taznuCUnBTx2WqkUmshcTFUSUDBhizKW24Wje37NfrIA7TywITzahcjHdZ/VTsSKa9b7Pg==",
+  "dgSpecHash": "f27vPNE84WnpIokJ450iLL0OuVSi8datBM97cDWnqXj4qBaMl3YFxuk8Y1faG5rev8oZBdRywdUucoycFpO3rw==",
   "success": true,
   "projectFilePath": "C:\\Users\\90544\\Desktop\\ReactProject\\HotelProject\\hotelreservation\\backend\\HotelReservation\\RepositoryLayer\\RepositoryLayer.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,7 @@
     "C:\\Users\\90544\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\90544\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\90544\\.nuget\\packages\\microsoft.aspnetcore.authentication.core\\2.2.0\\microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",
+    "C:\\Users\\90544\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\7.0.3\\microsoft.aspnetcore.authentication.jwtbearer.7.0.3.nupkg.sha512",
     "C:\\Users\\90544\\.nuget\\packages\\microsoft.aspnetcore.authorization\\2.2.0\\microsoft.aspnetcore.authorization.2.2.0.nupkg.sha512",
     "C:\\Users\\90544\\.nuget\\packages\\microsoft.aspnetcore.authorization.policy\\2.2.0\\microsoft.aspnetcore.authorization.policy.2.2.0.nupkg.sha512",
     "C:\\Users\\90544\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\7.0.2\\microsoft.aspnetcore.cryptography.internal.7.0.2.nupkg.sha512",
