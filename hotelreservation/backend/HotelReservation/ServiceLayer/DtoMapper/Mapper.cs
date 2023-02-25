@@ -26,6 +26,7 @@ namespace ServiceLayer.DtoMapper
             CreateMap<ContactDto, Contact>().ReverseMap();
             CreateMap<FaciltyDto,Facility>().ReverseMap();
             CreateMap<CityDto, City>().ReverseMap();
+            CreateMap<AppUserDto, AppUser>().ReverseMap();  
         }
     }
 }
