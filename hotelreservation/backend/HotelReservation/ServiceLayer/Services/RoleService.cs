@@ -30,11 +30,11 @@ namespace ServiceLayer.Services
             await roleManager.DeleteAsync(role);
             return ResponseDto<NoDataDto>.Success(200);
         }
-        public async Task<ResponseDto<IdentityRole>> CreateRoleAync(string roleName)
+        public async Task<ResponseDto<IdentityRole>> CreateRoleAync(AppRole roleName)
         {
             var result = await roleManager.CreateAsync(new IdentityRole()
             {
-                Name = roleName
+                Name = roleName.RoleName
             });
             if (!result.Succeeded)
             {

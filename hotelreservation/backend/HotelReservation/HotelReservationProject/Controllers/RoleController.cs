@@ -27,7 +27,7 @@ namespace HotelReservationProject.Controllers
             return ActionResultInstance(await service.GetByRoleAsync(id));
         }
         [HttpPost]
-        public async Task<IActionResult> CreateRole(string roleName)
+        public async Task<IActionResult> CreateRole(AppRole roleName)
         {
             return ActionResultInstance(await service.CreateRoleAync(roleName));
         }

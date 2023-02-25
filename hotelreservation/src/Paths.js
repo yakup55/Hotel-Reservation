@@ -42,6 +42,12 @@ import AdminUpdateRoom from "./admin/room/AdminUpdateRoom";
 import AdminRoomDetailList from "./admin/roomDetail/AdminRoomDetailList";
 import AdminAddRoomDetail from "./admin/roomDetail/AdminAddRoomDetail";
 import AdminUpdateRoomDetail from "./admin/roomDetail/AdminUpdateRoomDetail";
+import AdminRoleList from "./admin/role/AdminRoleList";
+import AdminAddRole from "./admin/role/AdminAddRole";
+import AdminUpdateRole from "./admin/role/AdminUpdateRole";
+import AdminUserList from "./admin/user/AdminUserList";
+import AdminAddUser from "./admin/user/AdminAddUser";
+import AdminUpdateUser from "./admin/user/AdminUpdateUser";
 export default function Paths() {
   return (
     <Routes>
@@ -212,6 +218,32 @@ export default function Paths() {
       <Route
         path="/adminupdateroomdetail/:id"
         element={<AdminUpdateRoomDetail></AdminUpdateRoomDetail>}
+      ></Route>
+      {/*ADMİN ROLE*/}
+      <Route
+        path="/adminrolelist"
+        element={<AdminRoleList></AdminRoleList>}
+      ></Route>
+      <Route
+        path="/adminaddrole"
+        element={<AdminAddRole></AdminAddRole>}
+      ></Route>
+      <Route
+        path="/adminupdaterole/:id"
+        element={<AdminUpdateRole></AdminUpdateRole>}
+      ></Route>
+      {/*ADMİN USER*/}
+      <Route
+        path="/adminuserlist"
+        element={<AdminUserList></AdminUserList>}
+      ></Route>
+      <Route
+        path="/adminadduser"
+        element={<AdminAddUser></AdminAddUser>}
+      ></Route>
+      <Route
+        path="/adminupdateuser/:id"
+        element={<AdminUpdateUser></AdminUpdateUser>}
       ></Route>
       <Route path="*" element={<ErrorPage></ErrorPage>}></Route>
     </Routes>

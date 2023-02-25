@@ -144,6 +144,22 @@ export default function AdminHome() {
             </ListItemAvatar>
             <ListItemText primary="Facility" />
           </ListItem>
+          <ListItem onClick={() => navigate("/adminrolelist")}>
+            <ListItemAvatar>
+              <Avatar>
+                <ApartmentIcon></ApartmentIcon>
+              </Avatar>
+            </ListItemAvatar>
+            <ListItemText primary="Role" />
+          </ListItem>
+          <ListItem onClick={() => navigate("/adminuserlist")}>
+            <ListItemAvatar>
+              <Avatar>
+                <ApartmentIcon></ApartmentIcon>
+              </Avatar>
+            </ListItemAvatar>
+            <ListItemText primary="User" />
+          </ListItem>
         </List>
       </GridItem>
       {/* <GridItem colSpan={2} bg='papayawhip' />

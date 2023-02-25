@@ -11,7 +11,7 @@ namespace CoreLayer.Services
 {
     public interface IRoleService:IGenericService<IdentityRole, IdentityRole>
     {
-        Task<ResponseDto<IdentityRole>> CreateRoleAync(string roleName);
+        Task<ResponseDto<IdentityRole>> CreateRoleAync(AppRole roleName);
         Task<ResponseDto<NoDataDto>> DeleteRoles(string id);
         Task<ResponseDto<IdentityRole>> GetByRoleAsync(string id);
     }

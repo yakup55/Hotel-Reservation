@@ -13,6 +13,8 @@ import { appReducer } from "./appReducer";
 import contactReducer from "./contactReducer";
 import cityReducer from "./cityReducer";
 import facilityReducer from "./facilityReducer";
+import roleReducer from "./roleReducer";
+import userReducer from "./userReducer";
 const rootReducer = combineReducers({
   category: categoryReducer,
   about: aboutReducer,
@@ -28,5 +30,7 @@ const rootReducer = combineReducers({
   contact: contactReducer,
   city: cityReducer,
   facility: facilityReducer,
+  role: roleReducer,
+  user: userReducer,
 });
 export default rootReducer;
