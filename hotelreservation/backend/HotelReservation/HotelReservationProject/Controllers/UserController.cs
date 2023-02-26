@@ -52,6 +52,16 @@ namespace HotelReservationProject.Controllers
         {
             return ActionResultInstance(await service.CreateUserAsync(user));
         }
+        [HttpPost]
+        public async Task<IActionResult> ResetPasswordEmailSend(EmailDto email)
+        {
+            return ActionResultInstance(await service.ResetPasswordEmailSend(email));
+        }
+        [HttpPost]
+        public async Task<IActionResult> ResetPassword(PasswordResetDto resetDto)
+        {
+            return ActionResultInstance(await service.ResetPassword(resetDto));
+        }
 
         //[HttpPut("{id}")]
         //public async Task<IActionResult>UserUpdate(AppUserDto user,string id)

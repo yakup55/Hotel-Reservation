@@ -44,8 +44,8 @@ namespace ServiceLayer.Services
             new Claim(ClaimTypes.Name, appUser.UserName),
             new Claim(JwtRegisteredClaimNames.Email, appUser.Email),
             new Claim(JwtRegisteredClaimNames.Jti,Guid.NewGuid().ToString()),
-            new Claim("city",appUser.City),
-            new Claim("birthdate",appUser.BirthDate.ToString())
+            //new Claim("city",appUser.City),
+            //new Claim("birthdate",appUser.BirthDate.ToString())
             };
             userList.AddRange(audinces.Select(x => new Claim(JwtRegisteredClaimNames.Aud, x)));
             userList.AddRange(userRoles.Select(x => new Claim(ClaimTypes.Role, x)));
@@ -70,7 +70,7 @@ namespace ServiceLayer.Services
                 issuer: tokenOption.Issuer,
                 expires: accessTokenExpiration,
                 notBefore: DateTime.Now,
-             claims: GetClaims(user, tokenOption.Audinces).Result,
+             claims: GetClaims(user, tokenOption.Audience).Result,
              signingCredentials: credentials);
 
             var handler=new JwtSecurityTokenHandler();

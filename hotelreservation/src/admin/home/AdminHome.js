@@ -19,6 +19,8 @@ import { useNavigate } from "react-router-dom";
 import LocationCityIcon from "@mui/icons-material/LocationCity";
 import ContactSupportIcon from "@mui/icons-material/ContactSupport";
 import ApartmentIcon from "@mui/icons-material/Apartment";
+import PersonIcon from '@mui/icons-material/Person';
+import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 export default function AdminHome() {
   const navigate = useNavigate();
   return (
@@ -38,6 +40,22 @@ export default function AdminHome() {
         </div>
 
         <List sx={{ width: "100%", bgcolor: "background.paper" }}>
+        <ListItem onClick={() => navigate("/adminrolelist")}>
+            <ListItemAvatar>
+              <Avatar>
+                <AdminPanelSettingsIcon></AdminPanelSettingsIcon>
+              </Avatar>
+            </ListItemAvatar>
+            <ListItemText primary="Role" />
+          </ListItem>
+          <ListItem onClick={() => navigate("/adminuserlist")}>
+            <ListItemAvatar>
+              <Avatar>
+                <PersonIcon></PersonIcon>
+              </Avatar>
+            </ListItemAvatar>
+            <ListItemText primary="User" />
+          </ListItem>
           <ListItem onClick={() => navigate("/adminhotellist")}>
             <ListItemAvatar>
               <Avatar>
@@ -144,22 +162,7 @@ export default function AdminHome() {
             </ListItemAvatar>
             <ListItemText primary="Facility" />
           </ListItem>
-          <ListItem onClick={() => navigate("/adminrolelist")}>
-            <ListItemAvatar>
-              <Avatar>
-                <ApartmentIcon></ApartmentIcon>
-              </Avatar>
-            </ListItemAvatar>
-            <ListItemText primary="Role" />
-          </ListItem>
-          <ListItem onClick={() => navigate("/adminuserlist")}>
-            <ListItemAvatar>
-              <Avatar>
-                <ApartmentIcon></ApartmentIcon>
-              </Avatar>
-            </ListItemAvatar>
-            <ListItemText primary="User" />
-          </ListItem>
+          
         </List>
       </GridItem>
       {/* <GridItem colSpan={2} bg='papayawhip' />

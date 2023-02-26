@@ -10,6 +10,8 @@ namespace CoreLayer.Models
 {
     public class UserRefreshToken
     {
+        [Key]
+        public int Id { get; set; }
         public string userId { get; set; }
         public string Code { get; set; }
         public DateTime Expiration { get; set; }

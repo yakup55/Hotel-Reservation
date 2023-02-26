@@ -21,17 +21,19 @@ namespace ServiceLayer.Services
     {
         private readonly List<Client> clients;
         private readonly UserManager<AppUser > userManager;
+        private readonly SignInManager<AppUser> signInManager;
         private readonly ITokenService tokenService;
         private IUnitOfWork unitOfWork;
         private readonly IGenericRepository<UserRefreshToken> genericService;
 
-        public AuthenticationService(IOptions<List<Client>> clients, UserManager<AppUser> userManager, ITokenService tokenService, IUnitOfWork unitOfWork, IGenericRepository<UserRefreshToken> genericService)
+        public AuthenticationService(IOptions<List<Client>> clients, UserManager<AppUser> userManager, ITokenService tokenService, IUnitOfWork unitOfWork, IGenericRepository<UserRefreshToken> genericService, SignInManager<AppUser> signInManager)
         {
             this.clients = clients.Value;
             this.userManager = userManager;
             this.tokenService = tokenService;
             this.unitOfWork = unitOfWork;
             this.genericService = genericService;
+            this.signInManager = signInManager;
         }
 
         public async Task<ResponseDto<TokenDto>> CreateTokenAsync(UserLoginDto login)
@@ -50,7 +52,7 @@ namespace ServiceLayer.Services
                 return ResponseDto<TokenDto>.Fail("Email or password is wrong", 400);
             }
             var token = tokenService.CreateToken(user);
-            var userRefreshToken=genericService.Where(x=>x.userId==user.Id).SingleOrDefault();
+            var userRefreshToken=await genericService.Where(x=>x.userId==user.Id).SingleOrDefaultAsync();
             if (userRefreshToken == null)
             {
                 await genericService.AddAsync(new UserRefreshToken()
@@ -108,6 +110,13 @@ namespace ServiceLayer.Services
                 return ResponseDto<NoDataDto>.Fail("RefreshToken Not Found", 404);
             }
              genericService.DeleteAsync(existRefresToken);
+            return ResponseDto<NoDataDto>.Success(200);
+        }
+
+
+        public async Task<ResponseDto<NoDataDto>> LogOut()
+        {
+           await signInManager.SignOutAsync();
             return ResponseDto<NoDataDto>.Success(200);
         }
     }

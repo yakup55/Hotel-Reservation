@@ -37,7 +37,7 @@ namespace RepositoryLayer.Context
             base.OnModelCreating(builder);
 
             //UserRefreshToken da key yok onun icin ekledim
-            builder.Entity<UserRefreshToken>().HasNoKey();
+           // builder.Entity<UserRefreshToken>().HasNoKey();
         }
     }
 }

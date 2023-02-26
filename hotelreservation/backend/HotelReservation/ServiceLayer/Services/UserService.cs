@@ -1,8 +1,10 @@
-﻿using CoreLayer.DTOs;
+﻿using Azure.Core;
+using CoreLayer.DTOs;
 using CoreLayer.Models;
 using CoreLayer.Repositories;
 using CoreLayer.Services;
 using CoreLayer.UnitOfWork;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using ServiceLayer.DtoMapper;
 using SharedLibray.DTOs;
@@ -20,11 +22,15 @@ namespace ServiceLayer.Services
     {
         private readonly UserManager<AppUser> userManager;
         private readonly IUserRepository userRepository;
+        private readonly IEmailService emailService;
+        private readonly AppUser user1;
+        
 
-        public UserService(IUnitOfWork unitOfWork, IGenericRepository<AppUser> repository, UserManager<AppUser> userManager, IUserRepository userRepository) : base(unitOfWork, repository)
+        public UserService(IUnitOfWork unitOfWork, IGenericRepository<AppUser> repository, UserManager<AppUser> userManager, IUserRepository userRepository, IEmailService emailService) : base(unitOfWork, repository)
         {
             this.userManager = userManager;
             this.userRepository = userRepository;
+            this.emailService = emailService;
         }
 
         public async Task<ResponseDto<AppUser>> CreateUserAsync(UserCreateDto createDto)
@@ -62,6 +68,41 @@ namespace ServiceLayer.Services
                 return ResponseDto<AppUserDto>.Fail("User Yok", 404);
             }
             return ResponseDto<AppUserDto>.Success(ObjectMapper.Mapper.Map<AppUserDto>(user), 200);
+        }
+
+        public async Task<ResponseDto<NoDataDto>> ResetPassword( PasswordResetDto resetDto)
+        {
+            var token = "";
+
+            var hasUser=await userManager.FindByIdAsync(user1.Id);
+            if (hasUser == null)
+            {
+                return ResponseDto<NoDataDto>.Fail("Kullanıcı Yok", 404);
+            }
+            IdentityResult result=await userManager.ResetPasswordAsync(hasUser,token,resetDto.Password);
+            if (result.Succeeded)
+            {
+                return ResponseDto<NoDataDto>.Success(200);
+            }
+            else
+            {
+                return ResponseDto<NoDataDto>.Fail("Hatalı",400);
+            }
+        }
+
+        public async Task<ResponseDto<NoDataDto>> ResetPasswordEmailSend(EmailDto email)
+        {
+            var hasUser=await userManager.FindByEmailAsync(email.Email);
+            if (hasUser is null)
+            {
+                return ResponseDto<NoDataDto>.Fail("Bu Maile Ait Kullanıcı Yok", 404);
+            }
+            string passwordResetToken = await userManager.GeneratePasswordResetTokenAsync(hasUser);
+            var link = "http://localhost:3000/resetpassword";
+            var passwordResultLink =link  + new { userId = hasUser.Id, Token = passwordResetToken };
+          
+            await emailService.SendResetPasswordEmail(passwordResultLink, hasUser.Email);
+            return ResponseDto<NoDataDto>.Success(200);
         }
 
         public async Task<ResponseDto<AppUserDto>> UpdateUser(AppUserDto user, string id)

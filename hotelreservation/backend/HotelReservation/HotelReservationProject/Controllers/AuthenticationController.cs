@@ -15,7 +15,11 @@ namespace HotelReservationProject.Controllers
         {
             this.service = service;
         }
-
+        [HttpGet]
+        public async Task<IActionResult> LogOut()
+        {
+            return ActionResultInstance(await service.LogOut());
+        }
         [HttpPost]
         public async Task<IActionResult> CreateToken(UserLoginDto loginDto)
         {

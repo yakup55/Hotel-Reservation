@@ -3,9 +3,6 @@ using Autofac.Core;
 using Autofac.Extensions.DependencyInjection;
 using AutoMapper;
 using CoreLayer.Models;
-using CoreLayer.Repositories;
-using CoreLayer.Services;
-using CoreLayer.UnitOfWork;
 using FluentValidation.AspNetCore;
 using HotelReservationProject.Filters;
 using HotelReservationProject.Models;
@@ -26,6 +23,9 @@ using SharedLibray.Configuration;
 using System.Security.Claims;
 using CoreLayer.Configuration;
 using HotelReservationProject.Middlewares;
+using HotelReservationProject.CustomValidatior;
+using HotelReservationProject.Location;
+using SharedLibray.OptionModel;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -61,11 +61,31 @@ builder.Services.AddDbContext<AppDbContext>(x =>
     });
 });
 
+
+builder.Services.Configure<DataProtectionTokenProviderOptions>(opt =>
+{
+    opt.TokenLifespan = TimeSpan.FromHours(2);
+});
+
 builder.Services.AddIdentity<AppUser, IdentityRole>(opt =>
 {
+    //Sifre sartlari
     opt.User.RequireUniqueEmail = true;
     opt.Password.RequireNonAlphanumeric = false;
-}).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
+    opt.User.AllowedUserNameCharacters = "abcdefghijklmnoprstuvwxyz123456789_";
+    opt.Password.RequiredLength = 8;
+    opt.Password.RequireUppercase = true;
+    opt.Password.RequireLowercase = false;
+    opt.Password.RequireDigit = false;
+
+    //Kilit kismi
+    opt.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(3);
+    opt.Lockout.MaxFailedAccessAttempts = 3;
+}).AddPasswordValidator<PasswordValidatior>()
+.AddErrorDescriber<LocationIdentityErrorDescriber>()
+.AddUserValidator<UserValidatior>()
+.AddEntityFrameworkStores<AppDbContext>()
+.AddDefaultTokenProviders();
 
 
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
@@ -81,8 +101,7 @@ builder.Services.AddCors(options =>
 builder.Services.Configure<CustomTokenOption>(builder.Configuration.GetSection("TokenOption"));
 builder.Services.Configure<List<Client>>(builder.Configuration.GetSection("Clients"));
 
-var tokenOptions = builder.Configuration.GetSection("TokenOption").Get<CustomTokenOption>();
-builder.Services.AddCustomTokenAuth(tokenOptions, builder.Configuration);
+
 
 //sonradan ekledim HotelOneDetail
 builder.Services.AddControllers().AddJsonOptions(options =>
@@ -90,6 +109,11 @@ builder.Services.AddControllers().AddJsonOptions(options =>
     options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
     options.JsonSerializerOptions.WriteIndented = true;
 });
+
+var tokenOptions = builder.Configuration.GetSection("TokenOption").Get<CustomTokenOption>();
+builder.Services.AddCustomTokenAuth(tokenOptions, builder.Configuration);
+
+builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
 
 var app = builder.Build();
 

@@ -80,7 +80,7 @@ export default function AdminUserList() {
                     <TableCell>{user.userName}</TableCell>
 
                     <TableCell>{user.email}</TableCell>
-                    <TableCell>{user.city}</TableCell>
+                    <TableCell>{user.cityId}</TableCell>
                     <TableCell>{user.birthDate}</TableCell>
                     <TableCell>{user.phoneNumber}</TableCell>
                     <TableCell>

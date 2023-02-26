@@ -32,7 +32,7 @@ namespace HotelReservationProject.Models
             builder.RegisterAssemblyTypes(apiAssembly, repoAssembly, serviceAssembly)
              .Where(x => x.Name.EndsWith("Service")).AsImplementedInterfaces().InstancePerLifetimeScope();
 
-          
+         
 
             base.Load(builder);
         }

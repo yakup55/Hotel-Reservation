@@ -15,5 +15,6 @@ namespace CoreLayer.Models
         public string CityImage { get; set; }
 
         public ICollection<Hotel> Hotels { get; set; }
+        public ICollection<AppUser> AppUsers { get; set; }
     }
 }

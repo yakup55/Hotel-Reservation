@@ -48,6 +48,7 @@ import AdminUpdateRole from "./admin/role/AdminUpdateRole";
 import AdminUserList from "./admin/user/AdminUserList";
 import AdminAddUser from "./admin/user/AdminAddUser";
 import AdminUpdateUser from "./admin/user/AdminUpdateUser";
+import ResetUserPassword from "./componenets/user/ResetUserPassword";
 export default function Paths() {
   return (
     <Routes>
@@ -56,6 +57,9 @@ export default function Paths() {
       <Route path="/login" element={<Login></Login>}></Route>
       <Route path="/hotellist" element={<HotelList></HotelList>}></Route>
       <Route path="/roomdetail/:id" element={<RoomDetail></RoomDetail>}></Route>
+
+      <Route path="/resetpassword" element={<ResetUserPassword></ResetUserPassword>}></Route>
+
       <Route
         path="/hotelcitylist/:id"
         element={<CityHotelList></CityHotelList>}
