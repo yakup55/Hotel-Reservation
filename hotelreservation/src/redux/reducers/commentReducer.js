@@ -4,6 +4,7 @@ import {
   COMMENT_ACTIVE,
   COMMENT_HOTEL_LIST,
   COMMENT_PASSIVE,
+  COMMENT_USER_LIST,
   DELETE_COMMENT,
   GET_BY_COMMENT,
   GET_COMMENT_LIST,
@@ -65,6 +66,11 @@ export default function commentReducer(
         comments: payload,
       };
     case COMMENT_PASSIVE:
+      return {
+        ...state,
+        comments: payload,
+      };
+    case COMMENT_USER_LIST:
       return {
         ...state,
         comments: payload,

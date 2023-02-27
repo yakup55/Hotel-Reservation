@@ -13,7 +13,7 @@ namespace CoreLayer.Services
     public interface IUserService:IGenericService<AppUser, AppUser>
     {
         Task<ResponseDto<AppUser>> CreateUserAsync(UserCreateDto createDto);
-        Task<ResponseDto<AppUserDto>>GetByEmailAsync(string userMail);
+        Task<ResponseDto<AppUser>>GetByEmailAsync(string userMail);
         Task<ResponseDto<NoDataDto>> DeleteUser(string id);
         Task<ResponseDto<AppUserDto>> UpdateUser(AppUserDto user,string id);
         Task<ResponseDto<NoDataDto>> ResetPasswordEmailSend(EmailDto email);

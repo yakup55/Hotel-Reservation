@@ -13,6 +13,7 @@ namespace CoreLayer.Models
        
         public DateTime?  BirthDate { get; set; }
         public string? Image { get; set; }
+        public bool Status { get; set; }
 
         public int? CityId { get; set; }
         public City? City { get; set; }

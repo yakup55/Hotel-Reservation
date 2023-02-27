@@ -16,7 +16,9 @@ import LuggageIcon from "@mui/icons-material/Luggage";
 import LoginIcon from "@mui/icons-material/Login";
 import HowToRegIcon from "@mui/icons-material/HowToReg";
 import { useNavigate } from "react-router-dom";
-
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getByUserMail, getUserList } from "../../redux/actions/userActions";
 const pages = [
   {
     id: 1,
@@ -25,7 +27,19 @@ const pages = [
   },
 ];
 
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+// const settings = ["Profile", "Account", "Dashboard", "Logout"];
+const settings = [
+  {
+    id: 1,
+    name: "Profile",
+    url: "/user",
+  },
+  {
+    id:2,
+    name:"Log Out",
+    url:""
+  }
+];
 const darkTheme = createTheme({
   palette: {
     mode: "dark",
@@ -50,10 +64,19 @@ function NavBar() {
     navigate(url);
   };
 
-  const handleCloseUserMenu = () => {
+  const handleCloseUserMenu = (url) => {
     setAnchorElUser(null);
+    navigate(url);
   };
+
+  const { users } = useSelector((state) => state.user);
+  console.log(users);
+
   const navigate = useNavigate();
+  const dispacth = useDispatch();
+  useEffect(() => {
+    dispacth(getUserList());
+  }, []);
   return (
     <ThemeProvider theme={darkTheme}>
       <AppBar position="static">
@@ -148,62 +171,92 @@ function NavBar() {
               ))}
             </Box>
             {/* Button Kısımları */}
-            <Button
-              onClick={() => navigate("/register")}
-              startIcon={<HowToRegIcon></HowToRegIcon>}
-              variant="contained"
-              color="warning"
-            >
-              Register
-            </Button>
-            <Button
-              onClick={() => navigate("/login")}
-              startIcon={<LoginIcon></LoginIcon>}
-              style={{ marginLeft: 10, marginRight: 10 }}
-              variant="contained"
-              color="warning"
-            >
-              Login
-            </Button>
+            {/* {users.data?.status === false && ( */}
+              <>
+                <Button
+                  onClick={() => navigate("/register")}
+                  startIcon={<HowToRegIcon></HowToRegIcon>}
+                  variant="contained"
+                  color="warning"
+                >
+                  Register
+                </Button>
+                <Button
+                  onClick={() => navigate("/login")}
+                  startIcon={<LoginIcon></LoginIcon>}
+                  style={{ marginLeft: 10, marginRight: 10 }}
+                  variant="contained"
+                  color="warning"
+                >
+                  Login
+                </Button>
+              </>
+            {/* )} */}
+            {/* {users.data?.status === true && ( */}
+              {/* <>
+                <Button
+                  onClick={() => navigate("/register")}
+                  startIcon={<HowToRegIcon></HowToRegIcon>}
+                  variant="contained"
+                  color="warning"
+                >
+                  Register1
+                </Button>
+                <Button
+                  onClick={() => navigate("/login")}
+                  startIcon={<LoginIcon></LoginIcon>}
+                  style={{ marginLeft: 10, marginRight: 10 }}
+                  variant="contained"
+                  color="warning"
+                >
+                  Login1
+                </Button>
+              </> */}
+            {/* )} */}
+            {/* {users.data?.status === true && ( */}
+              <Box sx={{ flexGrow: 0 }}>
+                <Tooltip title="Open settings">
+                  <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                    <Avatar
+                      style={{ backgroundColor: "white" }}
+                      alt=""
+                      src="/static/images/avatar/2.jpg"
+                    />
+                  </IconButton>
+                </Tooltip>
 
-            <Box sx={{ flexGrow: 0 }}>
-              <Tooltip title="Open settings">
-                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                  <Avatar
-                    style={{ backgroundColor: "white" }}
-                    alt=""
-                    src="/static/images/avatar/2.jpg"
-                  />
-                </IconButton>
-              </Tooltip>
-              <Menu
-                sx={{ mt: "45px" }}
-                id="menu-appbar"
-                anchorEl={anchorElUser}
-                anchorOrigin={{
-                  vertical: "top",
-                  horizontal: "right",
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: "top",
-                  horizontal: "right",
-                }}
-                open={Boolean(anchorElUser)}
-                onClose={handleCloseUserMenu}
-              >
-                {settings.map((setting) => (
-                  <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                    <Button
-                      variant="contained"
-                      style={{ backgroundColor: "black", width: 150 }}
+                <Menu
+                  sx={{ mt: "45px" }}
+                  id="menu-appbar"
+                  anchorEl={anchorElUser}
+                  anchorOrigin={{
+                    vertical: "top",
+                    horizontal: "right",
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: "top",
+                    horizontal: "right",
+                  }}
+                  open={Boolean(anchorElUser)}
+                  onClose={handleCloseUserMenu}
+                >
+                  {settings.map((setting) => (
+                    <MenuItem
+                      key={setting.id}
+                      onClick={() => handleCloseUserMenu(setting.url)}
                     >
-                      {setting}
-                    </Button>
-                  </MenuItem>
-                ))}
-              </Menu>
-            </Box>
+                      <Button
+                        variant="contained"
+                        style={{ backgroundColor: "black", width: 150 }}
+                      >
+                        {setting.name}
+                      </Button>
+                    </MenuItem>
+                  ))}
+                </Menu>
+              </Box>
+            {/* )} */}
           </Toolbar>
         </Container>
       </AppBar>

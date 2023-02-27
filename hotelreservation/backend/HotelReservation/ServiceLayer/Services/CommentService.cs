@@ -26,6 +26,11 @@ namespace ServiceLayer.Services
             return ResponseDto<List<Comment>>.Success(await commentRepository.CommentHotelList(id), 200);
         }
 
+        public async Task<ResponseDto<List<Comment>>> CommentUserList(string id)
+        {
+            return ResponseDto<List<Comment>>.Success(await commentRepository.CommentUserList(id), 200);
+        }
+
         public async Task<ResponseDto<List<Comment>>> PopularComment(int id)
         {
            return ResponseDto<List<Comment>>.Success(await commentRepository.PopularComment(id), 200);

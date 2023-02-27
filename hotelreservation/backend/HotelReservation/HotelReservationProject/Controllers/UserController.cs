@@ -41,10 +41,10 @@ namespace HotelReservationProject.Controllers
         {
             return ActionResultInstance(await service.GetAllAsync());
         }
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetByUserEmail(string id)
+        [HttpGet("{email}")]
+        public async Task<IActionResult> GetByUserEmail(string email)
         { 
-            return ActionResultInstance(await service.GetByEmailAsync(id)); 
+            return ActionResultInstance(await service.GetByEmailAsync(email)); 
         }
        
         [HttpPost]

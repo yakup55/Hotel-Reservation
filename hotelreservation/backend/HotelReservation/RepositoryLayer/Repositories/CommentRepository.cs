@@ -23,6 +23,11 @@ namespace RepositoryLayer.Repositories
             return context.Comments.Include(x=>x.Hotel).Include(x=>x.Degre).Where(x=>x.HotelId== id && x.CommentStatus == true).ToListAsync();
         }
 
+        public Task<List<Comment>> CommentUserList(string id)
+        {
+         return context.Comments.Include(x=>x.Hotel).Include(x=>x.Degre).Where(x=>x.UserId==id).ToListAsync();
+        }
+
         public Task<List<Comment>> PopularComment(int id)
         {
             return context.Comments.Include(x=>x.Degre).Where(x=>x.Degre.DegreValue>=9 && x.HotelId== id &&x.CommentStatus==true).Take(3).ToListAsync();

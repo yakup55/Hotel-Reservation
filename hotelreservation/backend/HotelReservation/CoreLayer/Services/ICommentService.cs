@@ -12,6 +12,7 @@ namespace CoreLayer.Services
     public interface ICommentService:IGenericService<Comment,CommentDto>
     {
         Task<ResponseDto<List<Comment>>> CommentHotelList(int id);
+        Task<ResponseDto<List<Comment>>> CommentUserList(string id);
         Task<ResponseDto<List<Comment>>> PopularComment(int id);
     }
 }

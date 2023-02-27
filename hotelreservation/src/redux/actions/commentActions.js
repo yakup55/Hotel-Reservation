@@ -1,3 +1,4 @@
+import { Exposure } from "@mui/icons-material";
 import CommentService from "../services/commentService";
 export const GET_COMMENT_LIST = "GET_COMMENT_LIST";
 export const GET_BY_COMMENT = "GET_BY_COMMENT";
@@ -8,7 +9,7 @@ export const COMMENT_HOTEL_LIST = "COMMENT_HOTEL_LIST";
 export const POPULAR_COMMENT_HOTEL = "POPULAR_COMMENT_HOTEL";
 export const COMMENT_ACTIVE = "COMMENT_ACTIVE";
 export const COMMENT_PASSIVE = "COMMENT_PASSIVE";
-
+export const COMMENT_USER_LIST = "COMMENT_USER_LIST";
 const commentService = new CommentService();
 
 export function getCommentList() {
@@ -73,5 +74,12 @@ export function commentPassive(id) {
     commentService
       .commentPassive(id)
       .then((resp) => dispacth({ type: COMMENT_PASSIVE, payload: resp }));
+  };
+}
+export function commentUserList(id) {
+  return function (dispacth) {
+    commentService
+      .commentUserList(id)
+      .then((resp) => dispacth({ type: COMMENT_USER_LIST, payload: resp }));
   };
 }

@@ -24,13 +24,12 @@ namespace ServiceLayer.Services
         private readonly IUserRepository userRepository;
         private readonly IEmailService emailService;
         private readonly AppUser user1;
-        
 
-        public UserService(IUnitOfWork unitOfWork, IGenericRepository<AppUser> repository, UserManager<AppUser> userManager, IUserRepository userRepository, IEmailService emailService) : base(unitOfWork, repository)
+        public UserService(IUnitOfWork unitOfWork, IGenericRepository<AppUser> repository, UserManager<AppUser> userManager, IEmailService emailService, IUserRepository userRepository) : base(unitOfWork, repository)
         {
             this.userManager = userManager;
-            this.userRepository = userRepository;
             this.emailService = emailService;
+            this.userRepository = userRepository;
         }
 
         public async Task<ResponseDto<AppUser>> CreateUserAsync(UserCreateDto createDto)
@@ -60,14 +59,14 @@ namespace ServiceLayer.Services
             await userManager.DeleteAsync(user);
             return ResponseDto<NoDataDto>.Success(200);
         }
-        public async Task<ResponseDto<AppUserDto>> GetByEmailAsync(string userMail)
+        public async Task<ResponseDto<AppUser>> GetByEmailAsync(string userMail)
         {
             var user = await userManager.FindByEmailAsync(userMail);
             if (user == null)
             {
-                return ResponseDto<AppUserDto>.Fail("User Yok", 404);
+                return ResponseDto<AppUser>.Fail("User Yok", 404);
             }
-            return ResponseDto<AppUserDto>.Success(ObjectMapper.Mapper.Map<AppUserDto>(user), 200);
+            return ResponseDto<AppUser>.Success(ObjectMapper.Mapper.Map<AppUser>(user), 200);
         }
 
         public async Task<ResponseDto<NoDataDto>> ResetPassword( PasswordResetDto resetDto)

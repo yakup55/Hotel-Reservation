@@ -34,6 +34,11 @@ namespace HotelReservationProject.Controllers
             return ActionResultInstance(await service.CommentHotelList(id));
         }
         [HttpGet("{id}")]
+        public async Task<IActionResult> CommentUserList(string id)
+        {
+            return ActionResultInstance(await service.CommentUserList(id));
+        }
+        [HttpGet("{id}")]
         public async Task<IActionResult> PopularCommentHotel(int id)
         {
             return ActionResultInstance(await service.PopularComment(id));

@@ -11,5 +11,6 @@ namespace CoreLayer.Repositories
     {
         Task<List<Comment>> CommentHotelList(int id);
         Task<List<Comment>> PopularComment(int id);
+        Task<List<Comment>> CommentUserList(string id);
     }
 }
