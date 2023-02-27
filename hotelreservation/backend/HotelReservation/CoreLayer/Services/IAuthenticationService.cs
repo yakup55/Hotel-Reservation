@@ -14,6 +14,6 @@ namespace CoreLayer.Services
         Task<ResponseDto<TokenDto>> CreateTokenByRefreshToken(string refreshToken);
         Task<ResponseDto<NoDataDto>> RevokeRefreshToken(string refreshToken);
         ResponseDto<ClientTokenDto> CreateTokenByClient(ClientLoginDto clientLoginDto);
-        Task<ResponseDto<NoDataDto>> LogOut();
+        Task<ResponseDto<NoDataDto>> LogOut(string id);
     }
 }

@@ -19,6 +19,8 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getByUserMail, getUserList } from "../../redux/actions/userActions";
+import { logOut } from "../../redux/actions/authenticationActions";
+import { openSnacbar } from "../../redux/actions/appActions";
 const pages = [
   {
     id: 1,
@@ -34,11 +36,6 @@ const settings = [
     name: "Profile",
     url: "/user",
   },
-  {
-    id:2,
-    name:"Log Out",
-    url:""
-  }
 ];
 const darkTheme = createTheme({
   palette: {
@@ -69,13 +66,22 @@ function NavBar() {
     navigate(url);
   };
 
-  const { users } = useSelector((state) => state.user);
-  console.log(users);
+  const {  user } = useSelector((state) => state.user);
 
   const navigate = useNavigate();
   const dispacth = useDispatch();
+  const out = (id) => {
+    dispacth(logOut(id));
+    dispacth(
+      openSnacbar({
+        message: "Çıkış Başarılı",
+        severity: "success",
+      })
+    );
+    navigate("/");
+  };
   useEffect(() => {
-    dispacth(getUserList());
+    dispacth(getByUserMail("yakup.0950@gmail.com"));
   }, []);
   return (
     <ThemeProvider theme={darkTheme}>
@@ -171,7 +177,7 @@ function NavBar() {
               ))}
             </Box>
             {/* Button Kısımları */}
-            {/* {users.data?.status === false && ( */}
+            {user.data?.status === false && (
               <>
                 <Button
                   onClick={() => navigate("/register")}
@@ -191,29 +197,9 @@ function NavBar() {
                   Login
                 </Button>
               </>
-            {/* )} */}
-            {/* {users.data?.status === true && ( */}
-              {/* <>
-                <Button
-                  onClick={() => navigate("/register")}
-                  startIcon={<HowToRegIcon></HowToRegIcon>}
-                  variant="contained"
-                  color="warning"
-                >
-                  Register1
-                </Button>
-                <Button
-                  onClick={() => navigate("/login")}
-                  startIcon={<LoginIcon></LoginIcon>}
-                  style={{ marginLeft: 10, marginRight: 10 }}
-                  variant="contained"
-                  color="warning"
-                >
-                  Login1
-                </Button>
-              </> */}
-            {/* )} */}
-            {/* {users.data?.status === true && ( */}
+            )}
+
+{user.data?.status === true && (
               <Box sx={{ flexGrow: 0 }}>
                 <Tooltip title="Open settings">
                   <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -254,9 +240,20 @@ function NavBar() {
                       </Button>
                     </MenuItem>
                   ))}
+                  <Button
+                    onClick={() => out(user.data?.id)}
+                    style={{
+                      marginLeft: 14,
+                      backgroundColor: "black",
+                      width: 150,
+                    }}
+                    variant="contained"
+                  >
+                    Log Out
+                  </Button>
                 </Menu>
               </Box>
-            {/* )} */}
+            )}
           </Toolbar>
         </Container>
       </AppBar>

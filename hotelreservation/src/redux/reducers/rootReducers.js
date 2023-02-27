@@ -15,6 +15,7 @@ import cityReducer from "./cityReducer";
 import facilityReducer from "./facilityReducer";
 import roleReducer from "./roleReducer";
 import userReducer from "./userReducer";
+import authenticationReducer from "./authenticationReducer";
 const rootReducer = combineReducers({
   category: categoryReducer,
   about: aboutReducer,
@@ -32,5 +33,6 @@ const rootReducer = combineReducers({
   facility: facilityReducer,
   role: roleReducer,
   user: userReducer,
+  authentication: authenticationReducer,
 });
 export default rootReducer;

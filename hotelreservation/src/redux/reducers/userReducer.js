@@ -4,6 +4,7 @@ import {
   DELETE_USER,
   GET_BY_USER_MAIL,
   GET_USER_LIST,
+  RESET_PASSWORD_EMAIL_SEND,
   UPDATE_USER,
 } from "../../redux/actions/userActions";
 const initialvales = {
@@ -38,7 +39,11 @@ export default function userReducer(state = initialvales, { type, payload }) {
         ...state,
         users: [...state.users.filter((x) => x.id !== payload.id, payload)],
       };
-
+    case RESET_PASSWORD_EMAIL_SEND:
+      return {
+        ...state,
+        users: [...state.users,payload],
+      };
     default:
       return {
         ...state,

@@ -43,13 +43,17 @@ namespace ServiceLayer.Services
                 throw new ArgumentNullException(nameof(login));
             }
             var user = await userManager.FindByEmailAsync(login.UserMail);
-            if (user == null)
+            user.Status = true;
+
+            var result = await signInManager.CheckPasswordSignInAsync(user,login.UserPassword,true);
+            if (result.IsLockedOut)
             {
-                return ResponseDto<TokenDto>.Fail("Email or password is wrong", 400);
+                return ResponseDto<TokenDto>.Fail("3 dakika Giriş Yapamazsınız", 400);
             }
-            if (!await userManager.CheckPasswordAsync(user,login.UserPassword))
+            if (!result.Succeeded)
             {
-                return ResponseDto<TokenDto>.Fail("Email or password is wrong", 400);
+                return ResponseDto<TokenDto>.Fail($"Başarısız giriş sayısı={await userManager.GetAccessFailedCountAsync(user)}", 400);
+              
             }
             var token = tokenService.CreateToken(user);
             var userRefreshToken=await genericService.Where(x=>x.userId==user.Id).SingleOrDefaultAsync();
@@ -114,8 +118,11 @@ namespace ServiceLayer.Services
         }
 
 
-        public async Task<ResponseDto<NoDataDto>> LogOut()
+        public async Task<ResponseDto<NoDataDto>> LogOut(string id)
         {
+            var hasUser=await userManager.FindByIdAsync(id);
+            hasUser.Status = false;
+            await userManager.UpdateAsync(hasUser);
            await signInManager.SignOutAsync();
             return ResponseDto<NoDataDto>.Success(200);
         }

@@ -4,6 +4,7 @@ export const GET_BY_USER_MAIL = "GET_BY_USER_MAIL";
 export const ADD_USER = "ADD_USER";
 export const DELETE_USER = "DELETE_USER";
 export const UPDATE_USER = "UPDATE_USER";
+export const RESET_PASSWORD_EMAIL_SEND = "RESET_PASSWORD_EMAIL_SEND";
 
 const service = new UserService();
 
@@ -41,4 +42,9 @@ export function deleteUser(id) {
       .deleteUser(id)
       .then((resp) => dispacth({ type: DELETE_USER, payload: id }));
   };
+}
+export function resetPasswordEmailSend(email){
+  return function(dispacth){
+    service.resetPasswordEmailSend(email).then((resp)=>resp.data)
+  }
 }

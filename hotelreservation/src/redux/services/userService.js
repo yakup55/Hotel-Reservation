@@ -24,5 +24,9 @@ class UserService {
     const url = `${this.baseUrl}/UpdateUser/${id}`;
     return await axios.put(url, user).then((resp) => resp.data);
   }
+  async resetPasswordEmailSend(email) {
+    const url = `${this.baseUrl}/ResetPasswordEmailSend`;
+    return await axios.post(url,email).then((resp) => resp.data);
+  }
 }
 export default UserService;

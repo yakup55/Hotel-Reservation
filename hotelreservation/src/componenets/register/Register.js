@@ -1,5 +1,6 @@
 import { Box } from "@chakra-ui/react";
 import {
+  Alert,
   Button,
   Container,
   FormControl,
@@ -68,8 +69,8 @@ export default function Register() {
           <TextField
             id="userName"
             name="userName"
-            label="User Name"
-            placeholder="User Name"
+            label="Kullanıcı Adınız"
+            placeholder="Kullanıcı Adınız"
             color="success"
             fullWidth
             onChange={handleChange}
@@ -82,8 +83,8 @@ export default function Register() {
           <TextField
             id="userMail"
             name="userMail"
-            label="Email Adress "
-            placeholder="Email Adress"
+            label="Email Adresiniz "
+            placeholder="Email Adresiniz"
             color="success"
             fullWidth
             onChange={handleChange}
@@ -96,8 +97,8 @@ export default function Register() {
           <TextField
             id="userNumber"
             name="userNumber"
-            label="Phone Number"
-            placeholder="Phone Number"
+            label="Telefon Numaranız"
+            placeholder="Telefon Numaranız"
             type="tel"
             color="success"
             fullWidth
@@ -110,7 +111,7 @@ export default function Register() {
           ></TextField>
           <FormControl color="success" sx={{ m: 1 }} variant="outlined">
             <InputLabel htmlFor="outlined-adornment-password">
-              Password
+              Şifreniz
             </InputLabel>
             <OutlinedInput
               id="userPasword"
@@ -142,6 +143,10 @@ export default function Register() {
           <Button type="submit" variant="contained" color="secondary">
             Register
           </Button>
+          <Alert severity="info">
+            Şifre Kuralları şifrenizde kullanıcı adınız olmamalı,ardışık sayı
+            içermemeli!
+          </Alert>
         </Stack>
       </form>
     </Container>

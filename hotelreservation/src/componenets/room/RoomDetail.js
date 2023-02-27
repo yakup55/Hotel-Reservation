@@ -43,7 +43,6 @@ export default function RoomDetail() {
           src={`${room.data?.roomImage}`}
         ></img>
         <PopularCommentList></PopularCommentList>
-        <Questions></Questions>
         <HotelFacility></HotelFacility>
         <Contact></Contact>
       </GridItem>

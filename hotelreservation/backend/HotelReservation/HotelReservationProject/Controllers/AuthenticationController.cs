@@ -15,14 +15,15 @@ namespace HotelReservationProject.Controllers
         {
             this.service = service;
         }
-        [HttpGet]
-        public async Task<IActionResult> LogOut()
+        [HttpGet("{id}")]
+        public async Task<IActionResult> LogOut(string id)
         {
-            return ActionResultInstance(await service.LogOut());
+            return ActionResultInstance(await service.LogOut(id));
         }
         [HttpPost]
         public async Task<IActionResult> CreateToken(UserLoginDto loginDto)
         {
+            
             return ActionResultInstance(await service.CreateTokenAsync(loginDto));
         }
         [HttpPost]

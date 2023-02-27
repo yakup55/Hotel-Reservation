@@ -29,17 +29,21 @@ export default function User() {
   const email = "yakup.0950@gmail.com";
   useEffect(() => {
     dispacth(getByUserMail(email));
-    dispacth(commentUserList("88e03bfe-b6e9-4460-a2ac-a8c2392445c6"));
+    dispacth(commentUserList(user.data?.id));
   }, []);
-  console.log(comments.data);
+  
+  console.log(user.data?.email);
   return (
+   
     <Grid
       h="200px"
       templateRows="repeat(2, 1fr)"
       templateColumns="repeat(5, 1fr)"
       gap={4}
     >
+          {user.data?.status===true &&(
       <GridItem rowSpan={2} colSpan={1}>
+  
         <div
           style={{
             margin: "auto",
@@ -60,14 +64,26 @@ export default function User() {
         <br></br>
         <Typography>{user.data?.cityId} City Name Gelicek</Typography>
       </GridItem>
+    )}
+
+ {user.data?.status===false&&(
+  <div>
+    <Heading>Lütfen Giriş Yapın Yada Kayıt Olun</Heading>
+  </div>
+   
+  )}
+
+    {user.data?.status===true &&(
       <GridItem colSpan={4}>
-        <Heading>Degerlendirmelerim</Heading>
+        <Heading>Reservasyonlarım</Heading>
+        <Heading>Değerlendirmelerim</Heading>
         <Container sx={{ mt: 2 }}>
           <TableContainer>
             <TableBody>
               <Table>
                 <TableRow sx={{ backgroundColor: "black" }}>
                   <TableCell sx={{ color: "white" }}>Otel Adı</TableCell>
+                  <TableCell sx={{ color: "white" }}>Otel Resmi</TableCell>
                   <TableCell sx={{ color: "white" }}>Konu</TableCell>
                   <TableCell sx={{ color: "white" }}>Mesaj</TableCell>
                   <TableCell sx={{ color: "white" }}>Tarih</TableCell>
@@ -77,6 +93,7 @@ export default function User() {
                 {comments.data?.map((comment) => (
                   <TableRow>
                     <TableCell>{comment.hotel?.hotelName}</TableCell>
+                    <TableCell><img style={{width:200,height:110}} src={`${comment.hotel?.hotelImage}`}></img></TableCell>
                     <TableCell>{comment.commentSubject}</TableCell>
                     <TableCell>{comment.commentMessage}</TableCell>
                     <TableCell>{comment.commentDate}</TableCell>
@@ -100,6 +117,9 @@ export default function User() {
           </TableContainer>
         </Container>
       </GridItem>
+       )}
+       
+
     </Grid>
   );
 }

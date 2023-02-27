@@ -50,6 +50,7 @@ import AdminAddUser from "./admin/user/AdminAddUser";
 import AdminUpdateUser from "./admin/user/AdminUpdateUser";
 import ResetUserPassword from "./componenets/user/ResetUserPassword";
 import User from "./componenets/user/User"
+import ResetEmailSend from "./componenets/user/ResetEmailSend";
 export default function Paths() {
   return (
     <Routes>
@@ -59,6 +60,7 @@ export default function Paths() {
       <Route path="/hotellist" element={<HotelList></HotelList>}></Route>
       <Route path="/roomdetail/:id" element={<RoomDetail></RoomDetail>}></Route>
 
+      <Route path="/resetemailsend" element={<ResetEmailSend></ResetEmailSend>}></Route>
       <Route path="/resetpassword" element={<ResetUserPassword></ResetUserPassword>}></Route>
       <Route path="/user" element={<User></User>}></Route>
 

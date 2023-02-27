@@ -16,26 +16,7 @@ namespace HotelReservationProject.Controllers
         {
             this.service = service;
         }
-        //[HttpPost]
-        //public async Task <IActionResult> CreateUser(UserCreateDto createDto)
-        //{
-        //    return ActionResultInstance(await service.CreateUserAsync(createDto));
-        //}
-        //[HttpPost("{roleName}")]
-        //public async Task<IActionResult> CreateRole(string roleName)
-        //{
-        //    return ActionResultInstance(await service.CreateUserRoles(roleName));
-        //}
-        //[HttpGet("{userMail}")]
-        //public async Task<IActionResult> GetUser(string userMail)
-        //{
-        //    return ActionResultInstance(await service.GetByEmailAsync(userMail));
-        //}
-        //[HttpDelete("{id}")]
-        //public async Task<IActionResult> RoleDelete(string id)
-        //{
-        //    return ActionResultInstance(await service.DeleteUserRoles(id));
-        //}
+
         [HttpGet]
         public async Task<IActionResult> GetUserList()
         {
