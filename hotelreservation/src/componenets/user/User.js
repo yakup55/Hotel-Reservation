@@ -21,6 +21,7 @@ import { commentUserList } from "../../redux/actions/commentActions";
 import { getByUserMail } from "../../redux/actions/userActions";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import CancelIcon from "@mui/icons-material/Cancel";
+import UserPasswordUpdate from "./UserPasswordUpdate";
 export default function User() {
   const navigate = useNavigate();
   const dispacth = useDispatch();

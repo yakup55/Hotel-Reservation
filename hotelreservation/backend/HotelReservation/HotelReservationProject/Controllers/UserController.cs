@@ -1,7 +1,5 @@
 ﻿using CoreLayer.DTOs;
-using CoreLayer.Models;
 using CoreLayer.Services;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HotelReservationProject.Controllers
@@ -42,6 +40,11 @@ namespace HotelReservationProject.Controllers
         public async Task<IActionResult> ResetPassword(PasswordResetDto resetDto)
         {
             return ActionResultInstance(await service.ResetPassword(resetDto));
+        }
+        [HttpPost]
+        public async Task<IActionResult> UserPasswordUpdate(UserPasswordUpdateDto update)
+        {
+            return ActionResultInstance(await service.UserPasswordUpdate(update));
         }
 
         //[HttpPut("{id}")]

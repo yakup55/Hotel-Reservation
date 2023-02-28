@@ -6,26 +6,24 @@ import { useNavigate } from "react-router-dom";
 import { openSnacbar } from "../../redux/actions/appActions";
 import { resetPasswordEmailSend } from "../../redux/actions/userActions";
 import { validationSchema } from "./validationSchema";
-import UserService from "../../redux/services/userService";
 
 export default function ResetEmailSend() {
   const dispacth = useDispatch();
   const navigate = useNavigate();
-  const service = new UserService();
   const { handleSubmit, handleChange, handleBlur, errors, touched } = useFormik(
     {
       initialValues: {
         email: "",
       },
-      onSubmit: async (values) => {
-     dispacth(resetPasswordEmailSend(values))
-          dispacth(
-            openSnacbar({
-              message: "Emailinizi Kontrol Ediniz",
-              severity: "success",
-            })
-          );
-         
+      onSubmit: (values) => {
+        dispacth(resetPasswordEmailSend(values));
+        dispacth(
+          openSnacbar({
+            message: "Emailinizi Kontrol Ediniz",
+            severity: "success",
+          })
+        );
+        navigate("/");
       },
       validationSchema,
     }
@@ -48,7 +46,7 @@ export default function ResetEmailSend() {
             helperText={errors.email && touched.email ? errors.email : ""}
           ></TextField>
           <Button sx={{ width: 500 }} type="submit" variant="contained">
-            Save
+            Send
           </Button>
         </Stack>
       </form>

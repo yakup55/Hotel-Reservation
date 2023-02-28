@@ -4,8 +4,10 @@ import {
   DELETE_USER,
   GET_BY_USER_MAIL,
   GET_USER_LIST,
+  RESET_PASSWORD,
   RESET_PASSWORD_EMAIL_SEND,
   UPDATE_USER,
+  USER_PASSSWORD_UPDATE,
 } from "../../redux/actions/userActions";
 const initialvales = {
   user,
@@ -42,7 +44,17 @@ export default function userReducer(state = initialvales, { type, payload }) {
     case RESET_PASSWORD_EMAIL_SEND:
       return {
         ...state,
-        users: [...state.users,payload],
+        users: [...state.users, payload],
+      };
+    case USER_PASSSWORD_UPDATE:
+      return {
+        ...state,
+        users: [...state.users, payload],
+      };
+    case RESET_PASSWORD:
+      return {
+        ...state,
+        users: [...state.users, payload],
       };
     default:
       return {

@@ -32,7 +32,7 @@ namespace ServiceLayer.Services
             var mailMessage=new MailMessage();
             mailMessage.From=new MailAddress(emailSettings.Email);
             mailMessage.To.Add(to);
-            mailMessage.Subject = "Localhost|şifre yenileme linki";
+            mailMessage.Subject = "Şifre yenileme linki";
             mailMessage.Body = @$"<h4>Şifre yenilemek için linke tıkla</h4> <p><a href=`{resetEmailLink}`>Şifre yenileme linki</a></p>";
             mailMessage.IsBodyHtml = true;
             await smtpClient.SendMailAsync(mailMessage);

@@ -5,6 +5,8 @@ export const ADD_USER = "ADD_USER";
 export const DELETE_USER = "DELETE_USER";
 export const UPDATE_USER = "UPDATE_USER";
 export const RESET_PASSWORD_EMAIL_SEND = "RESET_PASSWORD_EMAIL_SEND";
+export const USER_PASSSWORD_UPDATE = "USER_PASSSWORD_UPDATE";
+export const RESET_PASSWORD = "RESET_PASSWORD";
 
 const service = new UserService();
 
@@ -43,8 +45,26 @@ export function deleteUser(id) {
       .then((resp) => dispacth({ type: DELETE_USER, payload: id }));
   };
 }
-export function resetPasswordEmailSend(email){
-  return function(dispacth){
-    service.resetPasswordEmailSend(email).then((resp)=>resp.data)
-  }
+export function resetPasswordEmailSend(email) {
+  return function (dispacth) {
+    service
+      .resetPasswordEmailSend(email)
+      .then((resp) =>
+        dispacth({ type: RESET_PASSWORD_EMAIL_SEND, payload: resp })
+      );
+  };
+}
+export function userPasswordUpdate(user) {
+  return function (dispacth) {
+    service
+      .userPasswordUpdate(user)
+      .then((resp) => dispacth({ type: USER_PASSSWORD_UPDATE, payload: resp }));
+  };
+}
+export function resetPassword(user) {
+  return function (dispacth) {
+    service
+      .resetPassword(user)
+      .then((resp) => dispacth({ type: RESET_PASSWORD, payload: resp }));
+  };
 }

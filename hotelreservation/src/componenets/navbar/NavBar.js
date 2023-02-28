@@ -36,6 +36,11 @@ const settings = [
     name: "Profile",
     url: "/user",
   },
+  {
+    id: 2,
+    name: "Update Password",
+    url: "/userpasswordupdate",
+  },
 ];
 const darkTheme = createTheme({
   palette: {

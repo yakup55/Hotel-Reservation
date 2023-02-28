@@ -21,15 +21,17 @@ namespace ServiceLayer.Services
     public class UserService : GenericService<AppUser, AppUser>, IUserService
     {
         private readonly UserManager<AppUser> userManager;
+        private readonly SignInManager<AppUser> signInManager;
         private readonly IUserRepository userRepository;
         private readonly IEmailService emailService;
         private readonly AppUser user1;
 
-        public UserService(IUnitOfWork unitOfWork, IGenericRepository<AppUser> repository, UserManager<AppUser> userManager, IEmailService emailService, IUserRepository userRepository) : base(unitOfWork, repository)
+        public UserService(IUnitOfWork unitOfWork, IGenericRepository<AppUser> repository, UserManager<AppUser> userManager, IEmailService emailService, IUserRepository userRepository, SignInManager<AppUser> signInManager) : base(unitOfWork, repository)
         {
             this.userManager = userManager;
             this.emailService = emailService;
             this.userRepository = userRepository;
+            this.signInManager = signInManager;
         }
 
         public async Task<ResponseDto<AppUser>> CreateUserAsync(UserCreateDto createDto)
@@ -71,14 +73,13 @@ namespace ServiceLayer.Services
 
         public async Task<ResponseDto<NoDataDto>> ResetPassword( PasswordResetDto resetDto)
         {
-            var token = "";
-
-            var hasUser=await userManager.FindByIdAsync(user1.Id);
+            var hasUser=await userManager.FindByEmailAsync(resetDto.Email);
             if (hasUser == null)
             {
                 return ResponseDto<NoDataDto>.Fail("Kullanıcı Yok", 404);
             }
-            IdentityResult result=await userManager.ResetPasswordAsync(hasUser,token,resetDto.Password);
+            string passwordResetToken = await userManager.GeneratePasswordResetTokenAsync(hasUser);
+            IdentityResult result=await userManager.ResetPasswordAsync(hasUser,passwordResetToken,resetDto.PasswordNew);
             if (result.Succeeded)
             {
                 return ResponseDto<NoDataDto>.Success(200);
@@ -97,8 +98,8 @@ namespace ServiceLayer.Services
                 return ResponseDto<NoDataDto>.Fail("Bu Maile Ait Kullanıcı Yok", 404);
             }
             string passwordResetToken = await userManager.GeneratePasswordResetTokenAsync(hasUser);
-            var link = "http://localhost:3000/resetpassword";
-            var passwordResultLink =link  + new { userId = hasUser.Id, Token = passwordResetToken };
+            var link = "http://localhost:3000/resetpassword/"+hasUser.Email;
+            var passwordResultLink =link;
           
             await emailService.SendResetPasswordEmail(passwordResultLink, hasUser.Email);
             return ResponseDto<NoDataDto>.Success(200);
@@ -116,5 +117,28 @@ namespace ServiceLayer.Services
 
         }
 
+        public async Task<ResponseDto<NoDataDto>> UserPasswordUpdate(UserPasswordUpdateDto userPassword)
+        {
+            var hasUser = await userManager.FindByEmailAsync(userPassword.Email);
+            if (hasUser is null)
+            {
+                return ResponseDto<NoDataDto>.Fail("Bu Maile Ait Kullanıcı Yok", 404);
+            }
+            var checkOlPassword = await userManager.CheckPasswordAsync(hasUser, userPassword.PasswordOld);
+            if (!checkOlPassword)
+            {
+                return ResponseDto<NoDataDto>.Fail("Eski Şifreniz Yanlış", 400);
+            }
+            var resultChangePassword=await userManager.ChangePasswordAsync(hasUser,userPassword.PasswordOld,userPassword.PasswordNew);
+            if (!resultChangePassword.Succeeded)
+            {
+                return ResponseDto<NoDataDto>.Fail("Hatalı", 400);
+            }
+            await userManager.UpdateSecurityStampAsync(hasUser);
+            await signInManager.SignOutAsync();
+            await signInManager.PasswordSignInAsync(hasUser,userPassword.PasswordNew,true,false);
+
+            return ResponseDto<NoDataDto>.Success(200);
+        }
     }
 }

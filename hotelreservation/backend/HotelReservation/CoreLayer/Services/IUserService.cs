@@ -18,6 +18,6 @@ namespace CoreLayer.Services
         Task<ResponseDto<AppUserDto>> UpdateUser(AppUserDto user,string id);
         Task<ResponseDto<NoDataDto>> ResetPasswordEmailSend(EmailDto email);
         Task<ResponseDto<NoDataDto>> ResetPassword(PasswordResetDto resetDto);
-
+        Task<ResponseDto<NoDataDto>> UserPasswordUpdate(UserPasswordUpdateDto userPassword);
     }
 }

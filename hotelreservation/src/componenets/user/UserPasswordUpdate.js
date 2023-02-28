@@ -1,27 +1,30 @@
-import { Button, ButtonBase, Container, Stack, TextField } from "@mui/material";
+import { Alert, Button, Container, Stack, TextField } from "@mui/material";
 import { useFormik } from "formik";
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { openSnacbar } from "../../redux/actions/appActions";
-import { resetPassword } from "../../redux/actions/userActions";
+import { logOut } from "../../redux/actions/authenticationActions";
+import { userPasswordUpdate } from "../../redux/actions/userActions";
 import { validationSchema } from "./validationSchema";
-export default function ResetUserPassword() {
-  const dispacth = useDispatch();
+export default function UserPasswordUpdate() {
+  const { user } = useSelector((state) => state.user);
   const navigate = useNavigate();
-  const { email } = useParams();
+  const dispacth = useDispatch();
   const { handleSubmit, handleChange, handleBlur, errors, touched } = useFormik(
     {
       initialValues: {
-        email: email,
+        email: user.data?.email,
+        passwordOld: "",
         passwordNew: "",
         passwordNewConfirm: "",
       },
       onSubmit: (values) => {
-        dispacth(resetPassword(values));
+        dispacth(userPasswordUpdate(values));
+
         dispacth(
           openSnacbar({
-            message: "Şifreniz Sıfırlandı",
+            message: "Şifreniz Güncellendi",
             severity: "success",
           })
         );
@@ -30,19 +33,35 @@ export default function ResetUserPassword() {
       validationSchema,
     }
   );
-  console.log(email);
+  console.log(user.data?.email);
   return (
     <Container maxWidth="xs" sx={{ mt: 5 }}>
-      <h2>Şifre Sıfırlama</h2>
+      <h2>Şifre Güncelleme</h2>
       <form onSubmit={handleSubmit}>
         <Stack spacing={3}>
           <TextField
             sx={{ width: 500 }}
             color="success"
+            id="passwordOld"
+            name="passwordOld"
+            label="Eski Şifreniz"
+            placeholder="Eski Şifreniz"
+            onChange={handleChange}
+            onBlur={handleBlur}
+            error={errors.passwordOld && touched.passwordOld}
+            helperText={
+              errors.passwordOld && touched.passwordOld
+                ? errors.passwordOld
+                : ""
+            }
+          ></TextField>
+          <TextField
+            sx={{ width: 500 }}
+            color="success"
             id="passwordNew"
             name="passwordNew"
-            label="Şifreniz"
-            placeholder="Şifreniz"
+            label="Yeni Şifreniz "
+            placeholder="Yeni Şifreniz "
             onChange={handleChange}
             onBlur={handleBlur}
             error={errors.passwordNew && touched.passwordNew}
@@ -57,8 +76,8 @@ export default function ResetUserPassword() {
             color="success"
             id="passwordNewConfirm"
             name="passwordNewConfirm"
-            label="Şifre Tekrar"
-            placeholder="Şifre Tekrar"
+            label="Yeni Şifre Tekrar "
+            placeholder="Yeni Şifre Tekrar "
             onChange={handleChange}
             onBlur={handleBlur}
             error={errors.passwordNewConfirm && touched.passwordNewConfirm}
@@ -71,6 +90,16 @@ export default function ResetUserPassword() {
           <Button sx={{ width: 500 }} type="submit" variant="contained">
             Save
           </Button>
+          <Button
+            sx={{ width: 200 }}
+            onClick={() => navigate("/resetemailsend")}
+          >
+            Şifremi Unuttum
+          </Button>
+          <Alert sx={{ width: 470 }} severity="info">
+            Şifre Kuralları şifrenizde kullanıcı adınız olmamalı,ardışık sayı
+            içermemeli!
+          </Alert>
         </Stack>
       </form>
     </Container>
