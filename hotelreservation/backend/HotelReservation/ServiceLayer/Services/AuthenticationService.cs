@@ -45,6 +45,11 @@ namespace ServiceLayer.Services
             var user = await userManager.FindByEmailAsync(login.UserMail);
             user.Status = true;
 
+            if(userManager.IsEmailConfirmedAsync(user).Result==false)
+            {
+                return ResponseDto<TokenDto>.Fail("Emailiniz Doğrulanmamış", 400);
+            }
+
             var result = await signInManager.CheckPasswordSignInAsync(user,login.UserPassword,true);
             if (result.IsLockedOut)
             {

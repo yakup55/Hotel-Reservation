@@ -36,5 +36,9 @@ class UserService {
     const url = `${this.baseUrl}/UserPasswordUpdate`;
     return await axios.post(url, user).then((resp) => resp.data);
   }
+  async confirmEmailSend(email) {
+    const url = `${this.baseUrl}/ConfirmEmailSend`;
+    return await axios.post(url, email).then((resp) => resp.data);
+  }
 }
 export default UserService;

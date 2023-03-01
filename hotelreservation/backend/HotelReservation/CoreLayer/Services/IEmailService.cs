@@ -9,5 +9,6 @@ namespace CoreLayer.Services
     public interface IEmailService
     {
         Task SendResetPasswordEmail(string resetEmailLink, string to);
+        Task SendEmailConfirm(string emailComfirmLink, string to);
     }
 }

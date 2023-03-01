@@ -7,7 +7,7 @@ export const UPDATE_USER = "UPDATE_USER";
 export const RESET_PASSWORD_EMAIL_SEND = "RESET_PASSWORD_EMAIL_SEND";
 export const USER_PASSSWORD_UPDATE = "USER_PASSSWORD_UPDATE";
 export const RESET_PASSWORD = "RESET_PASSWORD";
-
+export const CONFIRM_EMAIL_SEND = "CONFIRM_EMAIL_SEND";
 const service = new UserService();
 
 export function getUserList() {
@@ -66,5 +66,12 @@ export function resetPassword(user) {
     service
       .resetPassword(user)
       .then((resp) => dispacth({ type: RESET_PASSWORD, payload: resp }));
+  };
+}
+export function confirmEmailSend(email) {
+  return function (dispacth) {
+    service
+      .confirmEmailSend(email)
+      .then((resp) => dispacth({ type: CONFIRM_EMAIL_SEND, payload: resp }));
   };
 }

@@ -52,6 +52,7 @@ import ResetUserPassword from "./componenets/user/ResetUserPassword";
 import User from "./componenets/user/User";
 import ResetEmailSend from "./componenets/user/ResetEmailSend";
 import UserPasswordUpdate from "./componenets/user/UserPasswordUpdate";
+import SendEmailConfirm from "./componenets/user/SendEmailConfirm";
 export default function Paths() {
   return (
     <Routes>
@@ -60,6 +61,10 @@ export default function Paths() {
       <Route path="/login" element={<Login></Login>}></Route>
       <Route path="/hotellist" element={<HotelList></HotelList>}></Route>
       <Route path="/roomdetail/:id" element={<RoomDetail></RoomDetail>}></Route>
+      <Route
+        path="/sendemailconfirm/:email"
+        element={<SendEmailConfirm></SendEmailConfirm>}
+      ></Route>
 
       <Route
         path="/resetemailsend"

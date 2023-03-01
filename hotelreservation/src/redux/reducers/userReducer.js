@@ -1,6 +1,7 @@
 import { user, users } from "../../redux/initials/userInitials";
 import {
   ADD_USER,
+  CONFIRM_EMAIL_SEND,
   DELETE_USER,
   GET_BY_USER_MAIL,
   GET_USER_LIST,
@@ -44,7 +45,7 @@ export default function userReducer(state = initialvales, { type, payload }) {
     case RESET_PASSWORD_EMAIL_SEND:
       return {
         ...state,
-        users: [...state.users, payload],
+        user: payload,
       };
     case USER_PASSSWORD_UPDATE:
       return {
@@ -52,6 +53,11 @@ export default function userReducer(state = initialvales, { type, payload }) {
         users: [...state.users, payload],
       };
     case RESET_PASSWORD:
+      return {
+        ...state,
+        users: [...state.users, payload],
+      };
+    case CONFIRM_EMAIL_SEND:
       return {
         ...state,
         users: [...state.users, payload],
