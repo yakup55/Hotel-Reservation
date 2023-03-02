@@ -24,6 +24,11 @@ namespace HotelReservationProject.Controllers
         public async Task<IActionResult> GetByUserEmail(string email)
         { 
             return ActionResultInstance(await service.GetByEmailAsync(email)); 
+        }  
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetByUser(string id)
+        { 
+            return ActionResultInstance(await service.GetByUserAsync(id)); 
         } 
         [HttpPost]
         public async Task<IActionResult> ConfirmEmailSend(EmailDto email)

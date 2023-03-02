@@ -46,7 +46,7 @@ export default function Login() {
               severity: "success",
             })
           );
-          navigate("/user");
+          navigate(`/user/${values.userMail}`);
         }
         if (result.status === 400) {
           dispacth(

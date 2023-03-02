@@ -75,7 +75,7 @@ export default function Paths() {
         path="/resetpassword/:email"
         element={<ResetUserPassword></ResetUserPassword>}
       ></Route>
-      <Route path="/user" element={<User></User>}></Route>
+      <Route path="/user/:email" element={<User></User>}></Route>
       <Route
         path="/userpasswordupdate"
         element={<UserPasswordUpdate></UserPasswordUpdate>}
@@ -257,7 +257,10 @@ export default function Paths() {
         path="/adminupdaterole/:id"
         element={<AdminUpdateRole></AdminUpdateRole>}
       ></Route>
-      <Route path="/adminadduserrole" element={<AdminAddUserRole></AdminAddUserRole>}></Route>
+      <Route
+        path="/adminadduserrole"
+        element={<AdminAddUserRole></AdminAddUserRole>}
+      ></Route>
       {/*ADMİN USER*/}
       <Route
         path="/adminuserlist"

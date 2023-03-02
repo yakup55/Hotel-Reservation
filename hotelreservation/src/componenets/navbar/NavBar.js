@@ -15,7 +15,7 @@ import { createTheme, ThemeProvider } from "@mui/material";
 import LuggageIcon from "@mui/icons-material/Luggage";
 import LoginIcon from "@mui/icons-material/Login";
 import HowToRegIcon from "@mui/icons-material/HowToReg";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getByUserMail, getUserList } from "../../redux/actions/userActions";
@@ -34,7 +34,7 @@ const settings = [
   {
     id: 1,
     name: "Profile",
-    url: "/user",
+    url: "/user/email",
   },
   {
     id: 2,
@@ -71,12 +71,12 @@ function NavBar() {
     navigate(url);
   };
 
-  const {  user } = useSelector((state) => state.user);
+  const { user } = useSelector((state) => state.user);
 
   const navigate = useNavigate();
   const dispacth = useDispatch();
-  const out = (id) => {
-    dispacth(logOut(id));
+  const out = () => {
+    dispacth(logOut(user.data?.id));
     dispacth(
       openSnacbar({
         message: "Çıkış Başarılı",
@@ -86,8 +86,9 @@ function NavBar() {
     navigate("/");
   };
   useEffect(() => {
-    dispacth(getByUserMail("yakup.0950@gmail.com"));
+    dispacth(getByUserMail(user.data?.email));
   }, []);
+  console.log(user.data?.email);
   return (
     <ThemeProvider theme={darkTheme}>
       <AppBar position="static">
@@ -182,7 +183,6 @@ function NavBar() {
               ))}
             </Box>
             {/* Button Kısımları */}
-            {user.data?.status === false && (
               <>
                 <Button
                   onClick={() => navigate("/register")}
@@ -202,9 +202,8 @@ function NavBar() {
                   Login
                 </Button>
               </>
-            )}
-
-{user.data?.status === true && (
+                
+            {user.data?.status === true && (
               <Box sx={{ flexGrow: 0 }}>
                 <Tooltip title="Open settings">
                   <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -246,7 +245,7 @@ function NavBar() {
                     </MenuItem>
                   ))}
                   <Button
-                    onClick={() => out(user.data?.id)}
+                    onClick={() => out()}
                     style={{
                       marginLeft: 14,
                       backgroundColor: "black",

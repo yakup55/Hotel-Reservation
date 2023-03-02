@@ -109,6 +109,16 @@ namespace ServiceLayer.Services
             return ResponseDto<AppUser>.Success(ObjectMapper.Mapper.Map<AppUser>(user), 200);
         }
 
+        public async Task<ResponseDto<AppUser>> GetByUserAsync(string userId)
+        {
+            var hasUser=await userManager.FindByIdAsync(userId);
+            if (hasUser == null)
+            {
+                return ResponseDto<AppUser>.Fail("User Yok", 404);
+            }
+            return ResponseDto<AppUser>.Success(ObjectMapper.Mapper.Map<AppUser>(hasUser), 200);
+        }
+
         public async Task<ResponseDto<NoDataDto>> ResetPassword(PasswordResetDto resetDto)
         {
             var hasUser = await userManager.FindByEmailAsync(resetDto.Email);

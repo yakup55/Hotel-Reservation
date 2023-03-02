@@ -8,6 +8,7 @@ export const RESET_PASSWORD_EMAIL_SEND = "RESET_PASSWORD_EMAIL_SEND";
 export const USER_PASSSWORD_UPDATE = "USER_PASSSWORD_UPDATE";
 export const RESET_PASSWORD = "RESET_PASSWORD";
 export const CONFIRM_EMAIL_SEND = "CONFIRM_EMAIL_SEND";
+export const GET_BY_USER = "GET_BY_USER";
 const service = new UserService();
 
 export function getUserList() {
@@ -73,5 +74,12 @@ export function confirmEmailSend(email) {
     service
       .confirmEmailSend(email)
       .then((resp) => dispacth({ type: CONFIRM_EMAIL_SEND, payload: resp }));
+  };
+}
+export function getByUser(id) {
+  return function (dispacth) {
+    service
+      .getByUser(id)
+      .then((resp) => dispacth({ type: GET_BY_USER, payload: resp }));
   };
 }

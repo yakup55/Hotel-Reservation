@@ -3,6 +3,7 @@ import {
   ADD_USER,
   CONFIRM_EMAIL_SEND,
   DELETE_USER,
+  GET_BY_USER,
   GET_BY_USER_MAIL,
   GET_USER_LIST,
   RESET_PASSWORD,
@@ -61,6 +62,11 @@ export default function userReducer(state = initialvales, { type, payload }) {
       return {
         ...state,
         users: [...state.users, payload],
+      };
+    case GET_BY_USER:
+      return {
+        ...state,
+        user: payload,
       };
     default:
       return {

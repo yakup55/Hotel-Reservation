@@ -40,5 +40,9 @@ class UserService {
     const url = `${this.baseUrl}/ConfirmEmailSend`;
     return await axios.post(url, email).then((resp) => resp.data);
   }
+  async getByUser(id) {
+    const url = `${this.baseUrl}/GetByUser/${id}`;
+    return await axios.get(url).then((resp) => resp.data);
+  }
 }
 export default UserService;

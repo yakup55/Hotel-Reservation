@@ -1,39 +1,20 @@
 import { Grid, GridItem, Heading } from "@chakra-ui/react";
-import {
-  Avatar,
-  Container,
-  List,
-  ListItem,
-  ListItemAvatar,
-  ListItemText,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableRow,
-  Typography,
-} from "@mui/material";
+import { Typography } from "@mui/material";
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { commentUserList } from "../../redux/actions/commentActions";
+import { useNavigate, useParams } from "react-router-dom";
 import { getByUserMail } from "../../redux/actions/userActions";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import CancelIcon from "@mui/icons-material/Cancel";
+import UserCommentList from "./UserCommentList";
 
 export default function User() {
+  const { email } = useParams();
   const navigate = useNavigate();
   const dispacth = useDispatch();
   const { user } = useSelector((state) => state.user);
-  const { comments } = useSelector((state) => state.comment);
-  const email = "yakup.0950@gmail.com";
   useEffect(() => {
-    dispacth(getByUserMail(user.data?.email));
-    dispacth(commentUserList(user.data?.id));
+    dispacth(getByUserMail(email));
   }, []);
-
-  console.log(user.data?.email);
   return (
     <Grid
       h="200px"
@@ -73,52 +54,7 @@ export default function User() {
 
       {user.data?.status === true && (
         <GridItem colSpan={4}>
-          <Heading>Reservasyonlarım</Heading>
-          <Heading>Değerlendirmelerim</Heading>
-          <Container sx={{ mt: 2 }}>
-            <TableContainer>
-              <TableBody>
-                <Table>
-                  <TableRow sx={{ backgroundColor: "black" }}>
-                    <TableCell sx={{ color: "white" }}>Otel Adı</TableCell>
-                    <TableCell sx={{ color: "white" }}>Otel Resmi</TableCell>
-                    <TableCell sx={{ color: "white" }}>Konu</TableCell>
-                    <TableCell sx={{ color: "white" }}>Mesaj</TableCell>
-                    <TableCell sx={{ color: "white" }}>Tarih</TableCell>
-                    <TableCell sx={{ color: "white" }}>Derece</TableCell>
-                    <TableCell sx={{ color: "white" }}>Onaylanma</TableCell>
-                  </TableRow>
-                  {comments.data?.map((comment) => (
-                    <TableRow>
-                      <TableCell>{comment.hotel?.hotelName}</TableCell>
-                      <TableCell>
-                        <img
-                          style={{ width: 200, height: 110 }}
-                          src={`${comment.hotel?.hotelImage}`}
-                        ></img>
-                      </TableCell>
-                      <TableCell>{comment.commentSubject}</TableCell>
-                      <TableCell>{comment.commentMessage}</TableCell>
-                      <TableCell>{comment.commentDate}</TableCell>
-                      <TableCell>
-                        {comment.degre?.degreValue}({comment.degre?.degreName})
-                      </TableCell>
-                      {comment.commentStatus === true && (
-                        <TableCell>
-                          <CheckCircleIcon></CheckCircleIcon>
-                        </TableCell>
-                      )}
-                      {comment.commentStatus === false && (
-                        <TableCell>
-                          <CancelIcon></CancelIcon>
-                        </TableCell>
-                      )}
-                    </TableRow>
-                  ))}
-                </Table>
-              </TableBody>
-            </TableContainer>
-          </Container>
+          <UserCommentList></UserCommentList>
         </GridItem>
       )}
     </Grid>
