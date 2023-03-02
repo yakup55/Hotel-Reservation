@@ -31,6 +31,11 @@ namespace HotelReservationProject.Controllers
         {
             return ActionResultInstance(await service.CreateRoleAync(roleName));
         }
+        [HttpPost]
+        public async Task<IActionResult> AssignRoleTo(UserRoleDto roleName)
+        {
+            return ActionResultInstance(await service.AddUserRole(roleName));
+        }
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteRole(string id)
         {

@@ -21,7 +21,7 @@ import { commentUserList } from "../../redux/actions/commentActions";
 import { getByUserMail } from "../../redux/actions/userActions";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import CancelIcon from "@mui/icons-material/Cancel";
-import UserPasswordUpdate from "./UserPasswordUpdate";
+
 export default function User() {
   const navigate = useNavigate();
   const dispacth = useDispatch();
@@ -29,11 +29,11 @@ export default function User() {
   const { comments } = useSelector((state) => state.comment);
   const email = "yakup.0950@gmail.com";
   useEffect(() => {
-    dispacth(getByUserMail(email));
+    dispacth(getByUserMail(user.data?.email));
     dispacth(commentUserList(user.data?.id));
   }, []);
 
-  console.log(user.data?.id);
+  console.log(user.data?.email);
   return (
     <Grid
       h="200px"

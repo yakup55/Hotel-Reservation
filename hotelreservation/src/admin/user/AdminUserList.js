@@ -64,7 +64,7 @@ export default function AdminUserList() {
                   <TableCell style={{ color: "white" }}>City</TableCell>
                   <TableCell style={{ color: "white" }}>Birthh Date</TableCell>
                   <TableCell style={{ color: "white" }}>Phone Number</TableCell>
-
+                  <TableCell style={{ color: "white" }}>Add Role</TableCell>
                   <TableCell style={{ color: "white" }}>Update</TableCell>
                   <TableCell style={{ color: "white" }}>Delete</TableCell>
                 </TableRow>
@@ -83,6 +83,7 @@ export default function AdminUserList() {
                     <TableCell>{user.cityId}</TableCell>
                     <TableCell>{user.birthDate}</TableCell>
                     <TableCell>{user.phoneNumber}</TableCell>
+                    <TableCell><Button variant="contained" startIcon={<CreateIcon></CreateIcon>} onClick={()=>navigate("/adminadduserrole")}></Button></TableCell>
                     <TableCell>
                       <Button
                         startIcon={<BuildIcon></BuildIcon>}

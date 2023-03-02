@@ -53,6 +53,7 @@ import User from "./componenets/user/User";
 import ResetEmailSend from "./componenets/user/ResetEmailSend";
 import UserPasswordUpdate from "./componenets/user/UserPasswordUpdate";
 import SendEmailConfirm from "./componenets/user/SendEmailConfirm";
+import AdminAddUserRole from "./admin/role/AdminAddUserRole";
 export default function Paths() {
   return (
     <Routes>
@@ -256,6 +257,7 @@ export default function Paths() {
         path="/adminupdaterole/:id"
         element={<AdminUpdateRole></AdminUpdateRole>}
       ></Route>
+      <Route path="/adminadduserrole" element={<AdminAddUserRole></AdminAddUserRole>}></Route>
       {/*ADMİN USER*/}
       <Route
         path="/adminuserlist"

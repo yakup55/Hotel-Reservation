@@ -82,6 +82,7 @@ namespace ServiceLayer.Services
             {
                 if (result.Succeeded)
                 {
+
                     string link = "http://localhost:3000/sendemailconfirm/"+hasUser.Email;
                     await emailService.SendEmailConfirm(link, hasUser.Email);
                 }

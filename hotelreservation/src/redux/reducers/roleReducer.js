@@ -1,6 +1,7 @@
 import { role, roles } from "../../redux/initials/roleInitials";
 import {
   ADD_ROLE,
+  ASSIGN_ROLE_TO,
   DELETE_ROLE,
   GET_BY_ROLE,
   GET_ROLE_LIST,
@@ -31,7 +32,11 @@ export default function roleReducer(state = initialvales, { type, payload }) {
         ...state,
         roles: [...state.roles.filter((x) => x.id !== payload)],
       };
-
+    case ASSIGN_ROLE_TO:
+      return {
+        ...state,
+        roles: [...state.roles, payload],
+      };
     default:
       return {
         ...state,
