@@ -32,18 +32,15 @@ import { getCityList } from "../../redux/actions/cityActions";
 import { getHotelList } from "../../redux/actions/hotelActions";
 import Hotel from "./Hotel";
 import HotelNavList from "./HotelNavList";
+import { getByUserMail } from "../../redux/actions/userActions";
 export default function HotelList() {
-  const { degres } = useSelector((state) => state.degre);
-  const { categories } = useSelector((state) => state.category);
-  const { cities } = useSelector((state) => state.city);
+  const { user } = useSelector((state) => state.user);
   const { hotels } = useSelector((state) => state.hotel);
   const navigate = useNavigate();
   const dispacth = useDispatch();
   useEffect(() => {
-    dispacth(getDegreList());
-    dispacth(getCategoryList());
-    dispacth(getCityList());
     dispacth(getHotelList());
+    dispacth(getByUserMail(user.data?.email));
   }, []);
   return (
     <>

@@ -10,11 +10,14 @@ import { Alert, Button, MenuItem, TextField } from "@mui/material";
 import { Heading } from "@chakra-ui/react";
 import { useEffect } from "react";
 import { getDegreList } from "../../redux/actions/degreActions";
+import { getByUserMail } from "../../redux/actions/userActions";
 export default function CommentAdd() {
   const { degres } = useSelector((state) => state.degre);
+  const { user } = useSelector((state) => state.user);
   useEffect(() => {
     dispacth(getDegreList());
   }, []);
+
   const { id } = useParams();
   const navigate = useNavigate();
   const dispacth = useDispatch();
@@ -24,7 +27,7 @@ export default function CommentAdd() {
         commentMessage: "",
         commentSubject: "",
         hotelId: id,
-        userId: "str",
+        userId: user.data?.id,
         degreId: 0,
       },
       onSubmit: (values) => {
@@ -39,12 +42,16 @@ export default function CommentAdd() {
       },
       validationSchema,
     });
+  useEffect(() => {
+    dispacth(getByUserMail(user.data?.email));
+  });
+  console.log(user.data?.email);
   return (
     <Container sx={{ ml: 60, mb: 10 }} maxWidth="sm">
       <form onSubmit={handleSubmit}>
         <Stack spacing={3}>
           <Heading mt={20} fontStyle="italic">
-            Yorum Yap
+            Yorum Yapmak İçin Giriş Yapmanız Gerekmektedir
           </Heading>
           <TextField
             fullWidth

@@ -18,6 +18,7 @@ import {
 } from "../../redux/actions/commentActions";
 
 export default function PopularCommentList() {
+  const {user}=useSelector((state)=>state.user)
   const dispacth = useDispatch();
   const { id } = useParams();
   const { comments } = useSelector((state) => state.comment);
@@ -42,7 +43,7 @@ export default function PopularCommentList() {
           <ListItemAvatar>
             <Avatar
               style={{ backgroundColor: "black" }}
-              alt="Yakup"
+              alt={user.data?.userName}
               src="/static/images/avatar/1.jpg"
             />
           </ListItemAvatar>
@@ -57,7 +58,7 @@ export default function PopularCommentList() {
                   variant="body2"
                   color="text.primary"
                 >
-                  Yakup
+                 {user.data?.userName}
                 </Typography>
                 {`-${detail.commentMessage}`}
                 {`-${detail.commentDate}`}

@@ -115,6 +115,16 @@ builder.Services.AddCustomTokenAuth(tokenOptions, builder.Configuration);
 
 builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
 
+
+builder.Services.ConfigureApplicationCookie(app =>
+{
+    var cookieBuilder = new CookieBuilder();
+    cookieBuilder.Name = "test";
+    app.Cookie = cookieBuilder;
+    app.ExpireTimeSpan = TimeSpan.FromDays(2);
+    app.SlidingExpiration = true;
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

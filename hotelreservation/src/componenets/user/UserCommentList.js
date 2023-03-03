@@ -25,7 +25,6 @@ export default function UserCommentList() {
   }, []);
   return (
     <>
-      <Heading>Reservasyonlarım</Heading>
       <Heading>Değerlendirmelerim</Heading>
       <Container sx={{ mt: 2 }}>
         <TableContainer>
@@ -38,7 +37,6 @@ export default function UserCommentList() {
                 <TableCell sx={{ color: "white" }}>Mesaj</TableCell>
                 <TableCell sx={{ color: "white" }}>Tarih</TableCell>
                 <TableCell sx={{ color: "white" }}>Derece</TableCell>
-                <TableCell sx={{ color: "white" }}>Onaylanma</TableCell>
               </TableRow>
               {comments.data?.map((comment) => (
                 <TableRow>

@@ -5,6 +5,7 @@ import {
   GET_BY_RERSERVATION,
   GET_RERSERVATION_LIST,
   UPDATE_RERSERVATION,
+  USER_RESERVATION_LIST,
 } from "../actions/reservationActions";
 
 const initialvales = {
@@ -12,7 +13,10 @@ const initialvales = {
   reservations,
 };
 
-export default function reservationReducer(state = initialvales, { type, payload }) {
+export default function reservationReducer(
+  state = initialvales,
+  { type, payload }
+) {
   switch (type) {
     case GET_BY_RERSERVATION:
       return {
@@ -45,6 +49,11 @@ export default function reservationReducer(state = initialvales, { type, payload
           ),
           payload,
         ],
+      };
+    case USER_RESERVATION_LIST:
+      return {
+        ...state,
+        reservations: payload,
       };
     default:
       return {

@@ -62,7 +62,7 @@ namespace ServiceLayer.Services
             {
                 Email = createDto.UserMail,
                 UserName = createDto.UserName,
-                PhoneNumber = createDto.UserNumber
+                PhoneNumber = createDto.UserNumber,
             };
             if (userManager.Users.Any(x => x.PhoneNumber == user.PhoneNumber))
             {

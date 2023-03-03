@@ -21,27 +21,7 @@ import { useEffect } from "react";
 import { getByUserMail, getUserList } from "../../redux/actions/userActions";
 import { logOut } from "../../redux/actions/authenticationActions";
 import { openSnacbar } from "../../redux/actions/appActions";
-const pages = [
-  {
-    id: 1,
-    name: "Hotels",
-    url: "/hotellist",
-  },
-];
 
-// const settings = ["Profile", "Account", "Dashboard", "Logout"];
-const settings = [
-  {
-    id: 1,
-    name: "Profile",
-    url: "/user/email",
-  },
-  {
-    id: 2,
-    name: "Update Password",
-    url: "/userpasswordupdate",
-  },
-];
 const darkTheme = createTheme({
   palette: {
     mode: "dark",
@@ -51,6 +31,33 @@ const darkTheme = createTheme({
   },
 });
 function NavBar() {
+  const { user } = useSelector((state) => state.user);
+  const pages = [
+    {
+      id: 1,
+      name: "Hotels",
+      url: "/hotellist",
+    },
+  ];
+
+  // const settings = ["Profile", "Account", "Dashboard", "Logout"];
+  const settings = [
+    {
+      id: 1,
+      name: "Profile",
+      url: `/user/${user.data?.email}`,
+    },
+    {
+      id: 1,
+      name: "Update Profile",
+      url: `/userupdate/${user.data?.email}`,
+    },
+    {
+      id: 2,
+      name: "Update Password",
+      url: "/userpasswordupdate",
+    },
+  ];
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -71,8 +78,6 @@ function NavBar() {
     navigate(url);
   };
 
-  const { user } = useSelector((state) => state.user);
-
   const navigate = useNavigate();
   const dispacth = useDispatch();
   const out = () => {
@@ -83,12 +88,11 @@ function NavBar() {
         severity: "success",
       })
     );
-    navigate("/");
+    navigate(`/home`);
   };
   useEffect(() => {
     dispacth(getByUserMail(user.data?.email));
   }, []);
-  console.log(user.data?.email);
   return (
     <ThemeProvider theme={darkTheme}>
       <AppBar position="static">
@@ -99,7 +103,7 @@ function NavBar() {
               variant="h6"
               noWrap
               component="a"
-              href="/"
+              onClick={() => navigate("/home")}
               sx={{
                 mr: 2,
                 display: { xs: "none", md: "flex" },
@@ -157,7 +161,7 @@ function NavBar() {
               variant="h5"
               noWrap
               component="a"
-              href=""
+              onClick={() => navigate("/home")}
               sx={{
                 mr: 2,
                 display: { xs: "flex", md: "none" },
@@ -183,6 +187,7 @@ function NavBar() {
               ))}
             </Box>
             {/* Button Kısımları */}
+            {user.data?.status === undefined && (
               <>
                 <Button
                   onClick={() => navigate("/register")}
@@ -202,7 +207,7 @@ function NavBar() {
                   Login
                 </Button>
               </>
-                
+            )}
             {user.data?.status === true && (
               <Box sx={{ flexGrow: 0 }}>
                 <Tooltip title="Open settings">

@@ -24,5 +24,9 @@ class ReservationService {
     const url = `${this.baseUrl}/DeleteReservation/${id}`;
     return await axios.delete(url).then((resp) => resp.data);
   }
+  async userReservationList(id) {
+    const url = `${this.baseUrl}/UserReservationList/${id}`;
+    return await axios.get(url).then((resp) => resp.data);
+  }
 }
 export default ReservationService;

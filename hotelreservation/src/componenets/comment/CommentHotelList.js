@@ -14,6 +14,7 @@ import { useParams } from "react-router-dom";
 import { commentHotelList } from "../../redux/actions/commentActions";
 
 export default function CommentHotelList() {
+  const { user } = useSelector((state) => state.user);
   const { id } = useParams();
   const dispacth = useDispatch();
   const { comments } = useSelector((state) => state.comment);
@@ -39,7 +40,7 @@ export default function CommentHotelList() {
             <ListItemAvatar>
               <Avatar
                 style={{ backgroundColor: "black" }}
-                alt="Yakup"
+                alt={user.data?.userName}
                 src="/static/images/avatar/1.jpg"
               />
             </ListItemAvatar>
@@ -54,7 +55,7 @@ export default function CommentHotelList() {
                     variant="body2"
                     color="text.primary"
                   >
-                    Yakup
+                {user.data?.userName}
                   </Typography>
                   {`-${comment.commentMessage}`}
                   {`-${comment.commentDate}`}

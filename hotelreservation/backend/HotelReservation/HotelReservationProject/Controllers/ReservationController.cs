@@ -10,12 +10,13 @@ namespace HotelReservationProject.Controllers
     [ApiController]
     public class ReservationController : BaseController
     {
-        private readonly IGenericService<Reservation, ReservartionDto> service;
+        private readonly IReservationService service;
 
-        public ReservationController(IGenericService<Reservation, ReservartionDto> service)
+        public ReservationController(IReservationService service)
         {
             this.service = service;
         }
+    
         [HttpGet]
         public async Task<IActionResult> GetReservationList()
         {
@@ -25,6 +26,11 @@ namespace HotelReservationProject.Controllers
         public async Task<IActionResult> GetByReservation(int id)
         {
             return ActionResultInstance(await service.GetByIdAsync(id));
+        }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> UserReservationList(string id)
+        {
+            return ActionResultInstance(await service.UserReservationList(id));
         }
         [HttpPost]
         public async Task<IActionResult> AddReservation(ReservartionDto dto)

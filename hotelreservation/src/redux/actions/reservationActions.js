@@ -4,6 +4,7 @@ export const GET_BY_RERSERVATION = "GET_BY_RERSERVATION";
 export const ADD_RERSERVATION = "ADD_RERSERVATION";
 export const DELETE_RERSERVATION = "DELETE_RERSERVATION";
 export const UPDATE_RERSERVATION = "UPDATE_RERSERVATION";
+export const USER_RESERVATION_LIST="USER_RESERVATION_LIST"
 
 const reservationService = new ReservationService();
 export function getReservationList() {
@@ -20,10 +21,10 @@ export function getByReservation() {
       .then((resp) => dispacth({ type: GET_BY_RERSERVATION, payload: resp }));
   };
 }
-export function addReservation() {
+export function addReservation(reservation) {
   return function (dispacth) {
     reservationService
-      .addReservation()
+      .addReservation(reservation)
       .then((resp) => dispacth({ type: ADD_RERSERVATION, payload: resp }));
   };
 }
@@ -40,4 +41,9 @@ export function updateReservation() {
       .updateReservation()
       .then((resp) => dispacth({ type: UPDATE_RERSERVATION, payload: resp }));
   };
+}
+export function userReservationList(id){
+  return function(dispacth){
+    reservationService.userReservationList(id).then((resp)=>dispacth({type:USER_RESERVATION_LIST,payload:resp}))
+  }
 }

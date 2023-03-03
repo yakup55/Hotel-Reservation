@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { getByUserMail } from "../../redux/actions/userActions";
 import UserCommentList from "./UserCommentList";
+import UserReservationList from "./UserReservationList";
 
 export default function User() {
   const { email } = useParams();
@@ -52,6 +53,11 @@ export default function User() {
         </div>
       )}
 
+      {user.data?.status === true && (
+        <GridItem colSpan={4}>
+       <UserReservationList></UserReservationList>
+        </GridItem>
+      )}
       {user.data?.status === true && (
         <GridItem colSpan={4}>
           <UserCommentList></UserCommentList>

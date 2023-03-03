@@ -16,7 +16,7 @@ import { getDegreList } from "../../redux/actions/degreActions";
 export default function Hotel({ hotel }) {
   const dispacth = useDispatch();
   const navigate = useNavigate();
-
+  
   return (
     <div>
       <Box
