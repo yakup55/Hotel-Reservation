@@ -6,7 +6,6 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { openSnacbar } from "../../redux/actions/appActions";
 import { resetPasswordEmailSend } from "../../redux/actions/userActions";
-import UserService from "../../redux/services/userService";
 import { validationSchema } from "./validationSchema";
 export default function ResetEmailSend() {
   const dispacth = useDispatch();

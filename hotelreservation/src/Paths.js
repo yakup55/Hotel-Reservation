@@ -62,6 +62,7 @@ export default function Paths() {
       <Route path="/register" element={<Register></Register>}></Route>
       <Route path="/login" element={<Login></Login>}></Route>
       <Route path="/hotellist" element={<HotelList></HotelList>}></Route>
+
       <Route path="/roomdetail/:id" element={<RoomDetail></RoomDetail>}></Route>
       <Route
         path="/sendemailconfirm/:email"
@@ -77,7 +78,10 @@ export default function Paths() {
         element={<ResetUserPassword></ResetUserPassword>}
       ></Route>
       <Route path="/user/:email" element={<User></User>}></Route>
-      <Route path="/userupdate/:email" element={<UserUpdateProfile></UserUpdateProfile>}></Route>
+      <Route
+        path="/userupdate/:email"
+        element={<UserUpdateProfile></UserUpdateProfile>}
+      ></Route>
       <Route
         path="/userpasswordupdate"
         element={<UserPasswordUpdate></UserPasswordUpdate>}

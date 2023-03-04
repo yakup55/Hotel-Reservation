@@ -59,8 +59,8 @@ namespace HotelReservationProject.Controllers
         {
             return ActionResultInstance(await service.HotelOneDetail(id));
         }
-        [HttpPost]
-        public async Task<IActionResult> SearchHotelList(SearchDto search)
+        [HttpGet("{search}")]
+        public async Task<IActionResult> SearchHotelList(string search)
         {
             return ActionResultInstance(await service.SearchHotel(search));
         }

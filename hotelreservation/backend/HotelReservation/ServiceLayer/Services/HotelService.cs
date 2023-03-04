@@ -51,9 +51,9 @@ namespace ServiceLayer.Services
             return ResponseDto<List<Hotel>>.Success(await hotelRepository.LastHotel(), 200);
         }
 
-        public async Task<ResponseDto<List<Hotel>>> SearchHotel(SearchDto search)
+        public async Task<ResponseDto<List<Hotel>>> SearchHotel(string search)
         {
-            if (string.IsNullOrEmpty(search.Name))
+            if (string.IsNullOrEmpty(search))
             {
                 return ResponseDto<List<Hotel>>.Fail("Aradığınız Şey Bulunamadı", 404);
             }

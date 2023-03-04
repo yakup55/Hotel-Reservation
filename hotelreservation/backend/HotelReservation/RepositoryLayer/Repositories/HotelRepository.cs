@@ -50,10 +50,10 @@ namespace RepositoryLayer.Repositories
             return await context.Hotels.Where(x=>x.HotelPrice<4000).ToListAsync();
         }
 
-        public async Task<List<Hotel>> SearchHotel(SearchDto search)
+        public async Task<List<Hotel>> SearchHotel(string search)
         {
            
-            return await context.Hotels.Where(x=>x.HotelName.Contains(search.Name) ||x.Category.CategoryName.Contains(search.Name)).ToListAsync();
+            return await context.Hotels.Include(x=>x.Category).Where(x=>x.HotelName.Contains(search) ||x.Category.CategoryName.Contains(search)||x.City.CityName.Contains(search)).ToListAsync();
         }
     }
 }

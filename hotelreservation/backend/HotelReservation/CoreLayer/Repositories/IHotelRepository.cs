@@ -17,6 +17,6 @@ namespace CoreLayer.Repositories
         Task<List<Hotel>> HotelCityList(int id);
         Task<List<Hotel>> HotelDegreList(int id);
         Task<List<Hotel>> HotelPriceList(int price,int price2);
-        Task<List<Hotel>> SearchHotel(SearchDto search);
+        Task<List<Hotel>> SearchHotel(string search);
     }
 }
