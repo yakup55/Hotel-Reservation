@@ -58,7 +58,7 @@ import UserUpdateProfile from "./componenets/user/UserUpdateProfile";
 export default function Paths() {
   return (
     <Routes>
-      <Route path="/home" element={<Home></Home>}></Route>
+      <Route path="/" element={<Home></Home>}></Route>
       <Route path="/register" element={<Register></Register>}></Route>
       <Route path="/login" element={<Login></Login>}></Route>
       <Route path="/hotellist" element={<HotelList></HotelList>}></Route>

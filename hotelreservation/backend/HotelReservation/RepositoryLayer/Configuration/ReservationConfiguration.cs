@@ -16,6 +16,7 @@ namespace RepositoryLayer.Configuration
             builder.HasKey(x => x.ReservationId);
             builder.Property(x=>x.ArrivalDate).IsRequired();
             builder.Property(x=>x.ReturnDate).IsRequired();
+            builder.Property(x=>x.NumberPeople).IsRequired();
             builder.Property(x=>x.UserId).IsRequired();
         }
     }

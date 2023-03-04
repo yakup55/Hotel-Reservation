@@ -17,6 +17,6 @@ namespace CoreLayer.Services
         Task<ResponseDto<List<Hotel>>> HotelDegreList(int id);
         Task<ResponseDto<List<Hotel>>> HotelPriceList(int price, int price2);
         Task<ResponseDto<Hotel>> HotelOneDetail(int id);
-        
+        Task<ResponseDto<List<Hotel>>>SearchHotel(SearchDto search);
     }
 }

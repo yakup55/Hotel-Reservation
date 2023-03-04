@@ -10,7 +10,7 @@ import {
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import {userReservationList} from "../../redux/actions/reservationActions"
+import { userReservationList } from "../../redux/actions/reservationActions";
 export default function UserReservationList() {
   const dispacth = useDispatch();
   const { reservations } = useSelector((state) => state.reservation);
@@ -18,22 +18,24 @@ export default function UserReservationList() {
   useEffect(() => {
     dispacth(userReservationList(user.data?.id));
   }, []);
-  console.log(reservations)
+  console.log(reservations);
   return (
     <>
       <Heading>Reservasyonlarım</Heading>
-      <Container maxWidth="xs" sx={{ mt: 2 }}>
+      <Container  sx={{ mt: 2 }}>
         <TableContainer>
           <TableBody>
             <Table>
               <TableRow sx={{ backgroundColor: "black" }}>
                 <TableCell sx={{ color: "white" }}>Geliş Tarihi</TableCell>
                 <TableCell sx={{ color: "white" }}>Çıkış Tarihi</TableCell>
+                <TableCell sx={{ color: "white" }}>Kişi Sayısı</TableCell>
               </TableRow>
               {reservations.data?.map((reservation) => (
                 <TableRow>
                   <TableCell>{reservation.arrivalDate}</TableCell>
                   <TableCell>{reservation.returnDate}</TableCell>
+                  <TableCell>{reservation.numberPeople}</TableCell>
                 </TableRow>
               ))}
             </Table>

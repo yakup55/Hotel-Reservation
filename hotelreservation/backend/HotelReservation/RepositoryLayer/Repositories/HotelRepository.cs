@@ -1,10 +1,13 @@
-﻿using CoreLayer.Models;
+﻿using CoreLayer.DTOs;
+using CoreLayer.Models;
 using CoreLayer.Repositories;
 using Microsoft.EntityFrameworkCore;
 using RepositoryLayer.Context;
+using SharedLibray.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -45,6 +48,12 @@ namespace RepositoryLayer.Repositories
         public async Task<List<Hotel>> LastHotel()
         {
             return await context.Hotels.Where(x=>x.HotelPrice<4000).ToListAsync();
+        }
+
+        public async Task<List<Hotel>> SearchHotel(SearchDto search)
+        {
+           
+            return await context.Hotels.Where(x=>x.HotelName.Contains(search.Name) ||x.Category.CategoryName.Contains(search.Name)).ToListAsync();
         }
     }
 }

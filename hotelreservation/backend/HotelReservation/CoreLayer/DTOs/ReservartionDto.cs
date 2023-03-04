@@ -11,7 +11,7 @@ namespace CoreLayer.DTOs
         public int ReservationId { get; set; }
         public DateTime ArrivalDate { get; set; }
         public DateTime ReturnDate { get; set; }
-
+        public int NumberPeople { get; set; }
         public string UserId { get; set; }
     }
 }

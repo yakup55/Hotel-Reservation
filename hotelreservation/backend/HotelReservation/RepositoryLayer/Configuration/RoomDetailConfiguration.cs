@@ -9,8 +9,6 @@ namespace RepositoryLayer.Configuration
         public void Configure(EntityTypeBuilder<RoomDetail> builder)
         {
            builder.HasKey(x => x.RoomDetailId);
-            builder.Property(x=>x.NumberPeople).IsRequired();
-            builder.Property(x=>x.NumberDate).IsRequired();
             builder.Property(x=>x.Image1).IsRequired();
             builder.Property(x=>x.Image2).IsRequired();
             builder.Property(x=>x.Image3).IsRequired();

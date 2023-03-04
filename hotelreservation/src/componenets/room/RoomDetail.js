@@ -23,6 +23,7 @@ import Questions from "../questions/Questions";
 import RoomImageList from "./RoomImageList";
 import DoneAllIcon from "@mui/icons-material/DoneAll";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+import {getByReservation, userReservationList} from "../../redux/actions/reservationActions"
 export default function RoomDetail() {
   const { id } = useParams();
   const dispacth = useDispatch();
@@ -110,7 +111,7 @@ export default function RoomDetail() {
           </Table>
         </TableContainer>
         <SimpleGrid mt={10} minChildWidth="120px" spacing="40px">
-          <Box bg="tomato" height="110px">
+          {/* <Box bg="tomato" height="110px">
             <Heading>Giriş</Heading>
             <Typography variant="h6" fontStyle={"italic"}>
               2023.1.1
@@ -122,18 +123,13 @@ export default function RoomDetail() {
               2023.1.1
             </Typography>
           </Box>
-          <Box bg="tomato" height="110px">
-            <Heading>Konaklama</Heading>
-            <Typography variant="h6" fontStyle={"italic"}>
-              {room.data?.roomDetails.map((detail) => detail.numberDate)}Gece
-            </Typography>
-          </Box>
+         
           <Box bg="tomato" height="110px">
             <Heading>Konuk Sayısı</Heading>
             <Typography variant="h6" fontStyle={"italic"}>
-              {room.data?.roomDetails.map((detail) => detail.numberPeople)}Kişi
+              {room.data?.roomDetails.map((detail) => detail.numberPeople)} Kişi
             </Typography>
-          </Box>
+          </Box> */}
           <Box bg="tomato" height="110px">
             <Heading>Oda Fiyatı</Heading>
             <Typography variant="h6" fontStyle={"italic"}>

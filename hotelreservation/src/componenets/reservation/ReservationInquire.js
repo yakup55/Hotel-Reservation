@@ -1,6 +1,6 @@
 import * as React from "react";
 import FormControl from "@mui/material/FormControl";
-import { Button, InputAdornment, TextField } from "@mui/material";
+import { Button, InputAdornment, MenuItem, TextField } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import PeopleIcon from "@mui/icons-material/People";
 import { useDispatch, useSelector } from "react-redux";
@@ -12,20 +12,21 @@ import { useNavigate } from "react-router-dom";
 export default function ReservationInquire() {
   const navigate = useNavigate();
   const { user } = useSelector((state) => state.user);
+  const { cities } = useSelector((state) => state.city);
   const dispacth = useDispatch();
-  const { handleSubmit, handleBlur, handleChange, errors, touched } = useFormik(
-    {
+  const { handleSubmit, handleBlur, handleChange, errors, touched, values } =
+    useFormik({
       initialValues: {
         arrivalDate: "",
         returnDate: "",
+        numberPeople: 0,
         userId: user.data?.id,
       },
       onSubmit: (values) => {
         dispacth(addReservation(values));
         navigate("/hotellist");
       },
-    }
-  );
+    });
   useEffect(() => {
     dispacth(getByUserMail(user.data?.email));
   }, []);
@@ -38,12 +39,12 @@ export default function ReservationInquire() {
           variant="standard"
         >
           <TextField
-            id=""
-            name=""
-            label="Şehir Ara"
-            placeholder="Şehir Ara"
-            color="success"
-            type={"search"}
+            select
+            label="Şehir Şeç"
+            defaultValue="Şehir Şeç"
+            value={values.cityId}
+            id="cityId"
+            name="cityId"
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
@@ -51,7 +52,21 @@ export default function ReservationInquire() {
                 </InputAdornment>
               ),
             }}
-          ></TextField>
+            onChange={handleChange}
+            onBlur={handleBlur}
+            error={errors.cityId && touched.cityId}
+            helperText={errors.cityId && touched.cityId ? errors.cityId : ""}
+          >
+            {cities.data?.map((city) => (
+              <MenuItem
+                onClick={() => navigate(`/hotelcitylist/${city.cityId}`)}
+                key={city.cityId}
+                value={city.cityId}
+              >
+                {city.cityName}
+              </MenuItem>
+            ))}
+          </TextField>
         </FormControl>
         <FormControl
           style={{ width: 300 }}
@@ -110,12 +125,18 @@ export default function ReservationInquire() {
           variant="standard"
         >
           <TextField
-            id=""
-            name=""
+            id="numberPeople"
+            name="numberPeople"
             label="Kişi Sayısı"
             placeholder="Kişi Sayısı"
             color="success"
             type={"number"}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            error={errors.numberPeople && touched}
+            helperText={
+              errors.numberPeople && touched ? errors.numberPeople : ""
+            }
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
@@ -131,7 +152,7 @@ export default function ReservationInquire() {
           variant="standard"
         >
           <Button type="submit" variant="contained" color="success">
-            Otel Bul
+            Rezervasyon Yap
           </Button>
         </FormControl>
       </form>

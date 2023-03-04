@@ -53,7 +53,7 @@ namespace RepositoryLayer.Migrations
                         new
                         {
                             AboutId = 1,
-                            AboutDate = new DateTime(2023, 2, 27, 12, 56, 53, 313, DateTimeKind.Local).AddTicks(9515),
+                            AboutDate = new DateTime(2023, 3, 4, 12, 54, 1, 132, DateTimeKind.Local).AddTicks(5502),
                             AboutDescription = "10 larca oteli tercihlerinize göre filtreleyerek saniyeler içinde size en uygun otelleri bulabilirsiniz",
                             AboutImage = "https://cdn.enuygun.com/otel/v-083f8/static/images/icons/option.svg",
                             AboutName = "Sayısız Seçenek"
@@ -61,7 +61,7 @@ namespace RepositoryLayer.Migrations
                         new
                         {
                             AboutId = 2,
-                            AboutDate = new DateTime(2023, 2, 27, 12, 56, 53, 313, DateTimeKind.Local).AddTicks(9531),
+                            AboutDate = new DateTime(2023, 3, 4, 12, 54, 1, 132, DateTimeKind.Local).AddTicks(5540),
                             AboutDescription = "Kafanızı karıştıran fiyat ve hizmet seçenekleri arasında kaybolmayın, tercihlerinizi belirleyip size en uygun otelde odanızı hemen ayırtın.",
                             AboutImage = "https://cdn.enuygun.com/otel/v-083f8/static/images/icons/location.svg",
                             AboutName = "Uygun Oteller"
@@ -69,7 +69,7 @@ namespace RepositoryLayer.Migrations
                         new
                         {
                             AboutId = 3,
-                            AboutDate = new DateTime(2023, 2, 27, 12, 56, 53, 313, DateTimeKind.Local).AddTicks(9533),
+                            AboutDate = new DateTime(2023, 3, 4, 12, 54, 1, 132, DateTimeKind.Local).AddTicks(5541),
                             AboutDescription = "Enuygun sayesinde aradığınız oteli bulmak için sadece birkaç saniyeye ihtiyacınız var.",
                             AboutImage = "https://cdn.enuygun.com/otel/v-083f8/static/images/icons/fast-easy.svg",
                             AboutName = "Hızlı Ve Kolay"
@@ -77,7 +77,7 @@ namespace RepositoryLayer.Migrations
                         new
                         {
                             AboutId = 4,
-                            AboutDate = new DateTime(2023, 2, 27, 12, 56, 53, 313, DateTimeKind.Local).AddTicks(9534),
+                            AboutDate = new DateTime(2023, 3, 4, 12, 54, 1, 132, DateTimeKind.Local).AddTicks(5542),
                             AboutDescription = "Tüm ödeme işleriniz, dünyanın önde gelen güvenlik sertifikası şirketi DigiCert koruması altındadır.",
                             AboutImage = "https://cdn.enuygun.com/otel/v-083f8/static/images/icons/trust.svg",
                             AboutName = "Güvenle Alın"
@@ -795,6 +795,9 @@ namespace RepositoryLayer.Migrations
                     b.Property<DateTime>("ArrivalDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("NumberPeople")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("ReturnDate")
                         .HasColumnType("datetime2");
 
@@ -889,12 +892,6 @@ namespace RepositoryLayer.Migrations
                     b.Property<string>("Image3")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("NumberDate")
-                        .HasColumnType("int");
-
-                    b.Property<int>("NumberPeople")
-                        .HasColumnType("int");
 
                     b.Property<int>("RoomId")
                         .HasColumnType("int");

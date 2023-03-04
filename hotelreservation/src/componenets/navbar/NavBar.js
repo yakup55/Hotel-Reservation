@@ -88,7 +88,7 @@ function NavBar() {
         severity: "success",
       })
     );
-    navigate(`/home`);
+    navigate(`/`);
   };
   useEffect(() => {
     dispacth(getByUserMail(user.data?.email));
@@ -103,7 +103,7 @@ function NavBar() {
               variant="h6"
               noWrap
               component="a"
-              onClick={() => navigate("/home")}
+              onClick={() => navigate("/")}
               sx={{
                 mr: 2,
                 display: { xs: "none", md: "flex" },
@@ -161,7 +161,7 @@ function NavBar() {
               variant="h5"
               noWrap
               component="a"
-              onClick={() => navigate("/home")}
+              onClick={() => navigate("/")}
               sx={{
                 mr: 2,
                 display: { xs: "flex", md: "none" },

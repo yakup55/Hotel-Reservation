@@ -15,6 +15,7 @@ namespace RepositoryLayer.Repositories
 
         public ReservationRepository(AppDbContext context) : base(context)
         {
+
         }
 
         public Task<List<Reservation>> UserReservationList(string id)

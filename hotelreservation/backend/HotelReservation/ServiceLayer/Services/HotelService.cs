@@ -50,5 +50,14 @@ namespace ServiceLayer.Services
         {
             return ResponseDto<List<Hotel>>.Success(await hotelRepository.LastHotel(), 200);
         }
+
+        public async Task<ResponseDto<List<Hotel>>> SearchHotel(SearchDto search)
+        {
+            if (string.IsNullOrEmpty(search.Name))
+            {
+                return ResponseDto<List<Hotel>>.Fail("Aradığınız Şey Bulunamadı", 404);
+            }
+            return ResponseDto<List<Hotel>>.Success(await hotelRepository.SearchHotel(search), 200);
+        }
     }
 }
