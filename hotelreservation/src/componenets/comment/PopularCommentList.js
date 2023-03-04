@@ -18,12 +18,12 @@ import {
 } from "../../redux/actions/commentActions";
 
 export default function PopularCommentList() {
-  const {user}=useSelector((state)=>state.user)
+  const { user } = useSelector((state) => state.user);
   const dispacth = useDispatch();
-  const { id } = useParams();
   const { comments } = useSelector((state) => state.comment);
+  const { room } = useSelector((state) => state.room);
   useEffect(() => {
-    dispacth(popularCommentHotel(id));
+    dispacth(popularCommentHotel(room.data?.hotel.hotelId));
   }, []);
   return (
     <List
@@ -58,7 +58,7 @@ export default function PopularCommentList() {
                   variant="body2"
                   color="text.primary"
                 >
-                 {user.data?.userName}
+                  {user.data?.userName}
                 </Typography>
                 {`-${detail.commentMessage}`}
                 {`-${detail.commentDate}`}

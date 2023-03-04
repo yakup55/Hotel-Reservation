@@ -9,21 +9,16 @@ import {
   TableRow,
   Typography,
 } from "@mui/material";
-import { Container } from "@mui/system";
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { roomOneDetail } from "../../redux/actions/roomActions";
-import { getRoomDetailList } from "../../redux/actions/roomDetailActions";
 import PopularCommentList from "../comment/PopularCommentList";
 import Contact from "../contact/Contact";
 import HotelFacility from "../facility/HotelFacility";
-import Questions from "../questions/Questions";
 import RoomImageList from "./RoomImageList";
 import DoneAllIcon from "@mui/icons-material/DoneAll";
-import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
-import {getByReservation, userReservationList} from "../../redux/actions/reservationActions"
 export default function RoomDetail() {
   const { id } = useParams();
   const dispacth = useDispatch();
@@ -31,6 +26,7 @@ export default function RoomDetail() {
   useEffect(() => {
     dispacth(roomOneDetail(id));
   }, []);
+  console.log(room.data?.hotel.hotelId)
   return (
     <Grid
       h="600px"

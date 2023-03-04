@@ -27,12 +27,18 @@ export default function UserReservationList() {
           <TableBody>
             <Table>
               <TableRow sx={{ backgroundColor: "black" }}>
+              <TableCell sx={{ color: "white" }}>Otel Adı</TableCell>
+              <TableCell sx={{ color: "white" }}>Oda Resmi</TableCell>
+              <TableCell sx={{ color: "white" }}>Oda Fiyatı</TableCell>
                 <TableCell sx={{ color: "white" }}>Geliş Tarihi</TableCell>
                 <TableCell sx={{ color: "white" }}>Çıkış Tarihi</TableCell>
                 <TableCell sx={{ color: "white" }}>Kişi Sayısı</TableCell>
               </TableRow>
               {reservations.data?.map((reservation) => (
                 <TableRow>
+                  <TableCell></TableCell>
+                  <TableCell></TableCell>
+                  <TableCell></TableCell>
                   <TableCell>{reservation.arrivalDate}</TableCell>
                   <TableCell>{reservation.returnDate}</TableCell>
                   <TableCell>{reservation.numberPeople}</TableCell>

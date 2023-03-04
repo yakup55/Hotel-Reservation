@@ -23,7 +23,7 @@ export default function Search() {
             sx={{ width: 700 }}
             id="name"
             name="name"
-            label="Ara"
+            label="Aranıcak Kelimeyi Giriniz"
             onChange={(e) => search(e.target.value)}
             placeholder="Aramak istediğiniz otel adı veya kategori adı veya şehir adı giriniz"
           ></TextField>
@@ -38,7 +38,7 @@ export default function Search() {
             sx={{ width: 600 }}
             id="name"
             name="name"
-            label="Ara"
+            label="Aranıcak Kelimeyi Giriniz"
             onChange={(e) => search(e.target.value)}
             placeholder="Aramak istediğiniz otel adı veya kategori adı veya şehir adı giriniz"
           ></TextField>

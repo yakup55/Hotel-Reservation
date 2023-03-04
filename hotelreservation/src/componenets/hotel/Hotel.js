@@ -16,7 +16,6 @@ import { getDegreList } from "../../redux/actions/degreActions";
 export default function Hotel({ hotel }) {
   const dispacth = useDispatch();
   const navigate = useNavigate();
-  
   return (
     <div>
       <Box
@@ -78,7 +77,6 @@ export default function Hotel({ hotel }) {
                     <Typography variant="h10">
                       {hotel?.hotelLocation}
                     </Typography>
-                    <Typography variant="h10">{hotel?.degreId}</Typography>
                     <Typography color="red" variant="h5">
                       {hotel?.hotelPrice}
                     </Typography>

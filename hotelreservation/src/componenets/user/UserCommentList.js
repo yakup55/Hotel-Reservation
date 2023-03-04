@@ -37,6 +37,7 @@ export default function UserCommentList() {
                 <TableCell sx={{ color: "white" }}>Mesaj</TableCell>
                 <TableCell sx={{ color: "white" }}>Tarih</TableCell>
                 <TableCell sx={{ color: "white" }}>Derece</TableCell>
+                <TableCell sx={{ color: "white" }}></TableCell>
               </TableRow>
               {comments.data?.map((comment) => (
                 <TableRow>
