@@ -12,15 +12,14 @@ import { useEffect } from "react";
 import { getDegreList } from "../../redux/actions/degreActions";
 import { getByUserMail } from "../../redux/actions/userActions";
 export default function CommentAdd() {
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const dispacth = useDispatch();
   const { degres } = useSelector((state) => state.degre);
   const { user } = useSelector((state) => state.user);
   useEffect(() => {
     dispacth(getDegreList());
   }, []);
-
-  const { id } = useParams();
-  const navigate = useNavigate();
-  const dispacth = useDispatch();
   const { handleSubmit, handleChange, handleBlur, values, touched, errors } =
     useFormik({
       initialValues: {
@@ -31,21 +30,29 @@ export default function CommentAdd() {
         degreId: 0,
       },
       onSubmit: (values) => {
-        dispacth(addComment(values));
-        dispacth(
-          openSnacbar({
-            message: "Yorumunuz İçin Teşekkürler",
-            severity: "success",
-          })
-        );
-        navigate("/");
+        if (user.data?.id === undefined) {
+          dispacth(
+            openSnacbar({
+              message: "Lütfen Kayıt Olunuz",
+              severity: "error",
+            })
+          );
+        } else {
+          dispacth(addComment(values));
+          dispacth(
+            openSnacbar({
+              message: "Yorumunuz İçin Teşekkürler",
+              severity: "success",
+            })
+          );
+        }
       },
       validationSchema,
     });
   useEffect(() => {
     dispacth(getByUserMail(user.data?.email));
   });
-  console.log(user.data?.email);
+  console.log(user.data?.id);
   return (
     <Container sx={{ ml: 60, mb: 10 }} maxWidth="sm">
       <form onSubmit={handleSubmit}>

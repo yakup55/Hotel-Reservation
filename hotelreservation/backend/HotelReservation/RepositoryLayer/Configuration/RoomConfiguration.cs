@@ -20,7 +20,7 @@ namespace RepositoryLayer.Configuration
             builder.Property(x => x.HotelId).IsRequired();
 
 
-            builder.HasOne(X => X.Hotel).WithMany(x => x.Rooms).HasForeignKey(x => x.HotelId);
+            builder.HasOne(X => X.Hotel).WithMany(x => x.Rooms).HasForeignKey(x => x.HotelId).OnDelete(DeleteBehavior.NoAction);
 
             builder.HasData(
                 new Room

@@ -1,6 +1,7 @@
 import { contact, contacts } from "../../redux/initials/contactInitials";
 import {
   ADD_CONTACT,
+  CONTACT_USER_LIST,
   DELETE_CONTACT,
   GET_BY_CONTACT,
   GET_CONTACT_LIST,
@@ -10,7 +11,10 @@ const initialVales = {
   contact,
   contacts,
 };
-export default function contactReducer(state = initialVales, { type, payload }) {
+export default function contactReducer(
+  state = initialVales,
+  { type, payload }
+) {
   switch (type) {
     case GET_CONTACT_LIST:
       return {
@@ -42,7 +46,11 @@ export default function contactReducer(state = initialVales, { type, payload }) 
           ),
         ],
       };
-
+    case CONTACT_USER_LIST:
+      return {
+        ...state,
+        contacts: payload,
+      };
     default:
       return {
         ...state,

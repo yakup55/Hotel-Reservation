@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { getByUserMail } from "../../redux/actions/userActions";
 import UserCommentList from "./UserCommentList";
+import UserContactList from "./UserContactList";
 import UserReservationList from "./UserReservationList";
 
 export default function User() {
@@ -19,7 +20,7 @@ export default function User() {
   return (
     <Grid
       h="200px"
-      templateRows="repeat(2, 1fr)"
+      templateRows="repeat(4, 1fr)"
       templateColumns="repeat(5, 1fr)"
       gap={4}
     >
@@ -61,6 +62,11 @@ export default function User() {
       {user.data?.status === true && (
         <GridItem colSpan={4}>
           <UserCommentList></UserCommentList>
+        </GridItem>
+      )}
+      {user.data?.status === true && (
+        <GridItem  colSpan={4}>
+          <UserContactList></UserContactList>
         </GridItem>
       )}
     </Grid>

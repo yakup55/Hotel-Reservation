@@ -20,5 +20,7 @@ namespace CoreLayer.Models
         public int RoomId { get; set; }
         public Room Room { get; set; }
 
+        public ICollection<Reservation> Reservations { get; set; }
+
     }
 }

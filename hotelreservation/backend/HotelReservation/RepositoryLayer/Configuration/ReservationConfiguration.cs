@@ -18,6 +18,9 @@ namespace RepositoryLayer.Configuration
             builder.Property(x=>x.ReturnDate).IsRequired();
             builder.Property(x=>x.NumberPeople).IsRequired();
             builder.Property(x=>x.UserId).IsRequired();
+            builder.Property(x=>x.RoomDetailId).IsRequired();
+
+            builder.HasOne(x=>x.RoomDetail).WithMany(x=>x.Reservations).HasForeignKey(x=>x.RoomDetailId).OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

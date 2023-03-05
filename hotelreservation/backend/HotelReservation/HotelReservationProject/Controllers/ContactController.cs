@@ -11,9 +11,9 @@ namespace HotelReservationProject.Controllers
     [ApiController]
     public class ContactController : BaseController
     {
-        private readonly IGenericService<Contact, ContactDto> service;
+        private readonly IContactService service;
 
-        public ContactController(IGenericService<Contact, ContactDto> service)
+        public ContactController(IContactService service)
         {
             this.service = service;
         }
@@ -28,9 +28,15 @@ namespace HotelReservationProject.Controllers
         {
             return ActionResultInstance(await service.GetByIdAsync(id));
         }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> ContactUsertList(string id)
+        {
+            return ActionResultInstance(await service.ContactUserList(id));
+        }
         [HttpPost]
         public async Task<IActionResult> AddContact(ContactDto dto)
         {
+            dto.ContactStatus = false;
             return ActionResultInstance(await service.AddAsync(dto));
         }
         [HttpPut]

@@ -17,6 +17,7 @@ namespace RepositoryLayer.Configuration
             builder.Property(x => x.ContactSubject).IsRequired();
             builder.Property(x => x.ContactMessage).IsRequired();
             builder.Property(x => x.ContactEmail).IsRequired();
+            builder.Property(x => x.userId).IsRequired();
         }
     }
 }

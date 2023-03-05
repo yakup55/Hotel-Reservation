@@ -24,5 +24,9 @@ class ContactService {
     const url = `${this.baseUrl}/DeleteContact/${id}`;
     return await axios.delete(url).then((resp) => resp.data);
   }
+  async contactUserList(id) {
+    const url = `${this.baseUrl}/ContactUsertList/${id}`;
+    return await axios.get(url).then((resp) => resp.data);
+  }
 }
 export default ContactService;

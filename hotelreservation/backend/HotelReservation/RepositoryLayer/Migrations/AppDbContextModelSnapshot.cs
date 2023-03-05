@@ -53,7 +53,7 @@ namespace RepositoryLayer.Migrations
                         new
                         {
                             AboutId = 1,
-                            AboutDate = new DateTime(2023, 3, 4, 12, 54, 1, 132, DateTimeKind.Local).AddTicks(5502),
+                            AboutDate = new DateTime(2023, 3, 5, 15, 10, 45, 935, DateTimeKind.Local).AddTicks(2086),
                             AboutDescription = "10 larca oteli tercihlerinize göre filtreleyerek saniyeler içinde size en uygun otelleri bulabilirsiniz",
                             AboutImage = "https://cdn.enuygun.com/otel/v-083f8/static/images/icons/option.svg",
                             AboutName = "Sayısız Seçenek"
@@ -61,7 +61,7 @@ namespace RepositoryLayer.Migrations
                         new
                         {
                             AboutId = 2,
-                            AboutDate = new DateTime(2023, 3, 4, 12, 54, 1, 132, DateTimeKind.Local).AddTicks(5540),
+                            AboutDate = new DateTime(2023, 3, 5, 15, 10, 45, 935, DateTimeKind.Local).AddTicks(2097),
                             AboutDescription = "Kafanızı karıştıran fiyat ve hizmet seçenekleri arasında kaybolmayın, tercihlerinizi belirleyip size en uygun otelde odanızı hemen ayırtın.",
                             AboutImage = "https://cdn.enuygun.com/otel/v-083f8/static/images/icons/location.svg",
                             AboutName = "Uygun Oteller"
@@ -69,7 +69,7 @@ namespace RepositoryLayer.Migrations
                         new
                         {
                             AboutId = 3,
-                            AboutDate = new DateTime(2023, 3, 4, 12, 54, 1, 132, DateTimeKind.Local).AddTicks(5541),
+                            AboutDate = new DateTime(2023, 3, 5, 15, 10, 45, 935, DateTimeKind.Local).AddTicks(2098),
                             AboutDescription = "Enuygun sayesinde aradığınız oteli bulmak için sadece birkaç saniyeye ihtiyacınız var.",
                             AboutImage = "https://cdn.enuygun.com/otel/v-083f8/static/images/icons/fast-easy.svg",
                             AboutName = "Hızlı Ve Kolay"
@@ -77,7 +77,7 @@ namespace RepositoryLayer.Migrations
                         new
                         {
                             AboutId = 4,
-                            AboutDate = new DateTime(2023, 3, 4, 12, 54, 1, 132, DateTimeKind.Local).AddTicks(5542),
+                            AboutDate = new DateTime(2023, 3, 5, 15, 10, 45, 935, DateTimeKind.Local).AddTicks(2099),
                             AboutDescription = "Tüm ödeme işleriniz, dünyanın önde gelen güvenlik sertifikası şirketi DigiCert koruması altındadır.",
                             AboutImage = "https://cdn.enuygun.com/otel/v-083f8/static/images/icons/trust.svg",
                             AboutName = "Güvenle Alın"
@@ -398,7 +398,14 @@ namespace RepositoryLayer.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("ContactStatus")
+                        .HasColumnType("bit");
+
                     b.Property<string>("ContactSubject")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("userId")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -739,6 +746,126 @@ namespace RepositoryLayer.Migrations
                             Image7 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/green-garden-resort-hotel-antalya-genel-40582384.webp",
                             Image8 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/green-garden-resort-hotel-antalya-genel-40582385.webp",
                             Image9 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/green-garden-resort-hotel-antalya-genel-40582393.webp"
+                        },
+                        new
+                        {
+                            HotelDetailId = 2,
+                            HotelId = 2,
+                            HotelMap = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3192.431110509297!2d31.03679701524925!3d36.85609847993706!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4074efde6cd79259%3A0xda0d0175715a1421!2sSusesi%20Luxury%20Resort!5e0!3m2!1str!2str!4v1676720181955!5m2!1str!2str\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade",
+                            Image1 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/susesi-luxury-resort-antalya-genel-40799743.webp",
+                            Image2 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/susesi-luxury-resort-antalya-genel-40799744.webp",
+                            Image3 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/susesi-luxury-resort-antalya-genel-40799745.webp",
+                            Image4 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/susesi-luxury-resort-antalya-genel-40799746.webp",
+                            Image5 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/susesi-luxury-resort-antalya-genel-40799750.webp",
+                            Image6 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/susesi-luxury-resort-antalya-genel-40799753.webp",
+                            Image7 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/susesi-luxury-resort-antalya-genel-40799754.webp",
+                            Image8 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/susesi-luxury-resort-antalya-genel-40799755.webp",
+                            Image9 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/susesi-luxury-resort-antalya-genel-40799756.webp"
+                        },
+                        new
+                        {
+                            HotelDetailId = 3,
+                            HotelId = 3,
+                            HotelMap = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6509.924997754389!2d33.31546567593716!3d35.331752721108735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14de1333e6e63e1f%3A0x63167cff0325308a!2sB%C3%BCy%C3%BCk%20Anadolu%20Girne%20Hotel!5e0!3m2!1str!2str!4v1676720655877!5m2!1str!2str\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade",
+                            Image1 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/buyuk-anadolu-girne-hotel-kibris-havuz-38526923.webp",
+                            Image2 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/buyuk-anadolu-girne-hotel-kibris-spa-saglik-38526924.webp",
+                            Image3 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/buyuk-anadolu-girne-hotel-kibris-oda-39498110.webp",
+                            Image4 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/buyuk-anadolu-girne-hotel-kibris-oda-39498111.webp",
+                            Image5 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/buyuk-anadolu-girne-hotel-kibris-oda-39498112.webp",
+                            Image6 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/buyuk-anadolu-girne-hotel-kibris-genel-38526922.webp",
+                            Image7 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/buyuk-anadolu-girne-hotel-kibris-havuz-38526923.webp",
+                            Image8 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/buyuk-anadolu-girne-hotel-kibris-spa-saglik-38526924.webp",
+                            Image9 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/buyuk-anadolu-girne-hotel-kibris-oda-39498111.webp"
+                        },
+                        new
+                        {
+                            HotelDetailId = 4,
+                            HotelId = 4,
+                            HotelMap = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3194.488570891468!2d31.35023831524779!3d36.8068107799472!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14c35ecb6607d369%3A0x2326c02a0dc26db8!2sLuna%20Blanca%20Resort%20%26%20Spa!5e0!3m2!1str!2str!4v1676721585554!5m2!1str!2str\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade",
+                            Image1 = "https://cdn3.enuygun.com/media/lib/1x400/uploads/image/luna-blanca-resort-spa-antalya-genel-39563033.jpg",
+                            Image2 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/luna-blanca-resort-spa-antalya-genel-39563035.webp",
+                            Image3 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/luna-blanca-resort-spa-antalya-havuz-39563040.webp",
+                            Image4 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/luna-blanca-resort-spa-antalya-deniz-39563038.webp",
+                            Image5 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/luna-blanca-resort-spa-antalya-yeme-icme-39563039.webp",
+                            Image6 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/luna-blanca-resort-spa-antalya-yeme-icme-39563050.webp",
+                            Image7 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/luna-blanca-resort-spa-antalya-yeme-icme-39563053.webp",
+                            Image8 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/luna-blanca-resort-spa-antalya-yeme-icme-39563054.webp",
+                            Image9 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/luna-blanca-resort-spa-antalya-spa-saglik-39563067.webp"
+                        },
+                        new
+                        {
+                            HotelDetailId = 5,
+                            HotelId = 5,
+                            HotelMap = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3005.655357462936!2d29.00669291537778!3d41.12021737928958!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab5b9db1143b9%3A0xf65490841babf00!2sSomerset%20Maslak%20Istanbul!5e0!3m2!1str!2str!4v1676722412227!5m2!1str!2str\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade",
+                            Image1 = "https://cdn3.enuygun.com/media/lib/1x400/uploads/image/somerset-maslak-istanbul-istanbul-genel-27564703.jpg",
+                            Image2 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/somerset-maslak-istanbul-istanbul-havuz-27564701.webp",
+                            Image3 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/somerset-maslak-istanbul-istanbul-havuz-27564715.webp",
+                            Image4 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/somerset-maslak-istanbul-istanbul-aktiviteler-27564685.webp",
+                            Image5 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/somerset-maslak-istanbul-istanbul-lobi-27564697.webp",
+                            Image6 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/somerset-maslak-istanbul-istanbul-lobi-27564696.webp",
+                            Image7 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/somerset-maslak-istanbul-istanbul-lobi-27564706.webp",
+                            Image8 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/somerset-maslak-istanbul-istanbul-lobi-27564704.webp",
+                            Image9 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/somerset-maslak-istanbul-istanbul-manzara-peyzaj-27564705.webp"
+                        },
+                        new
+                        {
+                            HotelDetailId = 6,
+                            HotelId = 6,
+                            HotelMap = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3009.1214238095263!2d28.987021115375384!3d41.044473679297134!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab03b5a0b0c4d%3A0xe964200b7b8e87ea!2sHilton%20%C4%B0stanbul%20Bosphorus!5e0!3m2!1str!2str!4v1676722613474!5m2!1str!2str\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade",
+                            Image1 = "https://cdn3.enuygun.com/media/lib/1x400/uploads/image/hilton-istanbul-bosphorus-istanbul-genel-37295684.jpg",
+                            Image2 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/hilton-istanbul-bosphorus-istanbul-genel-39295600.webp",
+                            Image3 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/hilton-istanbul-bosphorus-istanbul-genel-39295601.webp",
+                            Image4 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/hilton-istanbul-bosphorus-istanbul-havuz-37295601.webp",
+                            Image5 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/hilton-istanbul-bosphorus-istanbul-havuz-37295721.webp",
+                            Image6 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/hilton-istanbul-bosphorus-istanbul-havuz-37295723.webp",
+                            Image7 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/hilton-istanbul-bosphorus-istanbul-yeme-icme-37295649.webp",
+                            Image8 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/hilton-istanbul-bosphorus-istanbul-aktiviteler-37295576.webp",
+                            Image9 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/hilton-istanbul-bosphorus-istanbul-aktiviteler-37295573.webp"
+                        },
+                        new
+                        {
+                            HotelDetailId = 7,
+                            HotelId = 7,
+                            HotelMap = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3016.8064728156337!2d29.31402321537002!3d40.8761210793143!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cadc7e87513309%3A0xdc86803a3afcb1f2!2sRadisson%20Blu%20Hotel%20%26%20Spa%2C%20Istanbul%20Tuzla!5e0!3m2!1str!2str!4v1676722922169!5m2!1str!2str\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade",
+                            Image1 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/radisson-blu-spa-tuzla-istanbul-yeme-icme-38293256.webp",
+                            Image2 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/radisson-blu-spa-tuzla-istanbul-bar-38293258.webp",
+                            Image3 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/radisson-blu-spa-tuzla-istanbul-lobi-38293253.webp",
+                            Image4 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/radisson-blu-spa-tuzla-istanbul-oda-38198021.webp",
+                            Image5 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/radisson-blu-spa-tuzla-istanbul-oda-38198022.webp",
+                            Image6 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/radisson-blu-spa-tuzla-istanbul-oda-38293250.webp",
+                            Image7 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/radisson-blu-spa-tuzla-istanbul-spor-38104576.webp",
+                            Image8 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/radisson-blu-spa-tuzla-istanbul-havuz-38104578.webp",
+                            Image9 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/radisson-blu-spa-tuzla-istanbul-spa-saglik-38388736.webp"
+                        },
+                        new
+                        {
+                            HotelDetailId = 8,
+                            HotelId = 8,
+                            HotelMap = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3184.8371747189913!2d27.426674815254508!3d37.03752847990045!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14be6c3f7fd6dfed%3A0x88f6c5f46699d5d1!2sCosta%20Maya%20Hotel!5e0!3m2!1str!2str!4v1676723103065!5m2!1str!2str\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade",
+                            Image1 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/costa-maya-bodrum-bodrum-genel-39501781.webp",
+                            Image2 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/costa-maya-bodrum-bodrum-genel-39568244.webp",
+                            Image3 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/costa-maya-bodrum-bodrum-yeme-icme-39501791.webp",
+                            Image4 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/costa-maya-bodrum-bodrum-yeme-icme-39568250.webp",
+                            Image5 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/costa-maya-bodrum-bodrum-manzara-peyzaj-39501788.webp",
+                            Image6 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/costa-maya-bodrum-bodrum-oda-39501793.webp",
+                            Image7 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/costa-maya-bodrum-bodrum-manzara-peyzaj-39501789.webp",
+                            Image8 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/costa-maya-bodrum-bodrum-oda-39568249.webp",
+                            Image9 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/costa-maya-bodrum-bodrum-oda-39568248.webp"
+                        },
+                        new
+                        {
+                            HotelDetailId = 9,
+                            HotelId = 9,
+                            HotelMap = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3184.857282602926!2d27.40969921525455!3d37.03704907990057!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14be6c6e0eaad519%3A0x75df94bcf046bda0!2sBodrium%20Otel%20%26%20SPA!5e0!3m2!1str!2str!4v1676723345737!5m2!1str!2str\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade",
+                            Image1 = "https://cdn3.enuygun.com/media/lib/1x400/uploads/image/bodrium-and-you-spa-bodrum-genel-39518871.jpg",
+                            Image2 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/bodrium-and-you-spa-bodrum-yeme-icme-39518873.webp",
+                            Image3 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/bodrium-and-you-spa-bodrum-yeme-icme-39518885.webp",
+                            Image4 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/bodrium-and-you-spa-bodrum-bar-39518900.webp",
+                            Image5 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/bodrium-and-you-spa-bodrum-bar-39518902.webp",
+                            Image6 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/bodrium-and-you-spa-bodrum-lobi-39518879.webp",
+                            Image7 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/bodrium-and-you-spa-bodrum-lobi-39518881.webp",
+                            Image8 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/bodrium-and-you-spa-bodrum-is-konferans-39518905.webp",
+                            Image9 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/bodrium-and-you-spa-bodrum-oda-39518888.webp"
                         });
                 });
 
@@ -801,11 +928,16 @@ namespace RepositoryLayer.Migrations
                     b.Property<DateTime>("ReturnDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("RoomDetailId")
+                        .HasColumnType("int");
+
                     b.Property<string>("UserId")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ReservationId");
+
+                    b.HasIndex("RoomDetailId");
 
                     b.ToTable("Reservations");
                 });
@@ -901,6 +1033,40 @@ namespace RepositoryLayer.Migrations
                     b.HasIndex("RoomId");
 
                     b.ToTable("RoomDetails");
+
+                    b.HasData(
+                        new
+                        {
+                            RoomDetailId = 1,
+                            Image1 = "https://cdn.tatilsepeti.com/Files/Images/TesisOda/02499/tsr02499637753594405840440.jpg",
+                            Image2 = "https://cdn.tatilsepeti.com/Files/Images/TesisOda/02499/tsr02499637753594432289866.jpg",
+                            Image3 = "https://cdn.tatilsepeti.com/Files/Images/TesisOda/02499/tsr02499637753594470155558.jpg",
+                            RoomId = 1
+                        },
+                        new
+                        {
+                            RoomDetailId = 2,
+                            Image1 = "https://cdn.tatilsepeti.com/Files/Images/TesisOda/02499/tsr02499637464063250216331.jpg",
+                            Image2 = "https://cdn.tatilsepeti.com/Files/Images/TesisOda/02499/tsr02499637464063694337191.jpg",
+                            Image3 = "https://cdn.tatilsepeti.com/Files/Images/TesisOda/02499/tsr02499637464063807519463.jpg",
+                            RoomId = 2
+                        },
+                        new
+                        {
+                            RoomDetailId = 3,
+                            Image1 = "https://cdn.tatilsepeti.com/Files/Images/TesisOda/02499/tsr02499637753594977813034.jpg",
+                            Image2 = "https://cdn.tatilsepeti.com/Files/Images/TesisOda/02499/tsr02499637753594992107538.jpg",
+                            Image3 = "https://cdn.tatilsepeti.com/Files/Images/TesisOda/02499/tsr02499637753595019444135.jpg",
+                            RoomId = 3
+                        },
+                        new
+                        {
+                            RoomDetailId = 4,
+                            Image1 = "https://cdn.tatilsepeti.com/Files/Images/TesisOda/02499/tsr02499637823464711998501.jpg",
+                            Image2 = "https://cdn.tatilsepeti.com/Files/Images/TesisOda/02499/tsr02499637823464768857977.jpg",
+                            Image3 = "https://cdn.tatilsepeti.com/Files/Images/TesisOda/02499/tsr02499637464063858799428.jpg",
+                            RoomId = 4
+                        });
                 });
 
             modelBuilder.Entity("CoreLayer.Models.UserRefreshToken", b =>
@@ -1157,12 +1323,23 @@ namespace RepositoryLayer.Migrations
                     b.Navigation("Hotel");
                 });
 
+            modelBuilder.Entity("CoreLayer.Models.Reservation", b =>
+                {
+                    b.HasOne("CoreLayer.Models.RoomDetail", "RoomDetail")
+                        .WithMany("Reservations")
+                        .HasForeignKey("RoomDetailId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("RoomDetail");
+                });
+
             modelBuilder.Entity("CoreLayer.Models.Room", b =>
                 {
                     b.HasOne("CoreLayer.Models.Hotel", "Hotel")
                         .WithMany("Rooms")
                         .HasForeignKey("HotelId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Hotel");
@@ -1173,7 +1350,7 @@ namespace RepositoryLayer.Migrations
                     b.HasOne("CoreLayer.Models.Room", "Room")
                         .WithMany("RoomDetails")
                         .HasForeignKey("RoomId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Room");
@@ -1267,6 +1444,11 @@ namespace RepositoryLayer.Migrations
             modelBuilder.Entity("CoreLayer.Models.Room", b =>
                 {
                     b.Navigation("RoomDetails");
+                });
+
+            modelBuilder.Entity("CoreLayer.Models.RoomDetail", b =>
+                {
+                    b.Navigation("Reservations");
                 });
 #pragma warning restore 612, 618
         }

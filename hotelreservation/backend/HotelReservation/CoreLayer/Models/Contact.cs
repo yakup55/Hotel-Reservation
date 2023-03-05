@@ -14,5 +14,7 @@ namespace CoreLayer.Models
         public string ContactSubject { get; set; }
         public string ContactEmail { get; set; }
         public string ContactMessage { get; set; }
+        public string userId { get; set; }
+        public bool ContactStatus { get; set; }
     }
 }

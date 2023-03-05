@@ -1,13 +1,14 @@
 import { Button, Container, Stack, TextField, Typography } from "@mui/material";
 import { useFormik } from "formik";
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { openSnacbar } from "../../redux/actions/appActions";
 import { addContact } from "../../redux/actions/contactActions";
 import { validationSchema } from "./validationSchema";
 
 export default function Contact() {
+  const { user } = useSelector((state) => state.user);
   const dispacth = useDispatch();
   const navigate = useNavigate();
   const { handleSubmit, handleChange, handleBlur, errors, touched } = useFormik(
@@ -16,20 +17,31 @@ export default function Contact() {
         contactSubject: "",
         contactEmail: "",
         contactMessage: "",
+        userId: user.data?.id,
       },
       onSubmit: (values) => {
-        dispacth(addContact(values));
-        dispacth(
-          openSnacbar({
-            message: "Mesajınız Alınmıştır",
-            severity: "success",
-          })
-        );
-        navigate("/");
+        if (user.data?.id === undefined) {
+          dispacth(
+            openSnacbar({
+              message: "Lütfen Kayıt Olunuz",
+              severity: "error",
+            })
+          );
+        } else {
+          dispacth(addContact(values));
+          dispacth(
+            openSnacbar({
+              message: "Mesajınız Alınmıştır",
+              severity: "success",
+            })
+          );
+          navigate("/");
+        }
       },
       validationSchema,
     }
   );
+
   return (
     <Container>
       <Typography mb={2} variant="h5" fontStyle="italic">

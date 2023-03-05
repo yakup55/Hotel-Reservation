@@ -16,5 +16,8 @@ namespace CoreLayer.Models
         public int NumberPeople { get; set; }
 
         public string UserId { get; set; }
+
+        public int RoomDetailId { get; set; }
+        public RoomDetail RoomDetail { get; set; }
     }
 }

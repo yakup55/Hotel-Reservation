@@ -2,6 +2,7 @@ import { Box, Grid, GridItem, Heading, SimpleGrid } from "@chakra-ui/react";
 import {
   Button,
   Chip,
+  FormControl,
   Table,
   TableBody,
   TableCell,
@@ -19,6 +20,7 @@ import Contact from "../contact/Contact";
 import HotelFacility from "../facility/HotelFacility";
 import RoomImageList from "./RoomImageList";
 import DoneAllIcon from "@mui/icons-material/DoneAll";
+import ReservationInquire from "../reservation/ReservationInquire";
 export default function RoomDetail() {
   const { id } = useParams();
   const dispacth = useDispatch();
@@ -26,7 +28,7 @@ export default function RoomDetail() {
   useEffect(() => {
     dispacth(roomOneDetail(id));
   }, []);
-  console.log(room.data?.hotel.hotelId)
+  console.log(room.data?.hotel.hotelId);
   return (
     <Grid
       h="600px"
@@ -48,7 +50,7 @@ export default function RoomDetail() {
       </GridItem>
       <GridItem colSpan={4}>
         <Heading>Oda Özellikleri</Heading>
-        <TableContainer>
+          <TableContainer>
           <Table>
             <TableBody>
               <TableRow sx={{ backgroundColor: "black", color: "white" }}>
@@ -106,6 +108,8 @@ export default function RoomDetail() {
             </TableBody>
           </Table>
         </TableContainer>
+        <ReservationInquire></ReservationInquire>
+
         <SimpleGrid mt={10} minChildWidth="120px" spacing="40px">
           {/* <Box bg="tomato" height="110px">
             <Heading>Giriş</Heading>
@@ -129,11 +133,11 @@ export default function RoomDetail() {
           <Box bg="tomato" height="110px">
             <Heading>Oda Fiyatı</Heading>
             <Typography variant="h6" fontStyle={"italic"}>
-            {room.data?.roomPrice}
+              {room.data?.roomPrice}
             </Typography>
           </Box>
         </SimpleGrid>
-        <Button sx={{mt:5}} type="submit" color="secondary" variant="contained">Odayı Ayır</Button>
+      
       </GridItem>
     </Grid>
   );

@@ -4,6 +4,7 @@ export const GET_BY_CONTACT = "GET_BY_CONTACT";
 export const ADD_CONTACT = "ADD_CONTACT";
 export const DELETE_CONTACT = "DELETE_CONTACT";
 export const UPDATE_CONTACT = "UPDATE_CONTACT";
+export const CONTACT_USER_LIST = "CONTACT_USER_LIST";
 const service = new ContactService();
 
 export function getContactList() {
@@ -42,5 +43,12 @@ export function deleteContact(id) {
     service
       .deleteContact(id)
       .then((resp) => dispacth({ type: DELETE_CONTACT, payload: id }));
+  };
+}
+export function contactUserList(id) {
+  return function (dispacth) {
+    service
+      .contactUserList(id)
+      .then((resp) => dispacth({ type: CONTACT_USER_LIST, payload: resp }));
   };
 }

@@ -8,8 +8,11 @@ import { useFormik } from "formik";
 import { addReservation } from "../../redux/actions/reservationActions";
 import { getByUserMail } from "../../redux/actions/userActions";
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { openSnacbar } from "../../redux/actions/appActions";
+import { Heading } from "@chakra-ui/react";
 export default function ReservationInquire() {
+  const { id } = useParams();
   const navigate = useNavigate();
   const { user } = useSelector((state) => state.user);
   const { cities } = useSelector((state) => state.city);
@@ -21,53 +24,35 @@ export default function ReservationInquire() {
         returnDate: "",
         numberPeople: 0,
         userId: user.data?.id,
+        roomDetailId: id,
       },
       onSubmit: (values) => {
         dispacth(addReservation(values));
-        navigate("/hotellist");
+        if (values.userId === undefined) {
+          dispacth(
+            openSnacbar({
+              message: "Lütfen Kayıt Olunuz",
+              severity: "error",
+            })
+          );
+        } else {
+          dispacth(
+            openSnacbar({ 
+              message: "Reservasyonunuz yapılmıştır",
+              severity: "success",
+            })
+          );
+        }
       },
     });
   useEffect(() => {
     dispacth(getByUserMail(user.data?.email));
   }, []);
+ 
   return (
-    <div>
+    <>
+      <Heading>Rezervasyon Yapmadan Önce Lütfen Kayıt Olunuz</Heading>
       <form onSubmit={handleSubmit}>
-        <FormControl
-          style={{ width: 300 }}
-          sx={{ m: 1, mt: 4 }}
-          variant="standard"
-        >
-          <TextField
-            select
-            label="Şehir Şeç"
-            defaultValue="Şehir Şeç"
-            value={values.cityId}
-            id="cityId"
-            name="cityId"
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <SearchIcon></SearchIcon>
-                </InputAdornment>
-              ),
-            }}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            error={errors.cityId && touched.cityId}
-            helperText={errors.cityId && touched.cityId ? errors.cityId : ""}
-          >
-            {cities.data?.map((city) => (
-              <MenuItem
-                onClick={() => navigate(`/hotelcitylist/${city.cityId}`)}
-                key={city.cityId}
-                value={city.cityId}
-              >
-                {city.cityName}
-              </MenuItem>
-            ))}
-          </TextField>
-        </FormControl>
         <FormControl
           style={{ width: 300 }}
           sx={{ m: 1, mt: 4 }}
@@ -156,6 +141,6 @@ export default function ReservationInquire() {
           </Button>
         </FormControl>
       </form>
-    </div>
+    </>
   );
 }

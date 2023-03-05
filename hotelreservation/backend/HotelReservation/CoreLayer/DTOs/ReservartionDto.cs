@@ -13,5 +13,6 @@ namespace CoreLayer.DTOs
         public DateTime ReturnDate { get; set; }
         public int NumberPeople { get; set; }
         public string UserId { get; set; }
+        public int RoomDetailId { get; set; }
     }
 }

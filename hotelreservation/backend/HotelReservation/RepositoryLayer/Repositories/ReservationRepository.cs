@@ -20,7 +20,7 @@ namespace RepositoryLayer.Repositories
 
         public Task<List<Reservation>> UserReservationList(string id)
         {
-          return context.Reservations.Where(x=>x.UserId == id).ToListAsync();
+          return context.Reservations.Include(x=>x.RoomDetail).Include(x=>x.RoomDetail.Room).Include(x => x.RoomDetail.Room.Hotel).Where(x=>x.UserId == id).ToListAsync();
         }
     }
 }
