@@ -2,11 +2,10 @@ import { Grid, GridItem } from "@chakra-ui/react";
 import { Button, TextField } from "@mui/material";
 import { Container, Stack } from "@mui/system";
 import { useFormik } from "formik";
-import React from "react";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { getByAbout, updateAbout } from "../../redux/actions/aboutActions";
+import { updateAbout } from "../../redux/actions/aboutActions";
 import { openSnacbar } from "../../redux/actions/appActions";
 import AboutService from "../../redux/services/aboutService";
 import AdminHome from "../home/AdminHome";
@@ -16,7 +15,10 @@ export default function AdminUpdateAbout() {
   const dispacth = useDispatch();
   const navigate = useNavigate();
   const service = new AboutService();
-
+  useEffect(() => {
+    service.getByAbout(id).then((resp) => setValues(resp));
+    // dispacth(getByAbout(id))?.then((resp)=>setValues(resp))
+  }, []);
   const {
     handleSubmit,
     handleBlur,
@@ -44,10 +46,8 @@ export default function AdminUpdateAbout() {
     },
     validationSchema,
   });
-  useEffect(() => {
-    service.getByAbout(id).then((resp) => setValues(resp));
-  }, []);
-  console.log(values.data);
+
+  console.log(values);
   return (
     <Grid
       h="900px"
@@ -69,10 +69,10 @@ export default function AdminUpdateAbout() {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.data?.aboutName}
-                error={errors.aboutName && touched.aboutName}
-                helperText={
-                  errors.aboutName && touched.aboutName ? errors.aboutName : ""
-                }
+                // error={errors.aboutName && touched.aboutName}
+                // helperText={
+                //   errors.aboutName && touched.aboutName ? errors.aboutName : ""
+                // }
               ></TextField>
               <TextField
                 fullWidth
@@ -81,12 +81,12 @@ export default function AdminUpdateAbout() {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.aboutImage}
-                error={errors.aboutImage && touched.aboutImage}
-                helperText={
-                  errors.aboutImage && touched.aboutImage
-                    ? errors.aboutImage
-                    : ""
-                }
+                // error={errors.aboutImage && touched.aboutImage}
+                // helperText={
+                //   errors.aboutImage && touched.aboutImage
+                //     ? errors.aboutImage
+                //     : ""
+                // }
               ></TextField>
               <TextField
                 fullWidth

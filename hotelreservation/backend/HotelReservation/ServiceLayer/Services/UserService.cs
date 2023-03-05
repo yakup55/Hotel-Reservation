@@ -149,7 +149,7 @@ namespace ServiceLayer.Services
             var link = "http://localhost:3000/resetpassword/" + hasUser.Email;
             var passwordResultLink = link;
 
-            await emailService.SendResetPasswordEmail(passwordResultLink, hasUser.Email);
+            await emailService.SendResetPasswordEmail(passwordResultLink, hasUser.Email!);
             return ResponseDto<NoDataDto>.Success(200);
         }
 

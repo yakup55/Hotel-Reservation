@@ -1,12 +1,30 @@
-import { Heading } from "@chakra-ui/react";
+import {
+  AlertDialog,
+  AlertDialogBody,
+  AlertDialogContent,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogOverlay,
+  Heading,
+  useDisclosure,
+} from "@chakra-ui/react";
 import {
   Button,
+  Checkbox,
   Container,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  FormControlLabel,
+  FormGroup,
   Table,
   TableBody,
   TableCell,
   TableContainer,
   TableRow,
+  TextField,
   Typography,
 } from "@mui/material";
 import React from "react";
@@ -18,8 +36,12 @@ import {
 } from "../../redux/actions/reservationActions";
 import CancelIcon from "@mui/icons-material/Cancel";
 import { openSnacbar } from "../../redux/actions/appActions";
-import PaidIcon from '@mui/icons-material/Paid';
+import PaidIcon from "@mui/icons-material/Paid";
+import { Stack } from "@mui/system";
+import UserPay from "./UserPay";
 export default function UserReservationList() {
+ 
+
   const dispacth = useDispatch();
   const { reservations } = useSelector((state) => state.reservation);
   const { user } = useSelector((state) => state.user);
@@ -40,10 +62,10 @@ export default function UserReservationList() {
     <>
       <Heading>Reservasyonlarım</Heading>
       <Container sx={{ mt: 2 }}>
-        {reservations.data?.length === 0  && (
+        {reservations.data?.length === 0 && (
           <Typography>Reservasyonunuz Bulunmamaktadır</Typography>
         )}
-        {reservations.data?.length !== 0  && (
+        {reservations.data?.length !== 0 && (
           <TableContainer>
             <TableBody>
               <Table>
@@ -76,14 +98,9 @@ export default function UserReservationList() {
                     <TableCell>{reservation.returnDate}</TableCell>
                     <TableCell>{reservation.numberPeople}</TableCell>
                     <TableCell>
-                      <Button
-                       
-                        variant="contained"
-                        color="success"
-                      >
-                        <PaidIcon></PaidIcon>
-                      </Button>
+                   <UserPay></UserPay>
                     </TableCell>
+
                     <TableCell>
                       <Button
                         onClick={() =>

@@ -1,7 +1,7 @@
-import { Heading } from "@chakra-ui/react";
+import { Heading, useRangeSliderStyles } from "@chakra-ui/react";
 import { Button, Container, Stack, TextField } from "@mui/material";
 import { useFormik } from "formik";
-import React from "react";
+import React, { createContext } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { openSnacbar } from "../../redux/actions/appActions";
@@ -10,8 +10,8 @@ import { validationSchema } from "./validationSchema";
 export default function ResetEmailSend() {
   const dispacth = useDispatch();
   const navigate = useNavigate();
-  const { handleSubmit, handleChange, handleBlur, errors, touched } = useFormik(
-    {
+  const { handleSubmit, handleChange, handleBlur, errors, touched, values } =
+    useFormik({
       initialValues: {
         email: "",
       },
@@ -26,8 +26,7 @@ export default function ResetEmailSend() {
         navigate("/");
       },
       validationSchema,
-    }
-  );
+    });
   return (
     <Container maxWidth="xs" sx={{ mt: 5 }}>
       <Heading>Lütfen Email Adresinizi Doğru Giriniz</Heading>

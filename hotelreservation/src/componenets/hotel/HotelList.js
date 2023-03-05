@@ -41,14 +41,12 @@ import { getByUserMail } from "../../redux/actions/userActions";
 import { useFormik } from "formik";
 import Search from "../search/Search";
 export default function HotelList() {
-  const { user } = useSelector((state) => state.user);
   const { hotels } = useSelector((state) => state.hotel);
   const navigate = useNavigate();
   const dispacth = useDispatch();
  
   useEffect(() => {
     dispacth(getHotelList());
-    dispacth(getByUserMail(user.data?.email));
   }, []);
   return (
     <>

@@ -46,17 +46,15 @@ import CommentHotelList from "../comment/CommentHotelList";
 import Questions from "../questions/Questions";
 import Contact from "../contact/Contact";
 import HotelFacility from "../facility/HotelFacility";
-import { getByUserMail } from "../../redux/actions/userActions";
 
 export default function HotelDetail() {
-  const { user } = useSelector((state) => state.user);
   const { id } = useParams();
   const { hotel } = useSelector((state) => state.hotel);
   const { comments } = useSelector((state) => state.comment);
   const dispacth = useDispatch();
   useEffect(() => {
     dispacth(hotelOneDetail(id));
-    dispacth(getByUserMail(user.data?.email));
+   
   }, []);
 
   return (

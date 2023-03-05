@@ -15,10 +15,9 @@ export default function ReservationInquire() {
   const { id } = useParams();
   const navigate = useNavigate();
   const { user } = useSelector((state) => state.user);
-  const { cities } = useSelector((state) => state.city);
   const dispacth = useDispatch();
-  const { handleSubmit, handleBlur, handleChange, errors, touched, values } =
-    useFormik({
+  const { handleSubmit, handleBlur, handleChange, errors, touched } = useFormik(
+    {
       initialValues: {
         arrivalDate: "",
         returnDate: "",
@@ -37,18 +36,16 @@ export default function ReservationInquire() {
           );
         } else {
           dispacth(
-            openSnacbar({ 
+            openSnacbar({
               message: "Reservasyonunuz yapılmıştır",
               severity: "success",
             })
           );
         }
       },
-    });
-  useEffect(() => {
-    dispacth(getByUserMail(user.data?.email));
-  }, []);
- 
+    }
+  );
+
   return (
     <>
       <Heading>Rezervasyon Yapmadan Önce Lütfen Kayıt Olunuz</Heading>
