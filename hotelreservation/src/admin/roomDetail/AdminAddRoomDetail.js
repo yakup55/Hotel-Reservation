@@ -20,8 +20,6 @@ export default function AdminAddRoomDetail() {
   const { handleSubmit, handleChange, handleBlur, errors, touched, values } =
     useFormik({
       initialValues: {
-        numberPeople: 0,
-        numberDate: 0,
         image1: "",
         image2: "",
         image3: "",
@@ -54,34 +52,6 @@ export default function AdminAddRoomDetail() {
         <Container sx={{ mt: 2 }}>
           <form onSubmit={handleSubmit}>
             <Stack spacing={3}>
-              <TextField
-                id="numberPeople"
-                name="numberPeople"
-                label="Number People"
-                placeholder="Number People"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                error={errors.numberPeople && touched.numberPeople}
-                helperText={
-                  errors.numberPeople && touched.numberPeople
-                    ? errors.numberPeople
-                    : ""
-                }
-              ></TextField>
-              <TextField
-                id="numberDate"
-                name="numberDate"
-                label="Number Date"
-                placeholder="Number Date"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                error={errors.numberDate && touched.numberDate}
-                helperText={
-                  errors.numberDate && touched.numberDate
-                    ? errors.numberDate
-                    : ""
-                }
-              ></TextField>
               <TextField
                 id="image1"
                 name="image1"

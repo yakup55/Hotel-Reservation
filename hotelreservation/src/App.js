@@ -14,7 +14,7 @@ function App() {
           <Paths></Paths>
         </main>
       </div>
-      <div style={{ marginTop: 1000 }}>
+      <div style={{ marginTop: 2000 }}>
         <Footer></Footer>
       </div>
 

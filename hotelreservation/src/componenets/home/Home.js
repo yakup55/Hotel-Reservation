@@ -4,7 +4,6 @@ import CategoryList from "../category/CategoryList";
 import PopularCity from "../city/PopularCity";
 import HotelHome from "../hotel/HotelHome";
 import ReservationInquire from "../reservation/ReservationInquire";
-
 export default function Home() {
   return (
     <>

@@ -69,7 +69,7 @@ export default function HotelDetail() {
           <Heading>{hotel.data?.hotelName}</Heading>
           <Typography variant="h6">{hotel.data?.hotelLocation}</Typography>
           <img
-            style={{ marginLeft: 20 }}
+            style={{ marginLeft: 20 ,width:350,height:350}}
             src={`${hotel.data?.hotelImage}`}
           ></img>
           <Stack direction="row" spacing={1}>

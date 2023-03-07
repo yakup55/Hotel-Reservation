@@ -55,6 +55,7 @@ export default function RoomHotelList() {
               </CardBody>
 
               <Button
+               onClick={() => navigate(`/roomdetail/${detail.roomId}`)}
                 style={{ marginLeft: 150 }}
                 variant="contained"
                 color="secondary"

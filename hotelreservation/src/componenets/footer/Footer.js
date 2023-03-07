@@ -24,12 +24,13 @@ import {
 } from "@mui/material";
 export default function Footer() {
   return (
-    <div>
+    <>
       <Box
+    
         bgcolor="black"
         sx={{height:250, flexGrow: 1, display: { xs: "none", md: "flex" } }}
       >
-        <Grid container spacing={0}>
+        <Grid ml={2} container spacing={0}>
           <Grid container item spacing={0}>
             <Grid item xs={3}>
               <Card maxW="xl">
@@ -109,12 +110,12 @@ export default function Footer() {
                       width: 60,
                       height: 60,
                       marginTop: 20,
-                      marginLeft: 100,
+                      marginLeft: 120,
                     }}
                   ></LuggageIcon>
                 </Grid>
-                <Grid item xs={6}>
-                  <Typography mt={2} mr={20} variant="h5" color="white">
+                <Grid  item xs={6}>
+                  <Typography mt={2}  variant="h5" color="white">
                     Hotel Reservation
                   </Typography>
                 </Grid>
@@ -124,10 +125,11 @@ export default function Footer() {
         </Grid>
       </Box>
       <Box
+
         bgcolor="black"
         sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
       >
-        <Grid container spacing={0}>
+        <Grid sx={{ml:1}} container spacing={0}>
           <Grid container item spacing={0}>
           <Grid item xs={6}>
               <Card maxW="xl">
@@ -222,6 +224,6 @@ export default function Footer() {
           </Grid>
         </Grid>
       </Box>
-    </div>
+    </>
   );
 }
