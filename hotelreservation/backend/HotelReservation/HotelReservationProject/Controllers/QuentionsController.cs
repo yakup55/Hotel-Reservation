@@ -24,32 +24,28 @@ namespace HotelReservationProject.Controllers
             return ActionResultInstance(await service.GetAllAsync());
         }
         [HttpGet("{id}")]
-        [ServiceFilter(typeof(NotFoundFilters<Quentions, QuentionsDto>))]
 
         public async Task<IActionResult> GetByQuentions(int id)
         {
             return ActionResultInstance(await service.GetByIdAsync(id));
-        } [HttpGet("{id}")]
+        }
+        [HttpGet("{id}")]
         public async Task<IActionResult> HotelQuentions(int id)
         {
             return ActionResultInstance(await service.HotelQuentions(id));
         }
         [HttpPost]
-        [ServiceFilter(typeof(NotFoundFilters<Quentions, QuentionsDto>))]
-
         public async Task<IActionResult> AddQuentions(QuentionsDto dto)
         {
             return ActionResultInstance(await service.AddAsync(dto));
         }
         [HttpPut]
-        [ServiceFilter(typeof(NotFoundFilters<Quentions, QuentionsDto>))]
 
         public async Task<IActionResult> UpdateQuentions(QuentionsDto dto)
         {
-            return ActionResultInstance(await service.UpdateAsync(dto,dto.QuentionsId));
+            return ActionResultInstance(await service.UpdateAsync(dto, dto.QuentionsId));
         }
         [HttpDelete("{id}")]
-        [ServiceFilter(typeof(NotFoundFilters<Quentions, QuentionsDto>))]
 
         public async Task<IActionResult> DeleteQuentions(int id)
         {

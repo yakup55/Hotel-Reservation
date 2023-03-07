@@ -41,9 +41,9 @@ namespace ServiceLayer.Services
            return  ResponseDto<Hotel>.Success(await hotelRepository.HotelOneDetail(id), 200);
         }
 
-        public async Task<ResponseDto<List<Hotel>>> HotelPriceList(int price,int price2)
+        public async Task<ResponseDto<List<Hotel>>> HotelPriceList(int price)
         {
-            return ResponseDto<List<Hotel>>.Success(await hotelRepository.HotelPriceList(price,price2),200);
+           return ResponseDto<List<Hotel>>.Success(await hotelRepository.HotelPriceList(price), 200);
         }
 
         public async Task<ResponseDto<List<Hotel>>> LastHotel()

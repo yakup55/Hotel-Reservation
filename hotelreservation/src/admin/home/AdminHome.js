@@ -21,7 +21,9 @@ import ContactSupportIcon from "@mui/icons-material/ContactSupport";
 import ApartmentIcon from "@mui/icons-material/Apartment";
 import PersonIcon from '@mui/icons-material/Person';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
+import { useSelector } from "react-redux";
 export default function AdminHome() {
+  const {user}=useSelector((state)=>state.user)
   const navigate = useNavigate();
   return (
     <Grid
@@ -165,9 +167,7 @@ export default function AdminHome() {
           
         </List>
       </GridItem>
-      {/* <GridItem colSpan={2} bg='papayawhip' />
-    <GridItem colSpan={2} bg='papayawhip' />
-    <GridItem colSpan={4} bg='tomato' /> */}
+      
     </Grid>
   );
 }

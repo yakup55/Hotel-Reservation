@@ -1,0 +1,9 @@
+.wrapper {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -142px; /* buradaki negatif değer de footer yüksekliğinde olmalı */
+}
+.footer, .push {
+	height: 142px; /* .push, .footer ile aynı yüksekliğe sahip olmalı */
+}

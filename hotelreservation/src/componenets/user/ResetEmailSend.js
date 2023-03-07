@@ -1,7 +1,7 @@
 import { Heading, useRangeSliderStyles } from "@chakra-ui/react";
 import { Button, Container, Stack, TextField } from "@mui/material";
 import { useFormik } from "formik";
-import React, { createContext } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { openSnacbar } from "../../redux/actions/appActions";
@@ -19,13 +19,11 @@ export default function ResetEmailSend() {
         dispacth(resetPasswordEmailSend(values));
         dispacth(
           openSnacbar({
-            message: "Mailinizi Kontrol Ediniz",
+            message: "Sıfırlama Maili Gönderilmiştir",
             severity: "success",
           })
         );
-        navigate("/");
       },
-      validationSchema,
     });
   return (
     <Container maxWidth="xs" sx={{ mt: 5 }}>
@@ -33,9 +31,9 @@ export default function ResetEmailSend() {
       <form onSubmit={handleSubmit}>
         <Stack spacing={3}>
           <TextField
-            sx={{ width: 500 }}
             id="email"
             name="email"
+            sx={{ width: 500 }}
             label="Email Adresiniz"
             placeholder="Email Adresiniz"
             onChange={handleChange}

@@ -21,6 +21,7 @@ import { useEffect } from "react";
 import { getByUserMail, getUserList } from "../../redux/actions/userActions";
 import { logOut } from "../../redux/actions/authenticationActions";
 import { openSnacbar } from "../../redux/actions/appActions";
+import { getByRole, getRoleList } from "../../redux/actions/roleActions";
 
 const darkTheme = createTheme({
   palette: {
@@ -32,6 +33,7 @@ const darkTheme = createTheme({
 });
 function NavBar() {
   const { user } = useSelector((state) => state.user);
+  const { roles } = useSelector((state) => state.role);
   const pages = [
     {
       id: 1,
@@ -43,17 +45,22 @@ function NavBar() {
   // const settings = ["Profile", "Account", "Dashboard", "Logout"];
   const settings = [
     {
+      id: 4,
+      name: "Admin",
+      url: "/adminhome",
+    },
+    {
       id: 1,
       name: "Profile",
       url: `/user/${user.data?.email}`,
     },
     {
-      id: 1,
+      id: 2,
       name: "Update Profile",
       url: `/userupdate/${user.data?.email}`,
     },
     {
-      id: 2,
+      id: 3,
       name: "Update Password",
       url: "/userpasswordupdate",
     },
@@ -93,6 +100,7 @@ function NavBar() {
   useEffect(() => {
     dispacth(getByUserMail(user.data?.email));
   }, []);
+
   return (
     <ThemeProvider theme={darkTheme}>
       <AppBar position="static">
@@ -236,6 +244,21 @@ function NavBar() {
                   open={Boolean(anchorElUser)}
                   onClose={handleCloseUserMenu}
                 >
+{/* {role.data.name==="Admin"&&(
+   <Button
+   onClick={()=>navigate("/adminhome")}
+   style={{
+     marginLeft: 14,
+     backgroundColor: "black",
+     width: 150,
+   }}
+   variant="contained"
+ >
+   Admin
+ </Button>
+)} */}
+
+
                   {settings.map((setting) => (
                     <MenuItem
                       key={setting.id}

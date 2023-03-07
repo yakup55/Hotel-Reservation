@@ -55,6 +55,8 @@ import UserPasswordUpdate from "./componenets/user/UserPasswordUpdate";
 import SendEmailConfirm from "./componenets/user/SendEmailConfirm";
 import AdminAddUserRole from "./admin/role/AdminAddUserRole";
 import UserUpdateProfile from "./componenets/user/UserUpdateProfile";
+import AdminHome2 from "./admin/home/AdminHome2";
+import AdminAddQuentions from "./admin/quentions/AdminAddQuentions";
 export default function Paths() {
   return (
     <Routes>
@@ -102,7 +104,8 @@ export default function Paths() {
       ></Route>
 
       {/*ADMİN*/}
-      <Route path="/adminhome" element={<AdminHome></AdminHome>}></Route>
+      <Route path="/admin" element={<AdminHome></AdminHome>}></Route>
+      <Route path="/adminhome" element={<AdminHome2></AdminHome2>}></Route>
 
       {/*ADMİN HOTEL*/}
       <Route
@@ -213,7 +216,7 @@ export default function Paths() {
       ></Route>
       <Route
         path="/adminaddquentions"
-        element={<AdminAddHotelDetail></AdminAddHotelDetail>}
+        element={<AdminAddQuentions></AdminAddQuentions>}
       ></Route>
       <Route
         path="/adminupdatequentions/:id"

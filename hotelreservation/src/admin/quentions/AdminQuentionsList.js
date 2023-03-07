@@ -12,10 +12,10 @@ import {
 } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import CreateIcon from "@mui/icons-material/Create";
-import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import {
   deleteQuentions,
+  getByQuentions,
   getQuentionsList,
   hotelQuentions,
 } from "../../redux/actions/quentionsActions";
@@ -24,6 +24,7 @@ import BuildIcon from "@mui/icons-material/Build";
 
 import AdminHome from "../home/AdminHome";
 import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 export default function AdminQuentionsList() {
   const actions = [{ icon: <CreateIcon></CreateIcon>, name: "Create" }];
   const dispacth = useDispatch();
@@ -82,8 +83,7 @@ export default function AdminQuentionsList() {
                         startIcon={<BuildIcon></BuildIcon>}
                         variant="contained"
                         color="success"
-                      >
-                      </Button>
+                      ></Button>
                     </TableCell>
                     <TableCell>
                       <Button
@@ -93,8 +93,7 @@ export default function AdminQuentionsList() {
                         startIcon={<DeleteOutlineIcon></DeleteOutlineIcon>}
                         variant="contained"
                         color="error"
-                      >
-                      </Button>
+                      ></Button>
                     </TableCell>
                   </TableRow>
                 ))}

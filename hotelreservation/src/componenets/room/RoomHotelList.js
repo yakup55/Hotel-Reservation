@@ -59,7 +59,7 @@ export default function RoomHotelList() {
                 variant="contained"
                 color="secondary"
               >
-                Oda Ayır
+                Odayı İncele
               </Button>
             </Stack>
           </Card>

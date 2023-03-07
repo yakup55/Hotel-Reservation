@@ -17,7 +17,5 @@ namespace RepositoryLayer.Repositories
         public RoleRepository(AppDbContext context) : base(context)
         {
         }
-
-      
     }
 }

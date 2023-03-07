@@ -125,6 +125,8 @@ builder.Services.ConfigureApplicationCookie(app =>
     app.SlidingExpiration = true;
 });
 
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

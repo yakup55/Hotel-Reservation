@@ -176,7 +176,7 @@ dispacth(getHotelList())
                 select
                 label="Select your Hotel"
                 defaultValue="Select Hotel"
-                value={values.categoryId}
+                value={values.hotelId}
                 id="hotelId"
                 name="hotelId"
                 onChange={handleChange}

@@ -6,6 +6,7 @@ import {
   FormLabel,
   Radio,
   RadioGroup,
+  TextField,
 } from "@mui/material";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -18,6 +19,7 @@ import {
   hotelCityList,
   hotelCategoryList,
   hotelDegreList,
+  hotelPriceList,
 } from "../../redux/actions/hotelActions";
 
 export default function HotelNavList() {
@@ -42,9 +44,21 @@ export default function HotelNavList() {
   const degreList = (id) => {
     dispacth(hotelDegreList(id));
   };
+  const priceList = (price) => {
+    dispacth(hotelPriceList(price));
+  };
   return (
     <>
-    <Heading>Filtreler</Heading>
+      <Heading>Filtreler</Heading>
+      <FormControl>
+        <FormLabel>Fiyata Göre Listele</FormLabel>
+        <TextField
+         sx={{mt:2,mb:2}}
+          color="success"
+          label="Fiyatı Giriniz"
+          onChange={(e) => priceList(e.target.value)}
+        ></TextField>
+      </FormControl>
       <FormControl>
         <FormLabel id="demo-radio-buttons-group-label">
           Konuk Değerlendirmesi

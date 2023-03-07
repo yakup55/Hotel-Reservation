@@ -14,6 +14,7 @@ export default function User() {
   const navigate = useNavigate();
   const dispacth = useDispatch();
   const { user } = useSelector((state) => state.user);
+  const { role } = useSelector((state) => state.role);
   useEffect(() => {
     dispacth(getByUserMail(email));
   }, []);
@@ -56,7 +57,7 @@ export default function User() {
 
       {user.data?.status === true && (
         <GridItem colSpan={4}>
-       <UserReservationList></UserReservationList>
+          <UserReservationList></UserReservationList>
         </GridItem>
       )}
       {user.data?.status === true && (
@@ -65,7 +66,7 @@ export default function User() {
         </GridItem>
       )}
       {user.data?.status === true && (
-        <GridItem  colSpan={4}>
+        <GridItem colSpan={4}>
           <UserContactList></UserContactList>
         </GridItem>
       )}

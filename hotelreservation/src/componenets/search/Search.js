@@ -13,7 +13,7 @@ export default function Search() {
   };
   return (
     <>
-      <SimpleGrid mt={10} minChildWidth="120px" spacing="40px">
+      <SimpleGrid mt={20} minChildWidth="120px" spacing="40px">
         <Box
           sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
           ml={20}

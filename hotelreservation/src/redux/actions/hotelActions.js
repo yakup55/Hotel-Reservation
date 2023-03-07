@@ -10,7 +10,7 @@ export const HOTEL_CITY_LIST = "HOTEL_CITY_LIST";
 export const HOTEL_DEGRE_LIST = "HOTEL_DEGRE_LIST";
 export const HOTEL_ONE_DETAIL = "HOTEL_ONE_DETAIL";
 export const SEARCH_HOTEL_LIST = "SEARCH_HOTEL_LIST";
-
+export const HOTEL_PRICE_LIST="HOTEL_PRICE_LIST"
 const hotelService = new HotelService();
 
 export function getHotelList() {
@@ -90,4 +90,9 @@ export function searchHotelList(name) {
       .searchHotelList(name)
       .then((resp) => dispacth({ type: SEARCH_HOTEL_LIST, payload: resp }));
   };
+}
+export function hotelPriceList(price){
+  return function(dispacth){
+    hotelService.hotelPriceList(price).then((resp)=>dispacth({type:HOTEL_PRICE_LIST,payload:resp}))
+  }
 }

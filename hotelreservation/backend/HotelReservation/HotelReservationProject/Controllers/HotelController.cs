@@ -49,11 +49,7 @@ namespace HotelReservationProject.Controllers
         {
             return ActionResultInstance(await service.HotelDegreList(id));
         }
-        [HttpGet]
-        public async Task<IActionResult> HotelPriceList(int price,int price2)
-        {
-            return ActionResultInstance(await service.HotelPriceList(price,price2));
-        }
+        
         [HttpGet("{id}")]
         public async Task<IActionResult> HotelOneDetail(int id)
         {
@@ -63,6 +59,11 @@ namespace HotelReservationProject.Controllers
         public async Task<IActionResult> SearchHotelList(string search)
         {
             return ActionResultInstance(await service.SearchHotel(search));
+        }
+        [HttpGet("{price}")]
+        public async Task<IActionResult> HotelPriceList(int price)
+        {
+            return ActionResultInstance(await service.HotelPriceList(price));
         }
         [HttpPost]
         [ServiceFilter(typeof(NotFoundFilters<Hotel, HotelDto>))]

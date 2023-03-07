@@ -40,9 +40,9 @@ namespace RepositoryLayer.Repositories
             return await context.Hotels.Include(x => x.HotelDetails).Include(x=>x.Category).Include(x=>x.Degre).Include(x=>x.Rooms).Where(x=>x.HotelId==id).SingleOrDefaultAsync();
         }
 
-        public async Task<List<Hotel>> HotelPriceList(int price, int price2)
+        public async Task<List<Hotel>> HotelPriceList(int price)
         {
-            return await context.Hotels.Where(x=>x.HotelPrice<price&&price2<x.HotelPrice).ToListAsync() ;
+            return await context.Hotels.Where(x=>x.HotelPrice>=price).ToListAsync() ;
         }
 
         public async Task<List<Hotel>> LastHotel()

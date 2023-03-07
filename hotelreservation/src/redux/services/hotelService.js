@@ -48,5 +48,9 @@ class HotelService {
     const url = `${this.baseUrl}/SearchHotelList/${name}`;
     return await axios.get(url).then((resp) => resp.data);
   }
+  async hotelPriceList(price) {
+    const url = `${this.baseUrl}/HotelPriceList/${price}`;
+    return await axios.get(url).then((resp) => resp.data);
+  }
 }
 export default HotelService;

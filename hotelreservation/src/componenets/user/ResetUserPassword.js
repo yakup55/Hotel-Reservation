@@ -1,10 +1,11 @@
-import { Button, ButtonBase, Container, Stack, TextField } from "@mui/material";
+import { Alert, Button, Container, Stack, TextField } from "@mui/material";
 import { useFormik } from "formik";
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { openSnacbar } from "../../redux/actions/appActions";
-import { resetPassword } from "../../redux/actions/userActions";
+import { getByUserMail, resetPassword } from "../../redux/actions/userActions";
 import { validationSchema } from "./validationSchema";
 export default function ResetUserPassword() {
   const dispacth = useDispatch();
@@ -21,16 +22,17 @@ export default function ResetUserPassword() {
         dispacth(resetPassword(values));
         dispacth(
           openSnacbar({
-            message: "Şifreniz Sıfırlandı",
+            message: "Şifreniz Değişti",
             severity: "success",
           })
         );
         navigate("/login");
       },
-      validationSchema,
     }
   );
-  console.log(email);
+  useEffect(() => {
+    dispacth(getByUserMail(email));
+  }, []);
   return (
     <Container maxWidth="xs" sx={{ mt: 5 }}>
       <h2>Şifre Sıfırlama</h2>
@@ -73,6 +75,10 @@ export default function ResetUserPassword() {
           </Button>
         </Stack>
       </form>
+      <Alert sx={{ mt: 4, width: 470 }} severity="info">
+        Şifre Kuralları şifrenizde kullanıcı adınız olmamalı,ardışık sayı
+        içermemeli!
+      </Alert>
     </Container>
   );
 }

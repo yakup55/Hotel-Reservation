@@ -1,30 +1,14 @@
 import {
-  AlertDialog,
-  AlertDialogBody,
-  AlertDialogContent,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogOverlay,
   Heading,
-  useDisclosure,
 } from "@chakra-ui/react";
 import {
   Button,
-  Checkbox,
   Container,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
-  FormControlLabel,
-  FormGroup,
   Table,
   TableBody,
   TableCell,
   TableContainer,
   TableRow,
-  TextField,
   Typography,
 } from "@mui/material";
 import React from "react";
@@ -36,8 +20,6 @@ import {
 } from "../../redux/actions/reservationActions";
 import CancelIcon from "@mui/icons-material/Cancel";
 import { openSnacbar } from "../../redux/actions/appActions";
-import PaidIcon from "@mui/icons-material/Paid";
-import { Stack } from "@mui/system";
 import UserPay from "./UserPay";
 export default function UserReservationList() {
  
@@ -57,7 +39,6 @@ export default function UserReservationList() {
       })
     );
   };
-  console.log(reservations.data?.length);
   return (
     <>
       <Heading>Reservasyonlarım</Heading>
@@ -83,16 +64,16 @@ export default function UserReservationList() {
                 {reservations.data?.map((reservation) => (
                   <TableRow>
                     <TableCell>
-                      {reservation.roomDetail.room.hotel.hotelName}
+                      {reservation.roomDetail?.room?.hotel?.hotelName}
                     </TableCell>
                     <TableCell>
                       <img
                         style={{ width: 200, height: 100 }}
-                        src={`${reservation.roomDetail.room.roomImage}`}
+                        src={`${reservation.roomDetail?.room?.roomImage}`}
                       ></img>
                     </TableCell>
                     <TableCell>
-                      {reservation.roomDetail.room.roomPrice}
+                      {reservation.roomDetail?.room?.roomPrice}
                     </TableCell>
                     <TableCell>{reservation.arrivalDate}</TableCell>
                     <TableCell>{reservation.returnDate}</TableCell>

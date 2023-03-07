@@ -15,10 +15,10 @@ export function getQuentionsList() {
       .then((resp) => dispacth({ type: GET_QUENTIONS_LIST, payload: resp }));
   };
 }
-export function getByQuentions() {
+export function getByQuentions(id) {
   return function (dispacth) {
     quentionsService
-      .getQuentionsList()
+      .getByQuentions(id)
       .then((resp) => dispacth({ type: GET_BY_QUENTIONS, payload: resp }));
   };
 }
