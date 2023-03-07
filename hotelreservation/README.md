@@ -1,10 +1,7 @@
 # Otel Rezervasyon Projesi
 
-<AspectRatio maxW='560px' ratio={1}>
-  <iframe
-    title='naruto'
-    src='https://www.youtube.com/embed/QhBnZ6NPOY0'
-    allowFullScreen
-  />
-</AspectRatio>
-
+<video width="320" height="240" controls>
+  <source src="https://www.youtube.com/embed/QhBnZ6NPOY0" type="video/mp4">
+  <source src="https://www.youtube.com/embed/QhBnZ6NPOY0" type="video/ogg">
+Your browser does not support the video tag.
+</video>
