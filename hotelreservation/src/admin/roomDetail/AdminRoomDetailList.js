@@ -25,13 +25,20 @@ import BuildIcon from "@mui/icons-material/Build";
 import EditIcon from "@mui/icons-material/Edit";
 import CreateIcon from "@mui/icons-material/Create";
 import { useEffect } from "react";
-import ImportContactsIcon from '@mui/icons-material/ImportContacts';
+import ImportContactsIcon from "@mui/icons-material/ImportContacts";
+import { openSnacbar } from "../../redux/actions/appActions";
 export default function AdminRoomDetailList() {
   const actions = [{ icon: <CreateIcon></CreateIcon>, name: "Create" }];
   const dispacth = useDispatch();
   const navigate = useNavigate();
   const handleDeletedRoomDetail = (id) => {
     dispacth(deleteRoomDetail(id));
+    dispacth(
+      openSnacbar({
+        message: "Has been deleted",
+        severity: "success",
+      })
+    );
   };
   const { roomDetails } = useSelector((state) => state.roomDetail);
   useEffect(() => {
@@ -55,7 +62,9 @@ export default function AdminRoomDetailList() {
               <Table>
                 <TableRow style={{ backgroundColor: "black" }}>
                   <TableCell style={{ color: "white" }}>#</TableCell>
-                  <TableCell style={{ color: "white" }}>Number People</TableCell>
+                  <TableCell style={{ color: "white" }}>
+                    Number People
+                  </TableCell>
                   <TableCell style={{ color: "white" }}>Number Date</TableCell>
                   <TableCell style={{ color: "white" }}>Image 1</TableCell>
                   <TableCell style={{ color: "white" }}>Image 2</TableCell>
@@ -93,23 +102,24 @@ export default function AdminRoomDetailList() {
                     <TableCell>
                       <Button
                         onClick={() =>
-                          navigate(`/adminupdateroomdetail/${detail.roomDetailId}`)
+                          navigate(
+                            `/adminupdateroomdetail/${detail.roomDetailId}`
+                          )
                         }
                         startIcon={<BuildIcon></BuildIcon>}
                         variant="contained"
                         color="success"
-                      >
-                      </Button>
+                      ></Button>
                     </TableCell>
                     <TableCell>
                       <Button
-                      startIcon={<ImportContactsIcon></ImportContactsIcon>}
-                        onClick={() => navigate(`/roomdetail/${detail.roomDetailId}`)}
+                        startIcon={<ImportContactsIcon></ImportContactsIcon>}
+                        onClick={() =>
+                          navigate(`/roomdetail/${detail.roomDetailId}`)
+                        }
                         variant="contained"
                         color="secondary"
-                      >
-                      
-                      </Button>
+                      ></Button>
                     </TableCell>
                     <TableCell>
                       <Button
@@ -119,8 +129,7 @@ export default function AdminRoomDetailList() {
                         startIcon={<DeleteOutlineIcon></DeleteOutlineIcon>}
                         variant="contained"
                         color="error"
-                      >
-                      </Button>
+                      ></Button>
                     </TableCell>
                   </TableRow>
                 ))}

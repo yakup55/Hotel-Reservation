@@ -22,13 +22,20 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { deleteRoom, getRoomList } from "../../redux/actions/roomActions";
 import { useEffect } from "react";
-import ImportContactsIcon from '@mui/icons-material/ImportContacts';
+import ImportContactsIcon from "@mui/icons-material/ImportContacts";
+import { openSnacbar } from "../../redux/actions/appActions";
 export default function AdminRoomList() {
   const dispacth = useDispatch();
   const navigate = useNavigate();
   const { rooms } = useSelector((state) => state.room);
   const handleDeletedRoom = (id) => {
     dispacth(deleteRoom(id));
+    dispacth(
+      openSnacbar({
+        message: "Has been deleted",
+        severity: "success",
+      })
+    );
   };
   useEffect(() => {
     dispacth(getRoomList());
@@ -76,36 +83,28 @@ export default function AdminRoomList() {
                     <TableCell>
                       <Button
                         onClick={() =>
-                          navigate(
-                            `/adminupdateroom/${room.roomId}`
-                          )
+                          navigate(`/adminupdateroom/${room.roomId}`)
                         }
                         startIcon={<BuildIcon></BuildIcon>}
                         variant="contained"
                         color="success"
-                      >
-                      </Button>
+                      ></Button>
                     </TableCell>
                     <TableCell>
                       <Button
-                      startIcon={<ImportContactsIcon></ImportContactsIcon>}
-                        onClick={() =>
-                          navigate(`/roomdetail/${room.roomId}`)
-                        }
+                        startIcon={<ImportContactsIcon></ImportContactsIcon>}
+                        onClick={() => navigate(`/roomdetail/${room.roomId}`)}
                         variant="contained"
                         color="secondary"
-                      >
-                      
-                      </Button>
+                      ></Button>
                     </TableCell>
                     <TableCell>
                       <Button
-                        onClick={() => handleDeletedRoom(room.hotelDetailId)}
+                        onClick={() => handleDeletedRoom(room.roomId)}
                         startIcon={<DeleteOutlineIcon></DeleteOutlineIcon>}
                         variant="contained"
                         color="error"
-                      >
-                      </Button>
+                      ></Button>
                     </TableCell>
                   </TableRow>
                 ))}

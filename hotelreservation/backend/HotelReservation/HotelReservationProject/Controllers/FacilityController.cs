@@ -24,8 +24,6 @@ namespace HotelReservationProject.Controllers
             return  ActionResultInstance(await service.GetAllAsync());
         }
         [HttpGet("{id}")]
-        [ServiceFilter(typeof(NotFoundFilters<Facility, FaciltyDto>))]
-
         public async Task<IActionResult> GetByFacility(int id)
         {
             return ActionResultInstance(await service.GetByIdAsync(id));
@@ -35,22 +33,16 @@ namespace HotelReservationProject.Controllers
             return ActionResultInstance(await service.FacilityHotel(id));
         }
         [HttpPost]
-        [ServiceFilter(typeof(NotFoundFilters<Facility, FaciltyDto>))]
-
         public async Task<IActionResult> AddFacility(FaciltyDto dto)
         {
             return ActionResultInstance(await service.AddAsync(dto));
         }
         [HttpPut]
-        [ServiceFilter(typeof(NotFoundFilters<Facility, FaciltyDto>))]
-
         public async Task<IActionResult> UpdateFacility(FaciltyDto dto)
         {
             return ActionResultInstance(await service.UpdateAsync(dto,dto.FacilityId));
         }
         [HttpDelete("{id}")]
-        [ServiceFilter(typeof(NotFoundFilters<Facility, FaciltyDto>))]
-
         public async Task<IActionResult> DeleteFacility(int id)
         {
             return ActionResultInstance(await service.DeleteAsync(id));

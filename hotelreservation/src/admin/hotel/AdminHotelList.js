@@ -38,12 +38,10 @@ export default function AdminHotelList() {
       })
     );
   };
-
   useEffect(() => {
     dispacth(getHotelList());
   }, []);
   const actions = [{ icon: <CreateIcon></CreateIcon>, name: "Create" }];
-  console.log(hotels.data);
   return (
     <Grid
       h="900px"
@@ -66,6 +64,8 @@ export default function AdminHotelList() {
                   <TableCell style={{ color: "white" }}>Hotel Price</TableCell>
                   <TableCell style={{ color: "white" }}>Hotel Image</TableCell>
                   <TableCell style={{ color: "white" }}>Category Id</TableCell>
+                  <TableCell style={{ color: "white" }}>Degre Id</TableCell>
+                  <TableCell style={{ color: "white" }}>City Id</TableCell>
                   <TableCell style={{ color: "white" }}>Update</TableCell>
                   <TableCell style={{ color: "white" }}>Detay</TableCell>
                   <TableCell style={{ color: "white" }}>Delete</TableCell>
@@ -83,6 +83,8 @@ export default function AdminHotelList() {
                       ></img>
                     </TableCell>
                     <TableCell>{hotel.categoryId}</TableCell>
+                    <TableCell>{hotel.degreId}</TableCell>
+                    <TableCell>{hotel.cityId}</TableCell>
                     <TableCell>
                       <Button
                         startIcon={<BuildIcon></BuildIcon>}

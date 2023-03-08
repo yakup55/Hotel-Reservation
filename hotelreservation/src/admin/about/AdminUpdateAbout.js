@@ -5,7 +5,7 @@ import { useFormik } from "formik";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { updateAbout } from "../../redux/actions/aboutActions";
+import { getByAbout, updateAbout } from "../../redux/actions/aboutActions";
 import { openSnacbar } from "../../redux/actions/appActions";
 import AboutService from "../../redux/services/aboutService";
 import AdminHome from "../home/AdminHome";
@@ -15,10 +15,7 @@ export default function AdminUpdateAbout() {
   const dispacth = useDispatch();
   const navigate = useNavigate();
   const service = new AboutService();
-  useEffect(() => {
-    service.getByAbout(id).then((resp) => setValues(resp));
-    // dispacth(getByAbout(id))?.then((resp)=>setValues(resp))
-  }, []);
+  const { about } = useSelector((state) => state.about);
   const {
     handleSubmit,
     handleBlur,
@@ -46,8 +43,23 @@ export default function AdminUpdateAbout() {
     },
     validationSchema,
   });
-
-  console.log(values);
+  useEffect(() => {
+    dispacth(getByAbout(id));
+    setValues({
+      aboutId: id,
+      aboutName: about.data?.aboutName,
+      aboutImage: about.data?.aboutImage,
+      aboutDescription: about.data?.aboutDescription,
+    });
+  }, [
+    about.data?.aboutName,
+    about.data?.aboutImage,
+    about.data?.aboutDescription,
+    id,
+    setValues,
+    dispacth,
+  ]);
+  console.log();
   return (
     <Grid
       h="900px"
@@ -66,35 +78,36 @@ export default function AdminUpdateAbout() {
               <TextField
                 id="aboutName"
                 name="aboutName"
+                fullWidth
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={values.data?.aboutName}
-                // error={errors.aboutName && touched.aboutName}
-                // helperText={
-                //   errors.aboutName && touched.aboutName ? errors.aboutName : ""
-                // }
+                value={values?.aboutName}
+                error={errors.aboutName && touched.aboutName}
+                helperText={
+                  errors.aboutName && touched.aboutName ? errors.aboutName : ""
+                }
               ></TextField>
               <TextField
-                fullWidth
                 id="aboutImage"
                 name="aboutImage"
+                fullWidth
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={values.aboutImage}
-                // error={errors.aboutImage && touched.aboutImage}
-                // helperText={
-                //   errors.aboutImage && touched.aboutImage
-                //     ? errors.aboutImage
-                //     : ""
-                // }
+                value={values?.aboutImage}
+                error={errors.aboutImage && touched.aboutImage}
+                helperText={
+                  errors.aboutImage && touched.aboutImage
+                    ? errors.aboutImage
+                    : ""
+                }
               ></TextField>
               <TextField
-                fullWidth
                 id="aboutDescription"
                 name="aboutDescription"
+                fullWidth
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={values.aboutDescription}
+                value={values?.aboutDescription}
                 error={errors.aboutDescription && touched.aboutDescription}
                 helperText={
                   errors.aboutDescription && touched.aboutDescription
@@ -102,9 +115,7 @@ export default function AdminUpdateAbout() {
                     : ""
                 }
               ></TextField>
-              <Button variant="contained" type="submit">
-                Save
-              </Button>
+              <Button type="submit">Save</Button>
             </Stack>
           </form>
         </Container>

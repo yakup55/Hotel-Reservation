@@ -1,5 +1,6 @@
 ﻿using CoreLayer.DTOs;
 using CoreLayer.Models;
+using Microsoft.AspNetCore.Identity;
 using SharedLibray.DTOs;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,7 @@ namespace CoreLayer.Services
         Task<ResponseDto<AppUser>>GetByEmailAsync(string userMail);
         Task<ResponseDto<AppUser>>GetByUserAsync(string userId);
         Task<ResponseDto<NoDataDto>> DeleteUser(string id);
-        Task<ResponseDto<AppUserDto>> UpdateUser(AppUserDto user,string id);
+        Task<ResponseDto<UserUpdateDto>> UpdateUser(UserUpdateDto user, string id);
         Task<ResponseDto<NoDataDto>> ResetPasswordEmailSend(EmailDto email);
         Task<ResponseDto<NoDataDto>> ConfirmEmailSend(EmailDto email);
         Task<ResponseDto<NoDataDto>> ResetPassword(PasswordResetDto resetDto);

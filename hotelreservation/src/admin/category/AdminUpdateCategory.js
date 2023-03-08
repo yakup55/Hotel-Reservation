@@ -3,10 +3,11 @@ import { Button, Container, Stack, TextField } from "@mui/material";
 import { useFormik } from "formik";
 import React from "react";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { openSnacbar } from "../../redux/actions/appActions";
 import {
+  getByCategory,
   updateCategory,
 } from "../../redux/actions/categoryActions";
 import CategoryService from "../../redux/services/categoryService";
@@ -17,6 +18,7 @@ export default function AdminUpdateCategory() {
   const service = new CategoryService();
   const dispacth = useDispatch();
   const navigate = useNavigate();
+  const { category } = useSelector((state) => state.category);
   const {
     handleSubmit,
     handleChange,
@@ -27,6 +29,7 @@ export default function AdminUpdateCategory() {
     setValues,
   } = useFormik({
     initialValues: {
+      categoryId: 0,
       categoryName: "",
       categoryImage: "",
     },
@@ -43,8 +46,19 @@ export default function AdminUpdateCategory() {
     validationSchema,
   });
   useEffect(() => {
-    service.getByCategory(id).then((resp) => setValues(resp));
-  });
+    dispacth(getByCategory(id));
+    setValues({
+      categoryId: id,
+      categoryName: category.data?.categoryName,
+      categoryImage: category.data?.categoryImage,
+    });
+  }, [
+    id,
+    dispacth,
+    setValues,
+    category.data?.categoryName,
+    category.data?.categoryImage,
+  ]);
   return (
     <Grid
       h="900px"
@@ -64,11 +78,9 @@ export default function AdminUpdateCategory() {
                 fullWidth
                 id="categoryName"
                 name="categoryName"
-                label="Category Name"
-                placeholder="Category Name"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={values.data.categoryName}
+                value={values.categoryName}
                 error={errors.categoryName && touched.categoryName}
                 helperText={
                   errors.categoryName && touched.categoryName
@@ -80,11 +92,9 @@ export default function AdminUpdateCategory() {
                 fullWidth
                 id="categoryImage"
                 name="categoryImage"
-                label="Category Image"
-                placeholder="Category Image"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={values.data.categoryImage}
+                value={values.categoryImage}
                 error={errors.categoryImage && touched.categoryImage}
                 helperText={
                   errors.categoryImage && touched.categoryImage

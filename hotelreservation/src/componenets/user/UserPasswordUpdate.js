@@ -88,7 +88,7 @@ export default function UserPasswordUpdate() {
             }
           ></TextField>
           <Button sx={{ width: 500 }} type="submit" variant="contained">
-            Save
+          Güncelle
           </Button>
           <Button
             sx={{ width: 200 }}

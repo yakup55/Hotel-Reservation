@@ -26,11 +26,18 @@ import BuildIcon from "@mui/icons-material/Build";
 
 import EditIcon from "@mui/icons-material/Edit";
 import CreateIcon from "@mui/icons-material/Create";
+import { openSnacbar } from "../../redux/actions/appActions";
 
 export default function AdminCategoryList() {
   const actions = [{ icon: <CreateIcon></CreateIcon>, name: "Create" }];
   const handleDeletedCategory = (id) => {
     dispacth(deleteCategory(id));
+    dispacth(
+      openSnacbar({
+        message: "Has been deleted",
+        severity: "success",
+      })
+    );
   };
   const dispacth = useDispatch();
   const navigate = useNavigate();
@@ -56,8 +63,12 @@ export default function AdminCategoryList() {
               <Table>
                 <TableRow style={{ backgroundColor: "black" }}>
                   <TableCell style={{ color: "white" }}>#</TableCell>
-                  <TableCell style={{ color: "white" }}>Category Name</TableCell>
-                  <TableCell style={{ color: "white" }}>Category Image</TableCell>
+                  <TableCell style={{ color: "white" }}>
+                    Category Name
+                  </TableCell>
+                  <TableCell style={{ color: "white" }}>
+                    Category Image
+                  </TableCell>
                   <TableCell style={{ color: "white" }}>Update</TableCell>
                   <TableCell style={{ color: "white" }}>Delete</TableCell>
                 </TableRow>
@@ -77,22 +88,22 @@ export default function AdminCategoryList() {
                         variant="contained"
                         color="success"
                         onClick={() =>
-                          navigate(`/adminupdatecategory/${category.categoryId}`)
+                          navigate(
+                            `/adminupdatecategory/${category.categoryId}`
+                          )
                         }
-                      >
-                       
-                      </Button>
+                      ></Button>
                     </TableCell>
 
                     <TableCell>
                       <Button
-                        onClick={() => handleDeletedCategory(category.categoryId)}
+                        onClick={() =>
+                          handleDeletedCategory(category.categoryId)
+                        }
                         startIcon={<DeleteOutlineIcon></DeleteOutlineIcon>}
                         variant="contained"
                         color="error"
-                      >
-                     
-                      </Button>
+                      ></Button>
                     </TableCell>
                   </TableRow>
                 ))}

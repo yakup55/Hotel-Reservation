@@ -3,18 +3,17 @@ import { Button, Container, Stack, TextField } from "@mui/material";
 import { useFormik } from "formik";
 import React from "react";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { openSnacbar } from "../../redux/actions/appActions";
-import { updateCity } from "../../redux/actions/cityActions";
-import CityService from "../../redux/services/cityService";
+import { getByCity, updateCity } from "../../redux/actions/cityActions";
 import AdminHome from "../home/AdminHome";
 import { validationSchema } from "./validationSchema";
 export default function AdminUpdateCity() {
   const { id } = useParams();
-  const service = new CityService();
   const dispacth = useDispatch();
   const navigate = useNavigate();
+  const { city } = useSelector((state) => state.city);
   const {
     handleSubmit,
     handleBlur,
@@ -25,6 +24,7 @@ export default function AdminUpdateCity() {
     setValues,
   } = useFormik({
     initialValues: {
+      cityId: 0,
       cityName: "",
       cityImage: "",
     },
@@ -40,8 +40,13 @@ export default function AdminUpdateCity() {
     validationSchema,
   });
   useEffect(() => {
-    service.getByCity(id).then((resp) => setValues(resp));
-  },[]);
+    dispacth(getByCity(id));
+    setValues({
+      cityId: id,
+      cityName: city.data?.cityName,
+      cityImage: city.data?.cityImage,
+    });
+  }, [setValues, id, dispacth, city.data?.cityName, city.data?.cityImage]);
   return (
     <Grid
       h="900px"
@@ -61,10 +66,9 @@ export default function AdminUpdateCity() {
                 fullWidth
                 id="cityName"
                 name="cityName"
-                label="City Name"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={values.data?.cityName}
+                value={values.cityName}
                 error={errors.cityName && touched.cityName}
                 helperText={
                   errors.cityName && touched.cityName ? errors.cityName : ""
@@ -74,10 +78,9 @@ export default function AdminUpdateCity() {
                 fullWidth
                 id="cityImage"
                 name="cityImage"
-                label="City Image"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={values.data?.cityImage}
+                value={values.cityImage}
                 error={errors.cityImage && touched.cityImage}
                 helperText={
                   errors.cityImage && touched.cityImage ? errors.cityImage : ""

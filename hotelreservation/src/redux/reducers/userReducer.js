@@ -41,7 +41,7 @@ export default function userReducer(state = initialvales, { type, payload }) {
     case UPDATE_USER:
       return {
         ...state,
-        users: [...state.users.filter((x) => x.id !== payload.id, payload)],
+        users: [...state.users.filter((x) => x.userId !== payload.userId, payload)],
       };
     case RESET_PASSWORD_EMAIL_SEND:
       return {

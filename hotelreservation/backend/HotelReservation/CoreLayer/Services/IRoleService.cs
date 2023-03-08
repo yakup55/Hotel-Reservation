@@ -13,6 +13,7 @@ namespace CoreLayer.Services
     {
         Task<ResponseDto<IdentityRole>> CreateRoleAync(AppRole roleName);
         Task<ResponseDto<IdentityRole>> AddUserRole(UserRoleDto role);
+        Task<ResponseDto<RoleUpdateDto>> UpdateUserRole(RoleUpdateDto role,string roleId);
         Task<ResponseDto<NoDataDto>> DeleteRoles(string id);
         Task<ResponseDto<IdentityRole>> GetByRoleAsync(string id);
 

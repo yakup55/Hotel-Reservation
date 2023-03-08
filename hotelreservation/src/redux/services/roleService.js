@@ -24,8 +24,9 @@ class RoleService {
     const url = `${this.baseUrl}/AssignRoleTo`;
     return await axios.post(url, role).then((resp) => resp.data);
   }
-  // async updateRole(role, id) {
-  //   const url = `${this.baseUrl}/GetByRole/${id}`;
-  // }
+  async updateRole(role) {
+    const url = `${this.baseUrl}/UpdateRole`;
+    return await axios.put(url, role).then((resp) => resp.data);
+  }
 }
 export default RoleService;

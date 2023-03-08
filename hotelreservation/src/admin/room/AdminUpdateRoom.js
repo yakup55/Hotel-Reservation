@@ -4,24 +4,37 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import AdminHome from "../home/AdminHome";
-import { updateRoom } from "../../redux/actions/roomActions";
+import { getByRoom, updateRoom } from "../../redux/actions/roomActions";
 import { openSnacbar } from "../../redux/actions/appActions";
 import { Button, Container, MenuItem, Stack, TextField } from "@mui/material";
 import { validationSchema } from "./validationSchema";
 import { useEffect } from "react";
 import { getHotelList } from "../../redux/actions/hotelActions";
-import RoomService from "../../redux/services/roomService";
 
 export default function AdminUpdateRoom() {
   const { id } = useParams();
-  const service = new RoomService();
   const dispacth = useDispatch();
   const navigate = useNavigate();
   const { hotels } = useSelector((state) => state.hotel);
+  const { room } = useSelector((state) => state.room);
   useEffect(() => {
-    service.getByRoom(id).then((resp) => setValues(resp));
+    dispacth(getByRoom(id));  
     dispacth(getHotelList());
-  }, []);
+    setValues({
+      roomId: id,
+      roomName: room.data?.roomName,
+      roomPrice: room.data?.roomPrice,
+      roomImage: room.data?.roomImage,
+      hotelId: room.data?.hotelId,
+    });
+  }, [
+    id,
+    dispacth,
+    room.data?.roomName,
+    room.data?.roomImage,
+    room.data?.roomPrice,
+    room.data?.hotelId,
+  ]);
   const {
     handleSubmit,
     handleChange,
@@ -32,6 +45,7 @@ export default function AdminUpdateRoom() {
     setValues,
   } = useFormik({
     initialValues: {
+      roomId: 0,
       roomName: "",
       roomImage: "",
       roomPrice: 0,
@@ -41,7 +55,7 @@ export default function AdminUpdateRoom() {
       dispacth(updateRoom(values));
       dispacth(
         openSnacbar({
-          message: "Has been created",
+          message: "Has been updeted",
           severity: "success",
         })
       );
@@ -70,7 +84,7 @@ export default function AdminUpdateRoom() {
                 label="Room Name"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={values.data?.roomName}
+                value={values.roomName}
                 error={errors.roomName && touched.roomName}
                 helperText={
                   errors.roomName && touched.roomName ? errors.roomName : ""
@@ -83,7 +97,7 @@ export default function AdminUpdateRoom() {
                 placeholder="Room Image"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={values.data?.roomImage}
+                value={values.roomImage}
                 error={errors.roomImage && touched.roomImage}
                 helperText={
                   errors.roomImage && touched.roomImage ? errors.roomImage : ""
@@ -96,7 +110,7 @@ export default function AdminUpdateRoom() {
                 placeholder="Room Price"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={values.data?.roomPrice}
+                value={values.roomPrice}
                 error={errors.roomPrice && touched.roomPrice}
                 helperText={
                   errors.roomPrice && touched.roomPrice ? errors.roomPrice : ""
@@ -107,7 +121,7 @@ export default function AdminUpdateRoom() {
                 select
                 label="Select your Hotel"
                 defaultValue="Select Hotel"
-                value={values.data?.categoryId}
+                value={values.hotelId}
                 id="hotelId"
                 name="hotelId"
                 onChange={handleChange}

@@ -22,7 +22,7 @@ class CityService {
   }
   async updateCity(city) {
     const url = `${this.baseUrl}/UpdateCity`;
-    return await axios.get(url, city).then((resp) => resp.data);
+    return await axios.put(url, city).then((resp) => resp.data);
   }
   async deleteCity(id) {
     const url = `${this.baseUrl}/DeleteCity/${id}`;

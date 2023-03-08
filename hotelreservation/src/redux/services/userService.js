@@ -20,8 +20,8 @@ class UserService {
     const url = `${this.baseUrl}/DeleteUser/${id}`;
     return await axios.delete(url).then((resp) => resp.data);
   }
-  async updateUser(user, id) {
-    const url = `${this.baseUrl}/UpdateUser/${id}`;
+  async updateUser(user) {
+    const url = `${this.baseUrl}/UserUpdate`;
     return await axios.put(url, user).then((resp) => resp.data);
   }
   async resetPasswordEmailSend(email) {

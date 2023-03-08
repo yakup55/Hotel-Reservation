@@ -32,10 +32,10 @@ export function addUser(user) {
       .then((resp) => dispacth({ type: ADD_USER, payload: resp }));
   };
 }
-export function updateUser(user, id) {
+export function updateUser(user) {
   return function (dispacth) {
     service
-      .updateUser(user, id)
+      .updateUser(user)
       .then((resp) => dispacth({ type: UPDATE_USER, payload: resp }));
   };
 }

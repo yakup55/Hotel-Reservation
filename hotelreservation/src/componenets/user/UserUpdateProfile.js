@@ -6,8 +6,9 @@ import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
+import { openSnacbar } from "../../redux/actions/appActions";
 import { getCityList } from "../../redux/actions/cityActions";
-import { getByUserMail } from "../../redux/actions/userActions";
+import { getByUserMail, updateUser } from "../../redux/actions/userActions";
 
 export default function UserUpdateProfile() {
   const { user } = useSelector((state) => state.user);
@@ -18,6 +19,12 @@ export default function UserUpdateProfile() {
   useEffect(() => {
     dispacth(getByUserMail(email));
     dispacth(getCityList());
+    setValues({
+      userId: user.data?.id,
+      userImage: user.data?.image,
+      cityId: user.data?.cityId,
+      birthDate: user.data?.birthDate,
+    });
   }, []);
   const {
     handleSubmit,
@@ -29,10 +36,22 @@ export default function UserUpdateProfile() {
     setValues,
   } = useFormik({
     initialValues: {
-      name: "",
-      email: "",
+      userId: "",
+      userImage: "",
+      cityId: 0,
+      birthDate: "",
+    },
+    onSubmit: (values) => {
+      dispacth(updateUser(values));
+      dispacth(
+        openSnacbar({
+          message: "Profiliniz Güncellendi",
+        })
+      );
+      navigate(`/user/${user.data.email}`);
     },
   });
+  console.log(user.data);
   return (
     <Container maxWidth="md">
       <Heading>Profile Update</Heading>
@@ -42,30 +61,33 @@ export default function UserUpdateProfile() {
             style={{ width: 150, height: 150, margin: "auto" }}
             src={`${user.data?.image}`}
           ></img>
-          <TextField type="file" id="" name=""></TextField>
           <TextField
-            id=""
-            name=""
+            label="Resiminiz"
+            id="userImage"
+            name="userImage"
+            value={values.userImage}
+          ></TextField>
+          <TextField
             label="Kullanıcı Adınız"
-            value={values.data?.name}
+            disabled
+            value={user.data?.userName}
           ></TextField>
           <TextField
-            id=""
-            name=""
-            label="Email Adresiniz"
-            value={values.data?.email}
+            label="Mail Adresiniz"
+            disabled
+            value={user.data?.email}
           ></TextField>
           <TextField
-            id=""
-            name=""
             label="Telefon Numaranız"
-            value={values.data?.email}
+            disabled
+            value={user.data?.phoneNumber}
           ></TextField>
           <TextField
-            type="date"
-            id=""
-            name=""
-            value={values.data?.email}
+            label="Doğum Tarihiniz"
+            type="datetime-local"
+            id="birthDate"
+            name="birthDate"
+            value={values.birthDate}
           ></TextField>
           <TextField
             select
@@ -86,7 +108,7 @@ export default function UserUpdateProfile() {
             ))}
           </TextField>
           <Button type="submit" variant="contained">
-            Save
+            Güncelle
           </Button>
         </Stack>
       </form>

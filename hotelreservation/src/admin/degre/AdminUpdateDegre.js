@@ -3,19 +3,18 @@ import { Grid, GridItem } from "@chakra-ui/react";
 import { Button, Container, TextField } from "@mui/material";
 import { Stack } from "@mui/system";
 import { useFormik } from "formik";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { openSnacbar } from "../../redux/actions/appActions";
-import { updateDegre } from "../../redux/actions/degreActions";
+import { getByDegre, updateDegre } from "../../redux/actions/degreActions";
 import AdminHome from "../home/AdminHome";
 import { validationSchema } from "./validationSchema";
-import DegreService from "../../redux/services/degreService";
 import { useEffect } from "react";
 export default function AdminUpdateDegre() {
   const { id } = useParams();
-  const service = new DegreService();
   const dispacth = useDispatch();
   const navigate = useNavigate();
+  const { degre } = useSelector((state) => state.degre);
   const {
     handleSubmit,
     handleChange,
@@ -26,6 +25,7 @@ export default function AdminUpdateDegre() {
     setValues,
   } = useFormik({
     initialValues: {
+      degreId: 0,
       degreName: "",
       degreValue: 0,
     },
@@ -33,7 +33,7 @@ export default function AdminUpdateDegre() {
       dispacth(updateDegre(values));
       dispacth(
         openSnacbar({
-          message: "Has been created",
+          message: "Has been updated",
           severity: "success",
         })
       );
@@ -42,8 +42,13 @@ export default function AdminUpdateDegre() {
     validationSchema,
   });
   useEffect(() => {
-    service.getByDegre(id).then((resp) => setValues(resp));
-  });
+    dispacth(getByDegre(id));
+    setValues({
+      degreId: id,
+      degreName: degre.data?.degreName,
+      degreValue: degre.data?.degreValue,
+    });
+  }, [id, dispacth, setValues, degre.data?.degreName, degre.data?.degreValue]);
   return (
     <Grid
       h="900px"
@@ -62,10 +67,9 @@ export default function AdminUpdateDegre() {
               <TextField
                 id="degreName"
                 name="degreName"
-                label="Degre Name"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={values.data?.degreName}
+                value={values.degreName}
                 error={errors.degreName && touched.degreName}
                 helperText={
                   errors.degreName && touched.degreName ? errors.degreName : ""
@@ -74,11 +78,10 @@ export default function AdminUpdateDegre() {
               <TextField
                 id="degreValue"
                 name="degreValue"
-                label="Degre Value"
                 onChange={handleChange}
                 onBlur={handleBlur}
                 error={errors.degreValue && touched.degreValue}
-                value={values.data?.degreValue}
+                value={values.degreValue}
                 helperText={
                   errors.degreValue && touched.degreValue
                     ? errors.degreValue

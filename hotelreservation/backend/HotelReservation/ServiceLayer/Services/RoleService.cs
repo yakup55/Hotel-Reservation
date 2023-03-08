@@ -74,5 +74,17 @@ namespace ServiceLayer.Services
             return ResponseDto<IdentityRole>.Success(200);
 
         }
+
+        public async Task<ResponseDto<RoleUpdateDto>> UpdateUserRole(RoleUpdateDto role, string roleId)
+        {
+            var hasRole = await roleManager.FindByIdAsync(roleId);
+            if (hasRole==null)
+            {
+                return ResponseDto<RoleUpdateDto>.Fail("Role Yok", 404);
+            }
+            hasRole.Name = role.RoleName;
+            await roleManager.UpdateAsync(hasRole);
+            return ResponseDto<RoleUpdateDto>.Success(200);
+        }
     }
 }

@@ -1,5 +1,7 @@
 ﻿using CoreLayer.DTOs;
+using CoreLayer.Models;
 using CoreLayer.Services;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HotelReservationProject.Controllers
@@ -57,11 +59,11 @@ namespace HotelReservationProject.Controllers
             return ActionResultInstance(await service.UserPasswordUpdate(update));
         }
 
-        //[HttpPut("{id}")]
-        //public async Task<IActionResult>UserUpdate(AppUserDto user,string id)
-        //{
-        //    return ActionResultInstance(await service.UpdateUser(user,id));
-        //}
+        [HttpPut]
+        public async Task<IActionResult> UserUpdate(UserUpdateDto user)
+        {
+            return ActionResultInstance(await service.UpdateUser(user,user.UserId));
+        }
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteUser(string id)
         {

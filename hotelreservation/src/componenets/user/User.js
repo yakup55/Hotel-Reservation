@@ -1,5 +1,24 @@
-import { Grid, GridItem, Heading } from "@chakra-ui/react";
-import { Typography } from "@mui/material";
+import {
+  Box,
+  Card,
+  CardBody,
+  CardHeader,
+  Grid,
+  GridItem,
+  Heading,
+  Stack,
+  StackDivider,
+  Text,
+} from "@chakra-ui/react";
+import {
+  Avatar,
+  Divider,
+  List,
+  ListItem,
+  ListItemAvatar,
+  ListItemText,
+  Typography,
+} from "@mui/material";
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,7 +27,10 @@ import { getByUserMail } from "../../redux/actions/userActions";
 import UserCommentList from "./UserCommentList";
 import UserContactList from "./UserContactList";
 import UserReservationList from "./UserReservationList";
-
+import EmailIcon from "@mui/icons-material/Email";
+import PhoneIcon from "@mui/icons-material/Phone";
+import LocationCityIcon from "@mui/icons-material/LocationCity";
+import CakeIcon from "@mui/icons-material/Cake";
 export default function User() {
   const { email } = useParams();
   const navigate = useNavigate();
@@ -17,7 +39,8 @@ export default function User() {
   const { role } = useSelector((state) => state.role);
   useEffect(() => {
     dispacth(getByUserMail(email));
-  }, []);
+  }, [dispacth, email]);
+
   return (
     <Grid
       h="200px"
@@ -40,12 +63,72 @@ export default function User() {
               src={`${user.data?.image}`}
             ></img>
           </div>
-          <Heading>{user.data?.userName}</Heading>
-          <Typography variant="h7"> {user.data?.email}</Typography>
-          <br></br>
-          <Typography variant="h7"> {user.data?.birthDate}</Typography>
-          <br></br>
-          <Typography>{user.data?.cityId} City Name Gelicek</Typography>
+          <Heading>Bilgilerim</Heading>
+          <List
+            sx={{
+              width: "100%",
+              maxWidth: 360,
+            }}
+          >
+            <ListItem>
+              <ListItemAvatar>
+                <Avatar sx={{ backgroundColor: "black" }}></Avatar>
+              </ListItemAvatar>
+              <ListItemText
+                primary="Kullanıcı Adınız"
+                secondary={user.data?.userName}
+              />
+            </ListItem>
+            <Divider variant="inset" component="li" />
+            <ListItem>
+              <ListItemAvatar>
+                <Avatar sx={{ backgroundColor: "black" }}>
+                  <EmailIcon></EmailIcon>
+                </Avatar>
+              </ListItemAvatar>
+              <ListItemText
+                primary="Email Adresiniz"
+                secondary={user.data?.email}
+              />
+            </ListItem>
+            <Divider variant="inset" component="li" />
+            <ListItem>
+              <ListItemAvatar>
+                <Avatar sx={{ backgroundColor: "black" }}>
+                  <PhoneIcon></PhoneIcon>
+                </Avatar>
+              </ListItemAvatar>
+              <ListItemText
+                primary="Telefon Numaranız"
+                secondary={user.data?.phoneNumber}
+              />
+            </ListItem>
+            <Divider variant="inset" component="li" />
+            <ListItem>
+              <ListItemAvatar>
+                <Avatar sx={{ backgroundColor: "black" }}>
+                  <CakeIcon></CakeIcon>
+                </Avatar>
+              </ListItemAvatar>
+              <ListItemText
+                primary="Doğum Tarihiniz"
+                secondary={user.data?.birthDate}
+              />
+            </ListItem>
+            <Divider variant="inset" component="li" />
+            {/* <ListItem>
+              <ListItemAvatar>
+                <Avatar sx={{ backgroundColor: "black" }}>
+                  <LocationCityIcon></LocationCityIcon>
+                </Avatar>
+              </ListItemAvatar>
+              <ListItemText
+                primary="Şehriniz"
+                secondary={cities.data?.cityName}
+              />
+            </ListItem>
+            <Divider variant="inset" component="li" /> */}
+          </List>
         </GridItem>
       )}
 

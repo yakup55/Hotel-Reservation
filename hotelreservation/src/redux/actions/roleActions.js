@@ -28,13 +28,13 @@ export function addRole(role) {
       .then((resp) => dispacth({ type: ADD_ROLE, payload: resp }));
   };
 }
-// export function aupdateRole(role) {
-//     return function (dispacth) {
-//       service
-//         .addRole(role)
-//         .then((resp) => dispacth({ type: ADD_ROLE, payload: resp }));
-//     };
-//   }
+export function updateRole(role) {
+    return function (dispacth) {
+      service
+        .updateRole(role)
+        .then((resp) => dispacth({ type: UPDATE_ROLE, payload: resp }));
+    };
+  }
 export function deleteRole(id) {
   return function (dispacth) {
     service

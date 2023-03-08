@@ -8,25 +8,36 @@ import { useNavigate, useParams } from "react-router-dom";
 import { openSnacbar } from "../../redux/actions/appActions";
 import { getDegreList } from "../../redux/actions/degreActions";
 import {
-  addFacility,
+  getByFacility,
   updateFacility,
 } from "../../redux/actions/facilityActions";
 import { getHotelList } from "../../redux/actions/hotelActions";
-import FacilityService from "../../redux/services/facilityService";
 import AdminHome from "../home/AdminHome";
 import { validationSchema } from "./validationSchema";
 export default function AdminUpdateFacility() {
   const { id } = useParams();
-  const service = new FacilityService();
   const { hotels } = useSelector((state) => state.hotel);
   const { degres } = useSelector((state) => state.degre);
+  const { facility } = useSelector((state) => state.facility);
   const dispacth = useDispatch();
   const navigate = useNavigate();
   useEffect(() => {
-    service.getByFacility(id).then((resp) => setValues(resp));
+    dispacth(getByFacility(id));
     dispacth(getHotelList());
     dispacth(getDegreList());
-  }, []);
+    setValues({
+      facilityId: id,
+      facilityName: facility.data?.facilityName,
+      hotelId: facility.data?.hotelId,
+      degreId: facility.data?.degreId,
+    });
+  }, [
+    id,
+    dispacth,
+    facility.data?.facilityName,
+    facility.data?.hotelId,
+    facility.data?.degreId,
+  ]);
   const {
     handleSubmit,
     handleBlur,
@@ -37,6 +48,7 @@ export default function AdminUpdateFacility() {
     setValues,
   } = useFormik({
     initialValues: {
+      facilityId: 0,
       facilityName: "",
       hotelId: 0,
       degreId: 0,
@@ -53,6 +65,7 @@ export default function AdminUpdateFacility() {
     },
     validationSchema,
   });
+  console.log(facility)
   return (
     <Grid
       h="900px"
@@ -71,9 +84,8 @@ export default function AdminUpdateFacility() {
               <TextField
                 id="facilityName"
                 name="facilityName"
-                label="Facility Name"
                 onChange={handleChange}
-                value={values.data?.facilityName}
+                value={values.facilityName}
                 onBlur={handleBlur}
                 error={errors.facilityName && touched.facilityName}
                 helperText={
@@ -84,9 +96,8 @@ export default function AdminUpdateFacility() {
               ></TextField>
               <TextField
                 select
-                label="Select your Hotel"
                 defaultValue="Select Hotel"
-                value={values.data?.categoryId}
+                value={values.hotelId}
                 id="hotelId"
                 name="hotelId"
                 onChange={handleChange}
@@ -104,9 +115,8 @@ export default function AdminUpdateFacility() {
               </TextField>
               <TextField
                 select
-                label="Select your Degre"
                 defaultValue="Select Degre"
-                value={values.data?.degreId}
+                value={values.degreId}
                 id="degreId"
                 name="degreId"
                 onChange={handleChange}

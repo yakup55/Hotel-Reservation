@@ -16,12 +16,12 @@ class HotelDetailService {
     const url = `${this.baseUrl}/AddHotelDetail`;
     return await axios.post(url, detail).then((resp) => resp.data);
   }
-  async updateHotelDetail(detail) {
-    const url = `${this.baseUrl}/UpdateHotelDetail`;
-    return await axios.put(url, detail).then((resp) => resp.data);
+  async updateHotelDetail(hotel) {
+    const url = `${this.baseUrl}/UpdateDetail`;
+    return await axios.put(url, hotel).then((resp) => resp.data);
   }
   async deleteHotelDetail(id) {
-    const url = `${this.baseUrl}/DeleteHotelDetail(${id})`;
+    const url = `${this.baseUrl}/DeleteHotelDetail/${id}`;
     return await axios.delete(url).then((resp) => resp.data);
   }
 }

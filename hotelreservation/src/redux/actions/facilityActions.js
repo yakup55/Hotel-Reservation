@@ -14,10 +14,10 @@ export function getFacilityList() {
       .then((resp) => dispacth({ type: GET_FACILITY_LIST, payload: resp }));
   };
 }
-export function getByFacility() {
+export function getByFacility(id) {
   return function (dispacth) {
     service
-      .getByFacility()
+      .getByFacility(id)
       .then((resp) => dispacth({ type: GET_BY_FACILITYT, payload: resp }));
   };
 }

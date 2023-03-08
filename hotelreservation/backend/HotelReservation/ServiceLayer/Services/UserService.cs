@@ -153,16 +153,18 @@ namespace ServiceLayer.Services
             return ResponseDto<NoDataDto>.Success(200);
         }
 
-        public async Task<ResponseDto<AppUserDto>> UpdateUser(AppUserDto user, string id)
+        public async Task<ResponseDto<UserUpdateDto>> UpdateUser(UserUpdateDto user, string id)
         {
             var currentUser = await userManager.FindByIdAsync(id);
-            currentUser.Email = user.UserEmail;
-            currentUser.UserName = user.UserName;
-            currentUser.PhoneNumber = user.UserNumber;
+            if (currentUser==null)
+            {
+                return ResponseDto<UserUpdateDto>.Fail("Kullanıcı Yok",404);
+            }
+            currentUser.Image = user.UserImage;
+            currentUser.CityId = user.CityId;
+            currentUser.BirthDate = user.BirthDate;
             await userManager.UpdateAsync(currentUser);
-            return ResponseDto<AppUserDto>.Success(200);
-
-
+            return ResponseDto<UserUpdateDto>.Success(200);
         }
 
         public async Task<ResponseDto<NoDataDto>> UserPasswordUpdate(UserPasswordUpdateDto userPassword)

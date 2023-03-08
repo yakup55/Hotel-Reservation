@@ -10,24 +10,43 @@ import { openSnacbar } from "../../redux/actions/appActions";
 import { getCategoryList } from "../../redux/actions/categoryActions";
 import { getCityList } from "../../redux/actions/cityActions";
 import { getDegreList } from "../../redux/actions/degreActions";
-import { updateHotel } from "../../redux/actions/hotelActions";
-import HotelService from "../../redux/services/hotelService";
+import { getByHotel, updateHotel } from "../../redux/actions/hotelActions";
 import AdminHome from "../home/AdminHome";
 import { validationSchema } from "./validationSchema";
 export default function AdminUpdateHotel() {
   const { cities } = useSelector((state) => state.city);
   const { categories } = useSelector((state) => state.category);
   const { degres } = useSelector((state) => state.degre);
+  const { hotel } = useSelector((state) => state.hotel);
   const { id } = useParams();
   const dispacth = useDispatch();
   const navigate = useNavigate();
-  const service = new HotelService();
   useEffect(() => {
-    service.getByHotel(id).then((resp) => setValues(resp));
+    dispacth(getByHotel(id));
+    setValues({
+      hotelId: id,
+      hotelName: hotel.data?.hotelName,
+      hotelPrice: hotel.data?.hotelPrice,
+      hotelImage: hotel.data?.hotelImage,
+      hotelLocation: hotel.data?.hotelLocation,
+      categoryId: hotel.data?.categoryId,
+      degreId: hotel.data?.degreId,
+      cityId: hotel.data?.cityId,
+    });
     dispacth(getCityList());
     dispacth(getDegreList());
     dispacth(getCategoryList());
-  }, []);
+  }, [
+    dispacth,
+    id,
+    hotel.data?.hotelName,
+    hotel.data?.hotelPrice,
+    hotel.data?.hotelImage,
+    hotel.data?.hotelLocation,
+    hotel.data?.categoryId,
+    hotel.data?.degreId,
+    hotel.data?.cityId,
+  ]);
   const {
     handleSubmit,
     handleBlur,
@@ -38,8 +57,7 @@ export default function AdminUpdateHotel() {
     values,
   } = useFormik({
     initialValues: {
-      hotelId: id,
-
+      hotelId: 0,
       hotelName: "",
       hotelPrice: 0,
       hotelImage: "",
@@ -79,8 +97,7 @@ export default function AdminUpdateHotel() {
                 fullWidth
                 id="hotelName"
                 name="hotelName"
-                label="Hotel Name"
-                value={values.data?.hotelName}
+                value={values.hotelName}
                 onChange={handleChange}
                 onBlur={handleBlur}
                 error={errors.hotelName && touched.hotelName}
@@ -93,10 +110,9 @@ export default function AdminUpdateHotel() {
                 fullWidth
                 id="hotelPrice"
                 name="hotelPrice"
-                label="Hotel Price"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={values.data?.hotelPrice}
+                value={values.hotelPrice}
                 error={errors.hotelPrice && touched.hotelPrice}
                 helperText={
                   errors.hotelPrice && touched.hotelPrice
@@ -108,10 +124,9 @@ export default function AdminUpdateHotel() {
                 fullWidth
                 id="hotelImage"
                 name="hotelImage"
-                label="Hotel Image"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={values.data?.hotelImage}
+                value={values.hotelImage}
                 error={errors.hotelImage && touched.hotelImage}
                 helperText={
                   errors.hotelImage && touched.hotelImage
@@ -123,10 +138,9 @@ export default function AdminUpdateHotel() {
                 fullWidth
                 id="hotelLocation"
                 name="hotelLocation"
-                label="Hotel Location"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={values.data?.hotelLocation}
+                value={values.hotelLocation}
                 error={errors.hotelLocation && touched.hotelLocation}
                 helperText={
                   errors.hotelLocation && touched.hotelLocation
@@ -139,7 +153,7 @@ export default function AdminUpdateHotel() {
                 select
                 label="Select your Category"
                 defaultValue="Select Category"
-                value={values.data?.categoryId}
+                value={values.categoryId}
                 id="categoryId"
                 name="categoryId"
                 onChange={handleChange}
@@ -164,7 +178,7 @@ export default function AdminUpdateHotel() {
                 select
                 label="Select your Degre"
                 defaultValue="Select Degre"
-                value={values.data?.degreId}
+                value={values.degreId}
                 id="degreId"
                 name="degreId"
                 onChange={handleChange}
@@ -185,7 +199,7 @@ export default function AdminUpdateHotel() {
                 select
                 label="Select your City"
                 defaultValue="Select City"
-                value={values.data?.cityId}
+                value={values.cityId}
                 id="cityId"
                 name="cityId"
                 onChange={handleChange}

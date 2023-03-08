@@ -5,6 +5,7 @@ import {
   DELETE_ROLE,
   GET_BY_ROLE,
   GET_ROLE_LIST,
+  UPDATE_ROLE,
 } from "../../redux/actions/roleActions";
 const initialvales = {
   role,
@@ -36,6 +37,14 @@ export default function roleReducer(state = initialvales, { type, payload }) {
       return {
         ...state,
         roles: [...state.roles, payload],
+      };
+    case UPDATE_ROLE:
+      return {
+        ...state,
+        roles: [
+          ...state.roles.filter((x) => x.roleId !== payload.roleId),
+          payload,
+        ],
       };
     default:
       return {

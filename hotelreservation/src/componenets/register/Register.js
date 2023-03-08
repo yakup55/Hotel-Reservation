@@ -39,7 +39,7 @@ export default function Register() {
         userNumber: "",
         userPasword: "",
       },
-      onSubmit: (values) => {
+      onSubmit: async (values) => {
         dispacth(addUser(values));
         dispacth(
           openSnacbar({
