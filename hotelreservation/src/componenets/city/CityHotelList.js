@@ -17,7 +17,7 @@ export default function CityHotelList() {
   const dispacth = useDispatch();
   useEffect(() => {
     dispacth(hotelCityList(id));
-  }, []);
+  }, [dispacth,id]);
   return (
     <Grid
       h="1000"
@@ -29,7 +29,7 @@ export default function CityHotelList() {
         <HotelNavList></HotelNavList>
       </GridItem>
       <GridItem colSpan={2}>
-<Search></Search>
+        <Search></Search>
 
         <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
           <SimpleGrid columns={3} spacingX="400px" spacingY="450px">

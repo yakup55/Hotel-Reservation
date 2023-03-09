@@ -24,7 +24,6 @@ namespace HotelReservationProject.Controllers
             return ActionResultInstance(await service.GetAllAsync());
         }
         [HttpGet("{id}")]
-
         public async Task<IActionResult> GetByQuentions(int id)
         {
             return ActionResultInstance(await service.GetByIdAsync(id));
@@ -40,13 +39,11 @@ namespace HotelReservationProject.Controllers
             return ActionResultInstance(await service.AddAsync(dto));
         }
         [HttpPut]
-
         public async Task<IActionResult> UpdateQuentions(QuentionsDto dto)
         {
             return ActionResultInstance(await service.UpdateAsync(dto, dto.QuentionsId));
         }
         [HttpDelete("{id}")]
-
         public async Task<IActionResult> DeleteQuentions(int id)
         {
             return ActionResultInstance(await service.DeleteAsync(id));

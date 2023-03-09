@@ -11,7 +11,6 @@ namespace HotelReservationProject.Controllers
     [ApiController]
     public class CategoryController : BaseController
     {
-        //private readonly IGenericService<Category, CategoryDto> service;
         private readonly ICategoryService service;
 
         public CategoryController(ICategoryService service)

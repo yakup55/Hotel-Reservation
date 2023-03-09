@@ -12,6 +12,7 @@ import {
 } from "@chakra-ui/react";
 import {
   Avatar,
+  Button,
   Divider,
   List,
   ListItem,
@@ -23,7 +24,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { getByUserMail } from "../../redux/actions/userActions";
+import { deleteUser, getByUserMail } from "../../redux/actions/userActions";
 import UserCommentList from "./UserCommentList";
 import UserContactList from "./UserContactList";
 import UserReservationList from "./UserReservationList";
@@ -31,6 +32,7 @@ import EmailIcon from "@mui/icons-material/Email";
 import PhoneIcon from "@mui/icons-material/Phone";
 import LocationCityIcon from "@mui/icons-material/LocationCity";
 import CakeIcon from "@mui/icons-material/Cake";
+import { openSnacbar } from "../../redux/actions/appActions";
 export default function User() {
   const { email } = useParams();
   const navigate = useNavigate();
@@ -40,7 +42,15 @@ export default function User() {
   useEffect(() => {
     dispacth(getByUserMail(email));
   }, [dispacth, email]);
-
+  const handleUserDeleted = (id) => {
+    dispacth(deleteUser(id));
+    dispacth(
+      openSnacbar({
+        message: "Hesabınız Silinmiştir",
+        severity: "success",
+      })
+    );
+  };
   return (
     <Grid
       h="200px"
@@ -129,6 +139,13 @@ export default function User() {
             </ListItem>
             <Divider variant="inset" component="li" /> */}
           </List>
+          <Button
+            onClick={() => handleUserDeleted(user.data?.id)}
+            variant="contained"
+            color="error"
+          >
+            Hesabımı Sil
+          </Button>
         </GridItem>
       )}
 

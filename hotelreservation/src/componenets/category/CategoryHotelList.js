@@ -7,6 +7,7 @@ import { useParams } from 'react-router-dom'
 import { hotelCategoryList } from '../../redux/actions/hotelActions'
 import Hotel from '../hotel/Hotel'
 import HotelNavList from '../hotel/HotelNavList'
+import Search from '../search/Search'
 
 export default function CategoryHotelList() {
     const dispacth=useDispatch();
@@ -25,7 +26,11 @@ export default function CategoryHotelList() {
     <GridItem rowSpan={10} colSpan={0}>
       <HotelNavList></HotelNavList>
     </GridItem>
+
+
     <GridItem colSpan={2}>
+<Search></Search>
+
       <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
         <SimpleGrid columns={3} spacingX="400px" spacingY="450px">
           {hotels.data?.map((hotel) => (

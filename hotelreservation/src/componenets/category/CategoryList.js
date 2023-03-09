@@ -9,17 +9,17 @@ export default function CategoryList() {
   const dispacth = useDispatch();
   const { categories } = useSelector((state) => state.category);
   useEffect(() => {
-    dispacth(LastCategory());
+    dispacth(getCategoryList());
   }, []);
   return (
     <div>
         <Typography mt={10} variant="h5" fontStyle={"italic"}>Tatil Temaları</Typography>
       <Box sx={{ mt: 10, flexGrow: 1, display: { xs: "none", md: "flex" } }}>
     
-      <Grid container spacing={1}>
-        <Grid container item spacing={3}>
+      <Grid container spacing={0}>
+        <Grid container item spacing={0}>
           {categories.data?.map((category)=>(
-            <Grid item xs={3}>
+            <Grid item xs={2}>
             <Category key={category.categoryId} category={category} ></Category>
           </Grid>
           ))}
@@ -32,7 +32,7 @@ export default function CategoryList() {
       <Grid container spacing={1}>
         <Grid container item spacing={3}>
           {categories.data?.map((category)=>(
-            <Grid item xs={6}>
+            <Grid item xs={4}>
             <Category key={category.categoryId} category={category} ></Category>
           </Grid>
           ))}

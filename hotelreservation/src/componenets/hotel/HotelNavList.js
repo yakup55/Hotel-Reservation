@@ -51,9 +51,9 @@ export default function HotelNavList() {
     <>
       <Heading>Filtreler</Heading>
       <FormControl>
-        <FormLabel>Fiyata Göre Listele</FormLabel>
+        <FormLabel>Fiyata Göre</FormLabel>
         <TextField
-         sx={{mt:2,mb:2}}
+          sx={{ mt: 2, mb: 2 }}
           color="success"
           label="Fiyatı Giriniz"
           onChange={(e) => priceList(e.target.value)}

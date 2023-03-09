@@ -1,6 +1,6 @@
 import { SpeedDial, SpeedDialAction, SpeedDialIcon } from "@mui/material";
 import React from "react";
-import { AspectRatio, Grid, GridItem } from "@chakra-ui/react";
+import { Grid, GridItem } from "@chakra-ui/react";
 import {
   Button,
   Container,
@@ -14,17 +14,14 @@ import EditIcon from "@mui/icons-material/Edit";
 import CreateIcon from "@mui/icons-material/Create";
 import { useNavigate } from "react-router-dom";
 import {
-  deleteQuentions,
-  getByQuentions,
-  getQuentionsList,
-  hotelQuentions,
+  deleteQuentions, getQuentionsList,
 } from "../../redux/actions/quentionsActions";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import BuildIcon from "@mui/icons-material/Build";
 
 import AdminHome from "../home/AdminHome";
-import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 export default function AdminQuentionsList() {
   const actions = [{ icon: <CreateIcon></CreateIcon>, name: "Create" }];
   const dispacth = useDispatch();
@@ -32,11 +29,11 @@ export default function AdminQuentionsList() {
   const handleDeletedQuentions = (id) => {
     dispacth(deleteQuentions(id));
   };
-  const { quentions } = useSelector((state) => state.quention);
-  useEffect(() => {
-    dispacth(getQuentionsList());
-  }, []);
-  console.log(quentions);
+  const {quentions}=useSelector((state)=>state.quention)
+ useEffect(()=>{
+  dispacth(getQuentionsList())
+ },[])
+ console.log(quentions)
   return (
     <Grid
       h="900px"
