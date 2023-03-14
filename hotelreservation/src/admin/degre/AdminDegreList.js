@@ -7,6 +7,7 @@ import { Grid, GridItem } from "@chakra-ui/react";
 import {
   Button,
   Container,
+  Pagination,
   SpeedDial,
   SpeedDialAction,
   SpeedDialIcon,
@@ -22,6 +23,7 @@ import BuildIcon from "@mui/icons-material/Build";
 
 import EditIcon from "@mui/icons-material/Edit";
 import CreateIcon from "@mui/icons-material/Create";
+import { useState } from "react";
 export default function AdminDegreList() {
   const actions = [{ icon: <CreateIcon></CreateIcon>, name: "Create" }];
   const handleDeletedDegres = (id) => {
@@ -30,6 +32,15 @@ export default function AdminDegreList() {
   const dispacth = useDispatch();
   const navigate = useNavigate();
   const { degres } = useSelector((state) => state.degre);
+  const [number, setNumber] = useState(1); // No of pages
+  const [postPerPage] = useState(15);
+  const lastPost = number * postPerPage;
+  const firstPost = lastPost - postPerPage;
+  const currentPost = degres.data?.slice(firstPost, lastPost);
+  const PageCount = Math.ceil(degres.data?.length / postPerPage);
+  const handleChange = (event, value) => {
+    setNumber(value);
+  };
   useEffect(() => {
     dispacth(getDegreList());
   }, []);
@@ -57,7 +68,7 @@ export default function AdminDegreList() {
                   <TableCell style={{ color: "white" }}>Update</TableCell>
                   <TableCell style={{ color: "white" }}>Delete</TableCell>
                 </TableRow>
-                {degres.data?.map((degre) => (
+                {currentPost?.map((degre) => (
                   <TableRow>
                     <TableCell>{degre.degreId}</TableCell>
                     <TableCell>{degre.degreName}</TableCell>
@@ -71,9 +82,7 @@ export default function AdminDegreList() {
                         startIcon={<BuildIcon></BuildIcon>}
                         variant="contained"
                         color="success"
-                      >
-                        
-                      </Button>
+                      ></Button>
                     </TableCell>
                     <TableCell>
                       <Button
@@ -81,15 +90,18 @@ export default function AdminDegreList() {
                         startIcon={<DeleteOutlineIcon></DeleteOutlineIcon>}
                         variant="contained"
                         color="error"
-                      >
-                      
-                      </Button>
+                      ></Button>
                     </TableCell>
                   </TableRow>
                 ))}
               </Table>
             </TableBody>
           </TableContainer>
+          <Pagination
+            count={PageCount}
+            onChange={handleChange}
+            color="secondary"
+          />
         </Container>
       </GridItem>
       <SpeedDial

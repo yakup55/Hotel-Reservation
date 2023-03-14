@@ -14,7 +14,8 @@ import EditIcon from "@mui/icons-material/Edit";
 import CreateIcon from "@mui/icons-material/Create";
 import { useNavigate } from "react-router-dom";
 import {
-  deleteQuentions, getQuentionsList,
+  deleteQuentions,
+  getQuentionsList,
 } from "../../redux/actions/quentionsActions";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import BuildIcon from "@mui/icons-material/Build";
@@ -29,11 +30,11 @@ export default function AdminQuentionsList() {
   const handleDeletedQuentions = (id) => {
     dispacth(deleteQuentions(id));
   };
-  const {quentions}=useSelector((state)=>state.quention)
- useEffect(()=>{
-  dispacth(getQuentionsList())
- },[])
- console.log(quentions)
+  const { quentions } = useSelector((state) => state.quention);
+  useEffect(() => {
+    dispacth(getQuentionsList());
+  }, [dispacth]);
+  console.log(quentions);
   return (
     <Grid
       h="900px"

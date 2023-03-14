@@ -2,6 +2,7 @@ import { Grid, GridItem } from "@chakra-ui/react";
 import {
   Button,
   Container,
+  Pagination,
   SpeedDial,
   SpeedDialAction,
   SpeedDialIcon,
@@ -24,10 +25,20 @@ import { deleteRoom, getRoomList } from "../../redux/actions/roomActions";
 import { useEffect } from "react";
 import ImportContactsIcon from "@mui/icons-material/ImportContacts";
 import { openSnacbar } from "../../redux/actions/appActions";
+import { useState } from "react";
 export default function AdminRoomList() {
   const dispacth = useDispatch();
   const navigate = useNavigate();
   const { rooms } = useSelector((state) => state.room);
+  const [number, setNumber] = useState(1); // No of pages
+  const [postPerPage] = useState(8);
+  const lastPost = number * postPerPage;
+  const firstPost = lastPost - postPerPage;
+  const currentPost = rooms.data?.slice(firstPost, lastPost);
+  const PageCount = Math.ceil(rooms.data?.length / postPerPage);
+  const handleChange = (event, value) => {
+    setNumber(value);
+  };
   const handleDeletedRoom = (id) => {
     dispacth(deleteRoom(id));
     dispacth(
@@ -67,7 +78,7 @@ export default function AdminRoomList() {
                   <TableCell style={{ color: "white" }}>Detay</TableCell>
                   <TableCell style={{ color: "white" }}>Delete</TableCell>
                 </TableRow>
-                {rooms.data?.map((room) => (
+                {currentPost?.map((room) => (
                   <TableRow>
                     <TableCell>{room.roomId}</TableCell>
                     <TableCell>{room.roomName}</TableCell>
@@ -111,6 +122,11 @@ export default function AdminRoomList() {
               </Table>
             </TableBody>
           </TableContainer>
+          <Pagination
+            count={PageCount}
+            onChange={handleChange}
+            color="secondary"
+          />
         </Container>
       </GridItem>
       <SpeedDial

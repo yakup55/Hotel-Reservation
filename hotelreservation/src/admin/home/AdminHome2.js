@@ -1,4 +1,5 @@
 import {
+  AspectRatio,
   Box,
   Grid,
   GridItem,
@@ -40,7 +41,7 @@ export default function AdminHome2() {
     dispacth(getCategoryList());
     dispacth(getCityList());
     dispacth(getRoleList());
-    dispacth(getReservationList())
+    dispacth(getReservationList());
   }, []);
   return (
     <Grid
@@ -64,7 +65,7 @@ export default function AdminHome2() {
             <Typography variant="h5">{roles.data?.length}</Typography>
           </Box>
           <Box bg="tomato" height="120px">
-            <Heading>Toplam Rezervasyon  Sayısı</Heading>
+            <Heading>Toplam Rezervasyon Sayısı</Heading>
             <Typography variant="h5">{reservations.data?.length}</Typography>
           </Box>
           <Box bg="tomato" height="120px">
@@ -91,8 +92,14 @@ export default function AdminHome2() {
             <Heading>Şikayet Öneri Sayısı</Heading>
             <Typography variant="h5">{contacts.data?.length}</Typography>
           </Box>
-          
         </SimpleGrid>
+        <AspectRatio maxW="500px" left={250} marginTop={20} ratio={1}>  
+          <iframe
+            title="naruto"
+            src="https://www.youtube.com/embed/QhBnZ6NPOY0"
+            allowFullScreen
+          />
+        </AspectRatio>
       </GridItem>
     </Grid>
   );

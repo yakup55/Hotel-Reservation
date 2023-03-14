@@ -1,5 +1,5 @@
 import { Grid, GridItem } from "@chakra-ui/react";
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import AdminHome from "../home/AdminHome";
@@ -7,26 +7,35 @@ import { deleteHotel, getHotelList } from "../../redux/actions/hotelActions";
 import {
   Button,
   Container,
+  Pagination,
   SpeedDial,
   SpeedDialAction,
   SpeedDialIcon,
   Table,
   TableBody,
   TableCell,
-  tableCellClasses,
   TableContainer,
-  TableHead,
   TableRow,
 } from "@mui/material";
 import { useEffect } from "react";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import BuildIcon from "@mui/icons-material/Build";
-import ImportContactsIcon from '@mui/icons-material/ImportContacts';
+import ImportContactsIcon from "@mui/icons-material/ImportContacts";
 import EditIcon from "@mui/icons-material/Edit";
 import CreateIcon from "@mui/icons-material/Create";
 import { openSnacbar } from "../../redux/actions/appActions";
 export default function AdminHotelList() {
   const { hotels } = useSelector((state) => state.hotel);
+  const [number, setNumber] = useState(1); // No of pages
+  const [postPerPage] = useState(8);
+  const lastPost = number * postPerPage;
+  const firstPost = lastPost - postPerPage;
+  const currentPost = hotels.data?.slice(firstPost, lastPost);
+  const PageCount = Math.ceil(hotels.data?.length / postPerPage);
+  const handleChange = (event, value) => {
+    setNumber(value);
+  };
+  
   const dispacth = useDispatch();
   const navigate = useNavigate();
   const handleDeletedHotel = (id) => {
@@ -40,7 +49,7 @@ export default function AdminHotelList() {
   };
   useEffect(() => {
     dispacth(getHotelList());
-  }, []);
+  }, [dispacth]);
   const actions = [{ icon: <CreateIcon></CreateIcon>, name: "Create" }];
   return (
     <Grid
@@ -63,6 +72,9 @@ export default function AdminHotelList() {
                   <TableCell style={{ color: "white" }}>Hotel Name</TableCell>
                   <TableCell style={{ color: "white" }}>Hotel Price</TableCell>
                   <TableCell style={{ color: "white" }}>Hotel Image</TableCell>
+                  <TableCell style={{ color: "white" }}>
+                    Hotel Location
+                  </TableCell>
                   <TableCell style={{ color: "white" }}>Category Id</TableCell>
                   <TableCell style={{ color: "white" }}>Degre Id</TableCell>
                   <TableCell style={{ color: "white" }}>City Id</TableCell>
@@ -70,7 +82,7 @@ export default function AdminHotelList() {
                   <TableCell style={{ color: "white" }}>Detay</TableCell>
                   <TableCell style={{ color: "white" }}>Delete</TableCell>
                 </TableRow>
-                {hotels.data?.map((hotel) => (
+                {currentPost?.map((hotel) => (
                   <TableRow>
                     <TableCell>{hotel.hotelId}</TableCell>
                     <TableCell>{hotel.hotelName}</TableCell>
@@ -82,6 +94,7 @@ export default function AdminHotelList() {
                         src={`${hotel.hotelImage}`}
                       ></img>
                     </TableCell>
+                    <TableCell>{hotel.hotelLocation}</TableCell>
                     <TableCell>{hotel.categoryId}</TableCell>
                     <TableCell>{hotel.degreId}</TableCell>
                     <TableCell>{hotel.cityId}</TableCell>
@@ -93,36 +106,36 @@ export default function AdminHotelList() {
                         onClick={() =>
                           navigate(`/adminupdatehotel/${hotel.hotelId}`)
                         }
-                      >
-                      
-                      </Button>
+                      ></Button>
                     </TableCell>
                     <TableCell>
                       <Button
-                      startIcon={<ImportContactsIcon></ImportContactsIcon>}
+                        startIcon={<ImportContactsIcon></ImportContactsIcon>}
                         onClick={() =>
                           navigate(`/hotelonedetail/${hotel.hotelId}`)
                         }
                         variant="contained"
                         color="secondary"
-                      >
-                        </Button>
-                       </TableCell>
+                      ></Button>
+                    </TableCell>
                     <TableCell>
                       <Button
                         onClick={() => handleDeletedHotel(hotel.hotelId)}
                         startIcon={<DeleteOutlineIcon></DeleteOutlineIcon>}
                         variant="contained"
                         color="error"
-                      >
-                   
-                      </Button>
+                      ></Button>
                     </TableCell>
                   </TableRow>
                 ))}
               </Table>
             </TableBody>
           </TableContainer>
+          <Pagination
+            count={PageCount}
+            onChange={handleChange}
+            color="secondary"
+          />
         </Container>
       </GridItem>
       <SpeedDial

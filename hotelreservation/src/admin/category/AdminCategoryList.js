@@ -2,6 +2,7 @@ import { Grid, GridItem } from "@chakra-ui/react";
 import {
   Button,
   Container,
+  Pagination,
   SpeedDial,
   SpeedDialAction,
   SpeedDialIcon,
@@ -11,7 +12,7 @@ import {
   TableContainer,
   TableRow,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -42,6 +43,18 @@ export default function AdminCategoryList() {
   const dispacth = useDispatch();
   const navigate = useNavigate();
   const { categories } = useSelector((state) => state.category);
+  const [number, setNumber] = useState(1); // No of pages
+  const [postPerPage] = useState(8);
+  const lastPost = number * postPerPage;
+  const firstPost = lastPost - postPerPage;
+  const currentPost = categories.data?.slice(firstPost, lastPost);
+  const PageCount = Math.ceil(categories.data?.length / postPerPage);
+  const handleChange = (event, value) => {
+    setNumber(value);
+  };
+  
+
+
   useEffect(() => {
     dispacth(getCategoryList());
   }, []);
@@ -72,7 +85,7 @@ export default function AdminCategoryList() {
                   <TableCell style={{ color: "white" }}>Update</TableCell>
                   <TableCell style={{ color: "white" }}>Delete</TableCell>
                 </TableRow>
-                {categories.data?.map((category) => (
+                {currentPost?.map((category) => (
                   <TableRow>
                     <TableCell>{category.categoryId}</TableCell>
                     <TableCell>{category.categoryName}</TableCell>
@@ -110,6 +123,11 @@ export default function AdminCategoryList() {
               </Table>
             </TableBody>
           </TableContainer>
+          <Pagination
+            count={PageCount}
+            onChange={handleChange}
+            color="secondary"
+          />
         </Container>
       </GridItem>
       <SpeedDial

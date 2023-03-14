@@ -4,6 +4,7 @@ import { Grid, GridItem } from "@chakra-ui/react";
 import {
   Button,
   Container,
+  Pagination,
   Table,
   TableBody,
   TableCell,
@@ -18,6 +19,7 @@ import {
   deleteContact,
   getContactList,
 } from "../../redux/actions/contactActions";
+import { useState } from "react";
 export default function AdminContactList() {
   const dispacth = useDispatch();
   const navigate = useNavigate();
@@ -25,6 +27,15 @@ export default function AdminContactList() {
     dispacth(deleteContact(id));
   };
   const { contacts } = useSelector((state) => state.contact);
+  const [number, setNumber] = useState(1); // No of pages
+  const [postPerPage] = useState(10);
+  const lastPost = number * postPerPage;
+  const firstPost = lastPost - postPerPage;
+  const currentPost = contacts.data?.slice(firstPost, lastPost);
+  const PageCount = Math.ceil(contacts.data?.length / postPerPage);
+  const handleChange = (event, value) => {
+    setNumber(value);
+  };
   useEffect(() => {
     dispacth(getContactList());
   }, []);
@@ -57,7 +68,7 @@ export default function AdminContactList() {
                   </TableCell>
                   <TableCell style={{ color: "white" }}>Delete</TableCell>
                 </TableRow>
-                {contacts.data?.map((contact) => (
+                {currentPost?.map((contact) => (
                   <TableRow>
                     <TableCell>{contact.contactId}</TableCell>
                     <TableCell>{contact.contactEmail}</TableCell>
@@ -78,6 +89,11 @@ export default function AdminContactList() {
               </Table>
             </TableBody>
           </TableContainer>
+          <Pagination
+            count={PageCount}
+            onChange={handleChange}
+            color="secondary"
+          />
         </Container>
       </GridItem>
     </Grid>

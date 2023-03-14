@@ -1,5 +1,5 @@
 import { Grid, GridItem } from '@chakra-ui/react'
-import { Button, Container, SpeedDial, SpeedDialAction, SpeedDialIcon, Table, TableBody, TableCell, TableContainer, TableRow } from '@mui/material'
+import { Button, Container, Pagination, SpeedDial, SpeedDialAction, SpeedDialIcon, Table, TableBody, TableCell, TableContainer, TableRow } from '@mui/material'
 import React, { useEffect } from 'react'
 import AdminHome from '../home/AdminHome'
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
@@ -10,9 +10,19 @@ import CreateIcon from "@mui/icons-material/Create";
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import {deleteFacility, getFacilityList} from "../../redux/actions/facilityActions"
+import { useState } from 'react';
 export default function AdminFacilityList() {
     const actions = [{ icon: <CreateIcon></CreateIcon>, name: "Create" }];
     const {facilities}=useSelector((state)=>state.facility)
+    const [number, setNumber] = useState(1); // No of pages
+  const [postPerPage] = useState(17);
+  const lastPost = number * postPerPage;
+  const firstPost = lastPost - postPerPage;
+  const currentPost = facilities.data?.slice(firstPost, lastPost);
+  const PageCount = Math.ceil(facilities.data?.length / postPerPage);
+  const handleChange = (event, value) => {
+    setNumber(value);
+  };
     const dispacth=useDispatch();
     const navigate=useNavigate();
     useEffect(()=>{
@@ -46,7 +56,7 @@ export default function AdminFacilityList() {
                 <TableCell style={{ color: "white" }}>Update</TableCell>
                 <TableCell style={{ color: "white" }}>Delete</TableCell>
               </TableRow>
-              {facilities.data?.map((facility) => (
+              {currentPost?.map((facility) => (
                 <TableRow>
                   <TableCell>{facility.facilityId}</TableCell>
                   <TableCell>{facility.facilityName}</TableCell>
@@ -80,6 +90,11 @@ export default function AdminFacilityList() {
             </Table>
           </TableBody>
         </TableContainer>
+        <Pagination
+            count={PageCount}
+            onChange={handleChange}
+            color="secondary"
+          />
       </Container>
     </GridItem>
     <SpeedDial

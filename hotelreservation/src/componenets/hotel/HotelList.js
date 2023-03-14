@@ -1,50 +1,29 @@
-import {
-  Card,
-  CardBody,
-  CardFooter,
-  Divider,
-  Grid,
-  GridItem,
-  Heading,
-  Image,
-  SimpleGrid,
-  Stack,
-  Text,
-} from "@chakra-ui/react";
-import {
-  Box,
-  Button,
-  Checkbox,
-  FormControl,
-  FormControlLabel,
-  FormLabel,
-  Radio,
-  RadioGroup,
-  TextField,
-  Typography,
-} from "@mui/material";
-import React from "react";
+import { Grid, GridItem, SimpleGrid } from "@chakra-ui/react";
+import { Box, Pagination } from "@mui/material";
+import React, { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { getDegreList } from "../../redux/actions/degreActions";
-import { getCategoryList } from "../../redux/actions/categoryActions";
-import { getCityList } from "../../redux/actions/cityActions";
-import {
-  getHotelList,
-  searchHotelList,
-} from "../../redux/actions/hotelActions";
+import { getHotelList } from "../../redux/actions/hotelActions";
 import Hotel from "./Hotel";
 import HotelNavList from "./HotelNavList";
-import { getByUserMail } from "../../redux/actions/userActions";
-
-import { useFormik } from "formik";
 import Search from "../search/Search";
 export default function HotelList() {
   const { hotels } = useSelector((state) => state.hotel);
+
+  const [number, setNumber] = useState(1); // No of pages
+  const [postPerPage] = useState(8);
+  const lastPost = number * postPerPage;
+  const firstPost = lastPost - postPerPage;
+  const currentPost = hotels.data?.slice(firstPost, lastPost);
+  const PageCount = Math.ceil(hotels.data?.length / postPerPage);
+  const handleChange = (event, value) => {
+    setNumber(value);
+  };
+
   const navigate = useNavigate();
   const dispacth = useDispatch();
- 
+
   useEffect(() => {
     dispacth(getHotelList());
   }, []);
@@ -61,11 +40,11 @@ export default function HotelList() {
         </GridItem>
 
         <GridItem colSpan={2}>
-        <Search></Search>
+          <Search></Search>
 
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             <SimpleGrid columns={3} spacingX="400px" spacingY="450px">
-              {hotels.data?.map((hotel) => (
+              {currentPost?.map((hotel) => (
                 <Box bg="tomato" height="80px">
                   <Hotel key={hotel.hotelId} hotel={hotel}></Hotel>
                 </Box>
@@ -75,13 +54,19 @@ export default function HotelList() {
 
           <Box sx={{ mt: 5, flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <SimpleGrid columns={2} spacingX="352" spacingY="450px">
-              {hotels.data?.map((hotel) => (
+              {currentPost?.map((hotel) => (
                 <Box bg="tomato" height="80px">
                   <Hotel key={hotel.hotelId} hotel={hotel}></Hotel>
                 </Box>
               ))}
             </SimpleGrid>
           </Box>
+          <Pagination
+            sx={{ marginTop: 60 }}
+            count={PageCount}
+            onChange={handleChange}
+            color="secondary"
+          />
         </GridItem>
       </Grid>
     </>

@@ -44,9 +44,9 @@ export default function AdminUpdateUser() {
         openSnacbar({
           message: "Has been updated",
           severity: "success",
-        })
+        })  
       );
-      navigate("adminuserlist");
+      navigate("/adminuserlist");
     },
     // validationSchema,
   });

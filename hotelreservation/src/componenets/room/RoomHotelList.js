@@ -1,19 +1,17 @@
 import {
   Card,
   CardBody,
-  CardFooter,
   GridItem,
   Heading,
   Image,
   Stack,
-  Text,
 } from "@chakra-ui/react";
 import { Button, Typography } from "@mui/material";
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { getRoomList, roomHotel } from "../../redux/actions/roomActions";
+import { roomHotel } from "../../redux/actions/roomActions";
 
 export default function RoomHotelList() {
   const navigate = useNavigate();
@@ -22,9 +20,10 @@ export default function RoomHotelList() {
   const { rooms } = useSelector((state) => state.room);
   useEffect(() => {
     dispacth(roomHotel(id));
-  }, []);
+  }, [dispacth, id]);
+  console.log(rooms.data?.length);
   return (
-    <div>
+    <>
       {rooms?.data?.map((detail) => (
         <GridItem colSpan={4}>
           <Card
@@ -55,7 +54,7 @@ export default function RoomHotelList() {
               </CardBody>
 
               <Button
-               onClick={() => navigate(`/roomdetail/${detail.roomId}`)}
+                onClick={() => navigate(`/roomdetail/${detail.roomId}`)}
                 style={{ marginLeft: 150 }}
                 variant="contained"
                 color="secondary"
@@ -66,6 +65,6 @@ export default function RoomHotelList() {
           </Card>
         </GridItem>
       ))}
-    </div>
+    </>
   );
 }

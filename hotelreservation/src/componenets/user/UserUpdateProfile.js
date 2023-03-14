@@ -16,16 +16,7 @@ export default function UserUpdateProfile() {
   const dispacth = useDispatch();
   const navigate = useNavigate();
   const { email } = useParams();
-  useEffect(() => {
-    dispacth(getByUserMail(email));
-    dispacth(getCityList());
-    setValues({
-      userId: user.data?.id,
-      userImage: user.data?.image,
-      cityId: user.data?.cityId,
-      birthDate: user.data?.birthDate,
-    });
-  }, []);
+
   const {
     handleSubmit,
     handleChange,
@@ -46,26 +37,48 @@ export default function UserUpdateProfile() {
       dispacth(
         openSnacbar({
           message: "Profiliniz Güncellendi",
+          severity: "success",
         })
       );
       navigate(`/user/${user.data.email}`);
     },
   });
-  console.log(user.data);
+  useEffect(() => {
+    dispacth(getByUserMail(email));
+    dispacth(getCityList());
+    setValues({
+      userId: user.data?.id,
+      userImage: user.data?.image,
+      cityId: user.data?.cityId,
+      birthDate: user.data?.birthDate,
+    });
+  }, [
+    email,
+    dispacth,
+    setValues,
+    user.data?.id,
+    user.data?.image,
+    user.data?.cityId,
+    user.data?.birthDate,
+  ]);
+  console.log(values);
   return (
     <Container maxWidth="md">
       <Heading>Profile Update</Heading>
-      <form>
+      <form onSubmit={handleSubmit}>
         <Stack spacing={3}>
           <img
             style={{ width: 150, height: 150, margin: "auto" }}
             src={`${user.data?.image}`}
           ></img>
           <TextField
-            label="Resiminiz"
+            label="Kullanıcı Resminiz"
+            fullWidth
             id="userImage"
             name="userImage"
             value={values.userImage}
+            onChange={handleChange}
+            onBlur={handleBlur}
           ></TextField>
           <TextField
             label="Kullanıcı Adınız"
@@ -88,6 +101,8 @@ export default function UserUpdateProfile() {
             id="birthDate"
             name="birthDate"
             value={values.birthDate}
+            onChange={handleChange}
+            onBlur={handleBlur}
           ></TextField>
           <TextField
             select

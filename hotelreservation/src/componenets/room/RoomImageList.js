@@ -4,7 +4,6 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { roomOneDetail } from "../../redux/actions/roomActions";
-import { getRoomDetailList } from "../../redux/actions/roomDetailActions";
 
 export default function RoomImageList() {
   const { room } = useSelector((state) => state.room);
@@ -12,13 +11,13 @@ export default function RoomImageList() {
   const dispacth = useDispatch();
   useEffect(() => {
     dispacth(roomOneDetail(id));
-  }, []);
+  }, [dispacth,id]);
   console.log();
   return (
-    <div>
+    <>
       <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
         <ImageList
-          sx={{ ml: 10, width: 1000, height: 300 }}
+          sx={{ ml: 10, width: 1000, height: 280 }}
           cols={3}
           rowHeight={164}
         >
@@ -94,6 +93,6 @@ export default function RoomImageList() {
           ))}
         </ImageList>
       </Box>
-    </div>
+    </>
   );
 }

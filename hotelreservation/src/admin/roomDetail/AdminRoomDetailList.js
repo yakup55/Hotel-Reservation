@@ -2,6 +2,7 @@ import { Grid, GridItem } from "@chakra-ui/react";
 import {
   Button,
   Container,
+  Pagination,
   SpeedDial,
   SpeedDialAction,
   SpeedDialIcon,
@@ -27,6 +28,7 @@ import CreateIcon from "@mui/icons-material/Create";
 import { useEffect } from "react";
 import ImportContactsIcon from "@mui/icons-material/ImportContacts";
 import { openSnacbar } from "../../redux/actions/appActions";
+import { useState } from "react";
 export default function AdminRoomDetailList() {
   const actions = [{ icon: <CreateIcon></CreateIcon>, name: "Create" }];
   const dispacth = useDispatch();
@@ -41,6 +43,17 @@ export default function AdminRoomDetailList() {
     );
   };
   const { roomDetails } = useSelector((state) => state.roomDetail);
+  const [number, setNumber] = useState(1); // No of pages
+  const [postPerPage] = useState(8);
+  const lastPost = number * postPerPage;
+  const firstPost = lastPost - postPerPage;
+  const currentPost = roomDetails.data?.slice(firstPost, lastPost);
+  const PageCount = Math.ceil(roomDetails.data?.length / postPerPage);
+  const handleChange = (event, value) => {
+    setNumber(value);
+  };
+
+
   useEffect(() => {
     dispacth(getRoomDetailList());
   }, []);
@@ -62,10 +75,7 @@ export default function AdminRoomDetailList() {
               <Table>
                 <TableRow style={{ backgroundColor: "black" }}>
                   <TableCell style={{ color: "white" }}>#</TableCell>
-                  <TableCell style={{ color: "white" }}>
-                    Number People
-                  </TableCell>
-                  <TableCell style={{ color: "white" }}>Number Date</TableCell>
+
                   <TableCell style={{ color: "white" }}>Image 1</TableCell>
                   <TableCell style={{ color: "white" }}>Image 2</TableCell>
                   <TableCell style={{ color: "white" }}>Image 3</TableCell>
@@ -74,11 +84,9 @@ export default function AdminRoomDetailList() {
                   <TableCell style={{ color: "white" }}>Detay</TableCell>
                   <TableCell style={{ color: "white" }}>Delete</TableCell>
                 </TableRow>
-                {roomDetails.data?.map((detail) => (
+                {currentPost?.map((detail) => (
                   <TableRow>
                     <TableCell>{detail.roomDetailId}</TableCell>
-                    <TableCell>{detail.numberPeople}</TableCell>
-                    <TableCell>{detail.numberDate}</TableCell>
                     <TableCell>
                       <img
                         style={{ width: 200, height: 100 }}
@@ -136,6 +144,11 @@ export default function AdminRoomDetailList() {
               </Table>
             </TableBody>
           </TableContainer>
+          <Pagination
+          count={PageCount}
+          onChange={handleChange}
+          color="secondary"
+          ></Pagination>
         </Container>
       </GridItem>
       <SpeedDial

@@ -2,6 +2,7 @@ import { Grid, GridItem } from "@chakra-ui/react";
 import {
   Button,
   Container,
+  Pagination,
   SpeedDial,
   SpeedDialAction,
   SpeedDialIcon,
@@ -23,9 +24,21 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { deleteUser, getUserList } from "../../redux/actions/userActions";
 import { openSnacbar } from "../../redux/actions/appActions";
+import { useState } from "react";
 export default function AdminUserList() {
   const actions = [{ icon: <CreateIcon></CreateIcon>, name: "Create" }];
   const { users } = useSelector((state) => state.user);
+  const [number, setNumber] = useState(1); // No of pages
+  const [postPerPage] = useState(8);
+  const lastPost = number * postPerPage;
+  const firstPost = lastPost - postPerPage;
+  const currentPost = users.data?.slice(firstPost, lastPost);
+  const PageCount = Math.ceil(users.data?.length / postPerPage);
+  const handleChange = (event, value) => {
+    setNumber(value);
+  };
+
+
   const dispacth = useDispatch();
   const navigate = useNavigate();
   useEffect(() => {
@@ -68,7 +81,7 @@ export default function AdminUserList() {
                   <TableCell style={{ color: "white" }}>Update</TableCell>
                   <TableCell style={{ color: "white" }}>Delete</TableCell>
                 </TableRow>
-                {users.data?.map((user) => (
+                {currentPost?.map((user) => (
                   <TableRow>
                     <TableCell>{user.id}</TableCell>
                     <TableCell>
@@ -106,6 +119,11 @@ export default function AdminUserList() {
               </Table>
             </TableBody>
           </TableContainer>
+          <Pagination
+          count={PageCount}
+          onChange={handleChange}
+          color="secondary"
+          ></Pagination>
         </Container>
       </GridItem>
       <SpeedDial

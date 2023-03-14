@@ -2,6 +2,7 @@ import { AspectRatio, Grid, GridItem } from "@chakra-ui/react";
 import {
   Button,
   Container,
+  Pagination,
   SpeedDial,
   SpeedDialAction,
   SpeedDialIcon,
@@ -26,11 +27,23 @@ import {
   deleteHotelDetail,
   getHotelDetailList,
 } from "../../redux/actions/hotelDetailActions";
+import { useState } from "react";
 export default function AdminHoteDetailList() {
   const actions = [{ icon: <CreateIcon></CreateIcon>, name: "Create" }];
   const dispacth = useDispatch();
   const navigate = useNavigate();
   const { hotelDetails } = useSelector((state) => state.hotelDetail);
+  const [number, setNumber] = useState(1); // No of pages
+  const [postPerPage] = useState(8);
+  const lastPost = number * postPerPage;
+  const firstPost = lastPost - postPerPage;
+  const currentPost = hotelDetails.data?.slice(firstPost, lastPost);
+  const PageCount = Math.ceil(hotelDetails.data?.length / postPerPage);
+  const handleChange = (event, value) => {
+    setNumber(value);
+  };
+
+
   useEffect(() => {
     dispacth(getHotelDetailList());
   }, []);
@@ -70,7 +83,7 @@ export default function AdminHoteDetailList() {
                   <TableCell style={{ color: "white" }}>Detay</TableCell>
                   <TableCell style={{ color: "white" }}>Delete</TableCell>
                 </TableRow>
-                {hotelDetails.data?.map((detail) => (
+                {currentPost?.map((detail) => (
                   <TableRow>
                     <TableCell>{detail.hotelDetailId}</TableCell>
                     <TableCell>
@@ -175,6 +188,11 @@ export default function AdminHoteDetailList() {
               </Table>
             </TableBody>
           </TableContainer>
+          <Pagination
+            count={PageCount}
+            onChange={handleChange}
+            color="secondary"
+          />
         </Container>
       </GridItem>
       <SpeedDial

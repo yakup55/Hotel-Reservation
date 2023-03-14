@@ -2,6 +2,7 @@ import { Grid, GridItem } from "@chakra-ui/react";
 import {
   Button,
   Container,
+  Pagination,
   Table,
   TableBody,
   TableCell,
@@ -22,10 +23,21 @@ import AdminHome from "../home/AdminHome";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import CancelIcon from "@mui/icons-material/Cancel";
+import { useState } from "react";
 export default function AdminCommentList() {
   const dispacth = useDispatch();
   const navigate = useNavigate();
   const { comments } = useSelector((state) => state.comment);
+  const [number, setNumber] = useState(1); // No of pages
+  const [postPerPage] = useState(10);
+  const lastPost = number * postPerPage;
+  const firstPost = lastPost - postPerPage;
+  const currentPost = comments.data?.slice(firstPost, lastPost);
+  const PageCount = Math.ceil(comments.data?.length / postPerPage);
+  const handleChange = (event, value) => {
+    setNumber(value);
+  };
+
   useEffect(() => {
     dispacth(getCommentList());
   }, []);
@@ -73,7 +85,7 @@ export default function AdminCommentList() {
                   <TableCell style={{ color: "white" }}>Pasif</TableCell>
                   <TableCell style={{ color: "white" }}>Delete</TableCell>
                 </TableRow>
-                {comments.data?.map((commnet) => (
+                {currentPost?.map((commnet) => (
                   <TableRow>
                     <TableCell>{commnet.commentId}</TableCell>
                     <TableCell>{commnet.commentMessage}</TableCell>
@@ -100,9 +112,7 @@ export default function AdminCommentList() {
                         startIcon={<CheckCircleIcon></CheckCircleIcon>}
                         variant="contained"
                         color="success"
-                      >
-                       
-                      </Button>
+                      ></Button>
                     </TableCell>
                     <TableCell>
                       <Button
@@ -110,9 +120,7 @@ export default function AdminCommentList() {
                         startIcon={<CancelIcon></CancelIcon>}
                         variant="contained"
                         color="inherit"
-                      >
-                     
-                      </Button>
+                      ></Button>
                     </TableCell>
                     <TableCell>
                       <Button
@@ -120,15 +128,18 @@ export default function AdminCommentList() {
                         startIcon={<DeleteOutlineIcon></DeleteOutlineIcon>}
                         variant="contained"
                         color="error"
-                      >
-                       
-                      </Button>
+                      ></Button>
                     </TableCell>
                   </TableRow>
                 ))}
               </Table>
             </TableBody>
           </TableContainer>
+          <Pagination
+            count={PageCount}
+            onChange={handleChange}
+            color="secondary"
+          />
         </Container>
       </GridItem>
     </Grid>

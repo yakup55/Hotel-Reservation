@@ -3,7 +3,7 @@ export const validationSchema = object({
   quentionsName: string()
     .required()
     .min(10, "Min Length 10")
-    .max(50, "Max Length 50"),
+    .max(100, "Max Length 100"),
   quentionsMessage: string()
     .required()
     .min(10, "Min Length 10")
