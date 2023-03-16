@@ -19,7 +19,9 @@ export default function Home() {
       <br></br>
       <HomeQuestions></HomeQuestions>
       <Link href="#" underline="none">
-        <NavigationIcon sx={{height:50,width:50,ml:170,mt:50}}></NavigationIcon>
+        <NavigationIcon
+          sx={{ height: 50, width: 50, ml: 170, mt: 50 }}
+        ></NavigationIcon>
       </Link>
     </>
   );

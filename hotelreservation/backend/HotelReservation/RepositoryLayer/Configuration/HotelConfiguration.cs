@@ -37,7 +37,7 @@ namespace RepositoryLayer.Configuration
                     HotelPrice = 21318,
                     HotelLocation = "Obagöl Mevkii. Obaçay Cad., 2. Sk., 07460 Alanya/Antalya",
                     DegreId = 1,
-                    CityId=1
+                    CityId = 1
                 },
 
                 new Hotel
@@ -49,7 +49,7 @@ namespace RepositoryLayer.Configuration
                     HotelPrice = 40475,
                     HotelLocation = "İskele Mevkii, 07450 Belek/Serik/Antalya",
                     DegreId = 1,
-                    CityId=1
+                    CityId = 1
 
                 },
                 new Hotel
@@ -61,7 +61,7 @@ namespace RepositoryLayer.Configuration
                     HotelPrice = 8356,
                     HotelLocation = "Girne/Kuzey Kıbrıs Türk Cumhuriyeti",
                     DegreId = 4,
-                    CityId=9
+                    CityId = 9
                 },
                 new Hotel
                 {
@@ -69,7 +69,7 @@ namespace RepositoryLayer.Configuration
                     HotelName = "Luna Blanca Resort Spa",
                     HotelImage = "https://cdn3.enuygun.com/media/lib/1x250/uploads/image/luna-blanca-resort-spa-antalya-genel-36887047.webp",
                     CategoryId = 12,
-                    HotelPrice =15220 ,
+                    HotelPrice = 15220,
                     HotelLocation = "Kumköy Cd., 283. Sokak, 07600 Manavgat/Antalya",
                     DegreId = 2,
                     CityId = 1
@@ -79,15 +79,15 @@ namespace RepositoryLayer.Configuration
                     HotelId = 5,
                     HotelName = "Somerset Maslak Istanbul",
                     HotelImage = "https://cdn3.enuygun.com/media/lib/1x250/uploads/image/somerset-maslak-istanbul-istanbul-27564701.jpg",
-                    CategoryId =9 ,
+                    CategoryId = 9,
                     HotelPrice = 4904,
                     HotelLocation = "Maslak, Sarıyer, İstanbul",
                     DegreId = 2,
-                    CityId =2 
+                    CityId = 2
 
                 }, new Hotel
                 {
-                    HotelId =6 ,
+                    HotelId = 6,
                     HotelName = "Hilton Istanbul Bosphorus",
                     HotelImage = "https://cdn3.enuygun.com/media/lib/1x250/uploads/image/hilton-istanbul-bosphorus-istanbul-37295703.jpg",
                     CategoryId = 12,
@@ -98,13 +98,13 @@ namespace RepositoryLayer.Configuration
 
                 }, new Hotel
                 {
-                    HotelId =7 ,
+                    HotelId = 7,
                     HotelName = "Tuzla, İstanbul",
                     HotelImage = "https://cdn3.enuygun.com/media/lib/1x250/uploads/image/radisson-blu-spa-tuzla-istanbul-38198019.jpg",
-                    CategoryId =9,
+                    CategoryId = 9,
                     HotelPrice = 3007,
                     HotelLocation = "Radisson Blu Hotel Spa Tuzla",
-                    DegreId =1 ,
+                    DegreId = 1,
                     CityId = 2
 
                 }, new Hotel
@@ -112,7 +112,7 @@ namespace RepositoryLayer.Configuration
                     HotelId = 8,
                     HotelName = "Costa Maya Bodrum",
                     HotelImage = "https://cdn3.enuygun.com/media/lib/1x250/uploads/image/costa-maya-bodrum-bodrum-36912949.jpg",
-                    CategoryId =9 ,
+                    CategoryId = 9,
                     HotelPrice = 504,
                     HotelLocation = "Çarşı, Bodrum Merkez, Muğla",
                     DegreId = 4,
@@ -127,8 +127,19 @@ namespace RepositoryLayer.Configuration
                     HotelPrice = 1635,
                     HotelLocation = "Eskiçeşme, Bodrum Merkez, Muğla",
                     DegreId = 2,
-                    CityId =4
+                    CityId = 4
 
+                },
+                new Hotel
+                {
+                    HotelId = 10,
+                    HotelName = "Grand Pasha Lefkoşa Hotel Casino Spa",
+                    HotelPrice = 14062,
+                    HotelImage = "https://cdn3.enuygun.com/media/lib/1x400/uploads/image/grand-pasha-lefkosa-casino-spa-kibris-genel-40785102.jpg",
+                    HotelLocation = "Lefkoşa, Lefkoşa",
+                    CategoryId = 8,
+                    DegreId = 3,
+                    CityId = 9
                 }
                 );
 

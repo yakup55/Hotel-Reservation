@@ -30,6 +30,8 @@ namespace ServiceLayer.DtoMapper
             CreateMap<AppUser, AppUserDto>().ReverseMap();  
             CreateMap<AppUser, UserUpdateDto>().ReverseMap();  
             CreateMap<IdentityRole,IdentityRole>().ReverseMap();
+            CreateMap<TravelWritings,TravelWritingDto>().ReverseMap();
+            CreateMap<TravelContent,TravelContentDto>().ReverseMap();
         }
     }
 }

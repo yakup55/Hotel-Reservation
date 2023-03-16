@@ -79,7 +79,9 @@ namespace RepositoryLayer.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ContactSubject = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ContactEmail = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ContactMessage = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    ContactMessage = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    userId = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ContactStatus = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -98,6 +100,24 @@ namespace RepositoryLayer.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Degres", x => x.DegreId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "TravelWritings",
+                columns: table => new
+                {
+                    TravelWritingId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TravelDateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    TravelName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TravelMessage = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TravelImage = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TravelStatus = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TravelWritings", x => x.TravelWritingId);
                 });
 
             migrationBuilder.CreateTable(
@@ -204,6 +224,28 @@ namespace RepositoryLayer.Migrations
                         column: x => x.DegreId,
                         principalTable: "Degres",
                         principalColumn: "DegreId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "TravelContent",
+                columns: table => new
+                {
+                    TravelContentId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ContentName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ContentDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ContentImage = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TravelWritingId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TravelContent", x => x.TravelContentId);
+                    table.ForeignKey(
+                        name: "FK_TravelContent_TravelWritings_TravelWritingId",
+                        column: x => x.TravelWritingId,
+                        principalTable: "TravelWritings",
+                        principalColumn: "TravelWritingId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -467,10 +509,10 @@ namespace RepositoryLayer.Migrations
                 columns: new[] { "AboutId", "AboutDate", "AboutDescription", "AboutImage", "AboutName" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2023, 3, 5, 14, 39, 20, 630, DateTimeKind.Local).AddTicks(2954), "10 larca oteli tercihlerinize göre filtreleyerek saniyeler içinde size en uygun otelleri bulabilirsiniz", "https://cdn.enuygun.com/otel/v-083f8/static/images/icons/option.svg", "Sayısız Seçenek" },
-                    { 2, new DateTime(2023, 3, 5, 14, 39, 20, 630, DateTimeKind.Local).AddTicks(2976), "Kafanızı karıştıran fiyat ve hizmet seçenekleri arasında kaybolmayın, tercihlerinizi belirleyip size en uygun otelde odanızı hemen ayırtın.", "https://cdn.enuygun.com/otel/v-083f8/static/images/icons/location.svg", "Uygun Oteller" },
-                    { 3, new DateTime(2023, 3, 5, 14, 39, 20, 630, DateTimeKind.Local).AddTicks(2978), "Enuygun sayesinde aradığınız oteli bulmak için sadece birkaç saniyeye ihtiyacınız var.", "https://cdn.enuygun.com/otel/v-083f8/static/images/icons/fast-easy.svg", "Hızlı Ve Kolay" },
-                    { 4, new DateTime(2023, 3, 5, 14, 39, 20, 630, DateTimeKind.Local).AddTicks(2979), "Tüm ödeme işleriniz, dünyanın önde gelen güvenlik sertifikası şirketi DigiCert koruması altındadır.", "https://cdn.enuygun.com/otel/v-083f8/static/images/icons/trust.svg", "Güvenle Alın" }
+                    { 1, new DateTime(2023, 3, 16, 20, 28, 40, 429, DateTimeKind.Local).AddTicks(7029), "10 larca oteli tercihlerinize göre filtreleyerek saniyeler içinde size en uygun otelleri bulabilirsiniz", "https://cdn.enuygun.com/otel/v-083f8/static/images/icons/option.svg", "Sayısız Seçenek" },
+                    { 2, new DateTime(2023, 3, 16, 20, 28, 40, 429, DateTimeKind.Local).AddTicks(7041), "Kafanızı karıştıran fiyat ve hizmet seçenekleri arasında kaybolmayın, tercihlerinizi belirleyip size en uygun otelde odanızı hemen ayırtın.", "https://cdn.enuygun.com/otel/v-083f8/static/images/icons/location.svg", "Uygun Oteller" },
+                    { 3, new DateTime(2023, 3, 16, 20, 28, 40, 429, DateTimeKind.Local).AddTicks(7043), "Enuygun sayesinde aradığınız oteli bulmak için sadece birkaç saniyeye ihtiyacınız var.", "https://cdn.enuygun.com/otel/v-083f8/static/images/icons/fast-easy.svg", "Hızlı Ve Kolay" },
+                    { 4, new DateTime(2023, 3, 16, 20, 28, 40, 429, DateTimeKind.Local).AddTicks(7044), "Tüm ödeme işleriniz, dünyanın önde gelen güvenlik sertifikası şirketi DigiCert koruması altındadır.", "https://cdn.enuygun.com/otel/v-083f8/static/images/icons/trust.svg", "Güvenle Alın" }
                 });
 
             migrationBuilder.InsertData(
@@ -534,7 +576,8 @@ namespace RepositoryLayer.Migrations
                     { 6, 12, 2, 1, "https://cdn3.enuygun.com/media/lib/1x250/uploads/image/hilton-istanbul-bosphorus-istanbul-37295703.jpg", "Harbiye, Şişli, İstanbul", "Hilton Istanbul Bosphorus", 4458m },
                     { 7, 9, 2, 1, "https://cdn3.enuygun.com/media/lib/1x250/uploads/image/radisson-blu-spa-tuzla-istanbul-38198019.jpg", "Radisson Blu Hotel Spa Tuzla", "Tuzla, İstanbul", 3007m },
                     { 8, 9, 4, 4, "https://cdn3.enuygun.com/media/lib/1x250/uploads/image/costa-maya-bodrum-bodrum-36912949.jpg", "Çarşı, Bodrum Merkez, Muğla", "Costa Maya Bodrum", 504m },
-                    { 9, 12, 4, 2, "https://cdn3.enuygun.com/media/lib/1x250/uploads/image/bodrium-and-you-spa-bodrum-36764953.jpg", "Eskiçeşme, Bodrum Merkez, Muğla", "\r\nBodrium Hotel And You Spa", 1635m }
+                    { 9, 12, 4, 2, "https://cdn3.enuygun.com/media/lib/1x250/uploads/image/bodrium-and-you-spa-bodrum-36764953.jpg", "Eskiçeşme, Bodrum Merkez, Muğla", "\r\nBodrium Hotel And You Spa", 1635m },
+                    { 10, 8, 9, 3, "https://cdn3.enuygun.com/media/lib/1x400/uploads/image/grand-pasha-lefkosa-casino-spa-kibris-genel-40785102.jpg", "Lefkoşa, Lefkoşa", "Grand Pasha Lefkoşa Hotel Casino Spa", 14062m }
                 });
 
             migrationBuilder.InsertData(
@@ -562,7 +605,8 @@ namespace RepositoryLayer.Migrations
                     { 6, 6, "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3009.1214238095263!2d28.987021115375384!3d41.044473679297134!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab03b5a0b0c4d%3A0xe964200b7b8e87ea!2sHilton%20%C4%B0stanbul%20Bosphorus!5e0!3m2!1str!2str!4v1676722613474!5m2!1str!2str\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade", "https://cdn3.enuygun.com/media/lib/1x400/uploads/image/hilton-istanbul-bosphorus-istanbul-genel-37295684.jpg", "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/hilton-istanbul-bosphorus-istanbul-genel-39295600.webp", "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/hilton-istanbul-bosphorus-istanbul-genel-39295601.webp", "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/hilton-istanbul-bosphorus-istanbul-havuz-37295601.webp", "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/hilton-istanbul-bosphorus-istanbul-havuz-37295721.webp", "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/hilton-istanbul-bosphorus-istanbul-havuz-37295723.webp", "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/hilton-istanbul-bosphorus-istanbul-yeme-icme-37295649.webp", "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/hilton-istanbul-bosphorus-istanbul-aktiviteler-37295576.webp", "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/hilton-istanbul-bosphorus-istanbul-aktiviteler-37295573.webp" },
                     { 7, 7, "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3016.8064728156337!2d29.31402321537002!3d40.8761210793143!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cadc7e87513309%3A0xdc86803a3afcb1f2!2sRadisson%20Blu%20Hotel%20%26%20Spa%2C%20Istanbul%20Tuzla!5e0!3m2!1str!2str!4v1676722922169!5m2!1str!2str\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade", "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/radisson-blu-spa-tuzla-istanbul-yeme-icme-38293256.webp", "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/radisson-blu-spa-tuzla-istanbul-bar-38293258.webp", "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/radisson-blu-spa-tuzla-istanbul-lobi-38293253.webp", "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/radisson-blu-spa-tuzla-istanbul-oda-38198021.webp", "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/radisson-blu-spa-tuzla-istanbul-oda-38198022.webp", "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/radisson-blu-spa-tuzla-istanbul-oda-38293250.webp", "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/radisson-blu-spa-tuzla-istanbul-spor-38104576.webp", "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/radisson-blu-spa-tuzla-istanbul-havuz-38104578.webp", "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/radisson-blu-spa-tuzla-istanbul-spa-saglik-38388736.webp" },
                     { 8, 8, "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3184.8371747189913!2d27.426674815254508!3d37.03752847990045!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14be6c3f7fd6dfed%3A0x88f6c5f46699d5d1!2sCosta%20Maya%20Hotel!5e0!3m2!1str!2str!4v1676723103065!5m2!1str!2str\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade", "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/costa-maya-bodrum-bodrum-genel-39501781.webp", "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/costa-maya-bodrum-bodrum-genel-39568244.webp", "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/costa-maya-bodrum-bodrum-yeme-icme-39501791.webp", "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/costa-maya-bodrum-bodrum-yeme-icme-39568250.webp", "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/costa-maya-bodrum-bodrum-manzara-peyzaj-39501788.webp", "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/costa-maya-bodrum-bodrum-oda-39501793.webp", "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/costa-maya-bodrum-bodrum-manzara-peyzaj-39501789.webp", "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/costa-maya-bodrum-bodrum-oda-39568249.webp", "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/costa-maya-bodrum-bodrum-oda-39568248.webp" },
-                    { 9, 9, "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3184.857282602926!2d27.40969921525455!3d37.03704907990057!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14be6c6e0eaad519%3A0x75df94bcf046bda0!2sBodrium%20Otel%20%26%20SPA!5e0!3m2!1str!2str!4v1676723345737!5m2!1str!2str\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade", "https://cdn3.enuygun.com/media/lib/1x400/uploads/image/bodrium-and-you-spa-bodrum-genel-39518871.jpg", "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/bodrium-and-you-spa-bodrum-yeme-icme-39518873.webp", "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/bodrium-and-you-spa-bodrum-yeme-icme-39518885.webp", "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/bodrium-and-you-spa-bodrum-bar-39518900.webp", "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/bodrium-and-you-spa-bodrum-bar-39518902.webp", "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/bodrium-and-you-spa-bodrum-lobi-39518879.webp", "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/bodrium-and-you-spa-bodrum-lobi-39518881.webp", "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/bodrium-and-you-spa-bodrum-is-konferans-39518905.webp", "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/bodrium-and-you-spa-bodrum-oda-39518888.webp" }
+                    { 9, 9, "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3184.857282602926!2d27.40969921525455!3d37.03704907990057!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14be6c6e0eaad519%3A0x75df94bcf046bda0!2sBodrium%20Otel%20%26%20SPA!5e0!3m2!1str!2str!4v1676723345737!5m2!1str!2str\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade", "https://cdn3.enuygun.com/media/lib/1x400/uploads/image/bodrium-and-you-spa-bodrum-genel-39518871.jpg", "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/bodrium-and-you-spa-bodrum-yeme-icme-39518873.webp", "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/bodrium-and-you-spa-bodrum-yeme-icme-39518885.webp", "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/bodrium-and-you-spa-bodrum-bar-39518900.webp", "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/bodrium-and-you-spa-bodrum-bar-39518902.webp", "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/bodrium-and-you-spa-bodrum-lobi-39518879.webp", "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/bodrium-and-you-spa-bodrum-lobi-39518881.webp", "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/bodrium-and-you-spa-bodrum-is-konferans-39518905.webp", "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/bodrium-and-you-spa-bodrum-oda-39518888.webp" },
+                    { 10, 10, "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3260.517189141367!2d33.345311115202406!3d35.19358438031096!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14de10ccdd5e1671%3A0x8747bee76e32a62c!2sGrand%20Pasha%20Nicosia%20Hotel%20%26%20Casino%20%26%20Spa!5e0!3m2!1str!2str!4v1678218328815!5m2!1str!2str\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade", "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/grand-pasha-lefkosa-casino-spa-kibris-genel-38526226.webp", "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/grand-pasha-lefkosa-casino-spa-kibris-genel-40785109.webp", "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/grand-pasha-lefkosa-casino-spa-kibris-genel-40785110.webp", "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/grand-pasha-lefkosa-casino-spa-kibris-genel-40785111.webp", "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/grand-pasha-lefkosa-casino-spa-kibris-havuz-38526235.webp", "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/grand-pasha-lefkosa-casino-spa-kibris-havuz-38526236.webp", "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/grand-pasha-lefkosa-casino-spa-kibris-yeme-icme-40785113.webp", "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/grand-pasha-lefkosa-casino-spa-kibris-is-konferans-38526244.webp", "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/grand-pasha-lefkosa-casino-spa-kibris-oda-40785105.webp" }
                 });
 
             migrationBuilder.InsertData(
@@ -571,7 +615,25 @@ namespace RepositoryLayer.Migrations
                 values: new object[,]
                 {
                     { 1, 1, "Tesiste konaklayabileceğiniz toplam 19 oda bulunuyor.", "Tesiste kaç adet oda bulunuyor?" },
-                    { 2, 1, "Otel için check-in saati 14:00'dan sonra başlar. Checkout işlemlerini ise 12:00 kadar yapabilirsiniz.", "Tesis için giriş ve çıkış saatleri nelerdir?" }
+                    { 6, 4, "Antalya (60 km) Gazipasa (110 km)", "Luna Blanca Resort Spa otelin havalimanı ve şehir merkezine olan uzaklığı" },
+                    { 7, 4, "Tesiste konaklayabileceğiniz toplam 31 oda bulunuyor.", "Tesiste kaç adet oda bulunuyor?" },
+                    { 8, 4, "Otel için check-in saati 14:00'dan sonra başlar. Checkout işlemlerini ise 12:00 kadar yapabilirsiniz.", "Tesis için giriş ve çıkış saatleri nelerdir?" },
+                    { 9, 5, "Ataturk (31 km) Sabiha Gokcen (49 km)", "Tesis havalimanı ve şehir merkezine ne kadar uzaklıkta?" },
+                    { 10, 5, "Buhar odası Sauna", "Tesisin ücretli ve ücretsiz sunduğu olanaklar hangileridir?" },
+                    { 11, 5, "Bir Yatak Odası Bir Banyo Apart Daire Bunk Yatak Yatakhanede Yatak Standart 1 Çift Kişilik Yatak Standart 1 Çift Kişilik Veya 2 Tek Kişilik Yatak Standart Çift Kişilik Tek Kişi Kullanım", "Tesiste hangi tip odalar bulunuyor?" },
+                    { 12, 5, "Tesiste konaklayabileceğiniz toplam 29 oda bulunuyor.", "Tesiste kaç adet oda bulunuyor?" },
+                    { 13, 5, "Otel için check-in saati 14:00'dan sonra başlar. Checkout işlemlerini ise 12:00 kadar yapabilirsiniz.", "Tesis için giriş ve çıkış saatleri nelerdir?" },
+                    { 14, 9, "Milas (37 km) Ippokratis (49 km)", "Tesis havalimanı ve şehir merkezine ne kadar uzaklıkta?" },
+                    { 15, 9, "Ücretsiz olanaklar  Açık havuz Sauna Hamam Tv Salonu Ücretli olanaklar  Masaj(ücretli) Spa Merkezi(ücretli)", "Tesisin ücretli ve ücretsiz sunduğu olanaklar hangileridir?" },
+                    { 16, 9, "Tesiste konaklayabileceğiniz toplam 27 oda bulunuyor.", "Tesiste kaç adet oda bulunuyor?" },
+                    { 17, 9, "Otel için check-in saati 14:00'dan sonra başlar. Checkout işlemlerini ise 12:00 kadar yapabilirsiniz.", "Tesis için giriş ve çıkış saatleri nelerdir?" },
+                    { 18, 9, "Peyzaj Manzaralı 1 Çift Kişilik Yatak Peyzaj Manzaralı 1 Çift Kişilik Veya 2 Tek Kişilik Yatak Standart Çift Kişilik Tek Kişi Kullanım Ekonomi Oda Peyzaj Manzaralı Tek Kişilik Oda", "Tesiste hangi tip odalar bulunuyor?" },
+                    { 19, 10, "Arabahmet Mahallesi’ni görün (0.0 km) Tarihi mekanları gezin (0.0 km) Suriçi’nin sokaklarında yürüyün (0.0 km) Tarihi çarşıda alışveriş yapın (0.0 km) Müze turu yapın (0.0 km)", "Tesis çevresinde gezilecek yerler nerelerdir?" },
+                    { 20, 10, "Grand Pasha Lefkoşa Hotel Casino Spa otelin havalimanı ve şehir merkezine olan uzaklığı;  Ercan (23 km) Gecitkale (45 km)", "Tesis havalimanı ve şehir merkezine ne kadar uzaklıkta?" },
+                    { 21, 10, "Tesisin sunduğu olanaklar;  Ücretsiz olanaklar  Kapalı havuz Açık havuz Kuaför salonu Jakuzi Sauna   Ücretli olanaklar  Masaj(ücretli)", "Tesisin ücretli ve ücretsiz sunduğu olanaklar hangileridir?" },
+                    { 22, 10, "Corner Suit Standart Oda Corner Suit", "Tesiste hangi tip odalar bulunuyor?" },
+                    { 23, 10, "Tesiste konaklayabileceğiniz toplam 10 oda bulunuyor.", "Tesiste kaç adet oda bulunuyor?" },
+                    { 24, 10, "Otel için check-in saati 14:00'dan sonra başlar. Checkout işlemlerini ise 12:00 kadar yapabilirsiniz.", "Tesis için giriş ve çıkış saatleri nelerdir?" }
                 });
 
             migrationBuilder.InsertData(
@@ -699,6 +761,11 @@ namespace RepositoryLayer.Migrations
                 name: "IX_Rooms_HotelId",
                 table: "Rooms",
                 column: "HotelId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TravelContent_TravelWritingId",
+                table: "TravelContent",
+                column: "TravelWritingId");
         }
 
         /// <inheritdoc />
@@ -741,6 +808,9 @@ namespace RepositoryLayer.Migrations
                 name: "Reservations");
 
             migrationBuilder.DropTable(
+                name: "TravelContent");
+
+            migrationBuilder.DropTable(
                 name: "UserRefreshTokens");
 
             migrationBuilder.DropTable(
@@ -751,6 +821,9 @@ namespace RepositoryLayer.Migrations
 
             migrationBuilder.DropTable(
                 name: "RoomDetails");
+
+            migrationBuilder.DropTable(
+                name: "TravelWritings");
 
             migrationBuilder.DropTable(
                 name: "Rooms");

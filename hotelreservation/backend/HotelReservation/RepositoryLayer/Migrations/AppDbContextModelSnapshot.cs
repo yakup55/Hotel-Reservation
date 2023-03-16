@@ -53,7 +53,7 @@ namespace RepositoryLayer.Migrations
                         new
                         {
                             AboutId = 1,
-                            AboutDate = new DateTime(2023, 3, 5, 15, 10, 45, 935, DateTimeKind.Local).AddTicks(2086),
+                            AboutDate = new DateTime(2023, 3, 16, 20, 28, 40, 429, DateTimeKind.Local).AddTicks(7029),
                             AboutDescription = "10 larca oteli tercihlerinize göre filtreleyerek saniyeler içinde size en uygun otelleri bulabilirsiniz",
                             AboutImage = "https://cdn.enuygun.com/otel/v-083f8/static/images/icons/option.svg",
                             AboutName = "Sayısız Seçenek"
@@ -61,7 +61,7 @@ namespace RepositoryLayer.Migrations
                         new
                         {
                             AboutId = 2,
-                            AboutDate = new DateTime(2023, 3, 5, 15, 10, 45, 935, DateTimeKind.Local).AddTicks(2097),
+                            AboutDate = new DateTime(2023, 3, 16, 20, 28, 40, 429, DateTimeKind.Local).AddTicks(7041),
                             AboutDescription = "Kafanızı karıştıran fiyat ve hizmet seçenekleri arasında kaybolmayın, tercihlerinizi belirleyip size en uygun otelde odanızı hemen ayırtın.",
                             AboutImage = "https://cdn.enuygun.com/otel/v-083f8/static/images/icons/location.svg",
                             AboutName = "Uygun Oteller"
@@ -69,7 +69,7 @@ namespace RepositoryLayer.Migrations
                         new
                         {
                             AboutId = 3,
-                            AboutDate = new DateTime(2023, 3, 5, 15, 10, 45, 935, DateTimeKind.Local).AddTicks(2098),
+                            AboutDate = new DateTime(2023, 3, 16, 20, 28, 40, 429, DateTimeKind.Local).AddTicks(7043),
                             AboutDescription = "Enuygun sayesinde aradığınız oteli bulmak için sadece birkaç saniyeye ihtiyacınız var.",
                             AboutImage = "https://cdn.enuygun.com/otel/v-083f8/static/images/icons/fast-easy.svg",
                             AboutName = "Hızlı Ve Kolay"
@@ -77,7 +77,7 @@ namespace RepositoryLayer.Migrations
                         new
                         {
                             AboutId = 4,
-                            AboutDate = new DateTime(2023, 3, 5, 15, 10, 45, 935, DateTimeKind.Local).AddTicks(2099),
+                            AboutDate = new DateTime(2023, 3, 16, 20, 28, 40, 429, DateTimeKind.Local).AddTicks(7044),
                             AboutDescription = "Tüm ödeme işleriniz, dünyanın önde gelen güvenlik sertifikası şirketi DigiCert koruması altındadır.",
                             AboutImage = "https://cdn.enuygun.com/otel/v-083f8/static/images/icons/trust.svg",
                             AboutName = "Güvenle Alın"
@@ -671,6 +671,17 @@ namespace RepositoryLayer.Migrations
                             HotelLocation = "Eskiçeşme, Bodrum Merkez, Muğla",
                             HotelName = "\r\nBodrium Hotel And You Spa",
                             HotelPrice = 1635m
+                        },
+                        new
+                        {
+                            HotelId = 10,
+                            CategoryId = 8,
+                            CityId = 9,
+                            DegreId = 3,
+                            HotelImage = "https://cdn3.enuygun.com/media/lib/1x400/uploads/image/grand-pasha-lefkosa-casino-spa-kibris-genel-40785102.jpg",
+                            HotelLocation = "Lefkoşa, Lefkoşa",
+                            HotelName = "Grand Pasha Lefkoşa Hotel Casino Spa",
+                            HotelPrice = 14062m
                         });
                 });
 
@@ -866,6 +877,21 @@ namespace RepositoryLayer.Migrations
                             Image7 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/bodrium-and-you-spa-bodrum-lobi-39518881.webp",
                             Image8 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/bodrium-and-you-spa-bodrum-is-konferans-39518905.webp",
                             Image9 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/bodrium-and-you-spa-bodrum-oda-39518888.webp"
+                        },
+                        new
+                        {
+                            HotelDetailId = 10,
+                            HotelId = 10,
+                            HotelMap = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3260.517189141367!2d33.345311115202406!3d35.19358438031096!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14de10ccdd5e1671%3A0x8747bee76e32a62c!2sGrand%20Pasha%20Nicosia%20Hotel%20%26%20Casino%20%26%20Spa!5e0!3m2!1str!2str!4v1678218328815!5m2!1str!2str\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade",
+                            Image1 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/grand-pasha-lefkosa-casino-spa-kibris-genel-38526226.webp",
+                            Image2 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/grand-pasha-lefkosa-casino-spa-kibris-genel-40785109.webp",
+                            Image3 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/grand-pasha-lefkosa-casino-spa-kibris-genel-40785110.webp",
+                            Image4 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/grand-pasha-lefkosa-casino-spa-kibris-genel-40785111.webp",
+                            Image5 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/grand-pasha-lefkosa-casino-spa-kibris-havuz-38526235.webp",
+                            Image6 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/grand-pasha-lefkosa-casino-spa-kibris-havuz-38526236.webp",
+                            Image7 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/grand-pasha-lefkosa-casino-spa-kibris-yeme-icme-40785113.webp",
+                            Image8 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/grand-pasha-lefkosa-casino-spa-kibris-is-konferans-38526244.webp",
+                            Image9 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/grand-pasha-lefkosa-casino-spa-kibris-oda-40785105.webp"
                         });
                 });
 
@@ -904,8 +930,134 @@ namespace RepositoryLayer.Migrations
                         },
                         new
                         {
-                            QuentionsId = 2,
-                            HotelId = 1,
+                            QuentionsId = 6,
+                            HotelId = 4,
+                            QuentionsMessage = "Antalya (60 km) Gazipasa (110 km)",
+                            QuentionsName = "Luna Blanca Resort Spa otelin havalimanı ve şehir merkezine olan uzaklığı"
+                        },
+                        new
+                        {
+                            QuentionsId = 7,
+                            HotelId = 4,
+                            QuentionsMessage = "Tesiste konaklayabileceğiniz toplam 31 oda bulunuyor.",
+                            QuentionsName = "Tesiste kaç adet oda bulunuyor?"
+                        },
+                        new
+                        {
+                            QuentionsId = 8,
+                            HotelId = 4,
+                            QuentionsMessage = "Otel için check-in saati 14:00'dan sonra başlar. Checkout işlemlerini ise 12:00 kadar yapabilirsiniz.",
+                            QuentionsName = "Tesis için giriş ve çıkış saatleri nelerdir?"
+                        },
+                        new
+                        {
+                            QuentionsId = 9,
+                            HotelId = 5,
+                            QuentionsMessage = "Ataturk (31 km) Sabiha Gokcen (49 km)",
+                            QuentionsName = "Tesis havalimanı ve şehir merkezine ne kadar uzaklıkta?"
+                        },
+                        new
+                        {
+                            QuentionsId = 10,
+                            HotelId = 5,
+                            QuentionsMessage = "Buhar odası Sauna",
+                            QuentionsName = "Tesisin ücretli ve ücretsiz sunduğu olanaklar hangileridir?"
+                        },
+                        new
+                        {
+                            QuentionsId = 11,
+                            HotelId = 5,
+                            QuentionsMessage = "Bir Yatak Odası Bir Banyo Apart Daire Bunk Yatak Yatakhanede Yatak Standart 1 Çift Kişilik Yatak Standart 1 Çift Kişilik Veya 2 Tek Kişilik Yatak Standart Çift Kişilik Tek Kişi Kullanım",
+                            QuentionsName = "Tesiste hangi tip odalar bulunuyor?"
+                        },
+                        new
+                        {
+                            QuentionsId = 12,
+                            HotelId = 5,
+                            QuentionsMessage = "Tesiste konaklayabileceğiniz toplam 29 oda bulunuyor.",
+                            QuentionsName = "Tesiste kaç adet oda bulunuyor?"
+                        },
+                        new
+                        {
+                            QuentionsId = 13,
+                            HotelId = 5,
+                            QuentionsMessage = "Otel için check-in saati 14:00'dan sonra başlar. Checkout işlemlerini ise 12:00 kadar yapabilirsiniz.",
+                            QuentionsName = "Tesis için giriş ve çıkış saatleri nelerdir?"
+                        },
+                        new
+                        {
+                            QuentionsId = 14,
+                            HotelId = 9,
+                            QuentionsMessage = "Milas (37 km) Ippokratis (49 km)",
+                            QuentionsName = "Tesis havalimanı ve şehir merkezine ne kadar uzaklıkta?"
+                        },
+                        new
+                        {
+                            QuentionsId = 15,
+                            HotelId = 9,
+                            QuentionsMessage = "Ücretsiz olanaklar  Açık havuz Sauna Hamam Tv Salonu Ücretli olanaklar  Masaj(ücretli) Spa Merkezi(ücretli)",
+                            QuentionsName = "Tesisin ücretli ve ücretsiz sunduğu olanaklar hangileridir?"
+                        },
+                        new
+                        {
+                            QuentionsId = 16,
+                            HotelId = 9,
+                            QuentionsMessage = "Tesiste konaklayabileceğiniz toplam 27 oda bulunuyor.",
+                            QuentionsName = "Tesiste kaç adet oda bulunuyor?"
+                        },
+                        new
+                        {
+                            QuentionsId = 17,
+                            HotelId = 9,
+                            QuentionsMessage = "Otel için check-in saati 14:00'dan sonra başlar. Checkout işlemlerini ise 12:00 kadar yapabilirsiniz.",
+                            QuentionsName = "Tesis için giriş ve çıkış saatleri nelerdir?"
+                        },
+                        new
+                        {
+                            QuentionsId = 18,
+                            HotelId = 9,
+                            QuentionsMessage = "Peyzaj Manzaralı 1 Çift Kişilik Yatak Peyzaj Manzaralı 1 Çift Kişilik Veya 2 Tek Kişilik Yatak Standart Çift Kişilik Tek Kişi Kullanım Ekonomi Oda Peyzaj Manzaralı Tek Kişilik Oda",
+                            QuentionsName = "Tesiste hangi tip odalar bulunuyor?"
+                        },
+                        new
+                        {
+                            QuentionsId = 19,
+                            HotelId = 10,
+                            QuentionsMessage = "Arabahmet Mahallesi’ni görün (0.0 km) Tarihi mekanları gezin (0.0 km) Suriçi’nin sokaklarında yürüyün (0.0 km) Tarihi çarşıda alışveriş yapın (0.0 km) Müze turu yapın (0.0 km)",
+                            QuentionsName = "Tesis çevresinde gezilecek yerler nerelerdir?"
+                        },
+                        new
+                        {
+                            QuentionsId = 20,
+                            HotelId = 10,
+                            QuentionsMessage = "Grand Pasha Lefkoşa Hotel Casino Spa otelin havalimanı ve şehir merkezine olan uzaklığı;  Ercan (23 km) Gecitkale (45 km)",
+                            QuentionsName = "Tesis havalimanı ve şehir merkezine ne kadar uzaklıkta?"
+                        },
+                        new
+                        {
+                            QuentionsId = 21,
+                            HotelId = 10,
+                            QuentionsMessage = "Tesisin sunduğu olanaklar;  Ücretsiz olanaklar  Kapalı havuz Açık havuz Kuaför salonu Jakuzi Sauna   Ücretli olanaklar  Masaj(ücretli)",
+                            QuentionsName = "Tesisin ücretli ve ücretsiz sunduğu olanaklar hangileridir?"
+                        },
+                        new
+                        {
+                            QuentionsId = 22,
+                            HotelId = 10,
+                            QuentionsMessage = "Corner Suit Standart Oda Corner Suit",
+                            QuentionsName = "Tesiste hangi tip odalar bulunuyor?"
+                        },
+                        new
+                        {
+                            QuentionsId = 23,
+                            HotelId = 10,
+                            QuentionsMessage = "Tesiste konaklayabileceğiniz toplam 10 oda bulunuyor.",
+                            QuentionsName = "Tesiste kaç adet oda bulunuyor?"
+                        },
+                        new
+                        {
+                            QuentionsId = 24,
+                            HotelId = 10,
                             QuentionsMessage = "Otel için check-in saati 14:00'dan sonra başlar. Checkout işlemlerini ise 12:00 kadar yapabilirsiniz.",
                             QuentionsName = "Tesis için giriş ve çıkış saatleri nelerdir?"
                         });
@@ -1067,6 +1219,71 @@ namespace RepositoryLayer.Migrations
                             Image3 = "https://cdn.tatilsepeti.com/Files/Images/TesisOda/02499/tsr02499637464063858799428.jpg",
                             RoomId = 4
                         });
+                });
+
+            modelBuilder.Entity("CoreLayer.Models.TravelContent", b =>
+                {
+                    b.Property<int>("TravelContentId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TravelContentId"));
+
+                    b.Property<string>("ContentDescription")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ContentImage")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ContentName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TravelWritingId")
+                        .HasColumnType("int");
+
+                    b.HasKey("TravelContentId");
+
+                    b.HasIndex("TravelWritingId");
+
+                    b.ToTable("TravelContent");
+                });
+
+            modelBuilder.Entity("CoreLayer.Models.TravelWritings", b =>
+                {
+                    b.Property<int>("TravelWritingId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TravelWritingId"));
+
+                    b.Property<DateTime>("TravelDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("TravelImage")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TravelMessage")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TravelName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("TravelStatus")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("TravelWritingId");
+
+                    b.ToTable("TravelWritings");
                 });
 
             modelBuilder.Entity("CoreLayer.Models.UserRefreshToken", b =>
@@ -1356,6 +1573,17 @@ namespace RepositoryLayer.Migrations
                     b.Navigation("Room");
                 });
 
+            modelBuilder.Entity("CoreLayer.Models.TravelContent", b =>
+                {
+                    b.HasOne("CoreLayer.Models.TravelWritings", "TravelWritings")
+                        .WithMany("TravelContents")
+                        .HasForeignKey("TravelWritingId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("TravelWritings");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -1449,6 +1677,11 @@ namespace RepositoryLayer.Migrations
             modelBuilder.Entity("CoreLayer.Models.RoomDetail", b =>
                 {
                     b.Navigation("Reservations");
+                });
+
+            modelBuilder.Entity("CoreLayer.Models.TravelWritings", b =>
+                {
+                    b.Navigation("TravelContents");
                 });
 #pragma warning restore 612, 618
         }

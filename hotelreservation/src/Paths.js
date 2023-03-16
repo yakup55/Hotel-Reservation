@@ -57,6 +57,9 @@ import AdminAddUserRole from "./admin/role/AdminAddUserRole";
 import UserUpdateProfile from "./componenets/user/UserUpdateProfile";
 import AdminHome2 from "./admin/home/AdminHome2";
 import AdminAddQuentions from "./admin/quentions/AdminAddQuentions";
+import AdminTravelWritingsList from "./admin/travelWritings/AdminTravelWritingsList";
+import AdminAddTravelWritings from "./admin/travelWritings/AdminAddTravelWritings";
+import AdminUpdateTravelWritings from "./admin/travelWritings/AdminUpdateTravelWritings";
 export default function Paths() {
   return (
     <Routes>
@@ -282,6 +285,19 @@ export default function Paths() {
       <Route
         path="/adminupdateuser/:id"
         element={<AdminUpdateUser></AdminUpdateUser>}
+      ></Route>
+      {/*ADMİN TRAVEL WRİTİNGS*/}
+      <Route
+        path="/admintravelwritingslist"
+        element={<AdminTravelWritingsList></AdminTravelWritingsList>}
+      ></Route>
+      <Route
+        path="/adminaddtravelwritings"
+        element={<AdminAddTravelWritings></AdminAddTravelWritings>}
+      ></Route>
+      <Route
+        path="/adminupdatetravelwritings/:id"
+        element={<AdminUpdateTravelWritings></AdminUpdateTravelWritings>}
       ></Route>
       <Route path="*" element={<ErrorPage></ErrorPage>}></Route>
     </Routes>

@@ -157,6 +157,21 @@ namespace RepositoryLayer.Configuration
                     Image9 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/bodrium-and-you-spa-bodrum-oda-39518888.webp",
                     HotelMap = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3184.857282602926!2d27.40969921525455!3d37.03704907990057!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14be6c6e0eaad519%3A0x75df94bcf046bda0!2sBodrium%20Otel%20%26%20SPA!5e0!3m2!1str!2str!4v1676723345737!5m2!1str!2str\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade",
                     HotelId = 9
+                },
+                new HotelDetail
+                {
+                    HotelDetailId = 10,
+                    Image1 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/grand-pasha-lefkosa-casino-spa-kibris-genel-38526226.webp",
+                    Image2 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/grand-pasha-lefkosa-casino-spa-kibris-genel-40785109.webp",
+                    Image3 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/grand-pasha-lefkosa-casino-spa-kibris-genel-40785110.webp",
+                    Image4 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/grand-pasha-lefkosa-casino-spa-kibris-genel-40785111.webp",
+                    Image5 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/grand-pasha-lefkosa-casino-spa-kibris-havuz-38526235.webp",
+                    Image6 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/grand-pasha-lefkosa-casino-spa-kibris-havuz-38526236.webp",
+                    Image7 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/grand-pasha-lefkosa-casino-spa-kibris-yeme-icme-40785113.webp",
+                    Image8 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/grand-pasha-lefkosa-casino-spa-kibris-is-konferans-38526244.webp",
+                    Image9 = "https://cdn3.enuygun.com/media/lib/1x1080/uploads/image/grand-pasha-lefkosa-casino-spa-kibris-oda-40785105.webp",
+                    HotelMap = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3260.517189141367!2d33.345311115202406!3d35.19358438031096!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14de10ccdd5e1671%3A0x8747bee76e32a62c!2sGrand%20Pasha%20Nicosia%20Hotel%20%26%20Casino%20%26%20Spa!5e0!3m2!1str!2str!4v1678218328815!5m2!1str!2str\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade",
+                    HotelId = 10
                 }
 
                 );

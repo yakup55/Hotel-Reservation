@@ -16,6 +16,8 @@ import facilityReducer from "./facilityReducer";
 import roleReducer from "./roleReducer";
 import userReducer from "./userReducer";
 import authenticationReducer from "./authenticationReducer";
+import travelContentReducer from "./travelContentReducer";
+import travelWritingsReducer from "./travelWritingsReducer";
 const rootReducer = combineReducers({
   category: categoryReducer,
   about: aboutReducer,
@@ -34,5 +36,7 @@ const rootReducer = combineReducers({
   role: roleReducer,
   user: userReducer,
   authentication: authenticationReducer,
+  travelContent: travelContentReducer,
+  travelWriting: travelWritingsReducer,
 });
 export default rootReducer;

@@ -22,8 +22,8 @@ import ApartmentIcon from "@mui/icons-material/Apartment";
 import PersonIcon from '@mui/icons-material/Person';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import { useSelector } from "react-redux";
+import CardTravelIcon from '@mui/icons-material/CardTravel';
 export default function AdminHome() {
-  const {user}=useSelector((state)=>state.user)
   const navigate = useNavigate();
   return (
     <Grid
@@ -99,7 +99,22 @@ export default function AdminHome() {
             </ListItemAvatar>
             <ListItemText primary="Category" />
           </ListItem>
-
+          <ListItem onClick={() => navigate("/admintravelwritingslist")}>
+            <ListItemAvatar>
+              <Avatar>
+              <CardTravelIcon></CardTravelIcon>
+              </Avatar>
+            </ListItemAvatar>
+            <ListItemText primary="Travel Writings" />
+          </ListItem>
+          <ListItem onClick={() => navigate("/")}>
+            <ListItemAvatar>
+              <Avatar>
+                <CardTravelIcon></CardTravelIcon>
+              </Avatar>
+            </ListItemAvatar>
+            <ListItemText primary="Travel Content" />
+          </ListItem>
           <ListItem onClick={() => navigate("/adminaboutlist")}>
             <ListItemAvatar>
               <Avatar>
