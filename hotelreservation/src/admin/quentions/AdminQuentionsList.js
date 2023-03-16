@@ -1,5 +1,10 @@
-import { SpeedDial, SpeedDialAction, SpeedDialIcon } from "@mui/material";
-import React from "react";
+import {
+  Pagination,
+  SpeedDial,
+  SpeedDialAction,
+  SpeedDialIcon,
+} from "@mui/material";
+import React, { useState } from "react";
 import { Grid, GridItem } from "@chakra-ui/react";
 import {
   Button,
@@ -31,6 +36,16 @@ export default function AdminQuentionsList() {
     dispacth(deleteQuentions(id));
   };
   const { quentions } = useSelector((state) => state.quention);
+  const [number, setNumber] = useState(1); // No of pages
+  const [postPerPage] = useState(14);
+  const lastPost = number * postPerPage;
+  const firstPost = lastPost - postPerPage;
+  const currentPost = quentions.data?.slice(firstPost, lastPost);
+  const PageCount = Math.ceil(quentions.data?.length / postPerPage);
+  const handleChange = (event, value) => {
+    setNumber(value);
+  };
+
   useEffect(() => {
     dispacth(getQuentionsList());
   }, [dispacth]);
@@ -47,7 +62,7 @@ export default function AdminQuentionsList() {
       </div>
 
       <GridItem colSpan={4}>
-        <Container maxWidth="md" style={{ marginTop: 10 }}>
+        <Container style={{ marginTop: 10 }}>
           <TableContainer>
             <TableBody>
               <Table>
@@ -63,7 +78,7 @@ export default function AdminQuentionsList() {
                   <TableCell style={{ color: "white" }}>Update</TableCell>
                   <TableCell style={{ color: "white" }}>Delete</TableCell>
                 </TableRow>
-                {quentions.data?.map((quention) => (
+                {currentPost?.map((quention) => (
                   <TableRow>
                     <TableCell>{quention.quentionsId}</TableCell>
                     <TableCell>{quention.quentionsName}</TableCell>
@@ -98,6 +113,11 @@ export default function AdminQuentionsList() {
               </Table>
             </TableBody>
           </TableContainer>
+          <Pagination
+            count={PageCount}
+            onChange={handleChange}
+            color="secondary"
+          />
         </Container>
       </GridItem>
       <SpeedDial

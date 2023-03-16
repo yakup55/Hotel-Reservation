@@ -17,32 +17,33 @@ export default function quenstionsReducer(
   { type, payload }
 ) {
   switch (type) {
-    case GET_BY_QUENTIONS:
-      return {
-        ...state,
-        quenstion: payload,
-      };
     case GET_QUENTIONS_LIST:
       return {
         ...state,
-        quenstions: payload,
+        quentions: payload,
       };
+    case GET_BY_QUENTIONS:
+      return {
+        ...state,
+        quention: payload,
+      };
+
     case ADD_QUENTIONS:
       return {
         ...state,
-        quenstions: [...state.quenstions, payload],
+        quentions: [...state.quentions, payload],
       };
     case DELETE_QUENTIONS:
       return {
         ...state,
-        quenstions: [
-          ...state.quenstions.filter((x) => x.quentionsId !== payload),
+        quentions: [
+          ...state.quentions.filter((x) => x.quentionsId !== payload),
         ],
       };
     case UPDATE_QUENTIONS:
       return {
         ...state,
-        quenstions: [
+        quentions: [
           ...state.filter((x) => x.quentionsId !== payload.quentionsId),
           payload,
         ],

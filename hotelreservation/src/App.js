@@ -14,7 +14,9 @@ function App() {
           <Paths></Paths>
         </main>
       </div>
+     
       <div style={{ marginTop: 1300 }}>
+     
         <Footer></Footer>
       </div>
 

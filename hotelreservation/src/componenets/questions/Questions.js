@@ -68,7 +68,7 @@ export default function Questions() {
   const { id } = useParams();
   useEffect(() => {
     dispacth(hotelQuentions(id));
-  }, []);
+  }, [dispacth,id]);
 
   const [open, setOpen] = React.useState(true);
 
