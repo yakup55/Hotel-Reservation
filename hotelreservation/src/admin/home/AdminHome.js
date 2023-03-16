@@ -19,10 +19,10 @@ import { useNavigate } from "react-router-dom";
 import LocationCityIcon from "@mui/icons-material/LocationCity";
 import ContactSupportIcon from "@mui/icons-material/ContactSupport";
 import ApartmentIcon from "@mui/icons-material/Apartment";
-import PersonIcon from '@mui/icons-material/Person';
-import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
+import PersonIcon from "@mui/icons-material/Person";
+import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 import { useSelector } from "react-redux";
-import CardTravelIcon from '@mui/icons-material/CardTravel';
+import CardTravelIcon from "@mui/icons-material/CardTravel";
 export default function AdminHome() {
   const navigate = useNavigate();
   return (
@@ -42,7 +42,7 @@ export default function AdminHome() {
         </div>
 
         <List sx={{ width: "100%", bgcolor: "background.paper" }}>
-        <ListItem onClick={() => navigate("/adminrolelist")}>
+          <ListItem onClick={() => navigate("/adminrolelist")}>
             <ListItemAvatar>
               <Avatar>
                 <AdminPanelSettingsIcon></AdminPanelSettingsIcon>
@@ -102,12 +102,12 @@ export default function AdminHome() {
           <ListItem onClick={() => navigate("/admintravelwritingslist")}>
             <ListItemAvatar>
               <Avatar>
-              <CardTravelIcon></CardTravelIcon>
+                <CardTravelIcon></CardTravelIcon>
               </Avatar>
             </ListItemAvatar>
             <ListItemText primary="Travel Writings" />
           </ListItem>
-          <ListItem onClick={() => navigate("/")}>
+          <ListItem onClick={() => navigate("/admintravelcontentlist")}>
             <ListItemAvatar>
               <Avatar>
                 <CardTravelIcon></CardTravelIcon>
@@ -179,10 +179,8 @@ export default function AdminHome() {
             </ListItemAvatar>
             <ListItemText primary="Facility" />
           </ListItem>
-          
         </List>
       </GridItem>
-      
     </Grid>
   );
 }

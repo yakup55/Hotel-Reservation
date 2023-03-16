@@ -6,11 +6,12 @@ export const ADD_TRAVEL_CONTENT = "ADD_TRAVEL_CONTENT";
 export const UPDATE_TRAVEL_CONTENT = "UPDATE_TRAVEL_CONTENT";
 export const DELETE_TRAVEL_CONTENT = "DELETE_TRAVEL_CONTENT";
 const service = new TravelContentService();
+
 export function getTravelContentList() {
   return function (dispacth) {
     service
-      .getByTravelContent()
-      .then((resp) => dispacth({ type: GET_BY_TRAVEL_CONTENT, payload: resp }));
+      .getTravelContentList()
+      .then((resp) => dispacth({ type: GET_TRAVEL_CONTENT_LIST, payload: resp }));
   };
 }
 export function getByTravelContent(id) {

@@ -22,19 +22,17 @@ import {
   TableRow,
 } from "@mui/material";
 import {
-  deleteTravelWritings,
-  getTravelWritingsList,
-} from "../../redux/actions/travelWritingsActions";
+  deleteTravelContent,
+  getTravelContentList,
+} from "../../redux/actions/travelContentActions";
 import { openSnacbar } from "../../redux/actions/appActions";
 import AdminHome from "../../admin/home/AdminHome";
 import { useEffect } from "react";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import CancelIcon from "@mui/icons-material/Cancel";
-export default function AdminTravelWritingsList() {
+export default function AdminTravelContentList() {
   const dispacth = useDispatch();
   const navigate = useNavigate();
-  const handleDeletedTravelWriting = (id) => {
-    dispacth(deleteTravelWritings(id));
+  const handleDeletedTravelContent = (id) => {
+    dispacth(deleteTravelContent(id));
     dispacth(
       openSnacbar({
         message: "Has been deleted",
@@ -43,21 +41,21 @@ export default function AdminTravelWritingsList() {
     );
   };
   useEffect(() => {
-    dispacth(getTravelWritingsList());
+    dispacth(getTravelContentList());
   }, [dispacth]);
   const actions = [{ icon: <CreateIcon></CreateIcon>, name: "Create" }];
 
-  const { travelWritings } = useSelector((state) => state.travelWriting);
+  const { travelContents } = useSelector((state) => state.travelContent);
   const [number, setNumber] = useState(1); // No of pages
   const [postPerPage] = useState(2);
   const lastPost = number * postPerPage;
   const firstPost = lastPost - postPerPage;
-  const currentPost = travelWritings.data?.slice(firstPost, lastPost);
-  const PageCount = Math.ceil(travelWritings.data?.length / postPerPage);
+  const currentPost = travelContents.data?.slice(firstPost, lastPost);
+  const PageCount = Math.ceil(travelContents.data?.length / postPerPage);
   const handleChange = (event, value) => {
     setNumber(value);
   };
-  console.log(travelWritings);
+  console.log(travelContents);
   return (
     <Grid
       h="900px"
@@ -76,45 +74,38 @@ export default function AdminTravelWritingsList() {
               <Table>
                 <TableRow style={{ backgroundColor: "black" }}>
                   <TableCell style={{ color: "white" }}>#</TableCell>
-                  <TableCell style={{ color: "white" }}>Name</TableCell>
-                  <TableCell style={{ color: "white" }}>Message</TableCell>
-                  <TableCell style={{ color: "white" }}>Image</TableCell>
-                  <TableCell style={{ color: "white" }}>Date</TableCell>
-                  <TableCell style={{ color: "white" }}>Status</TableCell>
-                  <TableCell style={{ color: "white" }}>User Id</TableCell>
+                  <TableCell style={{ color: "white" }}>Content Name</TableCell>
+                  <TableCell style={{ color: "white" }}>
+                    Content Description
+                  </TableCell>
+                  <TableCell style={{ color: "white" }}>
+                    Content Image
+                  </TableCell>
+                  <TableCell style={{ color: "white" }}>
+                    Travel Writing Id
+                  </TableCell>
                   <TableCell style={{ color: "white" }}>Update</TableCell>
                   <TableCell style={{ color: "white" }}>Detay</TableCell>
                   <TableCell style={{ color: "white" }}>Delete</TableCell>
                 </TableRow>
-                {currentPost?.map((travelWriting) => (
+                {currentPost?.map((travelContent) => (
                   <TableRow>
-                    <TableCell>{travelWriting.travelWritingId}</TableCell>
-                    <TableCell>{travelWriting.travelName}</TableCell>
-                    <TableCell>{travelWriting.travelMessage}</TableCell>
+                    <TableCell>{travelContent.travelContentId}</TableCell>
+                    <TableCell>{travelContent.contentName}</TableCell>
+                    <TableCell>{travelContent.contentDescription}</TableCell>
                     <TableCell>
                       <img
                         style={{ width: 200, height: 150 }}
-                        src={`${travelWriting.travelImage}`}
+                        src={`${travelContent.contentImage}`}
                       ></img>
                     </TableCell>
-                    <TableCell>{travelWriting.travelDateTime}</TableCell>
-                    {travelWriting.travelStatus === true && (
-                      <TableCell>
-                        <CheckCircleIcon></CheckCircleIcon>
-                      </TableCell>
-                    )}
-                    {travelWriting.travelStatus === false && (
-                      <TableCell>
-                        <CancelIcon></CancelIcon>
-                      </TableCell>
-                    )}
-                    <TableCell>{travelWriting.userId}</TableCell>
+                    <TableCell>{travelContent.travelWritingId}</TableCell>
 
                     <TableCell>
                       <Button
                         onClick={() =>
                           navigate(
-                            `/adminupdatetravelwritings/${travelWriting.travelWritingId}`
+                            `/adminupdatetravelcontent/${travelContent.travelContentId}`
                           )
                         }
                         startIcon={<BuildIcon></BuildIcon>}
@@ -126,7 +117,7 @@ export default function AdminTravelWritingsList() {
                       <Button
                         startIcon={<ImportContactsIcon></ImportContactsIcon>}
                         onClick={() =>
-                          navigate(`/roomdetail/${travelWriting.roomId}`)
+                          navigate(`/roomdetail/${travelContent.roomId}`)
                         }
                         variant="contained"
                         color="secondary"
@@ -135,8 +126,8 @@ export default function AdminTravelWritingsList() {
                     <TableCell>
                       <Button
                         onClick={() =>
-                          handleDeletedTravelWriting(
-                            travelWriting.travelWritingId
+                          handleDeletedTravelContent(
+                            travelContent.travelContentId
                           )
                         }
                         startIcon={<DeleteOutlineIcon></DeleteOutlineIcon>}
@@ -163,7 +154,7 @@ export default function AdminTravelWritingsList() {
       >
         {actions.map((action) => (
           <SpeedDialAction
-            onClick={() => navigate("/adminaddtravelwritings")}
+            onClick={() => navigate("/adminaddtravelcontent")}
             key={action.name}
             icon={action.icon}
             tooltipTitle={action.name}

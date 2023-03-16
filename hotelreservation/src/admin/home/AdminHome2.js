@@ -20,6 +20,8 @@ import { getReservationList } from "../../redux/actions/reservationActions";
 import { getRoleList } from "../../redux/actions/roleActions";
 import { getRoomList } from "../../redux/actions/roomActions";
 import { getUserList } from "../../redux/actions/userActions";
+import { getTravelWritingsList } from "../../redux/actions/travelWritingsActions";
+import { getTravelContentList } from "../../redux/actions/travelContentActions";
 import AdminHome from "./AdminHome";
 export default function AdminHome2() {
   const dispacth = useDispatch();
@@ -32,6 +34,8 @@ export default function AdminHome2() {
   const { cities } = useSelector((state) => state.city);
   const { roles } = useSelector((state) => state.role);
   const { reservations } = useSelector((state) => state.reservation);
+  const { travelWritings } = useSelector((state) => state.travelWriting);
+  const { travelContents } = useSelector((state) => state.travelContent);
   useEffect(() => {
     dispacth(getCommentList());
     dispacth(getContactList());
@@ -42,7 +46,9 @@ export default function AdminHome2() {
     dispacth(getCityList());
     dispacth(getRoleList());
     dispacth(getReservationList());
-  }, []);
+    dispacth(getTravelWritingsList());
+    dispacth(getTravelContentList());
+  }, [dispacth]);
   return (
     <Grid
       h="900px"
@@ -92,14 +98,22 @@ export default function AdminHome2() {
             <Heading>Şikayet Öneri Sayısı</Heading>
             <Typography variant="h5">{contacts.data?.length}</Typography>
           </Box>
+          <Box bg="tomato" height="120px">
+            <Heading>Seyahat Yazıları Sayısı</Heading>
+            <Typography variant="h5">{travelWritings.data?.length}</Typography>
+          </Box>
+          <Box bg="tomato" height="120px">
+            <Heading>Seyahat Yazıları İçerik Sayısı</Heading>
+            <Typography variant="h5">{travelContents.data?.length}</Typography>
+          </Box>
         </SimpleGrid>
-        <AspectRatio maxW="500px" left={250} marginTop={20} ratio={1}>  
+        {/* <AspectRatio maxW="500px" left={250} marginTop={20} ratio={1}>
           <iframe
             title="naruto"
             src="https://www.youtube.com/embed/QhBnZ6NPOY0"
             allowFullScreen
           />
-        </AspectRatio>
+        </AspectRatio> */}
       </GridItem>
     </Grid>
   );

@@ -26,7 +26,7 @@ export default function travelContentReducer(
     case GET_TRAVEL_CONTENT_LIST:
       return {
         ...state,
-        travelContent: payload,
+        travelContents: payload,
       };
     case ADD_TRAVEL_CONTENT:
       return {
