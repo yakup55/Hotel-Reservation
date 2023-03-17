@@ -18,7 +18,7 @@ export default function City({ city }) {
   const dispacth = useDispatch();
 
   return (
-    <div>
+    <>
       <Box sx={{ mt: 2, flexGrow: 1, display: { xs: "none", md: "flex" } }}>
         <Grid container spacing={1}>
           <Grid container item spacing={3}>
@@ -67,6 +67,6 @@ export default function City({ city }) {
           </Grid>
         </Grid>
       </Box>
-    </div>
+    </>
   );
 }

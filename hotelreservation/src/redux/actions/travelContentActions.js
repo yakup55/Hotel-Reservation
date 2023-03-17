@@ -5,13 +5,16 @@ export const GET_BY_TRAVEL_CONTENT = "GET_BY_TRAVEL_CONTENT";
 export const ADD_TRAVEL_CONTENT = "ADD_TRAVEL_CONTENT";
 export const UPDATE_TRAVEL_CONTENT = "UPDATE_TRAVEL_CONTENT";
 export const DELETE_TRAVEL_CONTENT = "DELETE_TRAVEL_CONTENT";
+export const TRAVEL_WRITINGS_CONTENT_LIST = "TRAVEL_WRITINGS_CONTENT_LIST";
 const service = new TravelContentService();
 
 export function getTravelContentList() {
   return function (dispacth) {
     service
       .getTravelContentList()
-      .then((resp) => dispacth({ type: GET_TRAVEL_CONTENT_LIST, payload: resp }));
+      .then((resp) =>
+        dispacth({ type: GET_TRAVEL_CONTENT_LIST, payload: resp })
+      );
   };
 }
 export function getByTravelContent(id) {
@@ -40,5 +43,14 @@ export function deleteTravelContent(id) {
     service
       .deleteTravelContent(id)
       .then((resp) => dispacth({ type: DELETE_TRAVEL_CONTENT, payload: id }));
+  };
+}
+export function travelWritingsContentList(id) {
+  return function (dispacth) {
+    service
+      .travelWritingsContentList(id)
+      .then((resp) =>
+        dispacth({ type: TRAVEL_WRITINGS_CONTENT_LIST, payload: resp })
+      );
   };
 }

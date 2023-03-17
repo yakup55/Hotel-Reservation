@@ -19,7 +19,7 @@ export function getByTravelWritings(id) {
   return function (dispacth) {
     service
       .getByTravelWritings(id)
-      .then((resp) => dispacth({ GET_BY_TRAVEL_WRITINGS, payload: resp }));
+      .then((resp) => dispacth({type: GET_BY_TRAVEL_WRITINGS, payload: resp }));
   };
 }
 export function addTravelWritings(travelWritings) {

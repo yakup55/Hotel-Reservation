@@ -7,6 +7,7 @@ import HotelHome from "../hotel/HotelHome";
 import HomeQuestions from "../questions/HomeQuestions";
 import SimpleSlider from "../slick/SimpleSlider ";
 import NavigationIcon from "@mui/icons-material/Navigation";
+import TravelWritingList from "../travelWritings/TravelWritingList";
 export default function Home() {
   return (
     <>
@@ -17,7 +18,10 @@ export default function Home() {
       <CategoryList></CategoryList>
       <PopularCity></PopularCity>
       <br></br>
-      <HomeQuestions></HomeQuestions>
+      <TravelWritingList></TravelWritingList>
+      <br></br>
+      {/* <HomeQuestions></HomeQuestions> */}
+      
       <Link href="#" underline="none">
         <NavigationIcon
           sx={{ height: 50, width: 50, ml: 170, mt: 50 }}

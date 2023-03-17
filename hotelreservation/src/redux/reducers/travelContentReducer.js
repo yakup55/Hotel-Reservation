@@ -7,6 +7,7 @@ import {
   DELETE_TRAVEL_CONTENT,
   GET_BY_TRAVEL_CONTENT,
   GET_TRAVEL_CONTENT_LIST,
+  TRAVEL_WRITINGS_CONTENT_LIST,
   UPDATE_TRAVEL_CONTENT,
 } from "../actions/travelContentActions";
 const initialvales = {
@@ -50,7 +51,11 @@ export default function travelContentReducer(
           payload,
         ],
       };
-
+    case TRAVEL_WRITINGS_CONTENT_LIST:
+      return {
+        ...state,
+        travelContents: payload,
+      };
     default:
       return {
         ...state,

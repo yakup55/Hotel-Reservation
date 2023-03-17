@@ -30,6 +30,8 @@ namespace RepositoryLayer.Context
         public DbSet<Facility> Facilities { get; set; }
         public DbSet<City> Cities { get; set; }
         public DbSet<UserRefreshToken> UserRefreshTokens { get; set; }
+        public DbSet<TravelContent> TravelContents { get; set; }
+        public DbSet<TravelWritings> TravelWritings { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

@@ -28,7 +28,7 @@ namespace HotelReservationProject.Controllers
         [HttpPost]
         public async Task<IActionResult> AddTravelWritings(TravelWritingDto dto)
         {
-            dto.TravelDateTime= DateTime.Now;
+           var date= dto.TravelDateTime= DateTime.Now;
             dto.TravelStatus = false;
             return ActionResultInstance(await service.AddAsync(dto));
         }

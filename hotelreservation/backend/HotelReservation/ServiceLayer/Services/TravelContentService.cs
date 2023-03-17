@@ -3,6 +3,7 @@ using CoreLayer.Models;
 using CoreLayer.Repositories;
 using CoreLayer.Services;
 using CoreLayer.UnitOfWork;
+using SharedLibray.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,8 +14,15 @@ namespace ServiceLayer.Services
 {
     public class TravelContentService : GenericService<TravelContent, TravelContentDto>, ITravelContentService
     {
-        public TravelContentService(IUnitOfWork unitOfWork, IGenericRepository<TravelContent> repository) : base(unitOfWork, repository)
+        private readonly ITravelContentRepository travelContentRepository;
+        public TravelContentService(IUnitOfWork unitOfWork, IGenericRepository<TravelContent> repository, ITravelContentRepository travelContentRepository) : base(unitOfWork, repository)
         {
+            this.travelContentRepository = travelContentRepository;
+        }
+
+        public async Task<ResponseDto<List<TravelContent>>> TravelWritingsContentList(int id)
+        {
+            return ResponseDto<List<TravelContent>>.Success(await travelContentRepository.TravelWritingsContentList(id), 200);
         }
     }
 }

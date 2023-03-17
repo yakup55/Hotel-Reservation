@@ -63,6 +63,7 @@ import AdminUpdateTravelWritings from "./admin/travelWritings/AdminUpdateTravelW
 import AdminAddTravelContent from "./admin/travelContent/AdminAddTravelContent"
 import AdminUpdateTravelContent from "./admin/travelContent/AdminUpdateTravelContent"
 import AdminTravelContentList from "./admin/travelContent/AdminTravelContentList"
+import TravelContentList from "./componenets/travelContent/TravelContentList";
 export default function Paths() {
   return (
     <Routes>
@@ -108,6 +109,8 @@ export default function Paths() {
         path="/hotelonedetail/:id"
         element={<HotelDetail></HotelDetail>}
       ></Route>
+
+<Route path="/travelwritings/:id" element={<TravelContentList></TravelContentList>}></Route>
 
       {/*ADMİN*/}
       <Route path="/admin" element={<AdminHome></AdminHome>}></Route>

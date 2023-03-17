@@ -1,5 +1,6 @@
 ﻿using CoreLayer.Models;
 using CoreLayer.Repositories;
+using Microsoft.EntityFrameworkCore;
 using RepositoryLayer.Context;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,11 @@ namespace RepositoryLayer.Repositories
     {
         public TravelContentRepository(AppDbContext context) : base(context)
         {
+        }
+
+        public async Task<List<TravelContent>> TravelWritingsContentList(int id)
+        {
+            return await context.TravelContents.Where(x => x.TravelWritingId == id).ToListAsync();
         }
     }
 }

@@ -195,7 +195,7 @@ function NavBar() {
               ))}
             </Box>
             {/* Button Kısımları */}
-            {user.data?.status === undefined && (
+            {user.data?.status === false && (
               <>
                 <Button
                   onClick={() => navigate("/register")}

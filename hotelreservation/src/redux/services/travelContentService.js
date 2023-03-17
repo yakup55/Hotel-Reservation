@@ -24,5 +24,9 @@ class TravelContentService {
     const url = `${this.baseUrl}/DeleteTravelContent/${id}`;
     return await axios.delete(url).then((resp) => resp.data);
   }
+  async travelWritingsContentList(id) {
+    const url = `${this.baseUrl}/TravelWritingsContent/${id}`;
+    return await axios.get(url).then((resp) => resp.data);
+  }
 }
 export default TravelContentService;

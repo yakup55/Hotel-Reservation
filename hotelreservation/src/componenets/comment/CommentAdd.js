@@ -10,7 +10,7 @@ import { Alert, Button, MenuItem, TextField } from "@mui/material";
 import { Heading } from "@chakra-ui/react";
 import { useEffect } from "react";
 import { getDegreList } from "../../redux/actions/degreActions";
-import { getByUserMail } from "../../redux/actions/userActions";
+import {getByUserMail } from "../../redux/actions/userActions";
 export default function CommentAdd() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -19,7 +19,8 @@ export default function CommentAdd() {
   const { user } = useSelector((state) => state.user);
   useEffect(() => {
     dispacth(getDegreList());
-  }, []);
+    dispacth(getByUserMail(user.data?.email));
+  }, [dispacth, user.data?.email]);
   const { handleSubmit, handleChange, handleBlur, values, touched, errors } =
     useFormik({
       initialValues: {
@@ -49,9 +50,7 @@ export default function CommentAdd() {
       },
       validationSchema,
     });
-  useEffect(() => {
-    dispacth(getByUserMail(user.data?.email));
-  });
+
   console.log(user.data?.id);
   return (
     <Container sx={{ ml: 60, mb: 10 }} maxWidth="sm">
