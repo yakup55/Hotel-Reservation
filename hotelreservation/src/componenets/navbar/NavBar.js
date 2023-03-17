@@ -64,6 +64,11 @@ function NavBar() {
       name: "Update Password",
       url: "/userpasswordupdate",
     },
+    {
+      id: 2,
+      name: "Add Travel",
+      url: `/addtravelwritings/${user.data?.email}`,
+    },
   ];
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -195,27 +200,29 @@ function NavBar() {
               ))}
             </Box>
             {/* Button Kısımları */}
-            {user.data?.status === false && (
-              <>
-                <Button
-                  onClick={() => navigate("/register")}
-                  startIcon={<HowToRegIcon></HowToRegIcon>}
-                  variant="contained"
-                  color="warning"
-                >
-                  Register
-                </Button>
-                <Button
-                  onClick={() => navigate("/login")}
-                  startIcon={<LoginIcon></LoginIcon>}
-                  style={{ marginLeft: 10, marginRight: 10 }}
-                  variant="contained"
-                  color="warning"
-                >
-                  Login
-                </Button>
-              </>
-            )}
+            {user.data?.status === false ||
+              (user.data?.status === undefined && (
+                <>
+                  <Button
+                    onClick={() => navigate("/register")}
+                    startIcon={<HowToRegIcon></HowToRegIcon>}
+                    variant="contained"
+                    color="warning"
+                  >
+                    Register
+                  </Button>
+                  <Button
+                    onClick={() => navigate("/login")}
+                    startIcon={<LoginIcon></LoginIcon>}
+                    style={{ marginLeft: 10, marginRight: 10 }}
+                    variant="contained"
+                    color="warning"
+                  >
+                    Login
+                  </Button>
+                </>
+              ))}
+
             {user.data?.status === true && (
               <Box sx={{ flexGrow: 0 }}>
                 <Tooltip title="Open settings">
@@ -244,7 +251,7 @@ function NavBar() {
                   open={Boolean(anchorElUser)}
                   onClose={handleCloseUserMenu}
                 >
-{/* {role.data.name==="Admin"&&(
+                  {/* {role.data.name==="Admin"&&(
    <Button
    onClick={()=>navigate("/adminhome")}
    style={{
@@ -257,7 +264,6 @@ function NavBar() {
    Admin
  </Button>
 )} */}
-
 
                   {settings.map((setting) => (
                     <MenuItem

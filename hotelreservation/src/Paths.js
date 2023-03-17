@@ -64,6 +64,7 @@ import AdminAddTravelContent from "./admin/travelContent/AdminAddTravelContent"
 import AdminUpdateTravelContent from "./admin/travelContent/AdminUpdateTravelContent"
 import AdminTravelContentList from "./admin/travelContent/AdminTravelContentList"
 import TravelContentList from "./componenets/travelContent/TravelContentList";
+import UserAddTravelWritings from "./componenets/user/UserAddTravelWritings";
 export default function Paths() {
   return (
     <Routes>
@@ -90,6 +91,10 @@ export default function Paths() {
       <Route
         path="/userupdate/:email"
         element={<UserUpdateProfile></UserUpdateProfile>}
+      ></Route>
+      <Route
+        path="/addtravelwritings/:email"
+        element={<UserAddTravelWritings></UserAddTravelWritings>}
       ></Route>
       <Route
         path="/userpasswordupdate"

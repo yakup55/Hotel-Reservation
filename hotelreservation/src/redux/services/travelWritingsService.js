@@ -13,11 +13,11 @@ class TravelWritingsService {
     return await axios.get(url).then((resp) => resp.data);
   }
   async addTravelWritings(travelWritings) {
-    const url = `${this.baseUrl}/AddTravelWritingsList`;
+    const url = `${this.baseUrl}/AddTravelWritings`;
     return await axios.post(url, travelWritings).then((resp) => resp.data);
   }
   async updateTravelWritings(travelWritings) {
-    const url = `${this.baseUrl}/UpdateTravelWritingsList`;
+    const url = `${this.baseUrl}/UpdateTravelWritings`;
     return await axios.put(url, travelWritings).then((resp) => resp.data);
   }
   async delteTravelWritings(id) {

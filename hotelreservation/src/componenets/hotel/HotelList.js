@@ -10,7 +10,6 @@ import HotelNavList from "./HotelNavList";
 import Search from "../search/Search";
 export default function HotelList() {
   const { hotels } = useSelector((state) => state.hotel);
-
   const [number, setNumber] = useState(1); // No of pages
   const [postPerPage] = useState(8);
   const lastPost = number * postPerPage;
@@ -26,7 +25,8 @@ export default function HotelList() {
 
   useEffect(() => {
     dispacth(getHotelList());
-  }, []);
+  }, [dispacth]);
+
   return (
     <>
       <Grid

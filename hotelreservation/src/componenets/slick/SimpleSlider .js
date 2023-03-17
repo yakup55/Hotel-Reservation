@@ -9,7 +9,7 @@ import Slider from "react-slick";
 import { getRoomList } from "../../redux/actions/roomActions";
 
 export default function SimpleSlider() {
-  const { rooms } = useSelector((state) => state.room);
+  const { travelWritings } = useSelector((state) => state.travelWriting);
   const dispacth = useDispatch();
   const navigate = useNavigate();
   useEffect(() => {
@@ -24,17 +24,17 @@ export default function SimpleSlider() {
     autoplaySpeed: 2000,
   };
 
-  console.log(rooms);
   return (
-    <Container sx={{ mt: 5, width: 1600 }}>
-      {/* <Heading>Odalarımız</Heading> */}
+    <>
       <Slider {...settings}>
-        {rooms.data?.map((room) => (
+        {travelWritings.data?.map((travel) => (
           <>
             <img
-              onClick={() => navigate(`roomdetail/${room.roomId}`)}
-              style={{ width: 1200, height: 350 }}
-              src={`${room.roomImage}`}
+              onClick={() =>
+                navigate(`/travelwritings/${travel.travelWritingId}`)
+              }
+              style={{ width: 1520, height: 350 }}
+              src={`${travel.travelImage}`}
             ></img>
           </>
         ))}
@@ -50,6 +50,6 @@ export default function SimpleSlider() {
           href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
         />
       </Slider>
-    </Container>
+    </>
   );
 }

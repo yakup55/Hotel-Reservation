@@ -1,5 +1,5 @@
 import { Box, Heading, SimpleGrid } from "@chakra-ui/react";
-import {  Pagination } from "@mui/material";
+import { Container, Pagination } from "@mui/material";
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -21,13 +21,13 @@ export default function TravelWritingList() {
   useEffect(() => {
     dispacth(getTravelWritingsList());
   }, [dispacth]);
-  console.log(travelWritings);
   return (
     <>
       <Heading>Seyahat Yazıları</Heading>
-      <SimpleGrid sx={{ ml: 30, mr: 30 }} columns={[2, null, 3]} spacing="40px">
+      <Container>
+           <SimpleGrid  columns={[2, null, 3]} spacing="40px">
         {currentPost?.map((travel) => (
-          <Box > 
+          <Box>
             <TravelWriting
               key={travel.travelWritingId}
               travelWriting={travel}
@@ -35,8 +35,10 @@ export default function TravelWritingList() {
           </Box>
         ))}
       </SimpleGrid>
+      </Container>
+   
       <Pagination
-        sx={{ mt: 60 }}
+        sx={{ mt: 1 }}
         count={PageCount}
         onClick={handleChange}
         color="secondary"

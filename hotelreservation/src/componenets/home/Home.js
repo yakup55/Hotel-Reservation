@@ -1,4 +1,4 @@
-import { Button, Link } from "@mui/material";
+import { Button, Fab, Link } from "@mui/material";
 import React from "react";
 import AboutList from "../about/AboutList";
 import CategoryList from "../category/CategoryList";
@@ -19,13 +19,19 @@ export default function Home() {
       <PopularCity></PopularCity>
       <br></br>
       <TravelWritingList></TravelWritingList>
-      <br></br>
-      {/* <HomeQuestions></HomeQuestions> */}
-      
+      <HomeQuestions></HomeQuestions>
+
       <Link href="#" underline="none">
-        <NavigationIcon
-          sx={{ height: 50, width: 50, ml: 170, mt: 50 }}
-        ></NavigationIcon>
+        <Fab
+          sx={{ ml: 160 }}
+          variant="extended"
+          size="small"
+          color="primary"
+          aria-label="add"
+        >
+          <NavigationIcon sx={{ mr: 0 }} />
+          Yukarı Çık
+        </Fab>
       </Link>
     </>
   );

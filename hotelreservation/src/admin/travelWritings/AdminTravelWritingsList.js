@@ -49,7 +49,7 @@ export default function AdminTravelWritingsList() {
 
   const { travelWritings } = useSelector((state) => state.travelWriting);
   const [number, setNumber] = useState(1); // No of pages
-  const [postPerPage] = useState(2);
+  const [postPerPage] = useState(3);
   const lastPost = number * postPerPage;
   const firstPost = lastPost - postPerPage;
   const currentPost = travelWritings.data?.slice(firstPost, lastPost);
