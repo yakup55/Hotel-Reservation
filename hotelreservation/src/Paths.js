@@ -60,11 +60,13 @@ import AdminAddQuentions from "./admin/quentions/AdminAddQuentions";
 import AdminTravelWritingsList from "./admin/travelWritings/AdminTravelWritingsList";
 import AdminAddTravelWritings from "./admin/travelWritings/AdminAddTravelWritings";
 import AdminUpdateTravelWritings from "./admin/travelWritings/AdminUpdateTravelWritings";
-import AdminAddTravelContent from "./admin/travelContent/AdminAddTravelContent"
-import AdminUpdateTravelContent from "./admin/travelContent/AdminUpdateTravelContent"
-import AdminTravelContentList from "./admin/travelContent/AdminTravelContentList"
+import AdminAddTravelContent from "./admin/travelContent/AdminAddTravelContent";
+import AdminUpdateTravelContent from "./admin/travelContent/AdminUpdateTravelContent";
+import AdminTravelContentList from "./admin/travelContent/AdminTravelContentList";
 import TravelContentList from "./componenets/travelContent/TravelContentList";
 import UserAddTravelWritings from "./componenets/user/UserAddTravelWritings";
+import TravelWritingsUserList from "./componenets/user/TravelWritingsUserList";
+import TravelContentUserList from "./componenets/user/TravelContentUserList";
 export default function Paths() {
   return (
     <Routes>
@@ -72,7 +74,6 @@ export default function Paths() {
       <Route path="/register" element={<Register></Register>}></Route>
       <Route path="/login" element={<Login></Login>}></Route>
       <Route path="/hotellist" element={<HotelList></HotelList>}></Route>
-
       <Route path="/roomdetail/:id" element={<RoomDetail></RoomDetail>}></Route>
       <Route
         path="/sendemailconfirm/:email"
@@ -100,7 +101,15 @@ export default function Paths() {
         path="/userpasswordupdate"
         element={<UserPasswordUpdate></UserPasswordUpdate>}
       ></Route>
+      <Route
+        path="/usercontentslist/:email/:id"
+        element={<TravelContentUserList></TravelContentUserList>}
+      ></Route>
 
+      <Route
+        path="/userwritingslist/:email"
+        element={<TravelWritingsUserList></TravelWritingsUserList>}
+      ></Route>
       <Route
         path="/hotelcitylist/:id"
         element={<CityHotelList></CityHotelList>}
@@ -115,7 +124,10 @@ export default function Paths() {
         element={<HotelDetail></HotelDetail>}
       ></Route>
 
-<Route path="/travelwritings/:id" element={<TravelContentList></TravelContentList>}></Route>
+      <Route
+        path="/travelwritings/:id"
+        element={<TravelContentList></TravelContentList>}
+      ></Route>
 
       {/*ADMİN*/}
       <Route path="/admin" element={<AdminHome></AdminHome>}></Route>

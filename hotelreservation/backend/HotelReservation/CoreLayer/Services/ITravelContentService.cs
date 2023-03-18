@@ -12,6 +12,6 @@ namespace CoreLayer.Services
     public interface ITravelContentService : IGenericService<TravelContent, TravelContentDto>
     {
         Task<ResponseDto<List<TravelContent>>> TravelWritingsContentList(int id);
-        Task<ResponseDto<List<TravelContent>>> TravelWritingsContentUserList(string userId);
+        Task<ResponseDto<List<TravelContent>>> TravelWritingsContentUserList(string userId,int id);
     }
 }

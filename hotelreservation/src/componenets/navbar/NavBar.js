@@ -46,28 +46,33 @@ function NavBar() {
   const settings = [
     {
       id: 4,
-      name: "Admin",
+      name: "Yönetici",
       url: "/adminhome",
     },
     {
       id: 1,
-      name: "Profile",
+      name: "Profil",
       url: `/user/${user.data?.email}`,
     },
     {
       id: 2,
-      name: "Update Profile",
+      name: "Profile Güncelle",
       url: `/userupdate/${user.data?.email}`,
     },
     {
       id: 3,
-      name: "Update Password",
+      name: "Şifre Güncelle",
       url: "/userpasswordupdate",
     },
     {
       id: 2,
-      name: "Add Travel",
+      name: "Seyahat Ekle",
       url: `/addtravelwritings/${user.data?.email}`,
+    },
+    {
+      id: 5,
+      name: "Yazılarım",
+      url: `/userwritingslist/${user.data?.email}`,
     },
   ];
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -287,7 +292,7 @@ function NavBar() {
                     }}
                     variant="contained"
                   >
-                    Log Out
+                    Çıkış Yap
                   </Button>
                 </Menu>
               </Box>

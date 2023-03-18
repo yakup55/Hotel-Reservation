@@ -10,6 +10,6 @@ namespace CoreLayer.Repositories
     public interface ITravelContentRepository:IGenericRepository<TravelContent>
     {
         Task<List<TravelContent>> TravelWritingsContentList(int id);
-        Task<List<TravelContent>> TravelWritingsContentUserList(string userId);
+        Task<List<TravelContent>> TravelWritingsContentUserList(string userId,int id);
     }
 }

@@ -1,7 +1,6 @@
+import { Heading, Image } from "@chakra-ui/react";
 import {
   Button,
-  Container,
-  Menu,
   Pagination,
   Table,
   TableBody,
@@ -10,68 +9,73 @@ import {
   TableRow,
   Typography,
 } from "@mui/material";
+import { Container } from "@mui/system";
 import React from "react";
-import { useEffect } from "react";
 import { useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import {
-  deleteTravelWritings,
-  travelWritingsUserList,
-} from "../../redux/actions/travelWritingsActions";
+  deleteTravelContent,
+  travelWritingsContentUserList,
+} from "../../redux/actions/travelContentActions";
 import { getByUserMail } from "../../redux/actions/userActions";
-import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
-import { Heading, Image } from "@chakra-ui/react";
-import { openSnacbar } from "../../redux/actions/appActions";
 import BuildIcon from "@mui/icons-material/Build";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import CancelIcon from "@mui/icons-material/Cancel";
-export default function TravelWritingsUserList() {
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+import { openSnacbar } from "../../redux/actions/appActions";
+export default function TravelContentUserList() {
   const navigate = useNavigate();
-  const { email } = useParams();
-  const { user } = useSelector((state) => state.user);
   const dispacth = useDispatch();
-  const { travelWritings } = useSelector((state) => state.travelWriting);
+  const { email, id } = useParams();
+  const { user } = useSelector((state) => state.user);
+  const { travelContents } = useSelector((state) => state.travelContent);
   const [number, setNumber] = useState(1); // No of pages
-  const [postPerPage] = useState(5);
+  const [postPerPage] = useState(10);
   const lastPost = number * postPerPage;
   const firstPost = lastPost - postPerPage;
-  const currentPost = travelWritings.data?.slice(firstPost, lastPost);
-  const PageCount = Math.ceil(travelWritings.data?.length / postPerPage);
+  const currentPost = travelContents.data?.slice(firstPost, lastPost);
+  const PageCount = Math.ceil(travelContents.data?.length / postPerPage);
   const handleChange = (event, value) => {
     setNumber(value);
   };
   useEffect(() => {
-    dispacth(travelWritingsUserList(user.data?.id));
     dispacth(getByUserMail(email));
-  }, [dispacth, email, user.data?.id]);
-  const handleTrawelWritingDeleted = (id) => {
-    dispacth(deleteTravelWritings(id));
+    dispacth(travelWritingsContentUserList(user.data?.id, id));
+  }, [dispacth, email, user.data?.id, id]);
+
+  const handleTrawelContentDeleted = (id) => {
+    dispacth(deleteTravelContent(id));
     dispacth(
       openSnacbar({
-        message: "Seyahat Yazınız Silinmiştir",
+        message: "İçerik Silindi",
         severity: "success",
       })
     );
   };
   return (
     <>
-      <Heading>Seyahat Yazılarım</Heading>
+      <Heading>Seyahat İçerik Yazılarım</Heading>
       <Container maxWidth="xl">
-        {travelWritings.data?.length === 0 && (
+        {travelContents.data?.length === 0 && (
           <Typography>Seyahat Yazınız Bulunmamaktadır</Typography>
         )}
-        {travelWritings.data?.length !== 0 && (
+        {travelContents.data?.length !== 0 && (
           <TableContainer>
             <TableBody>
               <Table>
                 <TableRow sx={{ backgroundColor: "black" }}>
+                  <TableCell sx={{ color: "white" }}>
+                    Seyahat İçerik Adı
+                  </TableCell>
+                  <TableCell sx={{ color: "white" }}>
+                    Seyahat İçerik Mesajı
+                  </TableCell>
+                  <TableCell sx={{ color: "white" }}>
+                    Seyahat İçerik Resmi
+                  </TableCell>
                   <TableCell sx={{ color: "white" }}>Seyahat Adı</TableCell>
-                  <TableCell sx={{ color: "white" }}>Seyahat Mesajı</TableCell>
-                  <TableCell sx={{ color: "white" }}>Seyahat Resmi</TableCell>
-                  <TableCell sx={{ color: "white" }}>Ekleme Tarihi</TableCell>
-                  <TableCell sx={{ color: "white" }}>Onaylanma Durumu</TableCell>
+
                   <TableCell sx={{ color: "white" }}>Detay</TableCell>
                   <TableCell sx={{ color: "white" }}>Güncelle</TableCell>
                   <TableCell sx={{ color: "white" }}>Sil</TableCell>
@@ -79,33 +83,19 @@ export default function TravelWritingsUserList() {
 
                 {currentPost?.map((travel) => (
                   <TableRow>
-                    <TableCell>{travel.travelName}</TableCell>
-                    <TableCell>{travel.travelMessage}</TableCell>
+                    <TableCell>{travel.contentName}</TableCell>
+                    <TableCell>{travel.contentDescription}</TableCell>
                     <TableCell>
                       <Image
                         style={{ width: 200, height: 100 }}
-                        src={`${travel.travelImage}`}
+                        src={`${travel.contentImage}`}
                       ></Image>
                     </TableCell>
-                    <TableCell>
-                      {travel.travelDateTime?.substring(0, 10)}
-                    </TableCell>
-                    {travel.travelStatus === true && (
-                      <TableCell>
-                        <CheckCircleIcon></CheckCircleIcon>
-                      </TableCell>
-                    )}
-                    {travel.travelStatus === false && (
-                      <TableCell>
-                        <CancelIcon></CancelIcon>
-                      </TableCell>
-                    )}
+                    <TableCell>{travel.travelWritings?.travelName}</TableCell>
                     <TableCell>
                       <Button
                         onClick={() =>
-                          navigate(
-                            `/usercontentslist/${email}/${travel.travelWritingId}`
-                          )
+                          navigate(`/travelwritings/${travel.travelWritingId}`)
                         }
                         variant="contained"
                         color="secondary"
@@ -116,7 +106,7 @@ export default function TravelWritingsUserList() {
                     <TableCell>
                       <Button
                         onClick={() =>
-                          handleTrawelWritingDeleted(travel.travelWritingId)
+                          handleTrawelContentDeleted(travel.travelWritingId)
                         }
                         variant="contained"
                         color="success"
@@ -127,7 +117,7 @@ export default function TravelWritingsUserList() {
                     <TableCell>
                       <Button
                         onClick={() =>
-                          handleTrawelWritingDeleted(travel.travelWritingId)
+                          handleTrawelContentDeleted(travel.travelWritingId)
                         }
                         variant="contained"
                         color="error"

@@ -29,10 +29,10 @@ namespace HotelReservationProject.Controllers
         {
             return ActionResultInstance(await service.TravelWritingsContentList(id));
         }
-        [HttpGet("{userId}")]
-        public async Task<IActionResult> TravelWritingsUserContentList(string userId)
+        [HttpGet("{userId}/{id}")]
+        public async Task<IActionResult> TravelWritingsUserContentList(string userId, int id)
         {
-            return ActionResultInstance(await service.TravelWritingsContentUserList(userId));
+            return ActionResultInstance(await service.TravelWritingsContentUserList(userId, id));
         }
         [HttpPost]
         public async Task<IActionResult> AddTravelContent(TravelContentDto dto)

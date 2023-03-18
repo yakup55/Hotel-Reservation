@@ -55,10 +55,10 @@ export function travelWritingsContentList(id) {
       );
   };
 }
-export function travelWritingsContentUserList(userId) {
+export function travelWritingsContentUserList(userId,id) {
   return function (dispacth) {
     service
-      .travelWritingsContentUserList(userId)
+      .travelWritingsContentUserList(userId,id)
       .then((resp) =>
         dispacth({ type: TRAVEL_WRITINGS_CONTENT_USER_LIST, payload: resp })
       );

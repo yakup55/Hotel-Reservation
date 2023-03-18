@@ -50,7 +50,7 @@ export default function UserAddTravelWritings() {
     <>
       <Heading>Seyahat Yazılarınız Onaylandıktan Sonra Yayınlancaktır</Heading>
       <GridItem colSpan={4}>
-        <Container sx={{ mt: 2 }}>
+        <Container maxWidth="md" sx={{ mt: 2 }}>
           <form onSubmit={handleSubmit}>
             <Stack spacing={3}>
               <TextField
@@ -101,7 +101,7 @@ export default function UserAddTravelWritings() {
             </Stack>
           </form>
           <Button
-            sx={{ mt: 5, mr: 120 }}
+            sx={{ mt: 5, mr: 80 }}
             variant="contained"
             color="secondary"
             onClick={onToggle}

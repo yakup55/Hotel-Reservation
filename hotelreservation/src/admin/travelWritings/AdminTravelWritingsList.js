@@ -7,7 +7,7 @@ import BuildIcon from "@mui/icons-material/Build";
 import ImportContactsIcon from "@mui/icons-material/ImportContacts";
 import EditIcon from "@mui/icons-material/Edit";
 import CreateIcon from "@mui/icons-material/Create";
-import { Grid, GridItem } from "@chakra-ui/react";
+import { Grid, GridItem, Image } from "@chakra-ui/react";
 import {
   Button,
   Container,
@@ -91,12 +91,12 @@ export default function AdminTravelWritingsList() {
                     <TableCell>{travelWriting.travelName}</TableCell>
                     <TableCell>{travelWriting.travelMessage}</TableCell>
                     <TableCell>
-                      <img
+                      <Image
                         style={{ width: 200, height: 150 }}
                         src={`${travelWriting.travelImage}`}
-                      ></img>
+                      ></Image>
                     </TableCell>
-                    <TableCell>{travelWriting.travelDateTime}</TableCell>
+                    <TableCell>{travelWriting.travelDateTime?.substring(0,10)}</TableCell>
                     {travelWriting.travelStatus === true && (
                       <TableCell>
                         <CheckCircleIcon></CheckCircleIcon>
@@ -125,7 +125,7 @@ export default function AdminTravelWritingsList() {
                       <Button
                         startIcon={<ImportContactsIcon></ImportContactsIcon>}
                         onClick={() =>
-                          navigate(`/roomdetail/${travelWriting.roomId}`)
+                          navigate(`/travelwritings/${travelWriting.travelWritingId}`)
                         }
                         variant="contained"
                         color="secondary"

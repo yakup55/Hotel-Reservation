@@ -171,11 +171,6 @@ export default function User() {
           <UserContactList></UserContactList>
         </GridItem>
       )}
-      {user.data?.status === true && (
-        <GridItem colSpan={4}>
-          <TravelWritingsUserList></TravelWritingsUserList>
-        </GridItem>
-      )}
     </Grid>
   );
 }
