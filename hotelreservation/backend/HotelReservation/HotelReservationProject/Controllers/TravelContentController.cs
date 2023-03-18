@@ -1,6 +1,5 @@
 ﻿using CoreLayer.DTOs;
 using CoreLayer.Services;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HotelReservationProject.Controllers
@@ -29,6 +28,11 @@ namespace HotelReservationProject.Controllers
         public async Task<IActionResult> TravelWritingsContent(int id)
         {
             return ActionResultInstance(await service.TravelWritingsContentList(id));
+        }
+        [HttpGet("{userId}")]
+        public async Task<IActionResult> TravelWritingsUserContentList(string userId)
+        {
+            return ActionResultInstance(await service.TravelWritingsContentUserList(userId));
         }
         [HttpPost]
         public async Task<IActionResult> AddTravelContent(TravelContentDto dto)

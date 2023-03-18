@@ -24,5 +24,10 @@ namespace ServiceLayer.Services
         {
             return ResponseDto<List<TravelContent>>.Success(await travelContentRepository.TravelWritingsContentList(id), 200);
         }
+
+        public async Task<ResponseDto<List<TravelContent>>> TravelWritingsContentUserList(string userId)
+        {
+            return ResponseDto<List<TravelContent>>.Success(await travelContentRepository.TravelWritingsContentUserList(userId), 200);
+        }
     }
 }

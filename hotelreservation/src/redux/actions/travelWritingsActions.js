@@ -4,7 +4,7 @@ export const GET_BY_TRAVEL_WRITINGS = "GET_BY_TRAVEL_WRITINGS";
 export const ADD_TRAVEL_WRITINGS = "ADD_TRAVEL_WRITINGS";
 export const UPDATE_TRAVEL_WRITINGS = "UPDATE_TRAVEL_WRITINGS";
 export const DELETE_TRAVEL_WRITINGS = "DELETE_TRAVEL_WRITINGS";
-
+export const TRAVEL_WRITINGS_USER_LIST = "TRAVEL_WRITINGS_USER_LIST";
 const service = new TravelWritingsService();
 export function getTravelWritingsList() {
   return function (dispacth) {
@@ -19,7 +19,9 @@ export function getByTravelWritings(id) {
   return function (dispacth) {
     service
       .getByTravelWritings(id)
-      .then((resp) => dispacth({type: GET_BY_TRAVEL_WRITINGS, payload: resp }));
+      .then((resp) =>
+        dispacth({ type: GET_BY_TRAVEL_WRITINGS, payload: resp })
+      );
   };
 }
 export function addTravelWritings(travelWritings) {
@@ -43,5 +45,14 @@ export function deleteTravelWritings(id) {
     service
       .deleteTravelWritings(id)
       .then((resp) => dispacth({ type: DELETE_TRAVEL_WRITINGS, payload: id }));
+  };
+}
+export function travelWritingsUserList(userId) {
+  return function (dispacth) {
+    service
+      .travelWritingsUserList(userId)
+      .then((resp) =>
+        dispacth({ type: TRAVEL_WRITINGS_USER_LIST, payload: resp })
+      );
   };
 }

@@ -8,6 +8,7 @@ import {
   GET_BY_TRAVEL_CONTENT,
   GET_TRAVEL_CONTENT_LIST,
   TRAVEL_WRITINGS_CONTENT_LIST,
+  TRAVEL_WRITINGS_CONTENT_USER_LIST,
   UPDATE_TRAVEL_CONTENT,
 } from "../actions/travelContentActions";
 const initialvales = {
@@ -52,6 +53,11 @@ export default function travelContentReducer(
         ],
       };
     case TRAVEL_WRITINGS_CONTENT_LIST:
+      return {
+        ...state,
+        travelContents: payload,
+      };
+    case TRAVEL_WRITINGS_CONTENT_USER_LIST:
       return {
         ...state,
         travelContents: payload,

@@ -47,7 +47,7 @@ export default function AdminTravelContentList() {
 
   const { travelContents } = useSelector((state) => state.travelContent);
   const [number, setNumber] = useState(1); // No of pages
-  const [postPerPage] = useState(2);
+  const [postPerPage] = useState(6);
   const lastPost = number * postPerPage;
   const firstPost = lastPost - postPerPage;
   const currentPost = travelContents.data?.slice(firstPost, lastPost);

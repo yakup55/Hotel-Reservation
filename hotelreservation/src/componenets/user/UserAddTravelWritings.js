@@ -46,7 +46,6 @@ export default function UserAddTravelWritings() {
   useEffect(() => {
     dispacth(getByUserMail(email));
   }, [dispacth, email]);
-  console.log(user.data?.id);
   return (
     <>
       <Heading>Seyahat Yazılarınız Onaylandıktan Sonra Yayınlancaktır</Heading>

@@ -57,7 +57,6 @@ export default function AdminTravelWritingsList() {
   const handleChange = (event, value) => {
     setNumber(value);
   };
-  console.log(travelWritings);
   return (
     <Grid
       h="900px"

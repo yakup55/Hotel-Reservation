@@ -32,7 +32,7 @@ export default function ResetUserPassword() {
   );
   useEffect(() => {
     dispacth(getByUserMail(email));
-  }, []);
+  }, [dispacth,email]);
   return (
     <Container maxWidth="xs" sx={{ mt: 5 }}>
       <h2>Şifre Sıfırlama</h2>

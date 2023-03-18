@@ -20,5 +20,10 @@ namespace RepositoryLayer.Repositories
         {
             return await context.TravelContents.Where(x => x.TravelWritingId == id).ToListAsync();
         }
+
+        public async Task<List<TravelContent>> TravelWritingsContentUserList(string userId)
+        {
+            return await context.TravelContents.Where(x=>x.TravelWritings.UserId == userId).ToListAsync();
+        }
     }
 }

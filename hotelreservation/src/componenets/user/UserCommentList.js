@@ -29,7 +29,7 @@ export default function UserCommentList() {
   const { comments } = useSelector((state) => state.comment);
   useEffect(() => {
     dispacth(commentUserList(user.data?.id));
-  }, []);
+  }, [dispacth, user.data?.id]);
   const handleCommentDeleted = (id) => {
     dispacth(deleteComment(id));
     dispacth(

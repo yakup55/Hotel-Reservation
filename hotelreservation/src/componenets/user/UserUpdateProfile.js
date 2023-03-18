@@ -61,7 +61,6 @@ export default function UserUpdateProfile() {
     user.data?.cityId,
     user.data?.birthDate,
   ]);
-  console.log(values);
   return (
     <Container maxWidth="md">
       <Heading>Profile Update</Heading>

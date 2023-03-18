@@ -1,6 +1,4 @@
-import {
-  Heading,
-} from "@chakra-ui/react";
+import { Heading } from "@chakra-ui/react";
 import {
   Button,
   Container,
@@ -22,14 +20,12 @@ import CancelIcon from "@mui/icons-material/Cancel";
 import { openSnacbar } from "../../redux/actions/appActions";
 import UserPay from "./UserPay";
 export default function UserReservationList() {
- 
-
   const dispacth = useDispatch();
   const { reservations } = useSelector((state) => state.reservation);
   const { user } = useSelector((state) => state.user);
   useEffect(() => {
     dispacth(userReservationList(user.data?.id));
-  }, []);
+  }, [dispacth, user.data?.id]);
   const handleReservationDeleted = (id) => {
     dispacth(deleteReservation(id));
     dispacth(
@@ -79,7 +75,7 @@ export default function UserReservationList() {
                     <TableCell>{reservation.returnDate}</TableCell>
                     <TableCell>{reservation.numberPeople}</TableCell>
                     <TableCell>
-                   <UserPay></UserPay>
+                      <UserPay></UserPay>
                     </TableCell>
 
                     <TableCell>

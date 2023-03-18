@@ -33,6 +33,7 @@ import PhoneIcon from "@mui/icons-material/Phone";
 import LocationCityIcon from "@mui/icons-material/LocationCity";
 import CakeIcon from "@mui/icons-material/Cake";
 import { openSnacbar } from "../../redux/actions/appActions";
+import TravelWritingsUserList from "./TravelWritingsUserList";
 export default function User() {
   const { email } = useParams();
   const navigate = useNavigate();
@@ -122,7 +123,7 @@ export default function User() {
               </ListItemAvatar>
               <ListItemText
                 primary="Doğum Tarihiniz"
-                secondary={user.data?.birthDate}
+                secondary={user.data?.birthDate?.substring(0, 10)}
               />
             </ListItem>
             <Divider variant="inset" component="li" />
@@ -168,6 +169,11 @@ export default function User() {
       {user.data?.status === true && (
         <GridItem colSpan={4}>
           <UserContactList></UserContactList>
+        </GridItem>
+      )}
+      {user.data?.status === true && (
+        <GridItem colSpan={4}>
+          <TravelWritingsUserList></TravelWritingsUserList>
         </GridItem>
       )}
     </Grid>

@@ -1,11 +1,12 @@
 import TravelContentService from "../../redux/services/travelContentService";
-
 export const GET_TRAVEL_CONTENT_LIST = "GET_TRAVEL_CONTENT_LIST";
 export const GET_BY_TRAVEL_CONTENT = "GET_BY_TRAVEL_CONTENT";
 export const ADD_TRAVEL_CONTENT = "ADD_TRAVEL_CONTENT";
 export const UPDATE_TRAVEL_CONTENT = "UPDATE_TRAVEL_CONTENT";
 export const DELETE_TRAVEL_CONTENT = "DELETE_TRAVEL_CONTENT";
 export const TRAVEL_WRITINGS_CONTENT_LIST = "TRAVEL_WRITINGS_CONTENT_LIST";
+export const TRAVEL_WRITINGS_CONTENT_USER_LIST =
+  "TRAVEL_WRITINGS_CONTENT_USER_LIST";
 const service = new TravelContentService();
 
 export function getTravelContentList() {
@@ -51,6 +52,15 @@ export function travelWritingsContentList(id) {
       .travelWritingsContentList(id)
       .then((resp) =>
         dispacth({ type: TRAVEL_WRITINGS_CONTENT_LIST, payload: resp })
+      );
+  };
+}
+export function travelWritingsContentUserList(userId) {
+  return function (dispacth) {
+    service
+      .travelWritingsContentUserList(userId)
+      .then((resp) =>
+        dispacth({ type: TRAVEL_WRITINGS_CONTENT_USER_LIST, payload: resp })
       );
   };
 }

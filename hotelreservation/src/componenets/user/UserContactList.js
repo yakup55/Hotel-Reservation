@@ -26,7 +26,7 @@ export default function UserContactList() {
   const { contacts } = useSelector((state) => state.contact);
   useEffect(() => {
     dispacth(contactUserList(user.data?.id));
-  });
+  }, [dispacth, user.data?.id]);
   const handleContactDeleted = (id) => {
     dispacth(deleteContact(id));
     dispacth(
@@ -40,10 +40,11 @@ export default function UserContactList() {
     <>
       <Heading sx={{ ml: 600 }}>Geri Bildirimlerim</Heading>
       {contacts.data?.length === 0 && (
-          <Typography ml={70} variant="h6">Geri Bildiriminiz Bulunmamaktadır</Typography>
-        )}
+        <Typography ml={70} variant="h6">
+          Geri Bildiriminiz Bulunmamaktadır
+        </Typography>
+      )}
       <Container sx={{ mt: 2, ml: 60 }}>
-      
         {contacts.data?.length !== 0 && (
           <TableContainer>
             <TableBody>

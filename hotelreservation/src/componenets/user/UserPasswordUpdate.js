@@ -33,7 +33,6 @@ export default function UserPasswordUpdate() {
       validationSchema,
     }
   );
-  console.log(user.data?.email);
   return (
     <Container maxWidth="xs" sx={{ mt: 5 }}>
       <h2>Şifre Güncelleme</h2>
@@ -88,7 +87,7 @@ export default function UserPasswordUpdate() {
             }
           ></TextField>
           <Button sx={{ width: 500 }} type="submit" variant="contained">
-          Güncelle
+            Güncelle
           </Button>
           <Button
             sx={{ width: 200 }}

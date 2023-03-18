@@ -9,6 +9,7 @@ import {
   GET_TRAVEL_WRITINGS_LIST,
   UPDATE_TRAVEL_WRITINGS,
 } from "../../redux/actions/travelWritingsActions";
+import { TRAVEL_WRITINGS_CONTENT_USER_LIST } from "../actions/travelContentActions";
 const initialvales = {
   travelWriting,
   travelWritings,
@@ -50,7 +51,11 @@ export default function travelWritingsReducer(
           payload,
         ],
       };
-
+    case TRAVEL_WRITINGS_CONTENT_USER_LIST:
+      return {
+        ...state,
+        travelWritings: payload,
+      };
     default:
       return {
         ...state,
