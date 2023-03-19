@@ -26,7 +26,7 @@ export default function UserAddTravelContent() {
         dispacth(addTravelContent(values));
         dispacth(
           openSnacbar({
-            message: "Has been created",
+            message: "Eklendi",
             severity: "success",
           })
         );

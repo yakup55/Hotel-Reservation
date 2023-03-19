@@ -11,6 +11,7 @@ import { getByTravelWritings } from "../../redux/actions/travelWritingsActions";
 import { getByUser } from "../../redux/actions/userActions";
 import { Container } from "@mui/system";
 import NavigationIcon from "@mui/icons-material/Navigation";
+import TravelPopularWritingsSlider from "../slick/TravelPopularWritingsSlider";
 export default function TravelContentList() {
   const { id } = useParams();
   const dispacth = useDispatch();
@@ -25,7 +26,6 @@ export default function TravelContentList() {
   }, [dispacth, id, travelWriting.data?.userId]);
   return (
     <>
-   
       <SimpleGrid columns={1} spacing={10}>
         <Box height="80px">
           <Image
@@ -36,7 +36,7 @@ export default function TravelContentList() {
         <Container>
           <Box bg="white" mt={180} height="80px">
             <Heading>{travelWriting.data?.travelName}</Heading>
-            <Flex sx={{ml:10}}>
+            <Flex sx={{ ml: 10 }}>
               <Avatar
                 sx={{ width: 60, height: 60 }}
                 src={`${user.data?.image}`}
@@ -51,13 +51,13 @@ export default function TravelContentList() {
               </Box>
             </Flex>
             <Typography variant="h6" mt={2}>
-              {travelWriting.data?.travelMessage}
+              {travelWriting.data?.travelMessage.substring(0, 600)}
             </Typography>
           </Box>
         </Container>
 
         {travelContents.data?.map((content) => (
-          <Box sx={{ mt: 350 }} height="500px">
+          <Box sx={{ mt: 200, mb: 200 }} height="500px">
             <TravelContent
               key={content.travelContentId}
               travelContent={content}
@@ -70,6 +70,8 @@ export default function TravelContentList() {
           sx={{ height: 50, width: 50, ml: 170, mt: 50 }}
         ></NavigationIcon>
       </Link>
+
+    
     </>
   );
 }

@@ -15,12 +15,10 @@ export default function TravelContent({ travelContent }) {
     <SimpleGrid columns={1} spacing={1}>
       <Container>
         <Box>
-          <Heading>
-            {travelContent.travelContentId}-{travelContent.contentName}
-          </Heading>
+          <Heading>{travelContent.contentName}</Heading>
           <Image src={`${travelContent.contentImage}`}></Image>
           <Typography mt={3} variant="h6" align={"center"}>
-            {travelContent.contentDescription}
+            {travelContent.contentDescription?.substring(0,630)}...
           </Typography>
         </Box>
       </Container>

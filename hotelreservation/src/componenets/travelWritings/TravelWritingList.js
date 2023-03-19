@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getTravelWritingsList } from "../../redux/actions/travelWritingsActions";
+import TravelPopularWritingsSlider from "../slick/TravelPopularWritingsSlider";
 import TravelWriting from "./TravelWriting";
 export default function TravelWritingList() {
   const { travelWritings } = useSelector((state) => state.travelWriting);
@@ -25,18 +26,18 @@ export default function TravelWritingList() {
     <>
       <Heading>Seyahat Yazıları</Heading>
       <Container>
-           <SimpleGrid  columns={[2, null, 3]} spacing="40px">
-        {currentPost?.map((travel) => (
-          <Box>
-            <TravelWriting
-              key={travel.travelWritingId}
-              travelWriting={travel}
-            ></TravelWriting>
-          </Box>
-        ))}
-      </SimpleGrid>
+        <SimpleGrid columns={[2, null, 3]} spacing="40px">
+          {currentPost?.map((travel) => (
+            <Box>
+              <TravelWriting
+                key={travel.travelWritingId}
+                travelWriting={travel}
+              ></TravelWriting>
+            </Box>
+          ))}
+        </SimpleGrid>
       </Container>
-   
+
       <Pagination
         sx={{ mt: 1 }}
         count={PageCount}

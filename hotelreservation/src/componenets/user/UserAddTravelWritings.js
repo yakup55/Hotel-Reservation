@@ -34,11 +34,11 @@ export default function UserAddTravelWritings() {
         dispacth(addTravelWritings(values));
         dispacth(
           openSnacbar({
-            message: "Has been Created",
+            message: "Eklendi",
             severity: "success",
           })
         );
-        // navigate(`/user/${email}`);
+        navigate(`/addtravelwritings/${email}`);
       },
       validationSchema,
     }
@@ -89,7 +89,6 @@ export default function UserAddTravelWritings() {
                 name="travelImage"
                 label="Seyahat Resmi"
                 placeholder="Seyahat Resmi"
-
                 onChange={handleChange}
                 onBlur={handleBlur}
                 error={errors.travelImage && touched.travelImage}
