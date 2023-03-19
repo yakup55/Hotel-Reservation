@@ -20,6 +20,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { openSnacbar } from "../../redux/actions/appActions";
 import { validationSchema } from "./validationSchema";
+import Footer from "../footer/Footer";
 export default function Login() {
   const [showPassword, setShowPassword] = React.useState(false);
 
@@ -135,6 +136,7 @@ export default function Login() {
           </Stack>
         </form>
       </Container>
+        <Footer></Footer>
     </>
   );
 }

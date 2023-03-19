@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { getCityList } from "../../redux/actions/cityActions";
 import { getHotelList, hotelCityList } from "../../redux/actions/hotelActions";
+import Footer from "../footer/Footer";
 import Hotel from "../hotel/Hotel";
 import HotelNavList from "../hotel/HotelNavList";
 import Search from "../search/Search";
@@ -29,6 +30,7 @@ export default function CityHotelList() {
     dispacth(hotelCityList(id));
   }, [dispacth, id]);
   return (
+    <>
     <Grid
       h="1000"
       templateRows="repeat(2, 1fr)"
@@ -68,5 +70,10 @@ export default function CityHotelList() {
         />
       </GridItem>
     </Grid>
+    <div style={{ marginTop: 1300 }}>
+        <Footer></Footer>
+      </div>
+    </>
+    
   );
 }

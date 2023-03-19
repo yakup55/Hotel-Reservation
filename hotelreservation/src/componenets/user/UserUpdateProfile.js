@@ -9,6 +9,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { openSnacbar } from "../../redux/actions/appActions";
 import { getCityList } from "../../redux/actions/cityActions";
 import { getByUserMail, updateUser } from "../../redux/actions/userActions";
+import Footer from "../footer/Footer";
 
 export default function UserUpdateProfile() {
   const { user } = useSelector((state) => state.user);
@@ -62,7 +63,8 @@ export default function UserUpdateProfile() {
     user.data?.birthDate,
   ]);
   return (
-    <Container maxWidth="md">
+    <>
+      <Container maxWidth="md">
       <Heading>Profile Update</Heading>
       <form onSubmit={handleSubmit}>
         <Stack spacing={3}>
@@ -127,5 +129,10 @@ export default function UserUpdateProfile() {
         </Stack>
       </form>
     </Container>
+    <div style={{ marginTop: 30 }}>
+        <Footer></Footer>
+      </div>
+    </>
+  
   );
 }

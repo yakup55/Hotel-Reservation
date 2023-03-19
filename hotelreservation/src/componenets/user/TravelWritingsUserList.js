@@ -27,6 +27,7 @@ import BuildIcon from "@mui/icons-material/Build";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import CancelIcon from "@mui/icons-material/Cancel";
+import Footer from "../footer/Footer";
 export default function TravelWritingsUserList() {
   const navigate = useNavigate();
   const { email } = useParams();
@@ -151,6 +152,9 @@ export default function TravelWritingsUserList() {
           color="secondary"
         />
       </Container>
+      <div style={{ marginTop: 30 }}>
+        <Footer></Footer>
+      </div>
     </>
   );
 }

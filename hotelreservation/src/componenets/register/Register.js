@@ -21,6 +21,7 @@ import { useFormik } from "formik";
 import { addUser } from "../../redux/actions/userActions";
 import { openSnacbar } from "../../redux/actions/appActions";
 import { validationSchema } from "../../admin/user/validationSchema";
+import Footer from "../footer/Footer";
 export default function Register() {
   const [showPassword, setShowPassword] = React.useState(false);
 
@@ -54,7 +55,8 @@ export default function Register() {
   );
 
   return (
-    <Container style={{ marginBottom: 10 }}>
+    <>
+       <Container style={{ marginBottom: 10 }}>
       <form onSubmit={handleSubmit}>
         <Stack spacing={3}>
           <AccountCircleIcon
@@ -150,5 +152,8 @@ export default function Register() {
         </Stack>
       </form>
     </Container>
+    <Footer></Footer>
+    </>
+ 
   );
 }

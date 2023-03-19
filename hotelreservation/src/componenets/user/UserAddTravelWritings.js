@@ -16,6 +16,7 @@ import { getByUserMail } from "../../redux/actions/userActions";
 import { openSnacbar } from "../../redux/actions/appActions";
 import { validationSchema } from "../../admin/travelWritings/validationSchema";
 import UserAddTravelContent from "./UserAddTravelContent";
+import Footer from "../footer/Footer";
 export default function UserAddTravelWritings() {
   const { isOpen, onToggle } = useDisclosure();
   const { user } = useSelector((state) => state.user);
@@ -125,6 +126,9 @@ export default function UserAddTravelWritings() {
           </Collapse>
         </Container>
       </GridItem>
+      <div style={{ marginTop: 100 }}> 
+        <Footer></Footer>
+      </div>
     </>
   );
 }

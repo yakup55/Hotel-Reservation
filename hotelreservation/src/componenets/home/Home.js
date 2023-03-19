@@ -9,6 +9,7 @@ import SimpleSlider from "../slick/SimpleSlider ";
 import NavigationIcon from "@mui/icons-material/Navigation";
 import TravelWritingList from "../travelWritings/TravelWritingList";
 import TravelPopularWritingsSlider from "../slick/TravelPopularWritingsSlider";
+import Footer from "../footer/Footer";
 export default function Home() {
   return (
     <>
@@ -24,16 +25,20 @@ export default function Home() {
 
       <Link href="#" underline="none">
         <Fab
-          sx={{ ml: 160 }}
+          sx={{ ml: 170 }}
           variant="extended"
           size="small"
           color="primary"
           aria-label="add"
         >
-          <NavigationIcon sx={{ mr: 0 }} />
+          <NavigationIcon/>
           Yukarı Çık
         </Fab>
       </Link>
+           
+      <div style={{marginTop:10}} >
+        <Footer></Footer>
+      </div>
     </>
   );
 }

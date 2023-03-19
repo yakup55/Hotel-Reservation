@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getTravelWritingsList } from "../../redux/actions/travelWritingsActions";
+import Footer from "../footer/Footer";
 import TravelPopularWritingsSlider from "../slick/TravelPopularWritingsSlider";
 import TravelWriting from "./TravelWriting";
 export default function TravelWritingList() {
@@ -44,6 +45,7 @@ export default function TravelWritingList() {
         onClick={handleChange}
         color="secondary"
       />
+      <Footer></Footer>
     </>
   );
 }

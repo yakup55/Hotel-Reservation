@@ -34,6 +34,7 @@ import LocationCityIcon from "@mui/icons-material/LocationCity";
 import CakeIcon from "@mui/icons-material/Cake";
 import { openSnacbar } from "../../redux/actions/appActions";
 import TravelWritingsUserList from "./TravelWritingsUserList";
+import Footer from "../footer/Footer";
 export default function User() {
   const { email } = useParams();
   const navigate = useNavigate();
@@ -53,7 +54,8 @@ export default function User() {
     );
   };
   return (
-    <Grid
+    <>
+     <Grid
       h="200px"
       templateRows="repeat(4, 1fr)"
       templateColumns="repeat(5, 1fr)"
@@ -172,5 +174,10 @@ export default function User() {
         </GridItem>
       )}
     </Grid>
+    <div style={{ marginTop: 500 }}>
+        <Footer></Footer>
+      </div>
+    </>
+   
   );
 }

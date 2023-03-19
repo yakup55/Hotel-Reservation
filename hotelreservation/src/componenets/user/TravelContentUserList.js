@@ -24,6 +24,7 @@ import BuildIcon from "@mui/icons-material/Build";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import { openSnacbar } from "../../redux/actions/appActions";
+import Footer from "../footer/Footer";
 export default function TravelContentUserList() {
   const navigate = useNavigate();
   const dispacth = useDispatch();
@@ -139,6 +140,9 @@ export default function TravelContentUserList() {
           color="secondary"
         />
       </Container>
+      <div style={{ marginTop: 30 }}>
+        <Footer></Footer>
+      </div>
     </>
   );
 }

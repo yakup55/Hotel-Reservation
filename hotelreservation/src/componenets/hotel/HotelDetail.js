@@ -46,6 +46,7 @@ import CommentHotelList from "../comment/CommentHotelList";
 import Questions from "../questions/Questions";
 import Contact from "../contact/Contact";
 import HotelFacility from "../facility/HotelFacility";
+import Footer from "../footer/Footer";
 
 export default function HotelDetail() {
   const { id } = useParams();
@@ -58,7 +59,8 @@ export default function HotelDetail() {
   }, []);
 
   return (
-    <Box>
+    <>
+      <Box>
       <Grid
         h="2000"
         templateRows="repeat(2, 1fr)"
@@ -118,5 +120,8 @@ export default function HotelDetail() {
         </GridItem>
       </Grid>
     </Box>
+        <Footer></Footer>
+    </>
+  
   );
 }

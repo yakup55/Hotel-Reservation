@@ -18,17 +18,13 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LuggageIcon from "@mui/icons-material/Luggage";
-import style from "./styles.module.css"
-import {
-  Typography,
-} from "@mui/material";
+import { Typography } from "@mui/material";
 export default function Footer() {
   return (
     <>
       <Box
-    
         bgcolor="black"
-        sx={{height:250, flexGrow: 1, display: { xs: "none", md: "flex" } }}
+        sx={{ height: 250, flexGrow: 1, display: { xs: "none", md: "flex" } }}
       >
         <Grid ml={2} container spacing={0}>
           <Grid container item spacing={0}>
@@ -43,17 +39,23 @@ export default function Footer() {
                     <Grid container rowSpacing={0}>
                       <Grid item xs={4}>
                         <Link href="https://github.com/yakup55">
-                          <GitHubIcon  style={{width:40,height:40}}></GitHubIcon>
+                          <GitHubIcon
+                            style={{ width: 40, height: 40 }}
+                          ></GitHubIcon>
                         </Link>
                       </Grid>
                       <Grid item xs={4}>
                         <Link href="https://www.linkedin.com/in/yakup-y%C4%B1ld%C4%B1r%C4%B1m-7a12b0200/">
-                          <LinkedInIcon style={{width:40,height:40}}></LinkedInIcon>
+                          <LinkedInIcon
+                            style={{ width: 40, height: 40 }}
+                          ></LinkedInIcon>
                         </Link>
                       </Grid>
-                      <Grid  item xs={4}>
+                      <Grid item xs={4}>
                         <Link href="https://www.instagram.com/yakup.0950/">
-                          <InstagramIcon style={{width:40,height:40}}></InstagramIcon>
+                          <InstagramIcon
+                            style={{ width: 40, height: 40 }}
+                          ></InstagramIcon>
                         </Link>
                       </Grid>
                     </Grid>
@@ -65,13 +67,20 @@ export default function Footer() {
             <Grid item xs={3}>
               <Card width={300}>
                 <CardBody>
-                 
                   <Stack mt="1" spacing="3">
                     <Heading color="white" size="md">
-                  Önemli Bilgi
+                      Önemli Bilgi
                     </Heading>
                     <Typography color="white" variant="h10">
-                     Bu sitedeki veriler <Link sx={{textDecoration:"none"}} color="white" href="https://www.enuygun.com/otel/">ENUYGUN</Link> dan alınmıştır
+                      Bu sitedeki veriler{" "}
+                      <Link
+                        sx={{ textDecoration: "none" }}
+                        color="white"
+                        href="https://www.enuygun.com/otel/"
+                      >
+                        ENUYGUN
+                      </Link>{" "}
+                      dan alınmıştır
                     </Typography>
                   </Stack>
                 </CardBody>
@@ -114,8 +123,8 @@ export default function Footer() {
                     }}
                   ></LuggageIcon>
                 </Grid>
-                <Grid  item xs={6}>
-                  <Typography mt={2}  variant="h5" color="white">
+                <Grid item xs={6}>
+                  <Typography mt={2} variant="h5" color="white">
                     Hotel Reservation
                   </Typography>
                 </Grid>
@@ -125,16 +134,14 @@ export default function Footer() {
         </Grid>
       </Box>
       <Box
-
         bgcolor="black"
         sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
       >
-        <Grid sx={{ml:1}} container spacing={0}>
+        <Grid sx={{ ml: 1 }} container spacing={0}>
           <Grid container item spacing={0}>
-          <Grid item xs={6}>
+            <Grid item xs={6}>
               <Card maxW="xl">
                 <CardBody>
-                
                   <Stack mt="1" spacing="1">
                     <Heading color="white" size="md">
                       Sosyal Medya Hesaplarım
@@ -143,17 +150,23 @@ export default function Footer() {
                     <Grid container rowSpacing={0}>
                       <Grid item xs={4}>
                         <Link href="https://github.com/yakup55">
-                          <GitHubIcon style={{width:40,height:40}}></GitHubIcon>
+                          <GitHubIcon
+                            style={{ width: 40, height: 40 }}
+                          ></GitHubIcon>
                         </Link>
                       </Grid>
                       <Grid item xs={4}>
                         <Link href="https://www.linkedin.com/in/yakup-y%C4%B1ld%C4%B1r%C4%B1m-7a12b0200/">
-                          <LinkedInIcon style={{width:40,height:40}}></LinkedInIcon>
+                          <LinkedInIcon
+                            style={{ width: 40, height: 40 }}
+                          ></LinkedInIcon>
                         </Link>
                       </Grid>
-                      <Grid  item xs={4}>
+                      <Grid item xs={4}>
                         <Link href="https://www.instagram.com/yakup.0950/">
-                          <InstagramIcon style={{width:40,height:40}}></InstagramIcon>
+                          <InstagramIcon
+                            style={{ width: 40, height: 40 }}
+                          ></InstagramIcon>
                         </Link>
                       </Grid>
                     </Grid>
@@ -165,13 +178,20 @@ export default function Footer() {
             <Grid item xs={6}>
               <Card maxW="xl">
                 <CardBody>
-                
-                <Stack mt="1" spacing="3">
+                  <Stack mt="1" spacing="3">
                     <Heading color="white" size="md">
-                  Önemli Bilgi
+                      Önemli Bilgi
                     </Heading>
                     <Typography color="white" variant="h10">
-                     Bu sitedeki veriler <Link sx={{textDecoration:"none"}} color="white" href="https://www.enuygun.com/otel/">ENUYGUN</Link> dan alınmıştır
+                      Bu sitedeki veriler{" "}
+                      <Link
+                        sx={{ textDecoration: "none" }}
+                        color="white"
+                        href="https://www.enuygun.com/otel/"
+                      >
+                        ENUYGUN
+                      </Link>{" "}
+                      dan alınmıştır
                     </Typography>
                   </Stack>
                 </CardBody>

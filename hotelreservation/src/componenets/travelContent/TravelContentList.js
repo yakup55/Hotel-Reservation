@@ -11,7 +11,7 @@ import { getByTravelWritings } from "../../redux/actions/travelWritingsActions";
 import { getByUser } from "../../redux/actions/userActions";
 import { Container } from "@mui/system";
 import NavigationIcon from "@mui/icons-material/Navigation";
-import TravelPopularWritingsSlider from "../slick/TravelPopularWritingsSlider";
+import Footer from "../footer/Footer";
 export default function TravelContentList() {
   const { id } = useParams();
   const dispacth = useDispatch();
@@ -67,11 +67,10 @@ export default function TravelContentList() {
       </SimpleGrid>
       <Link href="#" underline="none">
         <NavigationIcon
-          sx={{ height: 50, width: 50, ml: 170, mt: 50 }}
+          sx={{ height: 50, width: 50, ml: 180, mt: 20 }}
         ></NavigationIcon>
       </Link>
-
-    
+      <Footer></Footer>
     </>
   );
 }

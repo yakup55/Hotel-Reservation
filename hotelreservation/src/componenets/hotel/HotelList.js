@@ -8,6 +8,7 @@ import { getHotelList } from "../../redux/actions/hotelActions";
 import Hotel from "./Hotel";
 import HotelNavList from "./HotelNavList";
 import Search from "../search/Search";
+import Footer from "../footer/Footer";
 export default function HotelList() {
   const { hotels } = useSelector((state) => state.hotel);
   const [number, setNumber] = useState(1); // No of pages
@@ -69,6 +70,9 @@ export default function HotelList() {
           />
         </GridItem>
       </Grid>
+      <div style={{ marginTop: 1300 }}>
+        <Footer></Footer>
+      </div>
     </>
   );
 }

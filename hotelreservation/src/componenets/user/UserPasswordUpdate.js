@@ -6,6 +6,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { openSnacbar } from "../../redux/actions/appActions";
 import { logOut } from "../../redux/actions/authenticationActions";
 import { userPasswordUpdate } from "../../redux/actions/userActions";
+import Footer from "../footer/Footer";
 import { validationSchema } from "./validationSchema";
 export default function UserPasswordUpdate() {
   const { user } = useSelector((state) => state.user);
@@ -34,7 +35,8 @@ export default function UserPasswordUpdate() {
     }
   );
   return (
-    <Container maxWidth="xs" sx={{ mt: 5 }}>
+    <>
+        <Container maxWidth="xs" sx={{ mt: 5 }}>
       <h2>Şifre Güncelleme</h2>
       <form onSubmit={handleSubmit}>
         <Stack spacing={3}>
@@ -102,5 +104,10 @@ export default function UserPasswordUpdate() {
         </Stack>
       </form>
     </Container>
+    <div style={{ marginTop: 30 }}>
+        <Footer></Footer>
+      </div>
+    </>
+
   );
 }
