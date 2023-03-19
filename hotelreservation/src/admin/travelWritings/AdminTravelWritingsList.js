@@ -24,6 +24,8 @@ import {
 import {
   deleteTravelWritings,
   getTravelWritingsList,
+  travelWritingActive,
+  travelWritingPassive,
 } from "../../redux/actions/travelWritingsActions";
 import { openSnacbar } from "../../redux/actions/appActions";
 import AdminHome from "../../admin/home/AdminHome";
@@ -46,7 +48,6 @@ export default function AdminTravelWritingsList() {
     dispacth(getTravelWritingsList());
   }, [dispacth]);
   const actions = [{ icon: <CreateIcon></CreateIcon>, name: "Create" }];
-
   const { travelWritings } = useSelector((state) => state.travelWriting);
   const [number, setNumber] = useState(1); // No of pages
   const [postPerPage] = useState(3);
@@ -56,6 +57,12 @@ export default function AdminTravelWritingsList() {
   const PageCount = Math.ceil(travelWritings.data?.length / postPerPage);
   const handleChange = (event, value) => {
     setNumber(value);
+  };
+  const handleTravelActice = (id) => {
+    dispacth(travelWritingActive(id));
+  };
+  const handleTravelPassive = (id) => {
+    dispacth(dispacth(travelWritingPassive(id)));
   };
   return (
     <Grid
@@ -81,6 +88,8 @@ export default function AdminTravelWritingsList() {
                   <TableCell style={{ color: "white" }}>Date</TableCell>
                   <TableCell style={{ color: "white" }}>Status</TableCell>
                   <TableCell style={{ color: "white" }}>User Id</TableCell>
+                  <TableCell style={{ color: "white" }}>Active</TableCell>
+                  <TableCell style={{ color: "white" }}>Passive</TableCell>
                   <TableCell style={{ color: "white" }}>Update</TableCell>
                   <TableCell style={{ color: "white" }}>Detay</TableCell>
                   <TableCell style={{ color: "white" }}>Delete</TableCell>
@@ -89,14 +98,18 @@ export default function AdminTravelWritingsList() {
                   <TableRow>
                     <TableCell>{travelWriting.travelWritingId}</TableCell>
                     <TableCell>{travelWriting.travelName}</TableCell>
-                    <TableCell>{travelWriting.travelMessage}</TableCell>
+                    <TableCell>
+                      {travelWriting.travelMessage.substring(0, 100)}...
+                    </TableCell>
                     <TableCell>
                       <Image
                         style={{ width: 200, height: 150 }}
                         src={`${travelWriting.travelImage}`}
                       ></Image>
                     </TableCell>
-                    <TableCell>{travelWriting.travelDateTime?.substring(0,10)}</TableCell>
+                    <TableCell>
+                      {travelWriting.travelDateTime?.substring(0, 10)}
+                    </TableCell>
                     {travelWriting.travelStatus === true && (
                       <TableCell>
                         <CheckCircleIcon></CheckCircleIcon>
@@ -112,24 +125,50 @@ export default function AdminTravelWritingsList() {
                     <TableCell>
                       <Button
                         onClick={() =>
+                          handleTravelActice(travelWriting.travelWritingId)
+                        }
+                        variant="contained"
+                        color="warning"
+                      >
+                        <CheckCircleIcon></CheckCircleIcon>
+                      </Button>
+                    </TableCell>
+                    <TableCell>
+                      <Button
+                        onClick={() =>
+                          handleTravelPassive(travelWriting.travelWritingId)
+                        }
+                        variant="contained"
+                        color="inherit"
+                      >
+                        <CancelIcon></CancelIcon>
+                      </Button>
+                    </TableCell>
+                    <TableCell>
+                      <Button
+                        onClick={() =>
                           navigate(
                             `/adminupdatetravelwritings/${travelWriting.travelWritingId}`
                           )
                         }
-                        startIcon={<BuildIcon></BuildIcon>}
                         variant="contained"
                         color="success"
-                      ></Button>
+                      >
+                        <BuildIcon></BuildIcon>
+                      </Button>
                     </TableCell>
                     <TableCell>
                       <Button
-                        startIcon={<ImportContactsIcon></ImportContactsIcon>}
                         onClick={() =>
-                          navigate(`/travelwritings/${travelWriting.travelWritingId}`)
+                          navigate(
+                            `/travelwritings/${travelWriting.travelWritingId}`
+                          )
                         }
                         variant="contained"
                         color="secondary"
-                      ></Button>
+                      >
+                        <ImportContactsIcon></ImportContactsIcon>
+                      </Button>
                     </TableCell>
                     <TableCell>
                       <Button
@@ -138,10 +177,11 @@ export default function AdminTravelWritingsList() {
                             travelWriting.travelWritingId
                           )
                         }
-                        startIcon={<DeleteOutlineIcon></DeleteOutlineIcon>}
                         variant="contained"
                         color="error"
-                      ></Button>
+                      >
+                        <DeleteOutlineIcon></DeleteOutlineIcon>
+                      </Button>
                     </TableCell>
                   </TableRow>
                 ))}

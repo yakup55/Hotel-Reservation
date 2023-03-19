@@ -21,8 +21,8 @@ import {
 } from "../../redux/actions/commentActions";
 import AdminHome from "../home/AdminHome";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import CancelIcon from "@mui/icons-material/Cancel";
+  import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+  import CancelIcon from "@mui/icons-material/Cancel";
 import { useState } from "react";
 export default function AdminCommentList() {
   const dispacth = useDispatch();

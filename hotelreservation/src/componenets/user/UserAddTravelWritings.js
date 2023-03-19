@@ -50,10 +50,11 @@ export default function UserAddTravelWritings() {
     <>
       <Heading>Seyahat Yazılarınız Onaylandıktan Sonra Yayınlancaktır</Heading>
       <GridItem colSpan={4}>
-        <Container maxWidth="md" sx={{ mt: 2 }}>
+        <Container maxWidth="sm" sx={{ mt: 2 }}>
           <form onSubmit={handleSubmit}>
             <Stack spacing={3}>
               <TextField
+                multiline
                 id="travelName"
                 name="travelName"
                 label="Seyahat Adı "
@@ -68,6 +69,7 @@ export default function UserAddTravelWritings() {
                 }
               ></TextField>
               <TextField
+                multiline
                 id="travelMessage"
                 name="travelMessage"
                 label=" Seyahat Mesajı"
@@ -82,10 +84,12 @@ export default function UserAddTravelWritings() {
                 }
               ></TextField>
               <TextField
+                multiline
                 id="travelImage"
                 name="travelImage"
                 label="Seyahat Resmi"
                 placeholder="Seyahat Resmi"
+
                 onChange={handleChange}
                 onBlur={handleBlur}
                 error={errors.travelImage && touched.travelImage}
@@ -101,7 +105,7 @@ export default function UserAddTravelWritings() {
             </Stack>
           </form>
           <Button
-            sx={{ mt: 5, mr: 80 }}
+            sx={{ mt: 5, mr: 40 }}
             variant="contained"
             color="secondary"
             onClick={onToggle}

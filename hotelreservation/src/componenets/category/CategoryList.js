@@ -1,4 +1,3 @@
-import { GridItem, SimpleGrid } from "@chakra-ui/react";
 import { Box, Container, Grid, Typography } from "@mui/material";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,9 +9,9 @@ export default function CategoryList() {
   const { categories } = useSelector((state) => state.category);
   useEffect(() => {
     dispacth(getCategoryList());
-  }, []);
+  }, [dispacth]);
   return (
-    <div>
+    <>
         <Typography mt={10} variant="h5" fontStyle={"italic"}>Tatil Temaları</Typography>
       <Box sx={{ mt: 10, flexGrow: 1, display: { xs: "none", md: "flex" } }}>
     
@@ -40,7 +39,7 @@ export default function CategoryList() {
         </Grid>
       </Grid>
     </Box>
-    </div>
+    </>
     
   );
 }

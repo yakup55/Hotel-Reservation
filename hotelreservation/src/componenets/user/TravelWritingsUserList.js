@@ -71,7 +71,9 @@ export default function TravelWritingsUserList() {
                   <TableCell sx={{ color: "white" }}>Seyahat Mesajı</TableCell>
                   <TableCell sx={{ color: "white" }}>Seyahat Resmi</TableCell>
                   <TableCell sx={{ color: "white" }}>Ekleme Tarihi</TableCell>
-                  <TableCell sx={{ color: "white" }}>Onaylanma Durumu</TableCell>
+                  <TableCell sx={{ color: "white" }}>
+                    Onaylanma Durumu
+                  </TableCell>
                   <TableCell sx={{ color: "white" }}>Detay</TableCell>
                   <TableCell sx={{ color: "white" }}>Güncelle</TableCell>
                   <TableCell sx={{ color: "white" }}>Sil</TableCell>
@@ -116,7 +118,9 @@ export default function TravelWritingsUserList() {
                     <TableCell>
                       <Button
                         onClick={() =>
-                          handleTrawelWritingDeleted(travel.travelWritingId)
+                          navigate(
+                            `/usertravelwritingupdate/${email}/${travel.travelWritingId}`
+                          )
                         }
                         variant="contained"
                         color="success"

@@ -15,13 +15,12 @@ import { createTheme, ThemeProvider } from "@mui/material";
 import LuggageIcon from "@mui/icons-material/Luggage";
 import LoginIcon from "@mui/icons-material/Login";
 import HowToRegIcon from "@mui/icons-material/HowToReg";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getByUserMail, getUserList } from "../../redux/actions/userActions";
 import { logOut } from "../../redux/actions/authenticationActions";
 import { openSnacbar } from "../../redux/actions/appActions";
-import { getByRole, getRoleList } from "../../redux/actions/roleActions";
 
 const darkTheme = createTheme({
   palette: {
@@ -33,7 +32,6 @@ const darkTheme = createTheme({
 });
 function NavBar() {
   const { user } = useSelector((state) => state.user);
-  const { roles } = useSelector((state) => state.role);
   const pages = [
     {
       id: 1,
@@ -110,7 +108,6 @@ function NavBar() {
   useEffect(() => {
     dispacth(getByUserMail(user.data?.email));
   }, []);
-
   return (
     <ThemeProvider theme={darkTheme}>
       <AppBar position="static">
@@ -205,28 +202,48 @@ function NavBar() {
               ))}
             </Box>
             {/* Button Kısımları */}
-            {user.data?.status === false ||
-              (user.data?.status === undefined && (
-                <>
-                  <Button
-                    onClick={() => navigate("/register")}
-                    startIcon={<HowToRegIcon></HowToRegIcon>}
-                    variant="contained"
-                    color="warning"
-                  >
-                    Register
-                  </Button>
-                  <Button
-                    onClick={() => navigate("/login")}
-                    startIcon={<LoginIcon></LoginIcon>}
-                    style={{ marginLeft: 10, marginRight: 10 }}
-                    variant="contained"
-                    color="warning"
-                  >
-                    Login
-                  </Button>
-                </>
-              ))}
+            {user.data?.status === false && (
+              <>
+                <Button
+                  onClick={() => navigate("/register")}
+                  startIcon={<HowToRegIcon></HowToRegIcon>}
+                  variant="contained"
+                  color="warning"
+                >
+                  Register
+                </Button>
+                <Button
+                  onClick={() => navigate("/login")}
+                  startIcon={<LoginIcon></LoginIcon>}
+                  style={{ marginLeft: 10, marginRight: 10 }}
+                  variant="contained"
+                  color="warning"
+                >
+                  Login
+                </Button>
+              </>
+            )}
+            {user.data?.status === undefined && (
+              <>
+                <Button
+                  onClick={() => navigate("/register")}
+                  startIcon={<HowToRegIcon></HowToRegIcon>}
+                  variant="contained"
+                  color="warning"
+                >
+                  Register
+                </Button>
+                <Button
+                  onClick={() => navigate("/login")}
+                  startIcon={<LoginIcon></LoginIcon>}
+                  style={{ marginLeft: 10, marginRight: 10 }}
+                  variant="contained"
+                  color="warning"
+                >
+                  Login
+                </Button>
+              </>
+            )}
 
             {user.data?.status === true && (
               <Box sx={{ flexGrow: 0 }}>

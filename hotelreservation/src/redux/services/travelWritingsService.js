@@ -28,5 +28,13 @@ class TravelWritingsService {
     const url = `${this.baseUrl}/TravelWritingsUserList/${userId}`;
     return await axios.get(url).then((resp) => resp.data);
   }
+  async travelWritingActive(id) {
+    const url = `${this.baseUrl}/TravelWritingActive/${id}`;
+    return await axios.get(url).then((resp) => resp.data);
+  }
+  async travelWritingPassive(id) {
+    const url = `${this.baseUrl}/TravelWritingPassive/${id}`;
+    return await axios.get(url).then((resp) => resp.data);
+  }
 }
 export default TravelWritingsService;

@@ -12,8 +12,8 @@ import { Button, Container, Stack, TextField } from "@mui/material";
 export default function AdminAddRole() {
   const navigate = useNavigate();
   const dispacth = useDispatch();
-  const { handleSubmit, handleChange, handleBlur, errors, touched, values } =
-    useFormik({
+  const { handleSubmit, handleChange, handleBlur, errors, touched } = useFormik(
+    {
       initialValues: {
         roleName: "",
       },
@@ -27,8 +27,9 @@ export default function AdminAddRole() {
         );
         navigate("/adminrolelist");
       },
-      validationSchema,
-    });
+      // validationSchema,
+    }
+  );
   return (
     <Grid
       h="900px"

@@ -1,4 +1,4 @@
-import { Heading } from "@chakra-ui/react";
+import { Heading, Image } from "@chakra-ui/react";
 import { Box, Container } from "@mui/material";
 import { render } from "@testing-library/react";
 import React from "react";
@@ -29,13 +29,13 @@ export default function SimpleSlider() {
       <Slider {...settings}>
         {travelWritings.data?.map((travel) => (
           <>
-            <img
+            <Image
               onClick={() =>
                 navigate(`/travelwritings/${travel.travelWritingId}`)
               }
               style={{ width: 1520, height: 350 }}
               src={`${travel.travelImage}`}
-            ></img>
+            ></Image>
           </>
         ))}
         <link

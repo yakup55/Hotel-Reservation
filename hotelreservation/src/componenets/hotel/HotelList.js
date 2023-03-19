@@ -1,5 +1,5 @@
 import { Grid, GridItem, SimpleGrid } from "@chakra-ui/react";
-import { Box, Pagination } from "@mui/material";
+import { Box, Container, Pagination } from "@mui/material";
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -67,6 +67,7 @@ export default function HotelList() {
             onChange={handleChange}
             color="secondary"
           />
+         
         </GridItem>
       </Grid>
     </>

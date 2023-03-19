@@ -10,9 +10,9 @@ export default function PopularCity() {
   const dispacth = useDispatch();
   useEffect(() => {
     dispacth(popularCity());
-  }, []);
+  }, [dispacth]);
   return (
-    <div style={{ marginLeft: 0, marginTop: 10 }}>
+    <>
       <Typography variant="h5" fontStyle={"italic"}>
         Çok Tercih Edilen Yerler
       </Typography>
@@ -38,6 +38,6 @@ export default function PopularCity() {
           </Grid>
         </Grid>
       </Box>
-    </div>
+    </>
   );
 }

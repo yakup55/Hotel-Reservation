@@ -14,7 +14,7 @@ export default function HotelHome() {
 
   useEffect(() => dispacth(lastHotelList()), []);
   return (
-    <div>
+    <>
       <Typography mt={5} mb={3} variant="h5" fontStyle={"italic"}>
         Bu Fiyata Kaçmaz
       </Typography>
@@ -40,6 +40,6 @@ export default function HotelHome() {
           </Grid>
         </Grid>
       </Box>
-    </div>
+    </>
   );
 }

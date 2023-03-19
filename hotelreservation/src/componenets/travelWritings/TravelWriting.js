@@ -24,40 +24,39 @@ export default function TravelWriting({ travelWriting }) {
   const { user } = useSelector((state) => state.user);
   useEffect(() => {
     dispacth(getByUser(travelWriting.userId));
-  }, []);
-  console.log(user.userName);
+  }, [dispacth, travelWriting.userId]);
   return (
     <>
-     {travelWriting.travelStatus===true&&(
+      {travelWriting.travelStatus === true && (
         <Box sx={{ mt: 2, flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-        <Grid container spacing={1}>
-          <Grid container item spacing={3}>
-            <Grid item xs={3}>
-              <Card maxW="md">
-                <Image
-                  sx={{ height: 250 }}
-                  objectFit="cover"
-                  src={`${travelWriting?.travelImage}`}
-                  alt="Chakra UI"
-                  onClick={() =>
-                    navigate(
-                      `/travelwritings/${travelWriting.travelWritingId}`
-                    )
-                  }
-                />
-                <CardBody>
-                  <Heading fontSize={17}>{travelWriting?.travelName}</Heading>
-                </CardBody>
-                <CardFooter
-                  justify="space-between"
-                  flexWrap="wrap"
-                  sx={{
-                    "& > button": {
-                      minW: "136px",
-                    },
-                  }}
-                >
-                  {/* <Button flex='1' variant='ghost' leftIcon={<BiLike />}>
+          <Grid container spacing={1}>
+            <Grid container item spacing={3}>
+              <Grid item xs={3}>
+                <Card maxW="md">
+                  <Image
+                    sx={{ height: 250 }}
+                    objectFit="cover"
+                    src={`${travelWriting?.travelImage}`}
+                    alt="Chakra UI"
+                    onClick={() =>
+                      navigate(
+                        `/travelwritings/${travelWriting.travelWritingId}`
+                      )
+                    }
+                  />
+                  <CardBody>
+                    <Heading fontSize={17}>{travelWriting?.travelName}</Heading>
+                  </CardBody>
+                  <CardFooter
+                    justify="space-between"
+                    flexWrap="wrap"
+                    sx={{
+                      "& > button": {
+                        minW: "136px",
+                      },
+                    }}
+                  >
+                    {/* <Button flex='1' variant='ghost' leftIcon={<BiLike />}>
       Like
     </Button>
     <Button flex='1' variant='ghost' leftIcon={<BiChat />}>
@@ -66,93 +65,97 @@ export default function TravelWriting({ travelWriting }) {
     <Button flex='1' variant='ghost' leftIcon={<BiShare />}>
       Share
     </Button> */}
-                </CardFooter>
-                <Flex>
-                  <Avatar
-                    sx={{ width: 60, height: 60 }}
-                    src={`${user.data?.image}`}
-                  />
-                  <Box ml="4">
-                    <Typography fontWeight="bold">
-                      {user.data?.userName}
-                    </Typography>
-                    <Chip
-                      label={travelWriting.travelDateTime.substring(0, 10)}
-                      color="success"
-                      variant="outlined"
+                  </CardFooter>
+                  <Flex>
+                    <Avatar
+                      sx={{ width: 60, height: 60 }}
+                      src={`${user.data?.image}`}
                     />
-                  </Box>
-                </Flex>
-              </Card>
+                    <Box ml="4">
+                      <Typography fontWeight="bold">
+                        {user.data?.userName}
+                      </Typography>
+                      <Chip
+                        label={travelWriting.travelDateTime.substring(0, 10)}
+                        color="success"
+                        variant="outlined"
+                      />
+                    </Box>
+                  </Flex>
+                </Card>
+              </Grid>
             </Grid>
           </Grid>
-        </Grid>
-      </Box>
-    )}
-     {travelWriting.travelStatus===true&&(
-        <Box
-        sx={{ ml: 5, mt: 2, flexGrow: 1, display: { xs: "flex", md: "none" } }}
-      >
-        <Grid container spacing={1}>
-          <Grid container item spacing={3}>
-            <Grid item xs={6}>
-              <Card maxW="md">
-                <Image
-                  sx={{ height: 250, width: 200 }}
-                  objectFit="cover"
-                  src={`${travelWriting?.travelImage}`}
-                  alt="Chakra UI"
-                  onClick={() =>
-                    navigate(
-                      `/travelwritings/${travelWriting.travelWritingId}`
-                    )
-                  }
-                />
-                <CardBody>
-                  <Heading fontSize={17}>{travelWriting?.travelName}</Heading>
-                </CardBody>
-                <CardFooter
-                  justify="space-between"
-                  flexWrap="wrap"
-                  sx={{
-                    "& > button": {
-                      minW: "136px",
-                    },
-                  }}
-                >
-                  {/* <Button flex='1' variant='ghost' leftIcon={<BiLike />}>
-      Like
-    </Button>
-    <Button flex='1' variant='ghost' leftIcon={<BiChat />}>
-      Comment
-    </Button>
-    <Button flex='1' variant='ghost' leftIcon={<BiShare />}>
-      Share
-    </Button> */}
-                </CardFooter>
-                <Flex>
-                  <Avatar
-                    sx={{ width: 60, height: 60 }}
-                    src={`${user.data?.image}`}
-                  />
-                  <Box ml="4">
-                    <Typography fontWeight="bold">
-                      {user.data?.userName}
-                    </Typography>
-                    <Chip
-                      label={travelWriting.travelDateTime?.substring(0, 10)}
-                      color="success"
-                      variant="outlined"
-                    />
-                  </Box>
-                </Flex>
-              </Card>
-            </Grid>
-          </Grid>
-        </Grid>
-      </Box>
+        </Box>
       )}
-    
+      {travelWriting.travelStatus === true && (
+        <Box
+          sx={{
+            ml: 5,
+            mt: 2,
+            flexGrow: 1,
+            display: { xs: "flex", md: "none" },
+          }}
+        >
+          <Grid container spacing={1}>
+            <Grid container item spacing={3}>
+              <Grid item xs={6}>
+                <Card maxW="md">
+                  <Image
+                    sx={{ height: 250, width: 200 }}
+                    objectFit="cover"
+                    src={`${travelWriting?.travelImage}`}
+                    alt="Chakra UI"
+                    onClick={() =>
+                      navigate(
+                        `/travelwritings/${travelWriting.travelWritingId}`
+                      )
+                    }
+                  />
+                  <CardBody>
+                    <Heading fontSize={17}>{travelWriting?.travelName}</Heading>
+                  </CardBody>
+                  <CardFooter
+                    justify="space-between"
+                    flexWrap="wrap"
+                    sx={{
+                      "& > button": {
+                        minW: "136px",
+                      },
+                    }}
+                  >
+                    {/* <Button flex='1' variant='ghost' leftIcon={<BiLike />}>
+      Like
+    </Button>
+    <Button flex='1' variant='ghost' leftIcon={<BiChat />}>
+      Comment
+    </Button>
+    <Button flex='1' variant='ghost' leftIcon={<BiShare />}>
+      Share
+    </Button> */}
+                  </CardFooter>
+                  <Flex>
+                    <Avatar
+                      sx={{ width: 60, height: 60 }}
+                      src={`${user.data?.image}`}
+                    />
+                    <Box ml="4">
+                      <Typography fontWeight="bold">
+                        {user.data?.userName}
+                      </Typography>
+                      <Chip
+                        label={travelWriting.travelDateTime?.substring(0, 10)}
+                        color="success"
+                        variant="outlined"
+                      />
+                    </Box>
+                  </Flex>
+                </Card>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Box>
+      )}
     </>
   );
 }

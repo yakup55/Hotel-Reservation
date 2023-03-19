@@ -67,6 +67,9 @@ import TravelContentList from "./componenets/travelContent/TravelContentList";
 import UserAddTravelWritings from "./componenets/user/UserAddTravelWritings";
 import TravelWritingsUserList from "./componenets/user/TravelWritingsUserList";
 import TravelContentUserList from "./componenets/user/TravelContentUserList";
+import TravelWritingList from "./componenets/travelWritings/TravelWritingList";
+import UserTravelWritingUpdate from "./componenets/user/UserTravelWritingUpdate";
+import UserTravelContentUpdate from "./componenets/user/UserTravelContentUpdate";
 export default function Paths() {
   return (
     <Routes>
@@ -128,7 +131,18 @@ export default function Paths() {
         path="/travelwritings/:id"
         element={<TravelContentList></TravelContentList>}
       ></Route>
-
+      <Route
+        path="/travelwritingslist"
+        element={<TravelWritingList></TravelWritingList>}
+      ></Route>
+      <Route
+        path="/usertravelwritingupdate/:email/:id"
+        element={<UserTravelWritingUpdate></UserTravelWritingUpdate>}
+      ></Route>
+      <Route
+        path="/usertravelcontentupdate/:email/:id"
+        element={<UserTravelContentUpdate></UserTravelContentUpdate>}
+      ></Route>
       {/*ADMİN*/}
       <Route path="/admin" element={<AdminHome></AdminHome>}></Route>
       <Route path="/adminhome" element={<AdminHome2></AdminHome2>}></Route>

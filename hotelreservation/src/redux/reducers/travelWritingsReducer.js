@@ -8,6 +8,8 @@ import {
   GET_BY_TRAVEL_WRITINGS,
   GET_TRAVEL_WRITINGS_LIST,
   TRAVEL_WRITINGS_USER_LIST,
+  TRAVEL_WRITINHS_ACTIVE,
+  TRAVEL_WRITINHS_PASSIVE,
   UPDATE_TRAVEL_WRITINGS,
 } from "../../redux/actions/travelWritingsActions";
 const initialvales = {
@@ -51,11 +53,21 @@ export default function travelWritingsReducer(
           payload,
         ],
       };
-  case TRAVEL_WRITINGS_USER_LIST:
-    return{
-      ...state,
-      travelWritings:payload
-    }
+    case TRAVEL_WRITINGS_USER_LIST:
+      return {
+        ...state,
+        travelWritings: payload,
+      };
+    case TRAVEL_WRITINHS_ACTIVE:
+      return {
+        ...state,
+        travelWriting: payload,
+      };
+    case TRAVEL_WRITINHS_PASSIVE:
+      return {
+        ...state,
+        travelWriting: payload,
+      };
     default:
       return {
         ...state,

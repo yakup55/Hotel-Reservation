@@ -4,17 +4,13 @@ import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getByTravelWritings } from "../../redux/actions/travelWritingsActions";
-import { getByUser } from "../../redux/actions/userActions";
 
 export default function TravelContent({ travelContent }) {
-  const { user } = useSelector((state) => state.user);
   const { travelWriting } = useSelector((state) => state.travelWriting);
   const dispacth = useDispatch();
   useEffect(() => {
     dispacth(getByTravelWritings(travelContent?.travelWritingId));
-    dispacth(getByUser(travelWriting.data?.userId));
   }, [dispacth, travelContent?.travelWritingId, travelWriting.data?.userId]);
-  console.log(user);
   return (
     <SimpleGrid columns={1} spacing={1}>
       <Container>

@@ -106,7 +106,9 @@ export default function TravelContentUserList() {
                     <TableCell>
                       <Button
                         onClick={() =>
-                          handleTrawelContentDeleted(travel.travelWritingId)
+                          navigate(
+                            `/usertravelcontentupdate/${email}/${travel.travelContentId}`
+                          )
                         }
                         variant="contained"
                         color="success"
@@ -117,7 +119,7 @@ export default function TravelContentUserList() {
                     <TableCell>
                       <Button
                         onClick={() =>
-                          handleTrawelContentDeleted(travel.travelWritingId)
+                          handleTrawelContentDeleted(travel.travelContentId)
                         }
                         variant="contained"
                         color="error"
