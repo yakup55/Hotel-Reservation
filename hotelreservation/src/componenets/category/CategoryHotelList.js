@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { hotelCategoryList } from "../../redux/actions/hotelActions";
+import Footer from "../footer/Footer";
 import Hotel from "../hotel/Hotel";
 import HotelNavList from "../hotel/HotelNavList";
 import Search from "../search/Search";
@@ -27,7 +28,8 @@ export default function CategoryHotelList() {
     dispacth(hotelCategoryList(id));
   }, [dispacth, id]);
   return (
-    <Grid
+    <>
+     <Grid
       h="1000"
       templateRows="repeat(2, 1fr)"
       templateColumns="repeat(5, 1fr)"
@@ -67,5 +69,10 @@ export default function CategoryHotelList() {
         />
       </GridItem>
     </Grid>
+    <div style={{ marginTop: 1300 }}>
+        <Footer></Footer>
+      </div>
+    </>
+   
   );
 }

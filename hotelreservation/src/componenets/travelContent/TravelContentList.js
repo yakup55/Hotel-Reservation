@@ -1,30 +1,25 @@
 import { Box, Flex, Heading, Image, SimpleGrid } from "@chakra-ui/react";
-import { Avatar, Chip, Link, Pagination, Typography } from "@mui/material";
 import React from "react";
 import { useEffect } from "react";
-import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import TravelContent from "./TravelContent";
 import { travelWritingsContentList } from "../../redux/actions/travelContentActions";
 import { useParams } from "react-router-dom";
 import { getByTravelWritings } from "../../redux/actions/travelWritingsActions";
-import { getByUser } from "../../redux/actions/userActions";
 import { Container } from "@mui/system";
-import NavigationIcon from "@mui/icons-material/Navigation";
 import Footer from "../footer/Footer";
-import ScrollToTop from "../scrolToTop/ScrollToTop";
+import Share from "../share/Share";
+import { Typography } from "@mui/material";
 export default function TravelContentList() {
   const { id } = useParams();
   const dispacth = useDispatch();
   const { travelContents } = useSelector((state) => state.travelContent);
 
   const { travelWriting } = useSelector((state) => state.travelWriting);
-  const { user } = useSelector((state) => state.user);
   useEffect(() => {
     dispacth(travelWritingsContentList(id));
     dispacth(getByTravelWritings(id));
-    // dispacth(getByUser(travelWriting.data?.userId));
-  }, [dispacth, id, travelWriting.data?.userId]);
+  }, [dispacth, id]);
   return (
     <>
       <SimpleGrid columns={1} spacing={10}>
@@ -36,7 +31,10 @@ export default function TravelContentList() {
         </Box>
         <Container>
           <Box bg="white" mt={180} height="80px">
-            <Heading>{travelWriting.data?.travelName}</Heading>
+            <Heading>
+              {travelWriting.data?.travelName} <Share></Share>
+            </Heading>
+
             <Flex sx={{ ml: 10 }}>
               {/* <Avatar
                 sx={{ width: 60, height: 60 }}
@@ -66,6 +64,7 @@ export default function TravelContentList() {
           </Box>
         ))}
       </SimpleGrid>
+
       <div style={{ marginTop: 300 }}>
         <Footer></Footer>
       </div>

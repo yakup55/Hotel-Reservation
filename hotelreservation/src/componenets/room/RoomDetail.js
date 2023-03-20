@@ -1,8 +1,12 @@
-import { Box, Grid, GridItem, Heading, SimpleGrid } from "@chakra-ui/react";
 import {
-  Button,
-  Chip,
-  FormControl,
+  Box,
+  Grid,
+  GridItem,
+  Heading,
+  Image,
+  SimpleGrid,
+} from "@chakra-ui/react";
+import {
   Table,
   TableBody,
   TableCell,
@@ -21,26 +25,30 @@ import HotelFacility from "../facility/HotelFacility";
 import RoomImageList from "./RoomImageList";
 import DoneAllIcon from "@mui/icons-material/DoneAll";
 import ReservationInquire from "../reservation/ReservationInquire";
+import Share from "../share/Share";
+import Footer from "../footer/Footer";
 export default function RoomDetail() {
   const { id } = useParams();
   const dispacth = useDispatch();
   const { room } = useSelector((state) => state.room);
   useEffect(() => {
     dispacth(roomOneDetail(id));
-  }, []);
+  }, [dispacth, id]);
   console.log(room.data?.hotel.hotelId);
   return (
-    <Grid
+    <>
+     <Grid
       h="600px"
       templateRows="repeat(2, 1fr)"
       templateColumns="repeat(5, 1fr)"
       gap={4}
     >
       <GridItem rowSpan={2} colSpan={1}>
-        <img
+        <Image
           style={{ width: 350, height: 300 }}
           src={`${room.data?.roomImage}`}
-        ></img>
+        ></Image>
+        <Share></Share>
         <PopularCommentList></PopularCommentList>
         <HotelFacility></HotelFacility>
         <Contact></Contact>
@@ -50,7 +58,7 @@ export default function RoomDetail() {
       </GridItem>
       <GridItem colSpan={4}>
         <Heading>Oda Özellikleri</Heading>
-          <TableContainer>
+        <TableContainer>
           <Table>
             <TableBody>
               <TableRow sx={{ backgroundColor: "black", color: "white" }}>
@@ -137,8 +145,13 @@ export default function RoomDetail() {
             </Typography>
           </Box>
         </SimpleGrid>
-      
       </GridItem>
     </Grid>
+    <div style={{marginTop:600}}>
+       <Footer></Footer>
+    </div>
+   
+    </>
+   
   );
 }

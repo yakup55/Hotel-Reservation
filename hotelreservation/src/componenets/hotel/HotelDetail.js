@@ -47,6 +47,7 @@ import Questions from "../questions/Questions";
 import Contact from "../contact/Contact";
 import HotelFacility from "../facility/HotelFacility";
 import Footer from "../footer/Footer";
+import Share from "../share/Share";
 
 export default function HotelDetail() {
   const { id } = useParams();
@@ -55,73 +56,72 @@ export default function HotelDetail() {
   const dispacth = useDispatch();
   useEffect(() => {
     dispacth(hotelOneDetail(id));
-   
   }, []);
 
   return (
     <>
       <Box>
-      <Grid
-        h="2000"
-        templateRows="repeat(2, 1fr)"
-        templateColumns="repeat(5, 1fr)"
-        gap={0}
-      >
-        <GridItem rowSpan={2} colSpan={1}>
-          <Heading>{hotel.data?.hotelName}</Heading>
-          <Typography variant="h6">{hotel.data?.hotelLocation}</Typography>
-          <img
-            style={{ marginLeft: 20 ,width:350,height:350}}
-            src={`${hotel.data?.hotelImage}`}
-          ></img>
-          <Stack direction="row" spacing={1}>
-            <Chip
-              sx={{ ml: 12, fontSize: 15, fontStyle: "italic" }}
-              label={`${hotel.data?.degre.degreName}-${hotel.data?.degre.degreValue}`}
-              color="primary"
-            />
-            <Chip label={`${comments.data?.length} Yorum`} color="success" />
-          </Stack>
-
-          <CommentHotelList></CommentHotelList>
-          <AspectRatio sx={{ ml: 2, mt: 5 }} ratio={16 / 9}>
-            <iframe
-              src={`${hotel.data?.hotelDetails?.map(
-                (detail) => detail.hotelMap
-              )}`}
-            />
-          </AspectRatio>
-          <Chip
-            style={{ marginTop: 10 }}
-            avatar={
-              <Avatar
-                alt={hotel.data?.category.categoryName}
-                src={hotel.data?.category.categoryImage}
+        <Grid
+          h="2000"
+          templateRows="repeat(2, 1fr)"
+          templateColumns="repeat(5, 1fr)"
+          gap={0}
+        >
+          <GridItem rowSpan={2} colSpan={1}>
+            <Heading>{hotel.data?.hotelName}</Heading>
+            <Typography variant="h6">{hotel.data?.hotelLocation}</Typography>
+            <img
+              style={{ marginLeft: 20, width: 350, height: 350 }}
+              src={`${hotel.data?.hotelImage}`}
+            ></img>
+            <Stack direction="row" spacing={1}>
+              <Chip
+                sx={{ ml: 8, fontSize: 15, fontStyle: "italic" }}
+                label={`${hotel.data?.degre.degreName}-${hotel.data?.degre.degreValue}`}
+                color="primary"
               />
-            }
-            label={hotel.data?.category.categoryName}
-          />
+              <Chip label={`${comments.data?.length} Yorum`} color="success" />
+              <Share></Share>
+            </Stack>
 
-          <Questions></Questions>
+            <CommentHotelList></CommentHotelList>
+            <AspectRatio sx={{ ml: 2, mt: 5 }} ratio={16 / 9}>
+              <iframe
+                src={`${hotel.data?.hotelDetails?.map(
+                  (detail) => detail.hotelMap
+                )}`}
+              />
+            </AspectRatio>
+            <Chip
+              style={{ marginTop: 10 }}
+              avatar={
+                <Avatar
+                  alt={hotel.data?.category.categoryName}
+                  src={hotel.data?.category.categoryImage}
+                />
+              }
+              label={hotel.data?.category.categoryName}
+            />
+            <Questions></Questions>
 
-          <HotelFacility></HotelFacility>
-          <Contact></Contact>
-        </GridItem>
-        {/* Image List  */}
-        <GridItem sx={{ width: 900 }} colSpan={4}>
-          <HotelImageList></HotelImageList>
-        </GridItem>
+            <HotelFacility></HotelFacility>
+            <Contact></Contact>
+          </GridItem>
+          {/* Image List  */}
+          <GridItem sx={{ width: 900 }} colSpan={4}>
+            <HotelImageList></HotelImageList>
+          </GridItem>
 
-        <GridItem colSpan={4}>
-          <RoomHotelList></RoomHotelList>
-        </GridItem>
-        <GridItem colSpan={4}>
-          <CommentAdd></CommentAdd>
-        </GridItem>
-      </Grid>
-    </Box>
-        <Footer></Footer>
+          <GridItem colSpan={4}>
+            <RoomHotelList></RoomHotelList>
+          </GridItem>
+          <GridItem colSpan={4}>
+            <CommentAdd></CommentAdd>
+          </GridItem>
+        </Grid>
+      </Box>
+      <div style={{marginTop:250}}></div>
+      <Footer></Footer>
     </>
-  
   );
 }

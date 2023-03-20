@@ -3,18 +3,12 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
-import BuildIcon from "@mui/icons-material/Build";
 import ImportContactsIcon from "@mui/icons-material/ImportContacts";
-import EditIcon from "@mui/icons-material/Edit";
-import CreateIcon from "@mui/icons-material/Create";
-import { Grid, GridItem } from "@chakra-ui/react";
+import { Grid, GridItem, Image } from "@chakra-ui/react";
 import {
   Button,
   Container,
   Pagination,
-  SpeedDial,
-  SpeedDialAction,
-  SpeedDialIcon,
   Table,
   TableBody,
   TableCell,
@@ -43,7 +37,6 @@ export default function AdminTravelContentList() {
   useEffect(() => {
     dispacth(getTravelContentList());
   }, [dispacth]);
-  const actions = [{ icon: <CreateIcon></CreateIcon>, name: "Create" }];
 
   const { travelContents } = useSelector((state) => state.travelContent);
   const [number, setNumber] = useState(1); // No of pages
@@ -84,7 +77,6 @@ export default function AdminTravelContentList() {
                   <TableCell style={{ color: "white" }}>
                     Travel Writing Id
                   </TableCell>
-                  <TableCell style={{ color: "white" }}>Update</TableCell>
                   <TableCell style={{ color: "white" }}>Detay</TableCell>
                   <TableCell style={{ color: "white" }}>Delete</TableCell>
                 </TableRow>
@@ -94,30 +86,19 @@ export default function AdminTravelContentList() {
                     <TableCell>{travelContent.contentName}</TableCell>
                     <TableCell>{travelContent.contentDescription}</TableCell>
                     <TableCell>
-                      <img
+                      <Image
                         style={{ width: 200, height: 150 }}
                         src={`${travelContent.contentImage}`}
-                      ></img>
+                      ></Image>
                     </TableCell>
                     <TableCell>{travelContent.travelWritingId}</TableCell>
-
-                    <TableCell>
-                      <Button
-                        onClick={() =>
-                          navigate(
-                            `/adminupdatetravelcontent/${travelContent.travelContentId}`
-                          )
-                        }
-                        startIcon={<BuildIcon></BuildIcon>}
-                        variant="contained"
-                        color="success"
-                      ></Button>
-                    </TableCell>
                     <TableCell>
                       <Button
                         startIcon={<ImportContactsIcon></ImportContactsIcon>}
                         onClick={() =>
-                          navigate(`/roomdetail/${travelContent.roomId}`)
+                          navigate(
+                            `/travelwritings/${travelContent.travelWritingId}`
+                          )
                         }
                         variant="contained"
                         color="secondary"
@@ -141,26 +122,13 @@ export default function AdminTravelContentList() {
             </TableBody>
           </TableContainer>
           <Pagination
+          sx={{mb:4}}
             count={PageCount}
             onChange={handleChange}
             color="secondary"
           />
         </Container>
       </GridItem>
-      <SpeedDial
-        ariaLabel="SpeedDial openIcon example"
-        sx={{ position: "absolute", top: 650, right: 16 }}
-        icon={<SpeedDialIcon openIcon={<EditIcon />} />}
-      >
-        {actions.map((action) => (
-          <SpeedDialAction
-            onClick={() => navigate("/adminaddtravelcontent")}
-            key={action.name}
-            icon={action.icon}
-            tooltipTitle={action.name}
-          />
-        ))}
-      </SpeedDial>
     </Grid>
   );
 }

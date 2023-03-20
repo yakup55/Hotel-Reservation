@@ -3,18 +3,12 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
-import BuildIcon from "@mui/icons-material/Build";
 import ImportContactsIcon from "@mui/icons-material/ImportContacts";
-import EditIcon from "@mui/icons-material/Edit";
-import CreateIcon from "@mui/icons-material/Create";
 import { Grid, GridItem, Image } from "@chakra-ui/react";
 import {
   Button,
   Container,
   Pagination,
-  SpeedDial,
-  SpeedDialAction,
-  SpeedDialIcon,
   Table,
   TableBody,
   TableCell,
@@ -47,10 +41,9 @@ export default function AdminTravelWritingsList() {
   useEffect(() => {
     dispacth(getTravelWritingsList());
   }, [dispacth]);
-  const actions = [{ icon: <CreateIcon></CreateIcon>, name: "Create" }];
   const { travelWritings } = useSelector((state) => state.travelWriting);
   const [number, setNumber] = useState(1); // No of pages
-  const [postPerPage] = useState(5);
+  const [postPerPage] = useState(4);
   const lastPost = number * postPerPage;
   const firstPost = lastPost - postPerPage;
   const currentPost = travelWritings.data?.slice(firstPost, lastPost);
@@ -76,7 +69,7 @@ export default function AdminTravelWritingsList() {
       </div>
 
       <GridItem colSpan={4}>
-        <Container style={{ marginTop: 10 }}>
+        <Container maxWidth="xl" style={{ marginTop: 10 }}>
           <TableContainer>
             <TableBody>
               <Table>
@@ -90,7 +83,6 @@ export default function AdminTravelWritingsList() {
                   <TableCell style={{ color: "white" }}>User Id</TableCell>
                   <TableCell style={{ color: "white" }}>Active</TableCell>
                   <TableCell style={{ color: "white" }}>Passive</TableCell>
-                  <TableCell style={{ color: "white" }}>Update</TableCell>
                   <TableCell style={{ color: "white" }}>Detay</TableCell>
                   <TableCell style={{ color: "white" }}>Delete</TableCell>
                 </TableRow>
@@ -99,7 +91,7 @@ export default function AdminTravelWritingsList() {
                     <TableCell>{travelWriting.travelWritingId}</TableCell>
                     <TableCell>{travelWriting.travelName}</TableCell>
                     <TableCell>
-                      {travelWriting.travelMessage.substring(0, 100)}...
+                      {travelWriting.travelMessage.substring(0, 170)}...
                     </TableCell>
                     <TableCell>
                       <Image
@@ -148,19 +140,6 @@ export default function AdminTravelWritingsList() {
                       <Button
                         onClick={() =>
                           navigate(
-                            `/adminupdatetravelwritings/${travelWriting.travelWritingId}`
-                          )
-                        }
-                        variant="contained"
-                        color="success"
-                      >
-                        <BuildIcon></BuildIcon>
-                      </Button>
-                    </TableCell>
-                    <TableCell>
-                      <Button
-                        onClick={() =>
-                          navigate(
                             `/travelwritings/${travelWriting.travelWritingId}`
                           )
                         }
@@ -189,26 +168,13 @@ export default function AdminTravelWritingsList() {
             </TableBody>
           </TableContainer>
           <Pagination
+            sx={{ mb: 4 }}
             count={PageCount}
             onChange={handleChange}
             color="secondary"
           />
         </Container>
       </GridItem>
-      <SpeedDial
-        ariaLabel="SpeedDial openIcon example"
-        sx={{ position: "absolute", top: 650, right: 16 }}
-        icon={<SpeedDialIcon openIcon={<EditIcon />} />}
-      >
-        {actions.map((action) => (
-          <SpeedDialAction
-            onClick={() => navigate("/adminaddtravelwritings")}
-            key={action.name}
-            icon={action.icon}
-            tooltipTitle={action.name}
-          />
-        ))}
-      </SpeedDial>
     </Grid>
   );
 }

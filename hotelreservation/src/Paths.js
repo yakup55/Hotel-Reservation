@@ -58,10 +58,6 @@ import UserUpdateProfile from "./componenets/user/UserUpdateProfile";
 import AdminHome2 from "./admin/home/AdminHome2";
 import AdminAddQuentions from "./admin/quentions/AdminAddQuentions";
 import AdminTravelWritingsList from "./admin/travelWritings/AdminTravelWritingsList";
-import AdminAddTravelWritings from "./admin/travelWritings/AdminAddTravelWritings";
-import AdminUpdateTravelWritings from "./admin/travelWritings/AdminUpdateTravelWritings";
-import AdminAddTravelContent from "./admin/travelContent/AdminAddTravelContent";
-import AdminUpdateTravelContent from "./admin/travelContent/AdminUpdateTravelContent";
 import AdminTravelContentList from "./admin/travelContent/AdminTravelContentList";
 import TravelContentList from "./componenets/travelContent/TravelContentList";
 import UserAddTravelWritings from "./componenets/user/UserAddTravelWritings";
@@ -328,26 +324,10 @@ export default function Paths() {
         path="/admintravelwritingslist"
         element={<AdminTravelWritingsList></AdminTravelWritingsList>}
       ></Route>
-      <Route
-        path="/adminaddtravelwritings"
-        element={<AdminAddTravelWritings></AdminAddTravelWritings>}
-      ></Route>
-      <Route
-        path="/adminupdatetravelwritings/:id"
-        element={<AdminUpdateTravelWritings></AdminUpdateTravelWritings>}
-      ></Route>
       {/*ADMİN TRAVEL CONTENT*/}
       <Route
         path="/admintravelcontentlist"
         element={<AdminTravelContentList></AdminTravelContentList>}
-      ></Route>
-      <Route
-        path="/adminaddtravelcontent"
-        element={<AdminAddTravelContent></AdminAddTravelContent>}
-      ></Route>
-      <Route
-        path="/adminupdatetravelcontent/:id"
-        element={<AdminUpdateTravelContent></AdminUpdateTravelContent>}
       ></Route>
       <Route path="*" element={<ErrorPage></ErrorPage>}></Route>
     </Routes>

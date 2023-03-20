@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getTravelWritingsList } from "../../redux/actions/travelWritingsActions";
+import { getByUser } from "../../redux/actions/userActions";
 import Footer from "../footer/Footer";
 import TravelWriting from "./TravelWriting";
 export default function TravelWritingList() {

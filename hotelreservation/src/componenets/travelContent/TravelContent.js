@@ -16,9 +16,12 @@ export default function TravelContent({ travelContent }) {
       <Container>
         <Box>
           <Heading>{travelContent.contentName}</Heading>
-          <Image sx={{width:1100,height:500}} src={`${travelContent.contentImage}`}></Image>
+          <Image
+            sx={{ width: 1100, height: 500 }}
+            src={`${travelContent.contentImage}`}
+          ></Image>
           <Typography mt={3} variant="h6" align={"center"}>
-            {travelContent.contentDescription?.substring(0,1210)}...
+            {travelContent.contentDescription?.substring(0, 1210)}...
           </Typography>
         </Box>
       </Container>
