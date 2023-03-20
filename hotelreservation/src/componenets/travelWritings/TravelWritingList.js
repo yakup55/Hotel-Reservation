@@ -6,12 +6,11 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getTravelWritingsList } from "../../redux/actions/travelWritingsActions";
 import Footer from "../footer/Footer";
-import TravelPopularWritingsSlider from "../slick/TravelPopularWritingsSlider";
 import TravelWriting from "./TravelWriting";
 export default function TravelWritingList() {
   const { travelWritings } = useSelector((state) => state.travelWriting);
   const [number, setNumber] = useState(1); // No of pages
-  const [postPerPage] = useState(8);
+  const [postPerPage] = useState(15);
   const lastPost = number * postPerPage;
   const firstPost = lastPost - postPerPage;
   const currentPost = travelWritings.data?.slice(firstPost, lastPost);
@@ -42,9 +41,10 @@ export default function TravelWritingList() {
       <Pagination
         sx={{ mt: 1 }}
         count={PageCount}
-        onClick={handleChange}
+        onChange={handleChange}
         color="secondary"
       />
+
       <Footer></Footer>
     </>
   );

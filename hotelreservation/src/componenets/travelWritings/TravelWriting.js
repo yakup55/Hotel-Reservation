@@ -17,13 +17,15 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { getByUser } from "../../redux/actions/userActions";
-
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import ChatIcon from '@mui/icons-material/Chat';
+import ShareIcon from '@mui/icons-material/Share';
 export default function TravelWriting({ travelWriting }) {
   const navigate = useNavigate();
   const dispacth = useDispatch();
   const { user } = useSelector((state) => state.user);
   useEffect(() => {
-    dispacth(getByUser(travelWriting.userId));
+    // dispacth(getByUser(travelWriting.userId));
   }, [dispacth, travelWriting.userId]);
   return (
     <>
@@ -43,7 +45,7 @@ export default function TravelWriting({ travelWriting }) {
                         `/travelwritings/${travelWriting.travelWritingId}`
                       )
                     }
-                  />
+                  ></Image>
                   <CardBody>
                     <Heading fontSize={17}>{travelWriting?.travelName}</Heading>
                   </CardBody>
@@ -56,26 +58,27 @@ export default function TravelWriting({ travelWriting }) {
                       },
                     }}
                   >
-                    {/* <Button flex='1' variant='ghost' leftIcon={<BiLike />}>
+                    <Button flex='1' variant='ghost' startIcon={<ThumbUpIcon></ThumbUpIcon>}>
       Like
     </Button>
-    <Button flex='1' variant='ghost' leftIcon={<BiChat />}>
+    <Button flex='1' variant='ghost' startIcon={<ChatIcon />}>
       Comment
     </Button>
-    <Button flex='1' variant='ghost' leftIcon={<BiShare />}>
+    <Button flex='1' variant='ghost' startIcon={<ShareIcon />}>
       Share
-    </Button> */}
+    </Button>
                   </CardFooter>
                   <Flex>
-                    <Avatar
+                    {/* <Avatar
                       sx={{ width: 60, height: 60 }}
                       src={`${user.data?.image}`}
-                    />
+                    /> */}
                     <Box ml="4">
-                      <Typography fontWeight="bold">
+                      {/* <Typography fontWeight="bold">
                         {user.data?.userName}
-                      </Typography>
+                      </Typography> */}
                       <Chip
+                      sx={{ml:15}}
                         label={travelWriting.travelDateTime.substring(0, 10)}
                         color="success"
                         variant="outlined"

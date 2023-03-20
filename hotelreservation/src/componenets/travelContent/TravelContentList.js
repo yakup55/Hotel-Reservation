@@ -12,6 +12,7 @@ import { getByUser } from "../../redux/actions/userActions";
 import { Container } from "@mui/system";
 import NavigationIcon from "@mui/icons-material/Navigation";
 import Footer from "../footer/Footer";
+import ScrollToTop from "../scrolToTop/ScrollToTop";
 export default function TravelContentList() {
   const { id } = useParams();
   const dispacth = useDispatch();
@@ -22,7 +23,7 @@ export default function TravelContentList() {
   useEffect(() => {
     dispacth(travelWritingsContentList(id));
     dispacth(getByTravelWritings(id));
-    dispacth(getByUser(travelWriting.data?.userId));
+    // dispacth(getByUser(travelWriting.data?.userId));
   }, [dispacth, id, travelWriting.data?.userId]);
   return (
     <>
@@ -37,21 +38,21 @@ export default function TravelContentList() {
           <Box bg="white" mt={180} height="80px">
             <Heading>{travelWriting.data?.travelName}</Heading>
             <Flex sx={{ ml: 10 }}>
-              <Avatar
+              {/* <Avatar
                 sx={{ width: 60, height: 60 }}
                 src={`${user.data?.image}`}
-              />
+              /> */}
               <Box ml="4">
-                <Typography fontWeight="bold">{user.data?.userName}</Typography>
-                <Chip
+                {/* <Typography fontWeight="bold">{user.data?.userName}</Typography> */}
+                {/* <Chip
                   label={travelWriting.data?.travelDateTime?.substring(0, 10)}
                   color="success"
                   variant="outlined"
-                />
+                /> */}
               </Box>
             </Flex>
             <Typography variant="h6" mt={2}>
-              {travelWriting.data?.travelMessage.substring(0, 600)}
+              {travelWriting.data?.travelMessage.substring(0, 800)}
             </Typography>
           </Box>
         </Container>
@@ -65,12 +66,9 @@ export default function TravelContentList() {
           </Box>
         ))}
       </SimpleGrid>
-      <Link href="#" underline="none">
-        <NavigationIcon
-          sx={{ height: 50, width: 50, ml: 180, mt: 20 }}
-        ></NavigationIcon>
-      </Link>
-      <Footer></Footer>
+      <div style={{ marginTop: 300 }}>
+        <Footer></Footer>
+      </div>
     </>
   );
 }

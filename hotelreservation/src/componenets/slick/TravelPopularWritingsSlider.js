@@ -21,14 +21,20 @@ export default function TravelPopularWritingsSlider() {
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
-    speed: 3000,
-    autoplaySpeed: 3000,
+    speed: 5000,
+    autoplaySpeed: 5000,
     cssEase: "linear",
   };
   return (
     <Container maxWidth="md">
       <Heading>Popüler Seyahat Yazıları</Heading>
-      <Heading bgColor={"red"} ml={700} onClick={()=>navigate("/travelwritingslist")}>Tümünü Gör</Heading>
+      <Heading
+        bgColor={"red"}
+        ml={700}
+        onClick={() => navigate("/travelwritingslist")}
+      >
+        Tümünü Gör
+      </Heading>
       <Slider {...settings}>
         {travelWritings.data?.map((travel) => (
           <TravelWriting
