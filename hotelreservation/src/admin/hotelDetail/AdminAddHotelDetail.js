@@ -159,6 +159,7 @@ dispacth(getHotelList())
             helperText={errors.image9 && touched.image9 ? errors.image9 : ""}
           ></TextField>
           <TextField
+          multiline
             fullWidth
             id="hotelMap"
             name="hotelMap"

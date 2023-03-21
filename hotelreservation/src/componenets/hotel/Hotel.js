@@ -17,7 +17,7 @@ export default function Hotel({ hotel }) {
   const dispacth = useDispatch();
   const navigate = useNavigate();
   return (
-    <div>
+    <>
       <Box
         sx={{ mt: 2, mb: 10, flexGrow: 1, display: { xs: "none", md: "flex" } }}
       >
@@ -59,7 +59,7 @@ export default function Hotel({ hotel }) {
           </Grid>
         </Grid>
       </Box>
-      <Box sx={{ mb: 20, flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+      <Box sx={{ mb: 30, flexGrow: 1, display: { xs: "flex", md: "none" } }}>
         <Grid container spacing={1}>
           <Grid container item spacing={3}>
             <Grid item xs={6}>
@@ -83,7 +83,7 @@ export default function Hotel({ hotel }) {
                   </Stack>
                 </CardBody>
                 <Divider />
-                <CardFooter>
+                {/* <CardFooter>
                   <Button
                     onClick={() => navigate(`/hotelonedetail/${hotel.hotelId}`)}
                     style={{ margin: "auto", display: "block" }}
@@ -92,12 +92,12 @@ export default function Hotel({ hotel }) {
                   >
                     seç
                   </Button>
-                </CardFooter>
+                </CardFooter> */}
               </Card>
             </Grid>
           </Grid>
         </Grid>
       </Box>
-    </div>
+    </>
   );
 }

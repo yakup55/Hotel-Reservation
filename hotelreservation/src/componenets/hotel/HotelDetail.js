@@ -56,7 +56,7 @@ export default function HotelDetail() {
   const dispacth = useDispatch();
   useEffect(() => {
     dispacth(hotelOneDetail(id));
-  }, []);
+  }, [dispacth,id]);
 
   return (
     <>
@@ -104,7 +104,7 @@ export default function HotelDetail() {
             />
             <Questions></Questions>
 
-            <HotelFacility></HotelFacility>
+            {/* <HotelFacility></HotelFacility> */}
             <Contact></Contact>
           </GridItem>
           {/* Image List  */}

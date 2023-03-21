@@ -12,7 +12,7 @@ import Footer from "../footer/Footer";
 export default function HotelList() {
   const { hotels } = useSelector((state) => state.hotel);
   const [number, setNumber] = useState(1); // No of pages
-  const [postPerPage] = useState(8);
+  const [postPerPage] = useState(16);
   const lastPost = number * postPerPage;
   const firstPost = lastPost - postPerPage;
   const currentPost = hotels.data?.slice(firstPost, lastPost);
@@ -56,7 +56,7 @@ export default function HotelList() {
           <Box sx={{ mt: 5, flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <SimpleGrid columns={2} spacingX="352" spacingY="450px">
               {currentPost?.map((hotel) => (
-                <Box bg="tomato" height="80px">
+                <Box bg="tomato" height="80x">
                   <Hotel key={hotel.hotelId} hotel={hotel}></Hotel>
                 </Box>
               ))}
@@ -70,7 +70,7 @@ export default function HotelList() {
           />
         </GridItem>
       </Grid>
-      <div style={{ marginTop: 1300 }}>
+      <div style={{ marginTop: 3450 }}>
         <Footer></Footer>
       </div>
     </>

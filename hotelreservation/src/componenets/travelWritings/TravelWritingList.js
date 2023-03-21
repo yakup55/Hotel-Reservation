@@ -11,7 +11,7 @@ import TravelWriting from "./TravelWriting";
 export default function TravelWritingList() {
   const { travelWritings } = useSelector((state) => state.travelWriting);
   const [number, setNumber] = useState(1); // No of pages
-  const [postPerPage] = useState(15);
+  const [postPerPage] = useState(18);
   const lastPost = number * postPerPage;
   const firstPost = lastPost - postPerPage;
   const currentPost = travelWritings.data?.slice(firstPost, lastPost);

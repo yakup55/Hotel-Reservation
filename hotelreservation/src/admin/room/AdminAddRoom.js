@@ -53,6 +53,7 @@ export default function AdminAddRoom() {
           <form onSubmit={handleSubmit}>
             <Stack spacing={3}>
               <TextField
+               multiline
                 id="roomName"
                 name="roomName"
                 label="Room Name"
@@ -65,6 +66,7 @@ export default function AdminAddRoom() {
                 }
               ></TextField>
               <TextField
+               multiline
                 id="roomImage"
                 name="roomImage"
                 label="Room Image"

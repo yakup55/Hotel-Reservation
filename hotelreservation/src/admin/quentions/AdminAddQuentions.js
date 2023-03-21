@@ -53,6 +53,7 @@ export default function AdminAddQuentions() {
           <form onSubmit={handleSubmit}>
             <Stack spacing={3}>
               <TextField
+               multiline
                 id="quentionsName"
                 name="quentionsName"
                 label="Quentions Name"
@@ -67,6 +68,7 @@ export default function AdminAddQuentions() {
                 }
               ></TextField>
               <TextField
+               multiline
                 id="quentionsMessage"
                 name="quentionsMessage"
                 label="Quentions Message"

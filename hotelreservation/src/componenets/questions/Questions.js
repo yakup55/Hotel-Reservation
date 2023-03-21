@@ -22,6 +22,7 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { hotelQuentions } from "../../redux/actions/quentionsActions";
 import { ExpandLess, ExpandMore, StarBorder } from "@mui/icons-material";
+import { getHotelDetailList } from "../../redux/actions/hotelDetailActions";
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
@@ -60,6 +61,7 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 
 export default function Questions() {
   const { quentions } = useSelector((state) => state.quention);
+  const {hotel}=useSelector((state)=>state.hotel)
   const [expanded, setExpanded] = React.useState("panel1");
   const dispacth = useDispatch();
   const handleChange = (panel) => (event, newExpanded) => {
@@ -67,15 +69,16 @@ export default function Questions() {
   };
   const { id } = useParams();
   useEffect(() => {
-    dispacth(hotelQuentions(id));
-  }, [dispacth,id]);
+    dispacth(getHotelDetailList(id))
+    dispacth(hotelQuentions(hotel.data?.hotelId));
+  }, [dispacth,id,hotel.data?.hotelId]);
 
   const [open, setOpen] = React.useState(true);
 
   const handleClick = () => {
     setOpen(!open);
   };
-
+console.log(hotel.data?.hotelId)
   return (
     <Container style={{ marginTop: 30 }}>
       <Typography fontStyle={"italic"} mb={2} variant="h5">

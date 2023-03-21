@@ -2,7 +2,6 @@ import {
   Card,
   CardBody,
   CardFooter,
-  CardHeader,
   Flex,
   Grid,
   Heading,
@@ -13,7 +12,6 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
-import ChatIcon from "@mui/icons-material/Chat";
 
 import { useState } from "react";
 import Share from "../share/Share";

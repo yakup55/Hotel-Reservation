@@ -10,9 +10,7 @@ import { Slider, Typography } from "@mui/material";
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  facilityHotel,
-} from "../../redux/actions/facilityActions";
+import { facilityHotel } from "../../redux/actions/facilityActions";
 export default function HotelFacility() {
   const { facilities } = useSelector((state) => state.facility);
   const { room } = useSelector((state) => state.room);
@@ -20,7 +18,6 @@ export default function HotelFacility() {
   useEffect(() => {
     dispacth(facilityHotel(room.data?.hotelId));
   }, [dispacth, room.data?.hotelId]);
-  console.log(room);
   return (
     <SimpleGrid
       spacing={4}

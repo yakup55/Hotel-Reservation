@@ -92,6 +92,7 @@ export default function AdminAddHotel() {
                 }
               ></TextField>
               <TextField
+               multiline
                 fullWidth
                 id="hotelImage"
                 name="hotelImage"

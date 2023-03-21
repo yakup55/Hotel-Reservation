@@ -6,8 +6,9 @@ import {
   Image,
   Stack,
 } from "@chakra-ui/react";
-import { Button, Typography } from "@mui/material";
+import { Button, Pagination, Typography } from "@mui/material";
 import React from "react";
+import { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
@@ -18,13 +19,21 @@ export default function RoomHotelList() {
   const { id } = useParams();
   const dispacth = useDispatch();
   const { rooms } = useSelector((state) => state.room);
+  const [number, setNumber] = useState(1); // No of pages
+  const [postPerPage] = useState(4);
+  const lastPost = number * postPerPage;
+  const firstPost = lastPost - postPerPage;
+  const currentPost = rooms.data?.slice(firstPost, lastPost);
+  const PageCount = Math.ceil(rooms.data?.length / postPerPage);
+  const handleChange = (event, value) => {
+    setNumber(value);
+  };
   useEffect(() => {
     dispacth(roomHotel(id));
   }, [dispacth, id]);
-  console.log(rooms.data?.length);
   return (
     <>
-      {rooms?.data?.map((detail) => (
+      {currentPost?.map((detail) => (
         <GridItem colSpan={4}>
           <Card
             ml={30}
@@ -65,6 +74,12 @@ export default function RoomHotelList() {
           </Card>
         </GridItem>
       ))}
+      <Pagination
+        sx={{ mt: 1 }}
+        count={PageCount}
+        onChange={handleChange}
+        color="secondary"
+      />
     </>
   );
 }

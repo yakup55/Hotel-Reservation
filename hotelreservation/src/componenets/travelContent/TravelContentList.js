@@ -50,7 +50,7 @@ export default function TravelContentList() {
               </Box>
             </Flex>
             <Typography variant="h6" mt={2}>
-              {travelWriting.data?.travelMessage.substring(0, 800)}
+              {travelWriting.data?.travelMessage.substring(0, 860)}
             </Typography>
           </Box>
         </Container>

@@ -39,7 +39,7 @@ export default function UserAddTravelWritings() {
             severity: "success",
           })
         );
-        navigate(`/addtravelwritings/${email}`);
+        // navigate(`/addtravelwritings/${email}`);
       },
       validationSchema,
     }
@@ -47,6 +47,7 @@ export default function UserAddTravelWritings() {
   useEffect(() => {
     dispacth(getByUserMail(email));
   }, [dispacth, email]);
+  console.log(user.data?.id);
   return (
     <>
       <Heading>Seyahat Yazılarınız Onaylandıktan Sonra Yayınlancaktır</Heading>
@@ -102,6 +103,9 @@ export default function UserAddTravelWritings() {
               <Button type="submit" variant="contained">
                 Seyahat Ekle
               </Button>
+              <Button type="reset" color="error" variant="contained">
+                Temizle
+              </Button>
             </Stack>
           </form>
           <Button
@@ -126,7 +130,7 @@ export default function UserAddTravelWritings() {
           </Collapse>
         </Container>
       </GridItem>
-      <div style={{ marginTop: 100 }}> 
+      <div style={{ marginTop: 100 }}>
         <Footer></Footer>
       </div>
     </>
