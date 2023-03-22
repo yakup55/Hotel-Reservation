@@ -1,5 +1,5 @@
-import { Grid, GridItem, SimpleGrid } from "@chakra-ui/react";
-import { Box, Pagination } from "@mui/material";
+import { Box, Grid, GridItem, SimpleGrid } from "@chakra-ui/react";
+import { Pagination } from "@mui/material";
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -40,28 +40,15 @@ export default function HotelList() {
           <HotelNavList></HotelNavList>
         </GridItem>
 
-        <GridItem colSpan={2}>
+        <GridItem colSpan={4}>
           <Search></Search>
-
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            <SimpleGrid columns={3} spacingX="400px" spacingY="450px">
-              {currentPost?.map((hotel) => (
-                <Box bg="tomato" height="80px">
-                  <Hotel key={hotel.hotelId} hotel={hotel}></Hotel>
-                </Box>
-              ))}
-            </SimpleGrid>
-          </Box>
-
-          <Box sx={{ mt: 5, flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-            <SimpleGrid columns={2} spacingX="352" spacingY="450px">
-              {currentPost?.map((hotel) => (
-                <Box bg="tomato" height="80x">
-                  <Hotel key={hotel.hotelId} hotel={hotel}></Hotel>
-                </Box>
-              ))}
-            </SimpleGrid>
-          </Box>
+          <SimpleGrid minChildWidth="340px">
+            {currentPost?.map((hotel) => (
+              <Box  height="50x">
+                <Hotel key={hotel.hotelId} hotel={hotel}></Hotel>
+              </Box>
+            ))}
+          </SimpleGrid>
           <Pagination
             sx={{ marginTop: 60 }}
             count={PageCount}

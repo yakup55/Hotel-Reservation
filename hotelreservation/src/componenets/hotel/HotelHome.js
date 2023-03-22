@@ -1,3 +1,4 @@
+import { SimpleGrid } from "@chakra-ui/react";
 import { Box, Container, Grid, Typography } from "@mui/material";
 import React from "react";
 import { useEffect } from "react";
@@ -18,28 +19,14 @@ export default function HotelHome() {
       <Typography mt={5} mb={3} variant="h5" fontStyle={"italic"}>
         Bu Fiyata Kaçmaz
       </Typography>
-      <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-        <Grid container spacing={1}>
-          <Grid container item spacing={3}>
-            {hotels.data?.map((hotel) => (
-              <Grid item xs={3}>
-                <Hotel key={hotel.hotelId} hotel={hotel}></Hotel>
-              </Grid>
-            ))}
-          </Grid>
-        </Grid>
-      </Box>
-      <Box sx={{ ml: 10, flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-        <Grid container spacing={1}>
-          <Grid container item spacing={3}>
-            {hotels.data?.map((hotel) => (
-              <Grid item xs={6}>
-                <Hotel key={hotel.hotelId} hotel={hotel}></Hotel>
-              </Grid>
-            ))}
-          </Grid>
-        </Grid>
-      </Box>
+
+      <SimpleGrid minChildWidth="400px">
+        {hotels.data?.map((hotel) => (
+          <Box height="500px">
+            <Hotel key={hotel.hotelId} hotel={hotel}></Hotel>
+          </Box>
+        ))}
+      </SimpleGrid>
     </>
   );
 }
