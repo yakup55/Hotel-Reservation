@@ -1,5 +1,6 @@
 import {
   AspectRatio,
+  Box,
   Card,
   CardBody,
   CardFooter,
@@ -15,7 +16,6 @@ import {
 } from "@chakra-ui/react";
 
 import {
-  Box,
   Button,
   Chip,
   CircularProgress,
@@ -56,7 +56,7 @@ export default function HotelDetail() {
   const dispacth = useDispatch();
   useEffect(() => {
     dispacth(hotelOneDetail(id));
-  }, [dispacth,id]);
+  }, [dispacth, id]);
 
   return (
     <>
@@ -115,12 +115,13 @@ export default function HotelDetail() {
           <GridItem colSpan={4}>
             <RoomHotelList></RoomHotelList>
           </GridItem>
+
           <GridItem colSpan={4}>
             <CommentAdd></CommentAdd>
           </GridItem>
         </Grid>
       </Box>
-      <div style={{marginTop:250}}></div>
+      <div style={{ marginTop: 250 }}></div>
       <Footer></Footer>
     </>
   );

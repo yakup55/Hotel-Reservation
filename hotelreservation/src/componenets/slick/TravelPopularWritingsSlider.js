@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Slider from "react-slick";
-import { getTravelWritingsList } from "../../redux/actions/travelWritingsActions";
+import { travelPopularList } from "../../redux/actions/travelWritingsActions";
 import TravelWriting from "../travelWritings/TravelWriting";
 
 export default function TravelPopularWritingsSlider() {
@@ -13,7 +13,7 @@ export default function TravelPopularWritingsSlider() {
   const dispacth = useDispatch();
   const { travelWritings } = useSelector((state) => state.travelWriting);
   useEffect(() => {
-    dispacth(getTravelWritingsList());
+    dispacth(travelPopularList());
   }, [dispacth]);
   const settings = {
     dots: true,

@@ -11,5 +11,6 @@ namespace CoreLayer.Repositories
     {
         Task<List<TravelContent>> TravelWritingsContentList(int id);
         Task<List<TravelContent>> TravelWritingsContentUserList(string userId,int id);
+        Task<List<TravelContent>> TravelContentLastList();
     }
 }

@@ -16,6 +16,11 @@ namespace RepositoryLayer.Repositories
         {
         }
 
+        public async Task<List<TravelWritings>> TravelPopularList()
+        {
+          return await context.TravelWritings.Where(x=>x.TravelWritingId==12||x.TravelWritingId==1||x.TravelWritingId==6||x.TravelWritingId==8||x.TravelWritingId==10||x.TravelWritingId==15).ToListAsync();
+        }
+
         public async Task<List<TravelWritings>> TravelWritingsUserList(string userId)
         {
             return await context.TravelWritings.Where(x => x.UserId == userId).ToListAsync();

@@ -37,89 +37,89 @@ export default function RoomDetail() {
   console.log(room.data?.hotel.hotelId);
   return (
     <>
-     <Grid
-      h="600px"
-      templateRows="repeat(2, 1fr)"
-      templateColumns="repeat(5, 1fr)"
-      gap={4}
-    >
-      <GridItem rowSpan={2} colSpan={1}>
-        <Image
-          style={{ width: 350, height: 300 }}
-          src={`${room.data?.roomImage}`}
-        ></Image>
-        <Share></Share>
-        <PopularCommentList></PopularCommentList>
-        <HotelFacility></HotelFacility>
-        <Contact></Contact>
-      </GridItem>
-      <GridItem colSpan={4}>
-        <RoomImageList></RoomImageList>
-      </GridItem>
-      <GridItem colSpan={4}>
-        <Heading>Oda Özellikleri</Heading>
-        <TableContainer>
-          <Table>
-            <TableBody>
-              <TableRow sx={{ backgroundColor: "black", color: "white" }}>
-                <TableCell style={{ color: "white" }}>Balkon</TableCell>
-                <TableCell style={{ color: "white" }}>Banyo</TableCell>
-                <TableCell style={{ color: "white" }}>Duş</TableCell>
-                <TableCell style={{ color: "white" }}>Duş</TableCell>
-                <TableCell style={{ color: "white" }}>Kurutma</TableCell>
-                <TableCell style={{ color: "white" }}>Kilima</TableCell>
-                <TableCell style={{ color: "white" }}>Bar</TableCell>
-                <TableCell style={{ color: "white" }}>Modem</TableCell>
-                <TableCell style={{ color: "white" }}>Kasası</TableCell>
-                <TableCell style={{ color: "white" }}>Servis</TableCell>
-                <TableCell style={{ color: "white" }}>Telefon</TableCell>
-                <TableCell style={{ color: "white" }}>Tv</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>
-                  <DoneAllIcon></DoneAllIcon>
-                </TableCell>
-                <TableCell>
-                  <DoneAllIcon></DoneAllIcon>
-                </TableCell>
-                <TableCell>
-                  <DoneAllIcon></DoneAllIcon>
-                </TableCell>
-                <TableCell>
-                  <DoneAllIcon></DoneAllIcon>
-                </TableCell>
-                <TableCell>
-                  <DoneAllIcon></DoneAllIcon>
-                </TableCell>
-                <TableCell>
-                  <DoneAllIcon></DoneAllIcon>
-                </TableCell>
-                <TableCell>
-                  <DoneAllIcon></DoneAllIcon>
-                </TableCell>
-                <TableCell>
-                  <DoneAllIcon></DoneAllIcon>
-                </TableCell>
-                <TableCell>
-                  <DoneAllIcon></DoneAllIcon>
-                </TableCell>
-                <TableCell>
-                  <DoneAllIcon></DoneAllIcon>
-                </TableCell>
-                <TableCell>
-                  <DoneAllIcon></DoneAllIcon>
-                </TableCell>
-                <TableCell>
-                  <DoneAllIcon></DoneAllIcon>
-                </TableCell>
-              </TableRow>
-            </TableBody>
-          </Table>
-        </TableContainer>
-        <ReservationInquire></ReservationInquire>
+      <Grid
+        h="600px"
+        templateRows="repeat(2, 1fr)"
+        templateColumns="repeat(5, 1fr)"
+        gap={4}
+      >
+        <GridItem rowSpan={2} colSpan={1}>
+          <Image
+            style={{ width: 350, height: 300 }}
+            src={`${room.data?.roomImage}`}
+          ></Image>
+          <Share></Share>
+          <PopularCommentList></PopularCommentList>
+          <HotelFacility></HotelFacility>
+          <Contact></Contact>
+        </GridItem>
+        <GridItem colSpan={4}>
+          <RoomImageList></RoomImageList>
+        </GridItem>
+        <GridItem colSpan={4}>
+          <Heading>Oda Özellikleri</Heading>
+          <TableContainer>
+            <Table>
+              <TableBody>
+                <TableRow sx={{ backgroundColor: "black", color: "white" }}>
+                  <TableCell style={{ color: "white" }}>Balkon</TableCell>
+                  <TableCell style={{ color: "white" }}>Banyo</TableCell>
+                  <TableCell style={{ color: "white" }}>Duş</TableCell>
+                  <TableCell style={{ color: "white" }}>Duş</TableCell>
+                  <TableCell style={{ color: "white" }}>Kurutma</TableCell>
+                  <TableCell style={{ color: "white" }}>Kilima</TableCell>
+                  <TableCell style={{ color: "white" }}>Bar</TableCell>
+                  <TableCell style={{ color: "white" }}>Modem</TableCell>
+                  <TableCell style={{ color: "white" }}>Kasası</TableCell>
+                  <TableCell style={{ color: "white" }}>Servis</TableCell>
+                  <TableCell style={{ color: "white" }}>Telefon</TableCell>
+                  <TableCell style={{ color: "white" }}>Tv</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>
+                    <DoneAllIcon></DoneAllIcon>
+                  </TableCell>
+                  <TableCell>
+                    <DoneAllIcon></DoneAllIcon>
+                  </TableCell>
+                  <TableCell>
+                    <DoneAllIcon></DoneAllIcon>
+                  </TableCell>
+                  <TableCell>
+                    <DoneAllIcon></DoneAllIcon>
+                  </TableCell>
+                  <TableCell>
+                    <DoneAllIcon></DoneAllIcon>
+                  </TableCell>
+                  <TableCell>
+                    <DoneAllIcon></DoneAllIcon>
+                  </TableCell>
+                  <TableCell>
+                    <DoneAllIcon></DoneAllIcon>
+                  </TableCell>
+                  <TableCell>
+                    <DoneAllIcon></DoneAllIcon>
+                  </TableCell>
+                  <TableCell>
+                    <DoneAllIcon></DoneAllIcon>
+                  </TableCell>
+                  <TableCell>
+                    <DoneAllIcon></DoneAllIcon>
+                  </TableCell>
+                  <TableCell>
+                    <DoneAllIcon></DoneAllIcon>
+                  </TableCell>
+                  <TableCell>
+                    <DoneAllIcon></DoneAllIcon>
+                  </TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </TableContainer>
+          <ReservationInquire></ReservationInquire>
 
-        <SimpleGrid mt={10} minChildWidth="120px" spacing="40px">
-          {/* <Box bg="tomato" height="110px">
+          <SimpleGrid mt={10} minChildWidth="120px">
+            {/* <Box bg="tomato" height="110px">
             <Heading>Giriş</Heading>
             <Typography variant="h6" fontStyle={"italic"}>
               2023.1.1
@@ -138,20 +138,18 @@ export default function RoomDetail() {
               {room.data?.roomDetails.map((detail) => detail.numberPeople)} Kişi
             </Typography>
           </Box> */}
-          <Box bg="tomato" height="110px">
-            <Heading>Oda Fiyatı</Heading>
-            <Typography variant="h6" fontStyle={"italic"}>
-              {room.data?.roomPrice}
-            </Typography>
-          </Box>
-        </SimpleGrid>
-      </GridItem>
-    </Grid>
-    <div style={{marginTop:600}}>
-       <Footer></Footer>
-    </div>
-   
+            <Box bg="tomato" height="110px">
+              <Heading>Oda Fiyatı</Heading>
+              <Typography variant="h6" fontStyle={"italic"}>
+                {room.data?.roomPrice}
+              </Typography>
+            </Box>
+          </SimpleGrid>
+        </GridItem>
+      </Grid>
+      <div style={{ marginTop: 600 }}>
+        <Footer></Footer>
+      </div>
     </>
-   
   );
 }

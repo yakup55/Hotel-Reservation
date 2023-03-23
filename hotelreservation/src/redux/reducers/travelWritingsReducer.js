@@ -7,6 +7,7 @@ import {
   DELETE_TRAVEL_WRITINGS,
   GET_BY_TRAVEL_WRITINGS,
   GET_TRAVEL_WRITINGS_LIST,
+  TRAVEL_POPULAR_LIST,
   TRAVEL_WRITINGS_USER_LIST,
   TRAVEL_WRITINHS_ACTIVE,
   TRAVEL_WRITINHS_PASSIVE,
@@ -67,6 +68,10 @@ export default function travelWritingsReducer(
       return {
         ...state,
         travelWriting: payload,
+      };
+    case TRAVEL_POPULAR_LIST:
+      return {
+        travelWritings: payload,
       };
     default:
       return {

@@ -7,6 +7,7 @@ export const DELETE_TRAVEL_WRITINGS = "DELETE_TRAVEL_WRITINGS";
 export const TRAVEL_WRITINGS_USER_LIST = "TRAVEL_WRITINGS_USER_LIST";
 export const TRAVEL_WRITINHS_ACTIVE = "TRAVEL_WRITINHS_ACTIVE";
 export const TRAVEL_WRITINHS_PASSIVE = "TRAVEL_WRITINHS_PASSIVE";
+export const TRAVEL_POPULAR_LIST = "TRAVEL_POPULAR_LIST";
 const service = new TravelWritingsService();
 export function getTravelWritingsList() {
   return function (dispacth) {
@@ -74,5 +75,12 @@ export function travelWritingPassive(id) {
       .then((resp) =>
         dispacth({ type: TRAVEL_WRITINHS_PASSIVE, payload: resp })
       );
+  };
+}
+export function travelPopularList() {
+  return function (dispacth) {
+    service
+      .travelPopularList()
+      .then((resp) => dispacth({ type: TRAVEL_POPULAR_LIST, payload: resp }));
   };
 }

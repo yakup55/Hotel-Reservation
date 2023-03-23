@@ -32,5 +32,9 @@ class TravelContentService {
     const url = `${this.baseUrl}/TravelWritingsUserContentList/${userId}/${id}`;
     return await axios.get(url).then((resp) => resp.data);
   }
+  async travelContentLastList() {
+    const url = `${this.baseUrl}/TravelContentLastList`;
+    return await axios.get(url).then((resp) => resp.data);
+  }
 }
 export default TravelContentService;

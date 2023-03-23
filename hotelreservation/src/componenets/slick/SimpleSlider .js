@@ -6,14 +6,17 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Slider from "react-slick";
-import { getRoomList } from "../../redux/actions/roomActions";
+import {
+  getTravelContentList,
+  travelContentLastList,
+} from "../../redux/actions/travelContentActions";
 
 export default function SimpleSlider() {
-  const { travelWritings } = useSelector((state) => state.travelWriting);
+  const { travelContents } = useSelector((state) => state.travelContent);
   const dispacth = useDispatch();
   const navigate = useNavigate();
   useEffect(() => {
-    dispacth(getRoomList());
+    dispacth(travelContentLastList());
   }, [dispacth]);
   const settings = {
     dots: true,
@@ -27,14 +30,14 @@ export default function SimpleSlider() {
   return (
     <>
       <Slider {...settings}>
-        {travelWritings.data?.map((travel) => (
+        {travelContents.data?.map((travel) => (
           <>
             <Image
               onClick={() =>
                 navigate(`/travelwritings/${travel.travelWritingId}`)
               }
               style={{ width: 1520, height: 350 }}
-              src={`${travel.travelImage}`}
+              src={`${travel.contentImage}`}
             ></Image>
           </>
         ))}

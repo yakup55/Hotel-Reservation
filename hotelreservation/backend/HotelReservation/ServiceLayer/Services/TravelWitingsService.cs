@@ -20,6 +20,11 @@ namespace ServiceLayer.Services
             this.travelWritignsRepository = travelWritignsRepository;
         }
 
+        public async Task<ResponseDto<List<TravelWritings>>> TravelPopularList()
+        {
+            return ResponseDto<List<TravelWritings>>.Success(await travelWritignsRepository.TravelPopularList(), 200);
+        }
+
         public async Task<ResponseDto<List<TravelWritings>>> TravelWritingsUserList(string userId)
         {
             return ResponseDto<List<TravelWritings>>.Success(await travelWritignsRepository.TravelWritingsUserList(userId),200);

@@ -13,5 +13,6 @@ namespace CoreLayer.Services
     {
         Task<ResponseDto<List<TravelContent>>> TravelWritingsContentList(int id);
         Task<ResponseDto<List<TravelContent>>> TravelWritingsContentUserList(string userId,int id);
+        Task<ResponseDto<List<TravelContent>>> TravelContentLastList();
     }
 }

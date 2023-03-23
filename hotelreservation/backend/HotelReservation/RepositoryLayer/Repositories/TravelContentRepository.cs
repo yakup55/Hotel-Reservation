@@ -17,6 +17,11 @@ namespace RepositoryLayer.Repositories
         {
         }
 
+        public async Task<List<TravelContent>> TravelContentLastList()
+        {
+            return await context.TravelContents.OrderByDescending(x=>x.TravelContentId).Take(10).ToListAsync();
+        }
+
         public async Task<List<TravelContent>> TravelWritingsContentList(int id)
         {
             return await context.TravelContents.Where(x => x.TravelWritingId == id).ToListAsync();

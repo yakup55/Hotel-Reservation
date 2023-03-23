@@ -7,6 +7,7 @@ export const DELETE_TRAVEL_CONTENT = "DELETE_TRAVEL_CONTENT";
 export const TRAVEL_WRITINGS_CONTENT_LIST = "TRAVEL_WRITINGS_CONTENT_LIST";
 export const TRAVEL_WRITINGS_CONTENT_USER_LIST =
   "TRAVEL_WRITINGS_CONTENT_USER_LIST";
+export const TRAVEL_CONTENT_LAST_LIST = "TRAVEL_CONTENT_LAST_LIST";
 const service = new TravelContentService();
 
 export function getTravelContentList() {
@@ -55,12 +56,21 @@ export function travelWritingsContentList(id) {
       );
   };
 }
-export function travelWritingsContentUserList(userId,id) {
+export function travelWritingsContentUserList(userId, id) {
   return function (dispacth) {
     service
-      .travelWritingsContentUserList(userId,id)
+      .travelWritingsContentUserList(userId, id)
       .then((resp) =>
         dispacth({ type: TRAVEL_WRITINGS_CONTENT_USER_LIST, payload: resp })
+      );
+  };
+}
+export function travelContentLastList() {
+  return function (dispacth) {
+    service
+      .travelContentLastList()
+      .then((resp) =>
+        dispacth({ type: TRAVEL_CONTENT_LAST_LIST, payload: resp })
       );
   };
 }

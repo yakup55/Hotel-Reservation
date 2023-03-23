@@ -20,6 +20,11 @@ namespace ServiceLayer.Services
             this.travelContentRepository = travelContentRepository;
         }
 
+        public async Task<ResponseDto<List<TravelContent>>> TravelContentLastList()
+        {
+            return ResponseDto<List<TravelContent>>.Success(await travelContentRepository.TravelContentLastList(), 200);
+        }
+
         public async Task<ResponseDto<List<TravelContent>>> TravelWritingsContentList(int id)
         {
             return ResponseDto<List<TravelContent>>.Success(await travelContentRepository.TravelWritingsContentList(id), 200);

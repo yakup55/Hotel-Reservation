@@ -36,5 +36,9 @@ class TravelWritingsService {
     const url = `${this.baseUrl}/TravelWritingPassive/${id}`;
     return await axios.get(url).then((resp) => resp.data);
   }
+  async travelPopularList() {
+    const url = `${this.baseUrl}/TravelPopularList`;
+    return await axios.get(url).then((resp) => resp.data);
+  }
 }
 export default TravelWritingsService;

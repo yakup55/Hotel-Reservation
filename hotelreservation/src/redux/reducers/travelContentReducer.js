@@ -7,6 +7,7 @@ import {
   DELETE_TRAVEL_CONTENT,
   GET_BY_TRAVEL_CONTENT,
   GET_TRAVEL_CONTENT_LIST,
+  TRAVEL_CONTENT_LAST_LIST,
   TRAVEL_WRITINGS_CONTENT_LIST,
   TRAVEL_WRITINGS_CONTENT_USER_LIST,
   UPDATE_TRAVEL_CONTENT,
@@ -58,6 +59,11 @@ export default function travelContentReducer(
         travelContents: payload,
       };
     case TRAVEL_WRITINGS_CONTENT_USER_LIST:
+      return {
+        ...state,
+        travelContents: payload,
+      };
+    case TRAVEL_CONTENT_LAST_LIST:
       return {
         ...state,
         travelContents: payload,

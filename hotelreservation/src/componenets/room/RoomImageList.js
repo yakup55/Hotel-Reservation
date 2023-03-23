@@ -11,7 +11,7 @@ export default function RoomImageList() {
   const dispacth = useDispatch();
   useEffect(() => {
     dispacth(roomOneDetail(id));
-  }, [dispacth,id]);
+  }, [dispacth, id]);
   console.log();
   return (
     <>

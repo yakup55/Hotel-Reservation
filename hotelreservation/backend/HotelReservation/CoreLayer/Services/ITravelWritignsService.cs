@@ -12,5 +12,6 @@ namespace CoreLayer.Services
     public interface ITravelWritignsService:IGenericService<TravelWritings,TravelWritingDto>
     {
         Task<ResponseDto<List<TravelWritings>>> TravelWritingsUserList(string userId);
+        Task<ResponseDto<List<TravelWritings>>> TravelPopularList();
     }
 }

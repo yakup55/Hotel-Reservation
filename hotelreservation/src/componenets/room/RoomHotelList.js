@@ -37,7 +37,8 @@ export default function RoomHotelList() {
         <GridItem colSpan={4}>
           <Card
             ml={30}
-            width={900}
+            width={800}
+            height={250}
             direction={{ base: "column", sm: "row" }}
             overflow="hidden"
             variant="outline"
@@ -45,7 +46,7 @@ export default function RoomHotelList() {
             <Image
               onClick={() => navigate(`/roomdetail/${detail.roomId}`)}
               width={450}
-              height={300}
+              height={200}
               objectFit="cover"
               src={`${detail?.roomImage}`}
               alt="Caffe Latte"

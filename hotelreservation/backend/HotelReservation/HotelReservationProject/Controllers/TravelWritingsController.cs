@@ -44,6 +44,11 @@ namespace HotelReservationProject.Controllers
             one.Data.TravelStatus = false;
             return ActionResultInstance(await service.UpdateAsync(one.Data, id));
         }
+        [HttpGet]
+        public async Task<IActionResult> TravelPopularList()
+        {
+            return  ActionResultInstance(await service.TravelPopularList());
+        }
         [HttpPost]
         public async Task<IActionResult> AddTravelWritings(TravelWritingDto dto)
         {

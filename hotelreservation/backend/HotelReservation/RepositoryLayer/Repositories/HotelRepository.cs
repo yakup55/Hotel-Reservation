@@ -47,7 +47,7 @@ namespace RepositoryLayer.Repositories
 
         public async Task<List<Hotel>> LastHotel()
         {
-            return await context.Hotels.Where(x=>x.HotelPrice<4000).ToListAsync();
+            return await context.Hotels.Where(x=>x.HotelPrice<4000).OrderByDescending(x=>x.HotelId).Take(9).ToListAsync();
         }
 
         public async Task<List<Hotel>> SearchHotel(string search)
