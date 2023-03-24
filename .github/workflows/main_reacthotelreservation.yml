@@ -52,5 +52,5 @@ jobs:
         with:
           app-name: 'ReactHotelReservation'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_14E648EE2D974F54AF83CDAE447C4EA4 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_F3B6FE55E65347C79E1D5244DE746310 }}
           package: .
