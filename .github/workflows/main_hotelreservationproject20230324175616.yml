@@ -53,5 +53,5 @@ jobs:
         with:
           app-name: 'HotelReservationProject20230324175616'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1C8273C5F2C944B2957F6EC01BF4A25C }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_34A31A4592484C538636E06C17F685B8 }}
           package: .
