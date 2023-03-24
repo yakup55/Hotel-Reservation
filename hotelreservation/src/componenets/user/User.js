@@ -174,7 +174,7 @@ export default function User() {
         </GridItem>
       )}
     </Grid>
-    <div style={{ marginTop: 500 }}>
+    <div style={{ marginTop: 1400 }}>
         <Footer></Footer>
       </div>
     </>

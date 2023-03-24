@@ -70,10 +70,10 @@ export default function HotelDetail() {
           <GridItem rowSpan={2} colSpan={1}>
             <Heading>{hotel.data?.hotelName}</Heading>
             <Typography variant="h6">{hotel.data?.hotelLocation}</Typography>
-            <img
+            <Image
               style={{ marginLeft: 20, width: 350, height: 350 }}
               src={`${hotel.data?.hotelImage}`}
-            ></img>
+            ></Image>
             <Stack direction="row" spacing={1}>
               <Chip
                 sx={{ ml: 8, fontSize: 15, fontStyle: "italic" }}

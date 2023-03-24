@@ -6,8 +6,9 @@ import Paths from "./Paths";
 function App() {
   return (
     <>
-      <div className="App">
+      <div className={`App`}>
         <NavBar></NavBar>
+
         <ScrollToTop></ScrollToTop>
         <main>
           <Paths></Paths>

@@ -18,20 +18,9 @@ export default function AboutList() {
       <Typography mt={5} mb={3} variant="h5" fontStyle={"italic"}>
         Ucuz Oteli Bulmak İçin Neden Bu Siteyi Kullanmalıyım?
       </Typography>
-      {/* <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-        <Grid container spacing={1}>
-          <Grid container item spacing={3}>
-            {abouts.data?.map((about) => (
-              <Grid item xs={3}>
-                <About key={about.aboutId} about={about}></About>
-              </Grid>
-            ))}
-          </Grid>
-        </Grid>
-      </Box> */}
-      <SimpleGrid minChildWidth="170px" >
+      <SimpleGrid minChildWidth="170px">
         {abouts.data?.map((about) => (
-          <Box  height="350px">
+          <Box height="350px">
             <About key={about.aboutId} about={about}></About>
           </Box>
         ))}

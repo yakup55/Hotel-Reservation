@@ -2,6 +2,7 @@ import { Heading } from "@chakra-ui/react";
 import {
   Button,
   Container,
+  Pagination,
   Table,
   TableBody,
   TableCell,
@@ -22,11 +23,23 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import CancelIcon from "@mui/icons-material/Cancel";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import { openSnacbar } from "../../redux/actions/appActions";
+import { useState } from "react";
 export default function UserCommentList() {
   const navigate = useNavigate();
   const dispacth = useDispatch();
   const { user } = useSelector((state) => state.user);
   const { comments } = useSelector((state) => state.comment);
+  const [number, setNumber] = useState(1); // No of pages
+  const [postPerPage] = useState(3);
+  const lastPost = number * postPerPage;
+  const firstPost = lastPost - postPerPage;
+  const currentPost = comments.data?.slice(firstPost, lastPost);
+  const PageCount = Math.ceil(comments.data?.length / postPerPage);
+  const handleChange = (event, value) => {
+    setNumber(value);
+  };
+
+
   useEffect(() => {
     dispacth(commentUserList(user.data?.id));
   }, [dispacth, user.data?.id]);
@@ -44,11 +57,11 @@ export default function UserCommentList() {
       <Heading>Değerlendirmelerim</Heading>
 
       <Container sx={{ mt: 2 }}>
-        {comments.data?.length === 0 && (
+        {currentPost?.length === 0 && (
           <Typography>Otel Değerlendirmeniz Bulunmamaktadır</Typography>
         )}
 
-        {comments.data?.length !== 0 && (
+        {currentPost?.length !== 0 && (
           <TableContainer>
             <TableBody>
               <Table>
@@ -62,7 +75,7 @@ export default function UserCommentList() {
                   <TableCell sx={{ color: "white" }}>Onaylanma</TableCell>
                   <TableCell sx={{ color: "white" }}>Sil</TableCell>
                 </TableRow>
-                {comments.data?.map((comment) => (
+                {currentPost?.map((comment) => (
                   <TableRow>
                     <TableCell>{comment.hotel?.hotelName}</TableCell>
                     <TableCell>
@@ -102,6 +115,12 @@ export default function UserCommentList() {
             </TableBody>
           </TableContainer>
         )}
+          <Pagination
+        sx={{ mt: 1 }}
+        count={PageCount}
+        onChange={handleChange}
+        color="secondary"
+      />
       </Container>
     </>
   );

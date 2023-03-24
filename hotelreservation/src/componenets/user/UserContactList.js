@@ -2,6 +2,7 @@ import { Heading } from "@chakra-ui/react";
 import {
   Button,
   Container,
+  Pagination,
   Table,
   TableBody,
   TableCell,
@@ -20,10 +21,20 @@ import CancelIcon from "@mui/icons-material/Cancel";
 import DoneAllIcon from "@mui/icons-material/DoneAll";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import { openSnacbar } from "../../redux/actions/appActions";
+import { useState } from "react";
 export default function UserContactList() {
   const dispacth = useDispatch();
   const { user } = useSelector((state) => state.user);
   const { contacts } = useSelector((state) => state.contact);
+  const [number, setNumber] = useState(1); // No of pages
+  const [postPerPage] = useState(3);
+  const lastPost = number * postPerPage;
+  const firstPost = lastPost - postPerPage;
+  const currentPost = contacts.data?.slice(firstPost, lastPost);
+  const PageCount = Math.ceil(contacts.data?.length / postPerPage);
+  const handleChange = (event, value) => {
+    setNumber(value);
+  };
   useEffect(() => {
     dispacth(contactUserList(user.data?.id));
   }, [dispacth, user.data?.id]);
@@ -39,13 +50,13 @@ export default function UserContactList() {
   return (
     <>
       <Heading sx={{ ml: 600 }}>Geri Bildirimlerim</Heading>
-      {contacts.data?.length === 0 && (
+      {currentPost?.length === 0 && (
         <Typography ml={70} variant="h6">
           Geri Bildiriminiz Bulunmamaktadır
         </Typography>
       )}
       <Container sx={{ mt: 2, ml: 60 }}>
-        {contacts.data?.length !== 0 && (
+        {currentPost?.length !== 0 && (
           <TableContainer>
             <TableBody>
               <Table>
@@ -87,6 +98,12 @@ export default function UserContactList() {
             </TableBody>
           </TableContainer>
         )}
+        <Pagination
+          sx={{ mt: 1 }}
+          count={PageCount}
+          onChange={handleChange}
+          color="secondary"
+        />
       </Container>
     </>
   );

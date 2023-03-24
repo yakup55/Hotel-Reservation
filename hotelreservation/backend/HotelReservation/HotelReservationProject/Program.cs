@@ -136,7 +136,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-
+app.UseStaticFiles();
 app.UseCustomException();
 app.UseHttpsRedirection();
 app.UseRouting();
