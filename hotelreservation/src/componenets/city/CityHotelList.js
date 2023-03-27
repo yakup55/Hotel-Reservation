@@ -15,7 +15,7 @@ export default function CityHotelList() {
   const { id } = useParams();
   const { hotels } = useSelector((state) => state.hotel);
   const [number, setNumber] = useState(1); // No of pages
-  const [postPerPage] = useState(8);
+  const [postPerPage] = useState(20);
   const lastPost = number * postPerPage;
   const firstPost = lastPost - postPerPage;
   const currentPost = hotels.data?.slice(firstPost, lastPost);
@@ -41,7 +41,7 @@ export default function CityHotelList() {
         </GridItem>
         <GridItem colSpan={4}>
           <Search></Search>
-          <SimpleGrid minChildWidth="340px">
+          <SimpleGrid minChildWidth="270px">
             {currentPost?.map((hotel) => (
               <Box height="50x">
                 <Hotel key={hotel.hotelId} hotel={hotel}></Hotel>
@@ -56,9 +56,9 @@ export default function CityHotelList() {
           />
         </GridItem>
       </Grid>
-      <div sx={{ marginTop: 1300 }}>
+      {/* <div style={{ marginTop: 1300 }}>
         <Footer></Footer>
-      </div>
+      </div> */}
     </>
   );
 }

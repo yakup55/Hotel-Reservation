@@ -11,19 +11,17 @@ export default function TravelContent({ travelContent }) {
     dispacth(getByTravelWritings(travelContent?.travelWritingId));
   }, [dispacth, travelContent?.travelWritingId]);
   return (
-    <SimpleGrid columns={1} spacing={1}>
-      <Container>
-        <Box>
+      <Container maxWidth="lg">
+        <Box> 
           <Heading>{travelContent.contentName}</Heading>
           <Image
-            sx={{ width: 1100, height: 500 }}
+          sx={{margin:"auto",display:"block",width: 900, height: 500}}
             src={`${travelContent.contentImage}`}
           ></Image>
           <Typography mt={3} variant="h6" align={"center"}>
-            {travelContent.contentDescription}...
+            {travelContent.contentDescription}
           </Typography>
         </Box>
       </Container>
-    </SimpleGrid>
   );
 }

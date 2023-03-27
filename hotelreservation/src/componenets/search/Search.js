@@ -1,5 +1,5 @@
 import { Box, SimpleGrid } from "@chakra-ui/react";
-import { Button, TextField } from "@mui/material";
+import { Button, Container, TextField } from "@mui/material";
 import { useFormik } from "formik";
 import React from "react";
 import { useDispatch } from "react-redux";
@@ -12,11 +12,11 @@ export default function Search() {
     dispacth(searchHotelList(name));
   };
   return (
-    <>
+    <Container maxWidth="lg">
       <SimpleGrid mt={10} minChildWidth="120px" spacing="40px">
         <Box height="70px">
           <TextField
-            sx={{ width: 700 }}
+          fullWidth
             id="name"
             name="name"
             label="Aranıcak Kelimeyi Giriniz"
@@ -25,6 +25,6 @@ export default function Search() {
           ></TextField>
         </Box>
       </SimpleGrid>
-    </>
+    </Container>
   );
 }

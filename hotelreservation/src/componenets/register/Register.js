@@ -145,9 +145,12 @@ export default function Register() {
           <Button type="submit" variant="contained" color="secondary">
             Register
           </Button>
-          <Alert severity="info">
+          <Alert severity="error">
             Şifre Kuralları şifrenizde kullanıcı adınız olmamalı,ardışık sayı
-            içermemeli!
+            içermemeli!,En az 1 tane büyük harf içermeli
+          </Alert>
+          <Alert severity="error">
+         Kullanıcı Adınız Büyük Harf İçermemeli
           </Alert>
         </Stack>
       </form>

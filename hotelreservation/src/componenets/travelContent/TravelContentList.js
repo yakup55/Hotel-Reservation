@@ -50,13 +50,13 @@ export default function TravelContentList() {
               </Box>
             </Flex>
             <Typography variant="h6" mt={2}>
-              {travelWriting?.data?.travelMessage.substring(0, 860)}
+              {travelWriting?.data?.travelMessage}
             </Typography>
           </Box>
         </Container>
 
         {travelContents?.data?.map((content) => (
-          <Box sx={{ mt: 200, mb: 200 }} height="500px">
+          <Box sx={{ mt: 200, mb: 200 }} height="550px">
             <TravelContent
               key={content.travelContentId}
               travelContent={content}
@@ -65,7 +65,7 @@ export default function TravelContentList() {
         ))}
       </SimpleGrid>
 
-      <div sx={{ marginTop: 300 }}>
+      <div style={{ marginTop: 220 }}>
         <Footer></Footer>
       </div>
     </>

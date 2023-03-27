@@ -119,10 +119,15 @@ export default function HotelDetail() {
             <HotelImageList></HotelImageList>
           </GridItem>
 
-          <GridItem colSpan={4}>
-            <RoomHotelList></RoomHotelList>
+          <GridItem mb={1100} colSpan={4}>
+            <SimpleGrid minChildWidth="200px">
+              <Box>
+                <RoomHotelList></RoomHotelList>
+              </Box>
+            </SimpleGrid>
           </GridItem>
         </Grid>
+
         <CommentAdd></CommentAdd>
       </Box>
       <div sx={{ marginTop: 250 }}></div>

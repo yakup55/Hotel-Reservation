@@ -34,7 +34,6 @@ export default function RoomDetail() {
   useEffect(() => {
     dispacth(roomOneDetail(id));
   }, [dispacth, id]);
-  console.log(room.data?.hotel.hotelId);
   return (
     <>
       <Grid
@@ -186,7 +185,7 @@ export default function RoomDetail() {
           </SimpleGrid>
         </GridItem>
       </Grid>
-      {/* <div sx={{ marginTop: 2500 }}>
+      {/* <div style={{ marginTop: 2500 }}>
         <Footer></Footer>
       </div> */}
     </>

@@ -37,15 +37,18 @@ export default function SimpleSlider() {
   };
 
   return (
-    <Container sx={{mt:2}} maxWidth="lg">
+    <Container sx={{ mt: 2 }} maxWidth="lg">
       <Slider {...settings}>
         {travelContents.data?.map((travel) => (
           <>
-            <Card >
+            <Card>
               <CardMedia
-                sx={{height:500}}
+                sx={{ height: 500 }}
                 image={`${travel.contentImage}`}
                 title="green iguana"
+                onClick={() =>
+                  navigate(`/travelwritings/${travel.travelWritingId}`)
+                }
               />
             </Card>
             {/* <Image

@@ -1,11 +1,16 @@
 import {
+  Box,
+  ButtonGroup,
   Card,
   CardBody,
+  CardFooter,
+  Divider,
   GridItem,
   Heading,
   Image,
   SimpleGrid,
   Stack,
+  Text,
 } from "@chakra-ui/react";
 import { Button, Container, Pagination, Typography } from "@mui/material";
 import React from "react";
@@ -21,7 +26,7 @@ export default function RoomHotelList() {
   const dispacth = useDispatch();
   const { rooms } = useSelector((state) => state.room);
   const [number, setNumber] = useState(1); // No of pages
-  const [postPerPage] = useState(4);
+  const [postPerPage] = useState(3);
   const lastPost = number * postPerPage;
   const firstPost = lastPost - postPerPage;
   const currentPost = rooms.data?.slice(firstPost, lastPost);
@@ -34,44 +39,42 @@ export default function RoomHotelList() {
   }, [dispacth, id]);
   return (
     <>
-      {currentPost?.map((detail) => (
-        <GridItem colSpan={4}>
-          <Container maxWidth="xl">
-            <Card
-              sx={{ width: 1000, height: 400 }}
-              direction={{ base: "column", sm: "row" }}
-              overflow="hidden"
-              variant="outline"
-            >
-              <Image
-                onClick={() => navigate(`/roomdetail/${detail.roomId}`)}
-                sx={{ width: 500, height: 250 }}
-                objectFit="cover"
-                src={`${detail?.roomImage}`}
-                alt="Caffe Latte"
-              />
-
-              <Container>
-                <CardBody>
-                  <Heading size="md">{detail.roomName}</Heading>
-
-                  <Typography color="red" variant="h6">
-                    {detail.roomPrice} TL
+      <SimpleGrid minChildWidth="400px">
+        {currentPost?.map((detail) => (
+          <Box height="450px">
+            <Card>
+              <CardBody>
+                <Image
+                  onClick={() => navigate(`/roomdetail/${detail.roomId}`)}
+                  src={`${detail?.roomImage}`}
+                  alt={detail?.hotelName}
+                  borderRadius="lg"
+                  sx={{ width: 300, height: 200 }}
+                />
+                <Stack mt="1">
+                  <Heading>{detail?.roomName}</Heading>
+                  <Typography variant="h10">{detail?.hotelLocation}</Typography>
+                  <Typography color="red" variant="h5">
+                    {detail?.roomPrice}
                   </Typography>
-                </CardBody>
-
+                </Stack>
+              </CardBody>
+              <Divider />
+              <CardFooter>
                 <Button
                   onClick={() => navigate(`/roomdetail/${detail.roomId}`)}
+                  style={{ margin: "auto", display: "block" }}
                   variant="contained"
                   color="secondary"
                 >
                   Odayı İncele
                 </Button>
-              </Container>
+              </CardFooter>
             </Card>
-          </Container>
-        </GridItem>
-      ))}
+          </Box>
+        ))}
+      </SimpleGrid>
+
       <Pagination
         sx={{ mt: 1 }}
         count={PageCount}

@@ -28,7 +28,7 @@ export default function Hotel({ hotel }) {
                 src={`${hotel?.hotelImage}`}
                 alt={hotel?.hotelName}
                 borderRadius="lg"
-                sx={{width:400,height:200}}
+                sx={{width:300,height:200}}
               />
               <Stack mt="1">
                 <Heading>{hotel?.hotelName}</Heading>
