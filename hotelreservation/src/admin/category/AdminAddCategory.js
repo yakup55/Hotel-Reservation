@@ -38,7 +38,7 @@ export default function AdminAddCategory() {
       templateColumns="repeat(5, 1fr)"
       gap={0}
     >
-      <div style={{ marginLeft: 10 }}>
+      <div sx={{ marginLeft: 10 }}>
         <AdminHome></AdminHome>
       </div>
 

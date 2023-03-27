@@ -4,9 +4,10 @@ import {
   GridItem,
   Heading,
   Image,
+  SimpleGrid,
   Stack,
 } from "@chakra-ui/react";
-import { Button, Pagination, Typography } from "@mui/material";
+import { Button, Container, Pagination, Typography } from "@mui/material";
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -35,44 +36,40 @@ export default function RoomHotelList() {
     <>
       {currentPost?.map((detail) => (
         <GridItem colSpan={4}>
-          <Card
-            ml={30}
-            width={800}
-            height={250}
-            direction={{ base: "column", sm: "row" }}
-            overflow="hidden"
-            variant="outline"
-          >
-            <Image
-              onClick={() => navigate(`/roomdetail/${detail.roomId}`)}
-              width={450}
-              height={200}
-              objectFit="cover"
-              src={`${detail?.roomImage}`}
-              alt="Caffe Latte"
-            />
-
-            <Stack>
-              <CardBody>
-                <Heading ml={150} size="md">
-                  {detail.roomName}
-                </Heading>
-
-                <Typography ml={15} color="red" variant="h6">
-                  {detail.roomPrice} TL
-                </Typography>
-              </CardBody>
-
-              <Button
+          <Container maxWidth="xl">
+            <Card
+              sx={{ width: 1000, height: 400 }}
+              direction={{ base: "column", sm: "row" }}
+              overflow="hidden"
+              variant="outline"
+            >
+              <Image
                 onClick={() => navigate(`/roomdetail/${detail.roomId}`)}
-                style={{ marginLeft: 150 }}
-                variant="contained"
-                color="secondary"
-              >
-                Odayı İncele
-              </Button>
-            </Stack>
-          </Card>
+                sx={{ width: 500, height: 250 }}
+                objectFit="cover"
+                src={`${detail?.roomImage}`}
+                alt="Caffe Latte"
+              />
+
+              <Container>
+                <CardBody>
+                  <Heading size="md">{detail.roomName}</Heading>
+
+                  <Typography color="red" variant="h6">
+                    {detail.roomPrice} TL
+                  </Typography>
+                </CardBody>
+
+                <Button
+                  onClick={() => navigate(`/roomdetail/${detail.roomId}`)}
+                  variant="contained"
+                  color="secondary"
+                >
+                  Odayı İncele
+                </Button>
+              </Container>
+            </Card>
+          </Container>
         </GridItem>
       ))}
       <Pagination

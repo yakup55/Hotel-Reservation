@@ -42,11 +42,11 @@ function NavBar() {
 
   // const settings = ["Profile", "Account", "Dashboard", "Logout"];
   const settings = [
-    {
-      id: 4,
-      name: "Yönetici",
-      url: "/adminhome",
-    },
+    //{
+    //   id: 4,
+    //   name: "Yönetici",
+    //   url: "/adminhome",
+    // },
     {
       id: 1,
       name: "Profil",

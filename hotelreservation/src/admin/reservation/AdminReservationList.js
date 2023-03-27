@@ -46,7 +46,7 @@ export default function AdminReservationList() {
       templateColumns="repeat(5, 1fr)"
       gap={0}
     >
-      <div style={{ marginLeft: 10 }}>
+      <div sx={{ marginLeft: 10 }}>
         <AdminHome></AdminHome>
       </div>
 
@@ -56,11 +56,11 @@ export default function AdminReservationList() {
             <TableBody>
               <Table>
                 <TableRow style={{ backgroundColor: "black" }}>
-                  <TableCell style={{ color: "white" }}>#</TableCell>
-                  <TableCell style={{ color: "white" }}>Arrival Date</TableCell>
-                  <TableCell style={{ color: "white" }}>Return Date</TableCell>
-                  <TableCell style={{ color: "white" }}>User Id</TableCell>
-                  <TableCell style={{ color: "white" }}>Delete</TableCell>
+                  <TableCell sx={{ color: "white" }}>#</TableCell>
+                  <TableCell sx={{ color: "white" }}>Arrival Date</TableCell>
+                  <TableCell sx={{ color: "white" }}>Return Date</TableCell>
+                  <TableCell sx={{ color: "white" }}>User Id</TableCell>
+                  <TableCell sx={{ color: "white" }}>Delete</TableCell>
                 </TableRow>
                 {currentPost?.map((detail) => (
                   <TableRow>

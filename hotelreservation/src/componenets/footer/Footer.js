@@ -1,16 +1,11 @@
 import * as React from "react";
-import { experimentalStyled as styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Unstable_Grid2";
 import {
   Card,
   CardBody,
-  CardFooter,
   Divider,
-  GridItem,
   Heading,
-  Image,
   Link,
   SimpleGrid,
   Stack,
@@ -18,7 +13,6 @@ import {
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import LuggageIcon from "@mui/icons-material/Luggage";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import { Typography } from "@mui/material";
 export default function Footer() {
@@ -83,24 +77,6 @@ export default function Footer() {
                 </Link>{" "}
                 dan alınmıştır
               </Typography>
-            </Stack>
-          </CardBody>
-          <Divider />
-        </Card>
-      </Box>
-      <Box height="80px">
-        <Card mt={60} maxW="xl">
-          <CardBody>
-            <Stack mt="1" spacing="1">
-              <LuggageIcon
-                style={{
-                  backgroundColor: "white",
-                  width: 60,
-                  height: 60,
-                  marginTop: 20,
-                  marginLeft: 120,
-                }}
-              ></LuggageIcon>
             </Stack>
           </CardBody>
           <Divider />

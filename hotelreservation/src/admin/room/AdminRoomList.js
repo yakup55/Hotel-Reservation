@@ -59,7 +59,7 @@ export default function AdminRoomList() {
       templateColumns="repeat(5, 1fr)"
       gap={0}
     >
-      <div style={{ marginLeft: 10 }}>
+      <div sx={{ marginLeft: 10 }}>
         <AdminHome></AdminHome>
       </div>
 
@@ -69,14 +69,14 @@ export default function AdminRoomList() {
             <TableBody>
               <Table>
                 <TableRow style={{ backgroundColor: "black" }}>
-                  <TableCell style={{ color: "white" }}>#</TableCell>
-                  <TableCell style={{ color: "white" }}>Room Name</TableCell>
-                  <TableCell style={{ color: "white" }}>Room Image</TableCell>
-                  <TableCell style={{ color: "white" }}>Room Price</TableCell>
-                  <TableCell style={{ color: "white" }}>Hotel Id</TableCell>
-                  <TableCell style={{ color: "white" }}>Update</TableCell>
-                  <TableCell style={{ color: "white" }}>Detay</TableCell>
-                  <TableCell style={{ color: "white" }}>Delete</TableCell>
+                  <TableCell sx={{ color: "white" }}>#</TableCell>
+                  <TableCell sx={{ color: "white" }}>Room Name</TableCell>
+                  <TableCell sx={{ color: "white" }}>Room Image</TableCell>
+                  <TableCell sx={{ color: "white" }}>Room Price</TableCell>
+                  <TableCell sx={{ color: "white" }}>Hotel Id</TableCell>
+                  <TableCell sx={{ color: "white" }}>Update</TableCell>
+                  <TableCell sx={{ color: "white" }}>Detay</TableCell>
+                  <TableCell sx={{ color: "white" }}>Delete</TableCell>
                 </TableRow>
                 {currentPost?.map((room) => (
                   <TableRow>
@@ -84,7 +84,7 @@ export default function AdminRoomList() {
                     <TableCell>{room.roomName}</TableCell>
                     <TableCell>
                       <img
-                        style={{ width: 200, height: 100 }}
+                        sx={{ width: 200, height: 100 }}
                         src={`${room.roomImage}`}
                       ></img>
                     </TableCell>

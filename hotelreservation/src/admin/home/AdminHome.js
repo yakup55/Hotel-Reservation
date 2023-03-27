@@ -33,10 +33,10 @@ export default function AdminHome() {
       gap={0}
     >
       <GridItem rowSpan={2} colSpan={1}>
-        <div style={{ margin: "auto", display: "block", marginTop: 10 }}>
+        <div sx={{ margin: "auto", display: "block", marginTop: 10 }}>
           <img
             onClick={() => navigate("/adminhome")}
-            style={{ height: 250, width: 250 }}
+            sx={{ height: 250, width: 250 }}
             src="https://cdn3.enuygun.com/media/lib/1x250/uploads/image/lords-palace-spa-casino-kibris-genel-38526961.jpg"
           ></img>
         </div>

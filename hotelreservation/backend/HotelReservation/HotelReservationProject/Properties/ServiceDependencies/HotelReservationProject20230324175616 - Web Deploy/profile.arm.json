@@ -21,7 +21,7 @@
     },
     "resourceName": {
       "type": "string",
-      "defaultValue": "HotelReservationProject20230324170646",
+      "defaultValue": "HotelReservationProject20230324175616",
       "metadata": {
         "description": "Name of the main resource to be created by this template."
       }

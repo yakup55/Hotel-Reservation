@@ -27,7 +27,9 @@ export default function TravelWritingList() {
     <>
       <Heading>Seyahat Yazıları</Heading>
       <Container>
-        <SimpleGrid columns={[2, null, 3]} spacing="40px">
+
+     
+        <SimpleGrid minChildWidth='350px' spacing="40px">
           {currentPost?.map((travel) => (
             <Box>
               <TravelWriting
@@ -37,8 +39,7 @@ export default function TravelWritingList() {
             </Box>
           ))}
         </SimpleGrid>
-      </Container>
-
+        </Container>
       <Pagination
         sx={{ mt: 1 }}
         count={PageCount}

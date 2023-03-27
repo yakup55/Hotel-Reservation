@@ -85,12 +85,12 @@ export default function AdminUpdateHotel() {
       templateColumns="repeat(5, 1fr)"
       gap={0}
     >
-      <div style={{ marginLeft: 10 }}>
+      <div sx={{ marginLeft: 10 }}>
         <AdminHome></AdminHome>
       </div>
 
       <GridItem colSpan={4}>
-        <Container style={{ marginTop: 10 }}>
+        <Container sx={{ marginTop: 10 }}>
           <form onSubmit={handleSubmit}>
             <Stack spacing={3}>
               <TextField

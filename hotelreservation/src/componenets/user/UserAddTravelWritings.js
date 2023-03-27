@@ -130,7 +130,7 @@ export default function UserAddTravelWritings() {
           </Collapse>
         </Container>
       </GridItem>
-      <div style={{ marginTop: 100 }}>
+      <div sx={{ marginTop: 100 }}>
         <Footer></Footer>
       </div>
     </>

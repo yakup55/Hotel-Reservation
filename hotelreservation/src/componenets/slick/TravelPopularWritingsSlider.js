@@ -1,5 +1,5 @@
 import { Heading } from "@chakra-ui/react";
-import { Container } from "@mui/material";
+import { Button, Container } from "@mui/material";
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -26,15 +26,16 @@ export default function TravelPopularWritingsSlider() {
     cssEase: "linear",
   };
   return (
-    <Container maxWidth="md">
+    <Container>
       <Heading>Popüler Seyahat Yazıları</Heading>
-      <Heading
-        bgColor={"red"}
-        ml={700}
+      <Button
+      sx={{mb:3}}
+      color="success"
+     variant="contained"
         onClick={() => navigate("/travelwritingslist")}
       >
         Tümünü Gör
-      </Heading>
+      </Button>
       <Slider {...settings}>
         {travelWritings.data?.map((travel) => (
           <TravelWriting

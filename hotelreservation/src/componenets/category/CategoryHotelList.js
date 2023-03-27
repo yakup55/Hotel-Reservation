@@ -57,7 +57,7 @@ export default function CategoryHotelList() {
           />
         </GridItem>
       </Grid>
-      <div style={{ marginTop: 1300 }}>
+      <div sx={{ marginTop: 1300 }}>
         <Footer></Footer>
       </div>
     </>

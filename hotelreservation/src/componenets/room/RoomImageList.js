@@ -1,3 +1,4 @@
+import { Img } from "@chakra-ui/react";
 import { Box, ImageList, ImageListItem } from "@mui/material";
 import React from "react";
 import { useEffect } from "react";
@@ -12,7 +13,6 @@ export default function RoomImageList() {
   useEffect(() => {
     dispacth(roomOneDetail(id));
   }, [dispacth, id]);
-  console.log();
   return (
     <>
       <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
@@ -23,8 +23,8 @@ export default function RoomImageList() {
         >
           {room.data?.roomDetails.map((item) => (
             <ImageListItem>
-              <img
-                style={{ width: 300, height: 300 }}
+              <Img
+                sx={{ width: 300, height: 300 }}
                 src={`${item.image1}?w=164&h=164&fit=crop&auto=format`}
                 srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
                 alt={room.data?.roomName}
@@ -34,8 +34,8 @@ export default function RoomImageList() {
           ))}
           {room.data?.roomDetails.map((item) => (
             <ImageListItem>
-              <img
-                style={{ width: 300, height: 300 }}
+              <Img
+                sx={{ width: 300, height: 300 }}
                 src={`${item.image2}?w=164&h=164&fit=crop&auto=format`}
                 srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
                 alt={room.data?.roomName}
@@ -45,8 +45,8 @@ export default function RoomImageList() {
           ))}
           {room.data?.roomDetails.map((item) => (
             <ImageListItem>
-              <img
-                style={{ width: 300, height: 300 }}
+              <Img
+                sx={{ width: 300, height: 300 }}
                 src={`${item.image3}?w=164&h=164&fit=crop&auto=format`}
                 srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
                 alt={room.data?.roomName}
@@ -60,8 +60,8 @@ export default function RoomImageList() {
         <ImageList sx={{ width: 1000, height: 300 }} cols={3} rowHeight={164}>
           {room.data?.roomDetails.map((item) => (
             <ImageListItem>
-              <img
-                style={{ width: 165, height: 175 }}
+              <Img
+                sx={{ width: 165, height: 175 }}
                 src={`${item.image1}?w=164&h=164&fit=crop&auto=format`}
                 srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
                 alt={room.data?.roomName}
@@ -71,8 +71,8 @@ export default function RoomImageList() {
           ))}
           {room.data?.roomDetails.map((item) => (
             <ImageListItem>
-              <img
-                style={{ width: 165, height: 175 }}
+              <Img
+                sx={{ width: 165, height: 175 }}
                 src={`${item.image2}?w=164&h=164&fit=crop&auto=format`}
                 srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
                 alt={room.data?.roomName}
@@ -82,8 +82,8 @@ export default function RoomImageList() {
           ))}
           {room.data?.roomDetails.map((item) => (
             <ImageListItem>
-              <img
-                style={{ width: 165, height: 175 }}
+              <Img
+                sx={{ width: 165, height: 175 }}
                 src={`${item.image3}?w=164&h=164&fit=crop&auto=format`}
                 srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
                 alt={room.data?.roomName}

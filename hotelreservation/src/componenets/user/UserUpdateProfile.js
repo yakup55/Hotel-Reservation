@@ -70,7 +70,7 @@ export default function UserUpdateProfile() {
         <form onSubmit={handleSubmit}>
           <Stack spacing={3}>
             <Image
-              style={{ width: 150, height: 150, margin: "auto" }}
+              sx={{ width: 150, height: 150, margin: "auto" }}
               src={`${user.data?.image}`}
             ></Image>
             <TextField
@@ -130,7 +130,7 @@ export default function UserUpdateProfile() {
           </Stack>
         </form>
       </Container>
-      <div style={{ marginTop: 30 }}>
+      <div sx={{ marginTop: 30 }}>
         <Footer></Footer>
       </div>
     </>

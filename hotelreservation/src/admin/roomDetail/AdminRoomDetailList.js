@@ -64,7 +64,7 @@ export default function AdminRoomDetailList() {
       templateColumns="repeat(5, 1fr)"
       gap={0}
     >
-      <div style={{ marginLeft: 10 }}>
+      <div sx={{ marginLeft: 10 }}>
         <AdminHome></AdminHome>
       </div>
 
@@ -74,34 +74,34 @@ export default function AdminRoomDetailList() {
             <TableBody>
               <Table>
                 <TableRow style={{ backgroundColor: "black" }}>
-                  <TableCell style={{ color: "white" }}>#</TableCell>
+                  <TableCell sx={{ color: "white" }}>#</TableCell>
 
-                  <TableCell style={{ color: "white" }}>Image 1</TableCell>
-                  <TableCell style={{ color: "white" }}>Image 2</TableCell>
-                  <TableCell style={{ color: "white" }}>Image 3</TableCell>
-                  <TableCell style={{ color: "white" }}>Room Id</TableCell>
-                  <TableCell style={{ color: "white" }}>Update</TableCell>
-                  <TableCell style={{ color: "white" }}>Detay</TableCell>
-                  <TableCell style={{ color: "white" }}>Delete</TableCell>
+                  <TableCell sx={{ color: "white" }}>Image 1</TableCell>
+                  <TableCell sx={{ color: "white" }}>Image 2</TableCell>
+                  <TableCell sx={{ color: "white" }}>Image 3</TableCell>
+                  <TableCell sx={{ color: "white" }}>Room Id</TableCell>
+                  <TableCell sx={{ color: "white" }}>Update</TableCell>
+                  <TableCell sx={{ color: "white" }}>Detay</TableCell>
+                  <TableCell sx={{ color: "white" }}>Delete</TableCell>
                 </TableRow>
                 {currentPost?.map((detail) => (
                   <TableRow>
                     <TableCell>{detail.roomDetailId}</TableCell>
                     <TableCell>
                       <img
-                        style={{ width: 200, height: 100 }}
+                        sx={{ width: 200, height: 100 }}
                         src={`${detail.image1}`}
                       ></img>
                     </TableCell>
                     <TableCell>
                       <img
-                        style={{ width: 200, height: 100 }}
+                        sx={{ width: 200, height: 100 }}
                         src={`${detail.image2}`}
                       ></img>
                     </TableCell>
                     <TableCell>
                       <img
-                        style={{ width: 200, height: 100 }}
+                        sx={{ width: 200, height: 100 }}
                         src={`${detail.image3}`}
                       ></img>
                     </TableCell>

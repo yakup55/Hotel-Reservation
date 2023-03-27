@@ -26,13 +26,13 @@ export default function TravelContentList() {
         <Box height="80px">
           <Image
             sx={{ height: 350, width: 1519 }}
-            src={`${travelWriting.data?.travelImage}`}
+            src={`${travelWriting?.data?.travelImage}`}
           ></Image>
         </Box>
         <Container>
           <Box bg="white" mt={180} height="80px">
             <Heading>
-              {travelWriting.data?.travelName} <Share></Share>
+              {travelWriting?.data?.travelName} <Share></Share>
             </Heading>
 
             <Flex sx={{ ml: 10 }}>
@@ -50,12 +50,12 @@ export default function TravelContentList() {
               </Box>
             </Flex>
             <Typography variant="h6" mt={2}>
-              {travelWriting.data?.travelMessage.substring(0, 860)}
+              {travelWriting?.data?.travelMessage.substring(0, 860)}
             </Typography>
           </Box>
         </Container>
 
-        {travelContents.data?.map((content) => (
+        {travelContents?.data?.map((content) => (
           <Box sx={{ mt: 200, mb: 200 }} height="500px">
             <TravelContent
               key={content.travelContentId}
@@ -65,7 +65,7 @@ export default function TravelContentList() {
         ))}
       </SimpleGrid>
 
-      <div style={{ marginTop: 300 }}>
+      <div sx={{ marginTop: 300 }}>
         <Footer></Footer>
       </div>
     </>

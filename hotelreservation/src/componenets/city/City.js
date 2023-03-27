@@ -14,26 +14,23 @@ export default function City({ city }) {
   const navigate = useNavigate();
 
   return (
-    <Container>
-      <SimpleGrid>
-        <Box height="200px">
-          <Card style={{ width: 360, height: 300 }}>
-            <CardBody>
-              <Image
-                onClick={() => navigate(`/hotelcitylist/${city.cityId}`)}
-                style={{ width: 430, height: 300 }}
-                src={`${city?.cityImage}`}
-                alt={city?.cityName}
-                borderRadius="lg"
-              />
-              <Stack mt="1">
-                <Heading>{city?.cityName}</Heading>
-              </Stack>
-            </CardBody>
-            <Divider />
-          </Card>
-        </Box>
-      </SimpleGrid>
-    </Container>
+    <SimpleGrid>
+      <Box height="200px">
+        <Card sx={{ width: 400, height: 300,margin:"auto",display:"block" }}>
+          <CardBody>
+            <Image
+              onClick={() => navigate(`/hotelcitylist/${city.cityId}`)}
+              src={`${city?.cityImage}`}
+              alt={city?.cityName}
+              borderRadius="lg"
+            />
+            <Stack mt="1">
+              <Heading>{city?.cityName}</Heading>
+            </Stack>
+          </CardBody>
+          <Divider />
+        </Card>
+      </Box>
+    </SimpleGrid>
   );
 }

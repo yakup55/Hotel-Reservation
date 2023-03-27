@@ -30,7 +30,7 @@ export default function AdminAboutList() {
     templateColumns="repeat(5, 1fr)"
     gap={0}
   >
-    <div style={{ marginLeft: 10 }}>
+    <div sx={{ marginLeft: 10 }}>
       <AdminHome></AdminHome>
     </div>
 
@@ -40,12 +40,12 @@ export default function AdminAboutList() {
           <TableBody>
             <Table>
               <TableRow style={{ backgroundColor: "black" }}>
-                <TableCell style={{ color: "white" }}>#</TableCell>
-                <TableCell style={{ color: "white" }}>About Name</TableCell>
-                <TableCell style={{ color: "white" }}>About Image</TableCell>
-                <TableCell style={{ color: "white" }}>About Description</TableCell>
-                <TableCell style={{ color: "white" }}>Update</TableCell>
-                <TableCell style={{ color: "white" }}>Delete</TableCell>
+                <TableCell sx={{ color: "white" }}>#</TableCell>
+                <TableCell sx={{ color: "white" }}>About Name</TableCell>
+                <TableCell sx={{ color: "white" }}>About Image</TableCell>
+                <TableCell sx={{ color: "white" }}>About Description</TableCell>
+                <TableCell sx={{ color: "white" }}>Update</TableCell>
+                <TableCell sx={{ color: "white" }}>Delete</TableCell>
               </TableRow>
               {abouts.data?.map((about) => (
                 <TableRow>
@@ -53,7 +53,7 @@ export default function AdminAboutList() {
                   <TableCell>{about.aboutName}</TableCell>
                   <TableCell>
                     <img
-                      style={{ width: 200, height: 100 }}
+                      sx={{ width: 200, height: 100 }}
                       src={`${about.aboutImage}`}
                     ></img>
                   </TableCell>

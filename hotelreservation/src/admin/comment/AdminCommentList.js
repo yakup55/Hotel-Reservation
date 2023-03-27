@@ -57,7 +57,7 @@ export default function AdminCommentList() {
       templateColumns="repeat(5, 1fr)"
       gap={0}
     >
-      <div style={{ marginLeft: 10 }}>
+      <div sx={{ marginLeft: 10 }}>
         <AdminHome></AdminHome>
       </div>
 
@@ -67,23 +67,23 @@ export default function AdminCommentList() {
             <TableBody>
               <Table>
                 <TableRow style={{ backgroundColor: "black" }}>
-                  <TableCell style={{ color: "white" }}>#</TableCell>
-                  <TableCell style={{ color: "white" }}>
+                  <TableCell sx={{ color: "white" }}>#</TableCell>
+                  <TableCell sx={{ color: "white" }}>
                     Comment Message
                   </TableCell>
-                  <TableCell style={{ color: "white" }}>
+                  <TableCell sx={{ color: "white" }}>
                     Comment Subject
                   </TableCell>
-                  <TableCell style={{ color: "white" }}>
+                  <TableCell sx={{ color: "white" }}>
                     Comment Status
                   </TableCell>
-                  <TableCell style={{ color: "white" }}>Comment Date</TableCell>
-                  <TableCell style={{ color: "white" }}>Hotel Id</TableCell>
-                  <TableCell style={{ color: "white" }}>Degre Id</TableCell>
-                  <TableCell style={{ color: "white" }}>User Id</TableCell>
-                  <TableCell style={{ color: "white" }}>Aktif</TableCell>
-                  <TableCell style={{ color: "white" }}>Pasif</TableCell>
-                  <TableCell style={{ color: "white" }}>Delete</TableCell>
+                  <TableCell sx={{ color: "white" }}>Comment Date</TableCell>
+                  <TableCell sx={{ color: "white" }}>Hotel Id</TableCell>
+                  <TableCell sx={{ color: "white" }}>Degre Id</TableCell>
+                  <TableCell sx={{ color: "white" }}>User Id</TableCell>
+                  <TableCell sx={{ color: "white" }}>Aktif</TableCell>
+                  <TableCell sx={{ color: "white" }}>Pasif</TableCell>
+                  <TableCell sx={{ color: "white" }}>Delete</TableCell>
                 </TableRow>
                 {currentPost?.map((commnet) => (
                   <TableRow>

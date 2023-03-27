@@ -14,7 +14,7 @@ export default function Category({ category }) {
   return (
     <SimpleGrid>
       <Box height="200px">
-        <Card sx={{ width: 200, height: 200 }}>
+        <Card sx={{ width: 150, height: 150,margin:"auto",display:"block" }}>
           <CardActionArea>
             <CardMedia
               onClick={() =>
@@ -26,7 +26,7 @@ export default function Category({ category }) {
             />
           </CardActionArea>
         </Card>
-        <Heading>{category?.categoryName}</Heading>
+        <Heading >{category?.categoryName}</Heading>
       </Box>
     </SimpleGrid>
   );

@@ -75,7 +75,7 @@ export default function UserReservationList() {
                     </TableCell>
                     <TableCell>
                       <img
-                        style={{ width: 200, height: 100 }}
+                        sx={{ width: 200, height: 100 }}
                         src={`${reservation.roomDetail?.room?.roomImage}`}
                       ></img>
                     </TableCell>

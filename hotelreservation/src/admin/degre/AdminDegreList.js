@@ -51,7 +51,7 @@ export default function AdminDegreList() {
       templateColumns="repeat(5, 1fr)"
       gap={0}
     >
-      <div style={{ marginLeft: 10 }}>
+      <div sx={{ marginLeft: 10 }}>
         <AdminHome></AdminHome>
       </div>
 
@@ -61,12 +61,12 @@ export default function AdminDegreList() {
             <TableBody>
               <Table>
                 <TableRow style={{ backgroundColor: "black" }}>
-                  <TableCell style={{ color: "white" }}>#</TableCell>
-                  <TableCell style={{ color: "white" }}>Degre Name</TableCell>
-                  <TableCell style={{ color: "white" }}>Degre Value</TableCell>
+                  <TableCell sx={{ color: "white" }}>#</TableCell>
+                  <TableCell sx={{ color: "white" }}>Degre Name</TableCell>
+                  <TableCell sx={{ color: "white" }}>Degre Value</TableCell>
 
-                  <TableCell style={{ color: "white" }}>Update</TableCell>
-                  <TableCell style={{ color: "white" }}>Delete</TableCell>
+                  <TableCell sx={{ color: "white" }}>Update</TableCell>
+                  <TableCell sx={{ color: "white" }}>Delete</TableCell>
                 </TableRow>
                 {currentPost?.map((degre) => (
                   <TableRow>

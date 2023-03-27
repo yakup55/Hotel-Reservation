@@ -51,21 +51,21 @@ export default function AdminCityList() {
       templateColumns="repeat(5, 1fr)"
       gap={0}
     >
-      <div style={{ marginLeft: 10 }}>
+      <div sx={{ marginLeft: 10 }}>
         <AdminHome></AdminHome>
       </div>
 
       <GridItem colSpan={4}>
-        <Container maxWidth="md" style={{ marginTop: 10 }}>
+        <Container maxWidth="md" sx={{ marginTop: 10 }}>
           <TableContainer>
             <TableBody>
               <Table>
                 <TableRow style={{ backgroundColor: "black" }}>
-                  <TableCell style={{ color: "white" }}>#</TableCell>
-                  <TableCell style={{ color: "white" }}>City Name</TableCell>
-                  <TableCell style={{ color: "white" }}>City Image</TableCell>
-                  <TableCell style={{ color: "white" }}>Update</TableCell>
-                  <TableCell style={{ color: "white" }}>Delete</TableCell>
+                  <TableCell sx={{ color: "white" }}>#</TableCell>
+                  <TableCell sx={{ color: "white" }}>City Name</TableCell>
+                  <TableCell sx={{ color: "white" }}>City Image</TableCell>
+                  <TableCell sx={{ color: "white" }}>Update</TableCell>
+                  <TableCell sx={{ color: "white" }}>Delete</TableCell>
                 </TableRow>
                 {currentPost?.map((city) => (
                   <TableRow>
@@ -73,7 +73,7 @@ export default function AdminCityList() {
                     <TableCell>{city.cityName}</TableCell>
                     <TableCell>
                       <img
-                        style={{ width: 200, height: 100 }}
+                        sx={{ width: 200, height: 100 }}
                         src={`${city.cityImage}`}
                       ></img>
                     </TableCell>

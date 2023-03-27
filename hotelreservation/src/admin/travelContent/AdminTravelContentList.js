@@ -56,7 +56,7 @@ export default function AdminTravelContentList() {
       templateColumns="repeat(5, 1fr)"
       gap={0}
     >
-      <div style={{ marginLeft: 10 }}>
+      <div sx={{ marginLeft: 10 }}>
         <AdminHome></AdminHome>
       </div>
 
@@ -66,19 +66,19 @@ export default function AdminTravelContentList() {
             <TableBody>
               <Table>
                 <TableRow style={{ backgroundColor: "black" }}>
-                  <TableCell style={{ color: "white" }}>#</TableCell>
-                  <TableCell style={{ color: "white" }}>Content Name</TableCell>
-                  <TableCell style={{ color: "white" }}>
+                  <TableCell sx={{ color: "white" }}>#</TableCell>
+                  <TableCell sx={{ color: "white" }}>Content Name</TableCell>
+                  <TableCell sx={{ color: "white" }}>
                     Content Description
                   </TableCell>
-                  <TableCell style={{ color: "white" }}>
+                  <TableCell sx={{ color: "white" }}>
                     Content Image
                   </TableCell>
-                  <TableCell style={{ color: "white" }}>
+                  <TableCell sx={{ color: "white" }}>
                     Travel Writing Id
                   </TableCell>
-                  <TableCell style={{ color: "white" }}>Detay</TableCell>
-                  <TableCell style={{ color: "white" }}>Delete</TableCell>
+                  <TableCell sx={{ color: "white" }}>Detay</TableCell>
+                  <TableCell sx={{ color: "white" }}>Delete</TableCell>
                 </TableRow>
                 {currentPost?.map((travelContent) => (
                   <TableRow>
@@ -87,7 +87,7 @@ export default function AdminTravelContentList() {
                     <TableCell>{travelContent.contentDescription}</TableCell>
                     <TableCell>
                       <Image
-                        style={{ width: 200, height: 150 }}
+                        sx={{ width: 200, height: 150 }}
                         src={`${travelContent.contentImage}`}
                       ></Image>
                     </TableCell>

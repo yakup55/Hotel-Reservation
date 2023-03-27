@@ -1,0 +1,3134 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "HotelReservationProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/About/GetAboutList": {
+      "get": {
+        "tags": [
+          "About"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/About/GetByAbout/{id}": {
+      "get": {
+        "tags": [
+          "About"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/About/AddAbout": {
+      "post": {
+        "tags": [
+          "About"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/AboutDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/About/UpdateAbout": {
+      "put": {
+        "tags": [
+          "About"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/AboutDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/About/DeleteAbout/{id}": {
+      "delete": {
+        "tags": [
+          "About"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Authentication/LogOut/{id}": {
+      "get": {
+        "tags": [
+          "Authentication"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Authentication/CreateToken": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/UserLoginDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Authentication/CreateTokenByClient": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ClientLoginDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Authentication/RevokeRefreshToken": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/RefreshTokenDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Authentication/CreateTokenByRefreshToken": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/RefreshTokenDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Category/GetCategoryList": {
+      "get": {
+        "tags": [
+          "Category"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Category/GetByCategory/{id}": {
+      "get": {
+        "tags": [
+          "Category"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Category/LastCategory": {
+      "get": {
+        "tags": [
+          "Category"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Category/AddCategory": {
+      "post": {
+        "tags": [
+          "Category"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/CategoryDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Category/UpdateCategory": {
+      "put": {
+        "tags": [
+          "Category"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/CategoryDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Category/DeleteCategory/{id}": {
+      "delete": {
+        "tags": [
+          "Category"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/City/GetCityList": {
+      "get": {
+        "tags": [
+          "City"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/City/GetByCity/{id}": {
+      "get": {
+        "tags": [
+          "City"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/City/PopularCity": {
+      "get": {
+        "tags": [
+          "City"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/City/AddCity": {
+      "post": {
+        "tags": [
+          "City"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/CityDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/City/UpdateCity": {
+      "put": {
+        "tags": [
+          "City"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/CityDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/City/DeleteCity/{id}": {
+      "delete": {
+        "tags": [
+          "City"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Comment/GetCommentList": {
+      "get": {
+        "tags": [
+          "Comment"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Comment/GetByComment/{id}": {
+      "get": {
+        "tags": [
+          "Comment"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Comment/CommentHotelList/{id}": {
+      "get": {
+        "tags": [
+          "Comment"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Comment/CommentUserList/{id}": {
+      "get": {
+        "tags": [
+          "Comment"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Comment/PopularCommentHotel/{id}": {
+      "get": {
+        "tags": [
+          "Comment"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Comment/CommentActive/{id}": {
+      "get": {
+        "tags": [
+          "Comment"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Comment/CommentPassive/{id}": {
+      "get": {
+        "tags": [
+          "Comment"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Comment/AddComment": {
+      "post": {
+        "tags": [
+          "Comment"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/CommentDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Comment/UpdateComment": {
+      "put": {
+        "tags": [
+          "Comment"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/CommentDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Comment/DeleteComment/{id}": {
+      "delete": {
+        "tags": [
+          "Comment"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Contact/GetContactList": {
+      "get": {
+        "tags": [
+          "Contact"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Contact/GetByContact/{id}": {
+      "get": {
+        "tags": [
+          "Contact"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Contact/ContactUsertList/{id}": {
+      "get": {
+        "tags": [
+          "Contact"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Contact/AddContact": {
+      "post": {
+        "tags": [
+          "Contact"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ContactDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Contact/UpdateContact": {
+      "put": {
+        "tags": [
+          "Contact"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ContactDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Contact/DeleteContact/{id}": {
+      "delete": {
+        "tags": [
+          "Contact"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Degre/GetDegreList": {
+      "get": {
+        "tags": [
+          "Degre"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Degre/GetByDegre/{id}": {
+      "get": {
+        "tags": [
+          "Degre"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Degre/AddDegre": {
+      "post": {
+        "tags": [
+          "Degre"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/DegreDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Degre/UpdateDegre": {
+      "put": {
+        "tags": [
+          "Degre"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/DegreDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Degre/DeleteDegre/{id}": {
+      "delete": {
+        "tags": [
+          "Degre"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Facility/GetFacilityList": {
+      "get": {
+        "tags": [
+          "Facility"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Facility/GetByFacility/{id}": {
+      "get": {
+        "tags": [
+          "Facility"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Facility/FacilityHotel/{id}": {
+      "get": {
+        "tags": [
+          "Facility"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Facility/AddFacility": {
+      "post": {
+        "tags": [
+          "Facility"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/FaciltyDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Facility/UpdateFacility": {
+      "put": {
+        "tags": [
+          "Facility"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/FaciltyDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Facility/DeleteFacility/{id}": {
+      "delete": {
+        "tags": [
+          "Facility"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Hotel/GetHotelList": {
+      "get": {
+        "tags": [
+          "Hotel"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Hotel/LastHotel": {
+      "get": {
+        "tags": [
+          "Hotel"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Hotel/GetByHotel/{id}": {
+      "get": {
+        "tags": [
+          "Hotel"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Hotel/HotelCategoryList/{id}": {
+      "get": {
+        "tags": [
+          "Hotel"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Hotel/HotelCityList/{id}": {
+      "get": {
+        "tags": [
+          "Hotel"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Hotel/HotelDegreList/{id}": {
+      "get": {
+        "tags": [
+          "Hotel"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Hotel/HotelOneDetail/{id}": {
+      "get": {
+        "tags": [
+          "Hotel"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Hotel/SearchHotelList/{search}": {
+      "get": {
+        "tags": [
+          "Hotel"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "search",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Hotel/HotelPriceList/{price}": {
+      "get": {
+        "tags": [
+          "Hotel"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "price",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Hotel/AddHotel": {
+      "post": {
+        "tags": [
+          "Hotel"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/HotelDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Hotel/UpdateHotel/{id}": {
+      "put": {
+        "tags": [
+          "Hotel"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/HotelDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Hotel/DeleteHotel/{id}": {
+      "delete": {
+        "tags": [
+          "Hotel"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/HotelDetail/GetDetailList": {
+      "get": {
+        "tags": [
+          "HotelDetail"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/HotelDetail/GetByDetail/{id}": {
+      "get": {
+        "tags": [
+          "HotelDetail"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/HotelDetail/AddHotelDetail": {
+      "post": {
+        "tags": [
+          "HotelDetail"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/HotelDetailDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/HotelDetail/UpdateDetail": {
+      "put": {
+        "tags": [
+          "HotelDetail"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/HotelDetailDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/HotelDetail/DeleteHotelDetail/{id}": {
+      "delete": {
+        "tags": [
+          "HotelDetail"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Quentions/GetQuentionsList": {
+      "get": {
+        "tags": [
+          "Quentions"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Quentions/GetByQuentions/{id}": {
+      "get": {
+        "tags": [
+          "Quentions"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Quentions/HotelQuentions/{id}": {
+      "get": {
+        "tags": [
+          "Quentions"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Quentions/AddQuentions": {
+      "post": {
+        "tags": [
+          "Quentions"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/QuentionsDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Quentions/UpdateQuentions": {
+      "put": {
+        "tags": [
+          "Quentions"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/QuentionsDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Quentions/DeleteQuentions/{id}": {
+      "delete": {
+        "tags": [
+          "Quentions"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Reservation/GetReservationList": {
+      "get": {
+        "tags": [
+          "Reservation"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Reservation/GetByReservation/{id}": {
+      "get": {
+        "tags": [
+          "Reservation"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Reservation/UserReservationList/{id}": {
+      "get": {
+        "tags": [
+          "Reservation"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Reservation/AddReservation": {
+      "post": {
+        "tags": [
+          "Reservation"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ReservartionDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Reservation/UpdateReservation": {
+      "put": {
+        "tags": [
+          "Reservation"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ReservartionDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Reservation/DeleteReservation/{id}": {
+      "delete": {
+        "tags": [
+          "Reservation"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Role/GetRoleList": {
+      "get": {
+        "tags": [
+          "Role"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Role/GetByRole/{id}": {
+      "get": {
+        "tags": [
+          "Role"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Role/CreateRole": {
+      "post": {
+        "tags": [
+          "Role"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/AppRole"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Role/AssignRoleTo": {
+      "post": {
+        "tags": [
+          "Role"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/UserRoleDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Role/UpdateRole": {
+      "put": {
+        "tags": [
+          "Role"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/RoleUpdateDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Role/DeleteRole/{id}": {
+      "delete": {
+        "tags": [
+          "Role"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Room/GetRoomList": {
+      "get": {
+        "tags": [
+          "Room"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Room/GetByRoom/{id}": {
+      "get": {
+        "tags": [
+          "Room"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Room/RoomOneDetail/{id}": {
+      "get": {
+        "tags": [
+          "Room"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Room/RoomHotel/{id}": {
+      "get": {
+        "tags": [
+          "Room"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Room/AddRoom": {
+      "post": {
+        "tags": [
+          "Room"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/RoomDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Room/UpdateRoom": {
+      "put": {
+        "tags": [
+          "Room"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/RoomDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Room/DeleteRoom/{id}": {
+      "delete": {
+        "tags": [
+          "Room"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/RoomDetail/GetRoomDetailList": {
+      "get": {
+        "tags": [
+          "RoomDetail"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/RoomDetail/GetByDetail/{id}": {
+      "get": {
+        "tags": [
+          "RoomDetail"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/RoomDetail/AddDetail": {
+      "post": {
+        "tags": [
+          "RoomDetail"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/RoomDetailDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/RoomDetail/UpdateDetail": {
+      "put": {
+        "tags": [
+          "RoomDetail"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/RoomDetailDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/RoomDetail/DeleteDetail/{id}": {
+      "delete": {
+        "tags": [
+          "RoomDetail"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/TravelContent/GetTravelContentList": {
+      "get": {
+        "tags": [
+          "TravelContent"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/TravelContent/GetByTravelContent/{id}": {
+      "get": {
+        "tags": [
+          "TravelContent"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/TravelContent/TravelWritingsContent/{id}": {
+      "get": {
+        "tags": [
+          "TravelContent"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/TravelContent/TravelWritingsUserContentList/{userId}/{id}": {
+      "get": {
+        "tags": [
+          "TravelContent"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/TravelContent/TravelContentLastList": {
+      "get": {
+        "tags": [
+          "TravelContent"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/TravelContent/AddTravelContent": {
+      "post": {
+        "tags": [
+          "TravelContent"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/TravelContentDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/TravelContent/UpdateTravelContent": {
+      "put": {
+        "tags": [
+          "TravelContent"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/TravelContentDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/TravelContent/DeleteTravelContent/{id}": {
+      "delete": {
+        "tags": [
+          "TravelContent"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/TravelWritings/GetTravelWritingsList": {
+      "get": {
+        "tags": [
+          "TravelWritings"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/TravelWritings/GetByTravelWritings/{id}": {
+      "get": {
+        "tags": [
+          "TravelWritings"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/TravelWritings/TravelWritingsUserList/{userId}": {
+      "get": {
+        "tags": [
+          "TravelWritings"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/TravelWritings/TravelWritingActive/{id}": {
+      "get": {
+        "tags": [
+          "TravelWritings"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/TravelWritings/TravelWritingPassive/{id}": {
+      "get": {
+        "tags": [
+          "TravelWritings"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/TravelWritings/TravelPopularList": {
+      "get": {
+        "tags": [
+          "TravelWritings"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/TravelWritings/AddTravelWritings": {
+      "post": {
+        "tags": [
+          "TravelWritings"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/TravelWritingDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/TravelWritings/UpdateTravelWritings": {
+      "put": {
+        "tags": [
+          "TravelWritings"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/TravelWritingDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/TravelWritings/DeleteTravelWritings/{id}": {
+      "delete": {
+        "tags": [
+          "TravelWritings"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/User/GetUserList": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/User/GetByUserEmail/{email}": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "email",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/User/GetByUser/{id}": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/User/ConfirmEmailSend": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/EmailDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/User/CreateUser": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/UserCreateDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/User/ResetPasswordEmailSend": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/EmailDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/User/ResetPassword": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/PasswordResetDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/User/UserPasswordUpdate": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/UserPasswordUpdateDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/User/UserUpdate": {
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/UserUpdateDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/User/DeleteUser/{id}": {
+      "delete": {
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "AboutDto": {
+      "type": "object",
+      "properties": {
+        "aboutId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "aboutName": {
+          "type": "string"
+        },
+        "aboutImage": {
+          "type": "string"
+        },
+        "aboutDescription": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "AppRole": {
+      "type": "object",
+      "properties": {
+        "roleName": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "CategoryDto": {
+      "type": "object",
+      "properties": {
+        "categoryId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "categoryName": {
+          "type": "string"
+        },
+        "categoryImage": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "CityDto": {
+      "type": "object",
+      "properties": {
+        "cityId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "cityName": {
+          "type": "string"
+        },
+        "cityImage": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ClientLoginDto": {
+      "type": "object",
+      "properties": {
+        "clientId": {
+          "type": "string"
+        },
+        "clientSecret": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "CommentDto": {
+      "type": "object",
+      "properties": {
+        "commentId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "commentMessage": {
+          "type": "string"
+        },
+        "commentSubject": {
+          "type": "string"
+        },
+        "commentStatus": {
+          "type": "boolean"
+        },
+        "commentDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "hotelId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "degreId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "userId": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ContactDto": {
+      "type": "object",
+      "properties": {
+        "contactId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "contactSubject": {
+          "type": "string"
+        },
+        "contactEmail": {
+          "type": "string"
+        },
+        "contactMessage": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string"
+        },
+        "contactStatus": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "DegreDto": {
+      "type": "object",
+      "properties": {
+        "degreId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "degreName": {
+          "type": "string"
+        },
+        "degreValue": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    },
+    "EmailDto": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "FaciltyDto": {
+      "type": "object",
+      "properties": {
+        "facilityId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "facilityName": {
+          "type": "string"
+        },
+        "hotelId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "degreId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    },
+    "HotelDetailDto": {
+      "type": "object",
+      "properties": {
+        "hotelDetailId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "image1": {
+          "type": "string"
+        },
+        "image2": {
+          "type": "string"
+        },
+        "image3": {
+          "type": "string"
+        },
+        "image4": {
+          "type": "string"
+        },
+        "image5": {
+          "type": "string"
+        },
+        "image6": {
+          "type": "string"
+        },
+        "image7": {
+          "type": "string"
+        },
+        "image8": {
+          "type": "string"
+        },
+        "image9": {
+          "type": "string"
+        },
+        "hotelMap": {
+          "type": "string"
+        },
+        "hotelId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    },
+    "HotelDto": {
+      "type": "object",
+      "properties": {
+        "hotelId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "hotelName": {
+          "type": "string"
+        },
+        "hotelPrice": {
+          "format": "double",
+          "type": "number"
+        },
+        "hotelImage": {
+          "type": "string"
+        },
+        "hotelLocation": {
+          "type": "string"
+        },
+        "categoryId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "degreId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "cityId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    },
+    "PasswordResetDto": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "passwordNew": {
+          "type": "string"
+        },
+        "passwordNewConfirm": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "QuentionsDto": {
+      "type": "object",
+      "properties": {
+        "quentionsId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "quentionsName": {
+          "type": "string"
+        },
+        "quentionsMessage": {
+          "type": "string"
+        },
+        "hotelId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    },
+    "RefreshTokenDto": {
+      "type": "object",
+      "properties": {
+        "token": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "ReservartionDto": {
+      "type": "object",
+      "properties": {
+        "reservationId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "arrivalDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "returnDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "numberPeople": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "userId": {
+          "type": "string"
+        },
+        "roomDetailId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    },
+    "RoleUpdateDto": {
+      "type": "object",
+      "properties": {
+        "roleId": {
+          "type": "string"
+        },
+        "roleName": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "RoomDetailDto": {
+      "type": "object",
+      "properties": {
+        "roomDetailId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "image1": {
+          "type": "string"
+        },
+        "image2": {
+          "type": "string"
+        },
+        "image3": {
+          "type": "string"
+        },
+        "roomId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    },
+    "RoomDto": {
+      "type": "object",
+      "properties": {
+        "roomId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "roomName": {
+          "type": "string"
+        },
+        "roomImage": {
+          "type": "string"
+        },
+        "roomPrice": {
+          "format": "double",
+          "type": "number"
+        },
+        "hotelId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    },
+    "TravelContentDto": {
+      "type": "object",
+      "properties": {
+        "travelContentId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "contentName": {
+          "type": "string"
+        },
+        "contentDescription": {
+          "type": "string"
+        },
+        "contentImage": {
+          "type": "string"
+        },
+        "travelWritingId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    },
+    "TravelWritingDto": {
+      "type": "object",
+      "properties": {
+        "travelWritingId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "userId": {
+          "type": "string"
+        },
+        "travelDateTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "travelName": {
+          "type": "string"
+        },
+        "travelMessage": {
+          "type": "string"
+        },
+        "travelImage": {
+          "type": "string"
+        },
+        "travelStatus": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "UserCreateDto": {
+      "type": "object",
+      "properties": {
+        "userName": {
+          "type": "string"
+        },
+        "userMail": {
+          "type": "string"
+        },
+        "userNumber": {
+          "type": "string"
+        },
+        "userPasword": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "UserLoginDto": {
+      "type": "object",
+      "properties": {
+        "userMail": {
+          "type": "string"
+        },
+        "userPassword": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "UserPasswordUpdateDto": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "passwordOld": {
+          "type": "string"
+        },
+        "passwordNew": {
+          "type": "string"
+        },
+        "passwordNewConfirm": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "UserRoleDto": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string"
+        },
+        "roleName": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "UserUpdateDto": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string"
+        },
+        "userImage": {
+          "type": "string"
+        },
+        "cityId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "birthDate": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

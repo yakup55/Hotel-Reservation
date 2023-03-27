@@ -21,7 +21,7 @@ export default function CategoryList() {
         Tatil Temaları
       </Typography>
 
-      <SimpleGrid ml={10} mb={50} minChildWidth="200px" spacing="10px">
+      <SimpleGrid ml={10} mb={50} minChildWidth="150px" spacing="10px">
         {categories.data?.map((category) => (
           <Box height="250px">
             <Category key={category.categoryId} category={category}></Category>

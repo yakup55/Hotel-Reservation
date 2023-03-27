@@ -71,12 +71,16 @@ export default function HotelDetail() {
             <Heading>{hotel.data?.hotelName}</Heading>
             <Typography variant="h6">{hotel.data?.hotelLocation}</Typography>
             <Image
-              style={{ marginLeft: 20, width: 350, height: 350 }}
+              sx={{ width: 300, height: 250 }}
               src={`${hotel.data?.hotelImage}`}
             ></Image>
-            <Stack direction="row" spacing={1}>
+            <Stack
+              sx={{ margin: "auto", display: "block" }}
+              direction="row"
+              spacing={1}
+            >
               <Chip
-                sx={{ ml: 8, fontSize: 15, fontStyle: "italic" }}
+                sx={{ fontStyle: "italic" }}
                 label={`${hotel.data?.degre.degreName}-${hotel.data?.degre.degreValue}`}
                 color="primary"
               />
@@ -85,7 +89,10 @@ export default function HotelDetail() {
             </Stack>
 
             <CommentHotelList></CommentHotelList>
-            <AspectRatio sx={{ ml: 2, mt: 5 }} ratio={16 / 9}>
+            <AspectRatio
+              sx={{ margin: "auto", display: "block", width: 300, height: 250 }}
+              ratio={16 / 9}
+            >
               <iframe
                 src={`${hotel.data?.hotelDetails?.map(
                   (detail) => detail.hotelMap
@@ -108,20 +115,17 @@ export default function HotelDetail() {
             <Contact></Contact>
           </GridItem>
           {/* Image List  */}
-          <GridItem sx={{ width: 900 }} colSpan={4}>
+          <GridItem sx={{ width: 1200 }} colSpan={4}>
             <HotelImageList></HotelImageList>
           </GridItem>
 
           <GridItem colSpan={4}>
             <RoomHotelList></RoomHotelList>
           </GridItem>
-
-          <GridItem colSpan={4}>
-            <CommentAdd></CommentAdd>
-          </GridItem>
         </Grid>
+        <CommentAdd></CommentAdd>
       </Box>
-      <div style={{ marginTop: 250 }}></div>
+      <div sx={{ marginTop: 250 }}></div>
       <Footer></Footer>
     </>
   );

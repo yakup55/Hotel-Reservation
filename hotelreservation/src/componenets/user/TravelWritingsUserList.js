@@ -86,7 +86,7 @@ export default function TravelWritingsUserList() {
                     <TableCell>{travel.travelMessage}</TableCell>
                     <TableCell>
                       <Image
-                        style={{ width: 200, height: 100 }}
+                        sx={{ width: 200, height: 100 }}
                         src={`${travel.travelImage}`}
                       ></Image>
                     </TableCell>
@@ -152,7 +152,7 @@ export default function TravelWritingsUserList() {
           color="secondary"
         />
       </Container>
-      <div style={{ marginTop: 30 }}>
+      <div sx={{ marginTop: 30 }}>
         <Footer></Footer>
       </div>
     </>

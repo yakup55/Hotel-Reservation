@@ -6,11 +6,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { getByTravelWritings } from "../../redux/actions/travelWritingsActions";
 
 export default function TravelContent({ travelContent }) {
-  const { travelWriting } = useSelector((state) => state.travelWriting);
   const dispacth = useDispatch();
   useEffect(() => {
     dispacth(getByTravelWritings(travelContent?.travelWritingId));
-  }, [dispacth, travelContent?.travelWritingId, travelWriting.data?.userId]);
+  }, [dispacth, travelContent?.travelWritingId]);
   return (
     <SimpleGrid columns={1} spacing={1}>
       <Container>
@@ -21,7 +20,7 @@ export default function TravelContent({ travelContent }) {
             src={`${travelContent.contentImage}`}
           ></Image>
           <Typography mt={3} variant="h6" align={"center"}>
-            {travelContent.contentDescription?.substring(0, 1210)}...
+            {travelContent.contentDescription}...
           </Typography>
         </Box>
       </Container>

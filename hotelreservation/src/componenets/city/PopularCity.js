@@ -1,5 +1,5 @@
 import { Box, SimpleGrid } from "@chakra-ui/react";
-import { Grid, Typography } from "@mui/material";
+import { Container, Grid, Typography } from "@mui/material";
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -17,7 +17,7 @@ export default function PopularCity() {
       <Typography variant="h5" fontStyle={"italic"}>
         Çok Tercih Edilen Yerler
       </Typography>
-      <SimpleGrid mt={20} minChildWidth="410px" >
+      <SimpleGrid mt={20} minChildWidth="350px">
         {cities.data?.map((city) => (
           <Box height="400px">
             <City key={city.cityId} city={city}></City>

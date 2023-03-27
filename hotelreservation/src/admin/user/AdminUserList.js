@@ -60,7 +60,7 @@ export default function AdminUserList() {
       templateColumns="repeat(5, 1fr)"
       gap={0}
     >
-      <div style={{ marginLeft: 10 }}>
+      <div sx={{ marginLeft: 10 }}>
         <AdminHome></AdminHome>
       </div>
 
@@ -70,23 +70,23 @@ export default function AdminUserList() {
             <TableBody>
               <Table>
                 <TableRow style={{ backgroundColor: "black" }}>
-                  <TableCell style={{ color: "white" }}>#</TableCell>
-                  <TableCell style={{ color: "white" }}>Image</TableCell>
-                  <TableCell style={{ color: "white" }}>User Name</TableCell>
-                  <TableCell style={{ color: "white" }}>User Mail</TableCell>
-                  <TableCell style={{ color: "white" }}>City</TableCell>
-                  <TableCell style={{ color: "white" }}>Birthh Date</TableCell>
-                  <TableCell style={{ color: "white" }}>Phone Number</TableCell>
-                  <TableCell style={{ color: "white" }}>Add Role</TableCell>
-                  <TableCell style={{ color: "white" }}>Update</TableCell>
-                  <TableCell style={{ color: "white" }}>Delete</TableCell>
+                  <TableCell sx={{ color: "white" }}>#</TableCell>
+                  <TableCell sx={{ color: "white" }}>Image</TableCell>
+                  <TableCell sx={{ color: "white" }}>User Name</TableCell>
+                  <TableCell sx={{ color: "white" }}>User Mail</TableCell>
+                  <TableCell sx={{ color: "white" }}>City</TableCell>
+                  <TableCell sx={{ color: "white" }}>Birthh Date</TableCell>
+                  <TableCell sx={{ color: "white" }}>Phone Number</TableCell>
+                  <TableCell sx={{ color: "white" }}>Add Role</TableCell>
+                  <TableCell sx={{ color: "white" }}>Update</TableCell>
+                  <TableCell sx={{ color: "white" }}>Delete</TableCell>
                 </TableRow>
                 {currentPost?.map((user) => (
                   <TableRow>
                     <TableCell>{user.id}</TableCell>
                     <TableCell>
                       <img
-                        style={{ width: 100, height: 100 }}
+                        sx={{ width: 100, height: 100 }}
                         src={`${user.image}`}
                       ></img>
                     </TableCell>

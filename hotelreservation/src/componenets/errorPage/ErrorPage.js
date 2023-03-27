@@ -29,7 +29,7 @@ export default function ErrorPage() {
               <img
                 alt="Under development"
                 src="https://material-kit-react.devias.io/assets/errors/error-404.png"
-                style={{
+                sx={{
                   display: "inline-block",
                   maxWidth: "100%",
                   width: 400,

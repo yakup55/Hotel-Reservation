@@ -104,7 +104,7 @@ export default function UserPasswordUpdate() {
         </Stack>
       </form>
     </Container>
-    <div style={{ marginTop: 30 }}>
+    <div sx={{ marginTop: 30 }}>
         <Footer></Footer>
       </div>
     </>

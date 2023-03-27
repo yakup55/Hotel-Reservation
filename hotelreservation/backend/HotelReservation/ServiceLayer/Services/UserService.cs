@@ -83,7 +83,7 @@ namespace ServiceLayer.Services
                 if (result.Succeeded)
                 {
 
-                    string link = "http://localhost:3000/sendemailconfirm/"+hasUser.Email;
+                    string link = "https://reacthotelreservation.azurewebsites.net/sendemailconfirm/" + hasUser.Email;
                     await emailService.SendEmailConfirm(link, hasUser.Email);
                 }
             }
@@ -146,7 +146,7 @@ namespace ServiceLayer.Services
                 return ResponseDto<NoDataDto>.Fail("Bu Maile Ait Kullanıcı Yok", 404);
             }
             // string passwordResetToken = await userManager.GeneratePasswordResetTokenAsync(hasUser);
-            var link = "http://localhost:3000/resetpassword/" + hasUser.Email;
+            var link = "https://reacthotelreservation.azurewebsites.net/resetpassword/" + hasUser.Email;
             var passwordResultLink = link;
 
             await emailService.SendResetPasswordEmail(passwordResultLink, hasUser.Email!);

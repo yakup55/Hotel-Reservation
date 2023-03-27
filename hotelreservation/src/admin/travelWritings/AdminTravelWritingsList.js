@@ -64,7 +64,7 @@ export default function AdminTravelWritingsList() {
       templateColumns="repeat(5, 1fr)"
       gap={0}
     >
-      <div style={{ marginLeft: 10 }}>
+      <div sx={{ marginLeft: 10 }}>
         <AdminHome></AdminHome>
       </div>
 
@@ -74,17 +74,17 @@ export default function AdminTravelWritingsList() {
             <TableBody>
               <Table>
                 <TableRow style={{ backgroundColor: "black" }}>
-                  <TableCell style={{ color: "white" }}>#</TableCell>
-                  <TableCell style={{ color: "white" }}>Name</TableCell>
-                  <TableCell style={{ color: "white" }}>Message</TableCell>
-                  <TableCell style={{ color: "white" }}>Image</TableCell>
-                  <TableCell style={{ color: "white" }}>Date</TableCell>
-                  <TableCell style={{ color: "white" }}>Status</TableCell>
-                  <TableCell style={{ color: "white" }}>User Id</TableCell>
-                  <TableCell style={{ color: "white" }}>Active</TableCell>
-                  <TableCell style={{ color: "white" }}>Passive</TableCell>
-                  <TableCell style={{ color: "white" }}>Detay</TableCell>
-                  <TableCell style={{ color: "white" }}>Delete</TableCell>
+                  <TableCell sx={{ color: "white" }}>#</TableCell>
+                  <TableCell sx={{ color: "white" }}>Name</TableCell>
+                  <TableCell sx={{ color: "white" }}>Message</TableCell>
+                  <TableCell sx={{ color: "white" }}>Image</TableCell>
+                  <TableCell sx={{ color: "white" }}>Date</TableCell>
+                  <TableCell sx={{ color: "white" }}>Status</TableCell>
+                  <TableCell sx={{ color: "white" }}>User Id</TableCell>
+                  <TableCell sx={{ color: "white" }}>Active</TableCell>
+                  <TableCell sx={{ color: "white" }}>Passive</TableCell>
+                  <TableCell sx={{ color: "white" }}>Detay</TableCell>
+                  <TableCell sx={{ color: "white" }}>Delete</TableCell>
                 </TableRow>
                 {currentPost?.map((travelWriting) => (
                   <TableRow>
@@ -95,7 +95,7 @@ export default function AdminTravelWritingsList() {
                     </TableCell>
                     <TableCell>
                       <Image
-                        style={{ width: 200, height: 150 }}
+                        sx={{ width: 200, height: 150 }}
                         src={`${travelWriting.travelImage}`}
                       ></Image>
                     </TableCell>

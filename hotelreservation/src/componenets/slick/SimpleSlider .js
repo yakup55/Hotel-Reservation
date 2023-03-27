@@ -1,15 +1,24 @@
-import { Heading, Image } from "@chakra-ui/react";
-import { Box, Container } from "@mui/material";
+import { Heading, Image, SimpleGrid } from "@chakra-ui/react";
+import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material";
+import {
+  Box,
+  Button,
+  Card,
+  CardContent,
+  CardMedia,
+  Container,
+  MobileStepper,
+  Paper,
+  Typography,
+  useTheme,
+} from "@mui/material";
 import { render } from "@testing-library/react";
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Slider from "react-slick";
-import {
-  getTravelContentList,
-  travelContentLastList,
-} from "../../redux/actions/travelContentActions";
+import { travelContentLastList } from "../../redux/actions/travelContentActions";
 
 export default function SimpleSlider() {
   const { travelContents } = useSelector((state) => state.travelContent);
@@ -28,17 +37,24 @@ export default function SimpleSlider() {
   };
 
   return (
-    <>
+    <Container sx={{mt:2}} maxWidth="lg">
       <Slider {...settings}>
         {travelContents.data?.map((travel) => (
           <>
-            <Image
+            <Card >
+              <CardMedia
+                sx={{height:500}}
+                image={`${travel.contentImage}`}
+                title="green iguana"
+              />
+            </Card>
+            {/* <Image
               onClick={() =>
                 navigate(`/travelwritings/${travel.travelWritingId}`)
               }
-              style={{ width: 1520, height: 350 }}
+              sx={{ width: 1000, height: 300 }}
               src={`${travel.contentImage}`}
-            ></Image>
+            ></Image> */}
           </>
         ))}
         <link
@@ -53,6 +69,6 @@ export default function SimpleSlider() {
           href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
         />
       </Slider>
-    </>
+    </Container>
   );
 }

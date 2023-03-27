@@ -45,7 +45,7 @@ export default function RoomDetail() {
       >
         <GridItem rowSpan={2} colSpan={1}>
           <Image
-            style={{ width: 350, height: 300 }}
+            sx={{ mt: 8, width: 280, height: 200 }}
             src={`${room.data?.roomImage}`}
           ></Image>
           <Share></Share>
@@ -58,87 +58,126 @@ export default function RoomDetail() {
         </GridItem>
         <GridItem colSpan={4}>
           <Heading>Oda Özellikleri</Heading>
-          <TableContainer>
-            <Table>
-              <TableBody>
-                <TableRow sx={{ backgroundColor: "black", color: "white" }}>
-                  <TableCell style={{ color: "white" }}>Balkon</TableCell>
-                  <TableCell style={{ color: "white" }}>Banyo</TableCell>
-                  <TableCell style={{ color: "white" }}>Duş</TableCell>
-                  <TableCell style={{ color: "white" }}>Duş</TableCell>
-                  <TableCell style={{ color: "white" }}>Kurutma</TableCell>
-                  <TableCell style={{ color: "white" }}>Kilima</TableCell>
-                  <TableCell style={{ color: "white" }}>Bar</TableCell>
-                  <TableCell style={{ color: "white" }}>Modem</TableCell>
-                  <TableCell style={{ color: "white" }}>Kasası</TableCell>
-                  <TableCell style={{ color: "white" }}>Servis</TableCell>
-                  <TableCell style={{ color: "white" }}>Telefon</TableCell>
-                  <TableCell style={{ color: "white" }}>Tv</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>
-                    <DoneAllIcon></DoneAllIcon>
-                  </TableCell>
-                  <TableCell>
-                    <DoneAllIcon></DoneAllIcon>
-                  </TableCell>
-                  <TableCell>
-                    <DoneAllIcon></DoneAllIcon>
-                  </TableCell>
-                  <TableCell>
-                    <DoneAllIcon></DoneAllIcon>
-                  </TableCell>
-                  <TableCell>
-                    <DoneAllIcon></DoneAllIcon>
-                  </TableCell>
-                  <TableCell>
-                    <DoneAllIcon></DoneAllIcon>
-                  </TableCell>
-                  <TableCell>
-                    <DoneAllIcon></DoneAllIcon>
-                  </TableCell>
-                  <TableCell>
-                    <DoneAllIcon></DoneAllIcon>
-                  </TableCell>
-                  <TableCell>
-                    <DoneAllIcon></DoneAllIcon>
-                  </TableCell>
-                  <TableCell>
-                    <DoneAllIcon></DoneAllIcon>
-                  </TableCell>
-                  <TableCell>
-                    <DoneAllIcon></DoneAllIcon>
-                  </TableCell>
-                  <TableCell>
-                    <DoneAllIcon></DoneAllIcon>
-                  </TableCell>
-                </TableRow>
-              </TableBody>
-            </Table>
-          </TableContainer>
+          <SimpleGrid mt={10} minChildWidth="200px">
+            <Box height="130px">
+              <Heading>Balkon</Heading>
+              <Typography variant="h6" fontStyle={"italic"}>
+                <DoneAllIcon></DoneAllIcon>
+              </Typography>
+            </Box>
+            <Box height="130px">
+              <Heading>Banyo</Heading>
+              <Typography variant="h6" fontStyle={"italic"}>
+                <DoneAllIcon></DoneAllIcon>
+              </Typography>
+            </Box>
+            <Box height="130px">
+              <Heading>Küveyt veya Duş</Heading>
+              <Typography variant="h6" fontStyle={"italic"}>
+                <DoneAllIcon></DoneAllIcon>
+              </Typography>
+            </Box>
+            <Box height="130px">
+              <Heading>Kurutma</Heading>
+              <Typography variant="h6" fontStyle={"italic"}>
+                <DoneAllIcon></DoneAllIcon>
+              </Typography>
+            </Box>
+            <Box height="130px">
+              <Heading>Klima</Heading>
+              <Typography variant="h6" fontStyle={"italic"}>
+                <DoneAllIcon></DoneAllIcon>
+              </Typography>
+            </Box>
+            <Box height="130px">
+              <Heading>Bar</Heading>
+              <Typography variant="h6" fontStyle={"italic"}>
+                <DoneAllIcon></DoneAllIcon>
+              </Typography>
+            </Box>
+            <Box height="130px">
+              <Heading>Modem</Heading>
+              <Typography variant="h6" fontStyle={"italic"}>
+                <DoneAllIcon></DoneAllIcon>
+              </Typography>
+            </Box>
+            <Box height="130px">
+              <Heading>Kasa</Heading>
+              <Typography variant="h6" fontStyle={"italic"}>
+                <DoneAllIcon></DoneAllIcon>
+              </Typography>
+            </Box>
+            <Box height="130px">
+              <Heading>Servis</Heading>
+              <Typography variant="h6" fontStyle={"italic"}>
+                <DoneAllIcon></DoneAllIcon>
+              </Typography>
+            </Box>
+            <Box height="130px">
+              <Heading>Gardırop/Dolap</Heading>
+              <Typography variant="h6" fontStyle={"italic"}>
+                <DoneAllIcon></DoneAllIcon>
+              </Typography>
+            </Box>
+            <Box height="130px">
+              <Heading>Ütü</Heading>
+              <Typography variant="h6" fontStyle={"italic"}>
+                <DoneAllIcon></DoneAllIcon>
+              </Typography>
+            </Box>
+            <Box height="130px">
+              <Heading>Telefon</Heading>
+              <Typography variant="h6" fontStyle={"italic"}>
+                <DoneAllIcon></DoneAllIcon>
+              </Typography>
+            </Box>
+            <Box height="130px">
+              <Heading>Televizyon</Heading>
+              <Typography variant="h6" fontStyle={"italic"}>
+                <DoneAllIcon></DoneAllIcon>
+              </Typography>
+            </Box>
+            <Box height="130px">
+              <Heading>Tuvalet</Heading>
+              <Typography variant="h6" fontStyle={"italic"}>
+                <DoneAllIcon></DoneAllIcon>
+              </Typography>
+            </Box>
+            <Box height="130px">
+              <Heading>Çalışma Masası</Heading>
+              <Typography variant="h6" fontStyle={"italic"}>
+                <DoneAllIcon></DoneAllIcon>
+              </Typography>
+            </Box>
+            <Box height="130px">
+              <Heading>Kablosuz İnternet</Heading>
+              <Typography variant="h6" fontStyle={"italic"}>
+                <DoneAllIcon></DoneAllIcon>
+              </Typography>
+            </Box>
+            <Box height="130px">
+              <Heading>Isıtma</Heading>
+              <Typography variant="h6" fontStyle={"italic"}>
+                <DoneAllIcon></DoneAllIcon>
+              </Typography>
+            </Box>
+            <Box height="130px">
+              <Heading>Elektirikli Su Isıtıcısı</Heading>
+              <Typography variant="h6" fontStyle={"italic"}>
+                <DoneAllIcon></DoneAllIcon>
+              </Typography>
+            </Box>
+          </SimpleGrid>
           <ReservationInquire></ReservationInquire>
 
-          <SimpleGrid mt={10} minChildWidth="120px">
-            {/* <Box bg="tomato" height="110px">
-            <Heading>Giriş</Heading>
-            <Typography variant="h6" fontStyle={"italic"}>
-              2023.1.1
-            </Typography>
-          </Box>
-          <Box bg="tomato" height="110px">
-            <Heading>Çıkış</Heading>
-            <Typography variant="h6" fontStyle={"italic"}>
-              2023.1.1
-            </Typography>
-          </Box>
-         
-          <Box bg="tomato" height="110px">
-            <Heading>Konuk Sayısı</Heading>
-            <Typography variant="h6" fontStyle={"italic"}>
-              {room.data?.roomDetails.map((detail) => detail.numberPeople)} Kişi
-            </Typography>
-          </Box> */}
-            <Box bg="tomato" height="110px">
+          <SimpleGrid mt={10} mb={30}>
+            <Box
+              margin="auto"
+              display="block"
+              bg="tomato"
+              width="300px"
+              height="130px"
+            >
               <Heading>Oda Fiyatı</Heading>
               <Typography variant="h6" fontStyle={"italic"}>
                 {room.data?.roomPrice}
@@ -147,9 +186,9 @@ export default function RoomDetail() {
           </SimpleGrid>
         </GridItem>
       </Grid>
-      <div style={{ marginTop: 600 }}>
+      {/* <div sx={{ marginTop: 2500 }}>
         <Footer></Footer>
-      </div>
+      </div> */}
     </>
   );
 }

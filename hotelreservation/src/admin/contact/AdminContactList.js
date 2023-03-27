@@ -46,7 +46,7 @@ export default function AdminContactList() {
       templateColumns="repeat(5, 1fr)"
       gap={0}
     >
-      <div style={{ marginLeft: 10 }}>
+      <div sx={{ marginLeft: 10 }}>
         <AdminHome></AdminHome>
       </div>
 
@@ -56,17 +56,17 @@ export default function AdminContactList() {
             <TableBody>
               <Table>
                 <TableRow style={{ backgroundColor: "black" }}>
-                  <TableCell style={{ color: "white" }}>#</TableCell>
-                  <TableCell style={{ color: "white" }}>
+                  <TableCell sx={{ color: "white" }}>#</TableCell>
+                  <TableCell sx={{ color: "white" }}>
                     Contact Email
                   </TableCell>
-                  <TableCell style={{ color: "white" }}>
+                  <TableCell sx={{ color: "white" }}>
                     Contact Subject
                   </TableCell>
-                  <TableCell style={{ color: "white" }}>
+                  <TableCell sx={{ color: "white" }}>
                     Comment Message
                   </TableCell>
-                  <TableCell style={{ color: "white" }}>Delete</TableCell>
+                  <TableCell sx={{ color: "white" }}>Delete</TableCell>
                 </TableRow>
                 {currentPost?.map((contact) => (
                   <TableRow>

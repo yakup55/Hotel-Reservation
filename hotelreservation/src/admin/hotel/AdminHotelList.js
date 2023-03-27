@@ -58,7 +58,7 @@ export default function AdminHotelList() {
       templateColumns="repeat(5, 1fr)"
       gap={0}
     >
-      <div style={{ marginLeft: 10 }}>
+      <div sx={{ marginLeft: 10 }}>
         <AdminHome></AdminHome>
       </div>
 
@@ -68,19 +68,19 @@ export default function AdminHotelList() {
             <TableBody>
               <Table>
                 <TableRow style={{ backgroundColor: "black" }}>
-                  <TableCell style={{ color: "white" }}>#</TableCell>
-                  <TableCell style={{ color: "white" }}>Hotel Name</TableCell>
-                  <TableCell style={{ color: "white" }}>Hotel Price</TableCell>
-                  <TableCell style={{ color: "white" }}>Hotel Image</TableCell>
-                  <TableCell style={{ color: "white" }}>
+                  <TableCell sx={{ color: "white" }}>#</TableCell>
+                  <TableCell sx={{ color: "white" }}>Hotel Name</TableCell>
+                  <TableCell sx={{ color: "white" }}>Hotel Price</TableCell>
+                  <TableCell sx={{ color: "white" }}>Hotel Image</TableCell>
+                  <TableCell sx={{ color: "white" }}>
                     Hotel Location
                   </TableCell>
-                  <TableCell style={{ color: "white" }}>Category Id</TableCell>
-                  <TableCell style={{ color: "white" }}>Degre Id</TableCell>
-                  <TableCell style={{ color: "white" }}>City Id</TableCell>
-                  <TableCell style={{ color: "white" }}>Update</TableCell>
-                  <TableCell style={{ color: "white" }}>Detay</TableCell>
-                  <TableCell style={{ color: "white" }}>Delete</TableCell>
+                  <TableCell sx={{ color: "white" }}>Category Id</TableCell>
+                  <TableCell sx={{ color: "white" }}>Degre Id</TableCell>
+                  <TableCell sx={{ color: "white" }}>City Id</TableCell>
+                  <TableCell sx={{ color: "white" }}>Update</TableCell>
+                  <TableCell sx={{ color: "white" }}>Detay</TableCell>
+                  <TableCell sx={{ color: "white" }}>Delete</TableCell>
                 </TableRow>
                 {currentPost?.map((hotel) => (
                   <TableRow>
@@ -90,7 +90,7 @@ export default function AdminHotelList() {
 
                     <TableCell>
                       <img
-                        style={{ width: 200, height: 100 }}
+                        sx={{ width: 200, height: 100 }}
                         src={`${hotel.hotelImage}`}
                       ></img>
                     </TableCell>

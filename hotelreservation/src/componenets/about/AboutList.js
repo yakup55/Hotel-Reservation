@@ -14,17 +14,17 @@ export default function AboutList() {
     dispacth(getAboutList());
   }, [dispacth]);
   return (
-    <Container style={{ marginTop: 50 }}>
+    <  >
       <Typography mt={5} mb={3} variant="h5" fontStyle={"italic"}>
         Ucuz Oteli Bulmak İçin Neden Bu Siteyi Kullanmalıyım?
       </Typography>
-      <SimpleGrid minChildWidth="170px">
+      <SimpleGrid minChildWidth="150px">
         {abouts.data?.map((about) => (
           <Box height="350px">
             <About key={about.aboutId} about={about}></About>
           </Box>
         ))}
       </SimpleGrid>
-    </Container>
+    </>
   );
 }

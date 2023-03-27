@@ -1,4 +1,4 @@
-import { Box, ImageList, ImageListItem } from "@mui/material";
+import { Box, Container, ImageList, ImageListItem } from "@mui/material";
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,15 +11,16 @@ export default function HotelImageList() {
   const dispacth = useDispatch();
   useEffect(() => {
     dispacth(hotelOneDetail(id));
-  }, []);
+  }, [dispacth, id]);
   return (
-    <div>
-      <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-        <ImageList
-          sx={{ ml: 40, width: 700, height: 300 }}
-          cols={3}
-          rowHeight={164}
-        >
+    <Container maxWidth="md">
+      <Box
+        sx={{
+          flexGrow: 1,
+          display: { xs: "none", md: "flex" },
+        }}
+      >
+        <ImageList sx={{ width: 800, height: 330 }} cols={3} rowHeight={164}>
           {hotel.data?.hotelDetails.map((item) => (
             <ImageListItem>
               <img
@@ -113,8 +114,8 @@ export default function HotelImageList() {
         </ImageList>
       </Box>
       <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-        <ImageList sx={{ width: 500, height: 450 }} cols={3} rowHeight={164}>
-        {hotel.data?.hotelDetails.map((item) => (
+        <ImageList sx={{ width: 480, height: 400 }} cols={2} rowHeight={164}>
+          {hotel.data?.hotelDetails.map((item) => (
             <ImageListItem>
               <img
                 src={`${item.image1}?w=164&h=164&fit=crop&auto=format`}
@@ -206,6 +207,6 @@ export default function HotelImageList() {
           ))}
         </ImageList>
       </Box>
-    </div>
+    </Container>
   );
 }

@@ -64,7 +64,7 @@ export default function User() {
       {user.data?.status === true && (
         <GridItem rowSpan={2} colSpan={1}>
           <div
-            style={{
+            sx={{
               margin: "auto",
               display: "block",
               marginTop: 10,
@@ -72,7 +72,7 @@ export default function User() {
             }}
           >
             <img
-              style={{ height: 250, width: 250 }}
+              sx={{ height: 250, width: 250 }}
               src={`${user.data?.image}`}
             ></img>
           </div>
@@ -174,7 +174,7 @@ export default function User() {
         </GridItem>
       )}
     </Grid>
-    <div style={{ marginTop: 1400 }}>
+    <div sx={{ marginTop: 1400 }}>
         <Footer></Footer>
       </div>
     </>

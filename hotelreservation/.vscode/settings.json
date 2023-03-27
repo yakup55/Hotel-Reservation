@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "undefined/subscriptions/059ad94f-3d31-4256-be98-60ab9b478f0d/resourceGroups/appsvc_windows_centralus/providers/Microsoft.Web/sites/HotelReservationReact",
+    "appService.deploySubpath": "."
+}

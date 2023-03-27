@@ -10,7 +10,7 @@ import { Alert, Button, MenuItem, TextField } from "@mui/material";
 import { Heading } from "@chakra-ui/react";
 import { useEffect } from "react";
 import { getDegreList } from "../../redux/actions/degreActions";
-import {getByUserMail } from "../../redux/actions/userActions";
+import { getByUserMail } from "../../redux/actions/userActions";
 export default function CommentAdd() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -50,10 +50,8 @@ export default function CommentAdd() {
       },
       validationSchema,
     });
-
-  console.log(user.data?.id);
   return (
-    <Container sx={{ ml: 60, mb: 10 }} maxWidth="sm">
+    <Container maxWidth="sm">
       <form onSubmit={handleSubmit}>
         <Stack spacing={3}>
           <Heading mt={20} fontStyle="italic">

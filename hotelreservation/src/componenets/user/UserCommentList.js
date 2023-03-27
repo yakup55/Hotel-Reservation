@@ -80,7 +80,7 @@ export default function UserCommentList() {
                     <TableCell>{comment.hotel?.hotelName}</TableCell>
                     <TableCell>
                       <img
-                        style={{ width: 200, height: 110 }}
+                        sx={{ width: 200, height: 110 }}
                         src={`${comment.hotel?.hotelImage}`}
                       ></img>
                     </TableCell>

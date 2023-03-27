@@ -56,7 +56,7 @@ export default function HotelList() {
           />
         </GridItem>
       </Grid>
-      <div style={{ marginTop: 3165 }}>
+      <div sx={{ marginTop: 3165 }}>
         <Footer></Footer>
       </div>
     </>
