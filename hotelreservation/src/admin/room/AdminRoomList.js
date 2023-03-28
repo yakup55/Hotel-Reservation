@@ -1,4 +1,4 @@
-import { Grid, GridItem } from "@chakra-ui/react";
+import { Grid, GridItem, Image } from "@chakra-ui/react";
 import {
   Button,
   Container,
@@ -83,10 +83,10 @@ export default function AdminRoomList() {
                     <TableCell>{room.roomId}</TableCell>
                     <TableCell>{room.roomName}</TableCell>
                     <TableCell>
-                      <img
+                      <Image
                         sx={{ width: 200, height: 100 }}
                         src={`${room.roomImage}`}
-                      ></img>
+                      ></Image>
                     </TableCell>
                     <TableCell>{room.roomPrice}</TableCell>
                     <TableCell>{room.hotelId}</TableCell>

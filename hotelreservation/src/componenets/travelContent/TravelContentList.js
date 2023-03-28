@@ -22,52 +22,52 @@ export default function TravelContentList() {
   }, [dispacth, id]);
   return (
     <>
-      <SimpleGrid columns={1} spacing={10}>
-        <Box height="80px">
-          <Image
-            sx={{ height: 350, width: 1519 }}
-            src={`${travelWriting?.data?.travelImage}`}
-          ></Image>
-        </Box>
-        <Container>
-          <Box bg="white" mt={180} height="80px">
-            <Heading>
-              {travelWriting?.data?.travelName} <Share></Share>
-            </Heading>
+    <SimpleGrid columns={1} spacing={10}>
+      <Box height="80px">
+        <Image
+          sx={{ height: 350, width: 1519 }}
+          src={`${travelWriting?.data?.travelImage}`}
+        ></Image>
+      </Box>
+      <Container>
+        <Box bg="white" mt={180} height="80px">
+          <Heading>
+            {travelWriting?.data?.travelName} <Share></Share>
+          </Heading>
 
-            <Flex sx={{ ml: 10 }}>
-              {/* <Avatar
-                sx={{ width: 60, height: 60 }}
-                src={`${user.data?.image}`}
+          <Flex sx={{ ml: 10 }}>
+            {/* <Avatar
+              sx={{ width: 60, height: 60 }}
+              src={`${user.data?.image}`}
+            /> */}
+            <Box ml="4">
+              {/* <Typography fontWeight="bold">{user.data?.userName}</Typography> */}
+              {/* <Chip
+                label={travelWriting.data?.travelDateTime?.substring(0, 10)}
+                color="success"
+                variant="outlined"
               /> */}
-              <Box ml="4">
-                {/* <Typography fontWeight="bold">{user.data?.userName}</Typography> */}
-                {/* <Chip
-                  label={travelWriting.data?.travelDateTime?.substring(0, 10)}
-                  color="success"
-                  variant="outlined"
-                /> */}
-              </Box>
-            </Flex>
-            <Typography variant="h6" mt={2}>
-              {travelWriting?.data?.travelMessage}
-            </Typography>
-          </Box>
-        </Container>
+            </Box>
+          </Flex>
+          <Typography variant="h6" mt={2}>
+            {travelWriting?.data?.travelMessage}
+          </Typography>
+        </Box>
+      </Container>
 
-        {travelContents?.data?.map((content) => (
-          <Box sx={{ mt: 200, mb: 200 }} height="550px">
-            <TravelContent
-              key={content.travelContentId}
-              travelContent={content}
-            ></TravelContent>
-          </Box>
-        ))}
-      </SimpleGrid>
+      {travelContents?.data?.map((content) => (
+        <Box sx={{ mt: 200, mb: 200 }} height="550px">
+          <TravelContent
+            key={content.travelContentId}
+            travelContent={content}
+          ></TravelContent>
+        </Box>
+      ))}
+    </SimpleGrid>
 
-      <div style={{ marginTop: 220 }}>
-        <Footer></Footer>
-      </div>
-    </>
+    <div style={{ marginTop: 220 }}>
+      <Footer></Footer>
+    </div>
+  </>
   );
 }

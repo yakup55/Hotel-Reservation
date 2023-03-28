@@ -1,4 +1,4 @@
-import { AspectRatio, Grid, GridItem } from "@chakra-ui/react";
+import { AspectRatio, Grid, GridItem, Image } from "@chakra-ui/react";
 import {
   Button,
   Container,
@@ -21,7 +21,7 @@ import BuildIcon from "@mui/icons-material/Build";
 
 import EditIcon from "@mui/icons-material/Edit";
 import CreateIcon from "@mui/icons-material/Create";
-import ImportContactsIcon from '@mui/icons-material/ImportContacts';
+import ImportContactsIcon from "@mui/icons-material/ImportContacts";
 import { useEffect } from "react";
 import {
   deleteHotelDetail,
@@ -42,7 +42,6 @@ export default function AdminHoteDetailList() {
   const handleChange = (event, value) => {
     setNumber(value);
   };
-
 
   useEffect(() => {
     dispacth(getHotelDetailList());
@@ -87,62 +86,60 @@ export default function AdminHoteDetailList() {
                   <TableRow>
                     <TableCell>{detail.hotelDetailId}</TableCell>
                     <TableCell>
-                      <img
+                      <Image
                         sx={{ width: 200, height: 100 }}
                         src={`${detail.image1}`}
-                      ></img>
+                      ></Image>
                     </TableCell>
                     <TableCell>
-                      <img
+                      <Image
                         sx={{ width: 200, height: 100 }}
                         src={`${detail.image2}`}
-                      ></img>
+                      ></Image>
                     </TableCell>
                     <TableCell>
-                      <img
+                      <Image
                         sx={{ width: 200, height: 100 }}
                         src={`${detail.image3}`}
-                      ></img>
+                      ></Image>
                     </TableCell>
                     <TableCell>
-                      <img
+                      <Image
                         sx={{ width: 200, height: 100 }}
                         src={`${detail.image4}`}
-                      ></img>
+                      ></Image>
                     </TableCell>
                     <TableCell>
-                      <img
+                      <Image
                         sx={{ width: 200, height: 100 }}
                         src={`${detail.image5}`}
-                      ></img>
+                      ></Image>
                     </TableCell>
                     <TableCell>
-                      <img
+                      <Image
                         sx={{ width: 200, height: 100 }}
                         src={`${detail.image6}`}
-                      ></img>
+                      ></Image>
                     </TableCell>
                     <TableCell>
-                      <img
+                      <Image
                         sx={{ width: 200, height: 100 }}
                         src={`${detail.image7}`}
-                      ></img>
+                      ></Image>
                     </TableCell>
                     <TableCell>
-                      <img
+                      <Image
                         sx={{ width: 200, height: 100 }}
                         src={`${detail.image8}`}
-                      ></img>
+                      ></Image>
                     </TableCell>
                     <TableCell>
-                      <img
+                      <Image
                         sx={{ width: 200, height: 100 }}
                         src={`${detail.image9}`}
-                      ></img>
+                      ></Image>
                     </TableCell>
-                    <TableCell>
-                    
-                    </TableCell>
+                    <TableCell></TableCell>
 
                     <TableCell>{detail.hotelId}</TableCell>
 
@@ -156,21 +153,17 @@ export default function AdminHoteDetailList() {
                         startIcon={<BuildIcon></BuildIcon>}
                         variant="contained"
                         color="success"
-                      >
-                       
-                      </Button>
+                      ></Button>
                     </TableCell>
                     <TableCell>
                       <Button
-                      startIcon={<ImportContactsIcon></ImportContactsIcon>}
+                        startIcon={<ImportContactsIcon></ImportContactsIcon>}
                         onClick={() =>
                           navigate(`/hotelonedetail/${detail.hotelDetailId}`)
                         }
                         variant="contained"
                         color="secondary"
-                      >
-              
-                      </Button>
+                      ></Button>
                     </TableCell>
                     <TableCell>
                       <Button
@@ -180,8 +173,7 @@ export default function AdminHoteDetailList() {
                         startIcon={<DeleteOutlineIcon></DeleteOutlineIcon>}
                         variant="contained"
                         color="error"
-                      >
-                      </Button>
+                      ></Button>
                     </TableCell>
                   </TableRow>
                 ))}

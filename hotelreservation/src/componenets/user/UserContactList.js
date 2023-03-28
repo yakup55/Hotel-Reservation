@@ -48,14 +48,14 @@ export default function UserContactList() {
     );
   };
   return (
-    <>
-      <Heading sx={{ ml: 600 }}>Geri Bildirimlerim</Heading>
+    <Container sx={{margin:"auto",display:"block"}}>
+      <Heading >Geri Bildirimler</Heading>
       {currentPost?.length === 0 && (
-        <Typography ml={70} variant="h6">
+        <Typography  variant="h6">
           Geri Bildiriminiz Bulunmamaktadır
         </Typography>
       )}
-      <Container sx={{ mt: 2, ml: 60 }}>
+      <Container maxWidth="md" sx={{ mt: 2 }}>
         {currentPost?.length !== 0 && (
           <TableContainer>
             <TableBody>
@@ -105,6 +105,6 @@ export default function UserContactList() {
           color="secondary"
         />
       </Container>
-    </>
+    </Container>
   );
 }

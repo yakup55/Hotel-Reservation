@@ -1,4 +1,4 @@
-import { Heading } from "@chakra-ui/react";
+import { Heading, Image } from "@chakra-ui/react";
 import {
   Button,
   Container,
@@ -54,7 +54,7 @@ export default function UserCommentList() {
   };
   return (
     <>
-      <Heading>Değerlendirmelerim</Heading>
+      <Heading>Değerlendirmeler</Heading>
 
       <Container sx={{ mt: 2 }}>
         {currentPost?.length === 0 && (
@@ -79,14 +79,14 @@ export default function UserCommentList() {
                   <TableRow>
                     <TableCell>{comment.hotel?.hotelName}</TableCell>
                     <TableCell>
-                      <img
+                      <Image
                         sx={{ width: 200, height: 110 }}
                         src={`${comment.hotel?.hotelImage}`}
-                      ></img>
+                      ></Image>
                     </TableCell>
                     <TableCell>{comment.commentSubject}</TableCell>
                     <TableCell>{comment.commentMessage}</TableCell>
-                    <TableCell>{comment.commentDate}</TableCell>
+                    <TableCell>{comment.commentDate.substring(0,10)}</TableCell>
                     <TableCell>
                       {comment.degre?.degreValue}({comment.degre?.degreName})
                     </TableCell>

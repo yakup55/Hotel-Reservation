@@ -1,3 +1,4 @@
+import { Heading } from "@chakra-ui/react";
 import { Alert, Button, Container, Stack, TextField } from "@mui/material";
 import { useFormik } from "formik";
 import React from "react";
@@ -36,78 +37,74 @@ export default function UserPasswordUpdate() {
   );
   return (
     <>
-        <Container maxWidth="xs" sx={{ mt: 5 }}>
-      <h2>Şifre Güncelleme</h2>
-      <form onSubmit={handleSubmit}>
-        <Stack spacing={3}>
-          <TextField
-            sx={{ width: 500 }}
-            color="success"
-            id="passwordOld"
-            name="passwordOld"
-            label="Eski Şifreniz"
-            placeholder="Eski Şifreniz"
-            onChange={handleChange}
-            onBlur={handleBlur}
-            error={errors.passwordOld && touched.passwordOld}
-            helperText={
-              errors.passwordOld && touched.passwordOld
-                ? errors.passwordOld
-                : ""
-            }
-          ></TextField>
-          <TextField
-            sx={{ width: 500 }}
-            color="success"
-            id="passwordNew"
-            name="passwordNew"
-            label="Yeni Şifreniz "
-            placeholder="Yeni Şifreniz "
-            onChange={handleChange}
-            onBlur={handleBlur}
-            error={errors.passwordNew && touched.passwordNew}
-            helperText={
-              errors.passwordNew && touched.passwordNew
-                ? errors.passwordNew
-                : ""
-            }
-          ></TextField>
-          <TextField
-            sx={{ width: 500 }}
-            color="success"
-            id="passwordNewConfirm"
-            name="passwordNewConfirm"
-            label="Yeni Şifre Tekrar "
-            placeholder="Yeni Şifre Tekrar "
-            onChange={handleChange}
-            onBlur={handleBlur}
-            error={errors.passwordNewConfirm && touched.passwordNewConfirm}
-            helperText={
-              errors.passwordNewConfirm && touched.passwordNewConfirm
-                ? errors.passwordNewConfirm
-                : ""
-            }
-          ></TextField>
-          <Button sx={{ width: 500 }} type="submit" variant="contained">
-            Güncelle
-          </Button>
-          <Button
-            sx={{ width: 200 }}
-            onClick={() => navigate("/resetemailsend")}
-          >
-            Şifremi Unuttum
-          </Button>
-          <Alert sx={{ width: 470 }} severity="info">
-            Şifre Kuralları şifrenizde kullanıcı adınız olmamalı,ardışık sayı
-            içermemeli!
-          </Alert>
-        </Stack>
-      </form>
-    </Container>
-    <div sx={{ marginTop: 30 }}>
+      <Container maxWidth="xs">
+        <Heading>Şifre Güncelleme</Heading>
+        <form onSubmit={handleSubmit}>
+          <Stack spacing={3}>
+            <TextField
+              fullWidth
+              color="success"
+              id="passwordOld"
+              name="passwordOld"
+              label="Eski Şifreniz"
+              placeholder="Eski Şifreniz"
+              onChange={handleChange}
+              onBlur={handleBlur}
+              error={errors.passwordOld && touched.passwordOld}
+              helperText={
+                errors.passwordOld && touched.passwordOld
+                  ? errors.passwordOld
+                  : ""
+              }
+            ></TextField>
+            <TextField
+              color="success"
+              fullWidth
+              id="passwordNew"
+              name="passwordNew"
+              label="Yeni Şifreniz "
+              placeholder="Yeni Şifreniz "
+              onChange={handleChange}
+              onBlur={handleBlur}
+              error={errors.passwordNew && touched.passwordNew}
+              helperText={
+                errors.passwordNew && touched.passwordNew
+                  ? errors.passwordNew
+                  : ""
+              }
+            ></TextField>
+            <TextField
+              color="success"
+              id="passwordNewConfirm"
+              fullWidth
+              name="passwordNewConfirm"
+              label="Yeni Şifre Tekrar "
+              placeholder="Yeni Şifre Tekrar "
+              onChange={handleChange}
+              onBlur={handleBlur}
+              error={errors.passwordNewConfirm && touched.passwordNewConfirm}
+              helperText={
+                errors.passwordNewConfirm && touched.passwordNewConfirm
+                  ? errors.passwordNewConfirm
+                  : ""
+              }
+            ></TextField>
+            <Button type="submit" variant="contained">
+              Güncelle
+            </Button>
+            <Button onClick={() => navigate("/resetemailsend")}>
+              Şifremi Unuttum
+            </Button>
+            <Alert severity="info">
+              Şifre Kuralları şifrenizde kullanıcı adınız olmamalı,ardışık sayı
+              içermemeli!
+            </Alert>
+          </Stack>
+        </form>
+      </Container>
+      <div style={{ marginTop: 30 }}>
         <Footer></Footer>
       </div>
     </>
-
   );
 }

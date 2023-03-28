@@ -26,7 +26,7 @@ export default function RoomHotelList() {
   const dispacth = useDispatch();
   const { rooms } = useSelector((state) => state.room);
   const [number, setNumber] = useState(1); // No of pages
-  const [postPerPage] = useState(3);
+  const [postPerPage] = useState(4);
   const lastPost = number * postPerPage;
   const firstPost = lastPost - postPerPage;
   const currentPost = rooms.data?.slice(firstPost, lastPost);
@@ -38,18 +38,47 @@ export default function RoomHotelList() {
     dispacth(roomHotel(id));
   }, [dispacth, id]);
   return (
-    <>
-      <SimpleGrid minChildWidth="400px">
-        {currentPost?.map((detail) => (
-          <Box height="450px">
-            <Card>
+    <Container>
+      {currentPost?.map((detail) => (
+        <Card
+          direction={{ base: "column", sm: "row" }}
+          overflow="hidden"
+          variant="outline"
+        >
+          <Image
+            sx={{ width: 250, height: 150 }}
+            objectFit="cover"
+            onClick={() => navigate(`/roomdetail/${detail.roomId}`)}
+            src={`${detail?.roomImage}`}
+            alt={detail?.hotelName}
+          />
+
+          <Stack>
+            <CardBody>
+              <Heading size="md">{detail?.roomName}</Heading>
+
+              <Text py="2">{detail?.roomPrice}</Text>
+            </CardBody>
+
+            <CardFooter>
+              <Button
+                onClick={() => navigate(`/roomdetail/${detail.roomId}`)}
+                style={{ margin: "auto", display: "block" }}
+                variant="contained"
+                color="secondary"
+              >
+                Odayı İncele
+              </Button>
+            </CardFooter>
+          </Stack>
+          {/* <Card>
               <CardBody>
                 <Image
                   onClick={() => navigate(`/roomdetail/${detail.roomId}`)}
                   src={`${detail?.roomImage}`}
                   alt={detail?.hotelName}
                   borderRadius="lg"
-                  sx={{ width: 300, height: 200 }}
+                  sx={{ width: 200, height: 150 }}
                 />
                 <Stack mt="1">
                   <Heading>{detail?.roomName}</Heading>
@@ -70,10 +99,9 @@ export default function RoomHotelList() {
                   Odayı İncele
                 </Button>
               </CardFooter>
-            </Card>
-          </Box>
-        ))}
-      </SimpleGrid>
+            </Card> */}
+        </Card>
+      ))}
 
       <Pagination
         sx={{ mt: 1 }}
@@ -81,6 +109,6 @@ export default function RoomHotelList() {
         onChange={handleChange}
         color="secondary"
       />
-    </>
+    </Container>
   );
 }

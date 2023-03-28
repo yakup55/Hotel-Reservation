@@ -1,4 +1,4 @@
-import { Grid, GridItem } from "@chakra-ui/react";
+import { Grid, GridItem, Image } from "@chakra-ui/react";
 import {
   Avatar,
   List,
@@ -33,13 +33,11 @@ export default function AdminHome() {
       gap={0}
     >
       <GridItem rowSpan={2} colSpan={1}>
-        <div sx={{ margin: "auto", display: "block", marginTop: 10 }}>
-          <img
-            onClick={() => navigate("/adminhome")}
-            sx={{ height: 250, width: 250 }}
-            src="https://cdn3.enuygun.com/media/lib/1x250/uploads/image/lords-palace-spa-casino-kibris-genel-38526961.jpg"
-          ></img>
-        </div>
+        <Image
+          onClick={() => navigate("/adminhome")}
+          sx={{ height: 200, width: 200 }}
+          src="https://cdn3.enuygun.com/media/lib/1x250/uploads/image/lords-palace-spa-casino-kibris-genel-38526961.jpg"
+        ></Image>
 
         <List sx={{ width: "100%", bgcolor: "background.paper" }}>
           <ListItem onClick={() => navigate("/adminrolelist")}>

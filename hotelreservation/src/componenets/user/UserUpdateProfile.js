@@ -66,7 +66,7 @@ export default function UserUpdateProfile() {
   return (
     <>
       <Container maxWidth="md">
-        <Heading>Profile Update</Heading>
+        <Heading>Profile Güncelle</Heading>
         <form onSubmit={handleSubmit}>
           <Stack spacing={3}>
             <Image
@@ -98,7 +98,6 @@ export default function UserUpdateProfile() {
               value={user.data?.phoneNumber}
             ></TextField>
             <TextField
-              label="Doğum Tarihiniz"
               type="datetime-local"
               id="birthDate"
               name="birthDate"
@@ -130,7 +129,7 @@ export default function UserUpdateProfile() {
           </Stack>
         </form>
       </Container>
-      <div sx={{ marginTop: 30 }}>
+      <div style={{ marginTop: 40 }}>
         <Footer></Footer>
       </div>
     </>

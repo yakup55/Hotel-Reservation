@@ -1,4 +1,4 @@
-import { Grid, GridItem } from "@chakra-ui/react";
+import { Grid, GridItem, Image } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -89,10 +89,10 @@ export default function AdminHotelList() {
                     <TableCell>{hotel.hotelPrice}</TableCell>
 
                     <TableCell>
-                      <img
+                      <Image
                         sx={{ width: 200, height: 100 }}
                         src={`${hotel.hotelImage}`}
-                      ></img>
+                      ></Image>
                     </TableCell>
                     <TableCell>{hotel.hotelLocation}</TableCell>
                     <TableCell>{hotel.categoryId}</TableCell>

@@ -13,19 +13,6 @@ export default function Home() {
     <>
       <SimpleSlider></SimpleSlider>
       <br></br>
-      {/* <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br> */}
       <HotelHome></HotelHome>
       <AboutList></AboutList>
       <CategoryList></CategoryList>

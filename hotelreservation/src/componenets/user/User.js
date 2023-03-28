@@ -6,6 +6,7 @@ import {
   Grid,
   GridItem,
   Heading,
+  Image,
   Stack,
   StackDivider,
   Text,
@@ -55,81 +56,73 @@ export default function User() {
   };
   return (
     <>
-     <Grid
-      h="200px"
-      templateRows="repeat(4, 1fr)"
-      templateColumns="repeat(5, 1fr)"
-      gap={4}
-    >
-      {user.data?.status === true && (
-        <GridItem rowSpan={2} colSpan={1}>
-          <div
-            sx={{
-              margin: "auto",
-              display: "block",
-              marginTop: 10,
-              marginLeft: 10,
-            }}
-          >
-            <img
-              sx={{ height: 250, width: 250 }}
-              src={`${user.data?.image}`}
-            ></img>
-          </div>
-          <Heading>Bilgilerim</Heading>
-          <List
-            sx={{
-              width: "100%",
-              maxWidth: 360,
-            }}
-          >
-            <ListItem>
-              <ListItemAvatar>
-                <Avatar sx={{ backgroundColor: "black" }}></Avatar>
-              </ListItemAvatar>
-              <ListItemText
-                primary="Kullanıcı Adınız"
-                secondary={user.data?.userName}
-              />
-            </ListItem>
-            <Divider variant="inset" component="li" />
-            <ListItem>
-              <ListItemAvatar>
-                <Avatar sx={{ backgroundColor: "black" }}>
-                  <EmailIcon></EmailIcon>
-                </Avatar>
-              </ListItemAvatar>
-              <ListItemText
-                primary="Email Adresiniz"
-                secondary={user.data?.email}
-              />
-            </ListItem>
-            <Divider variant="inset" component="li" />
-            <ListItem>
-              <ListItemAvatar>
-                <Avatar sx={{ backgroundColor: "black" }}>
-                  <PhoneIcon></PhoneIcon>
-                </Avatar>
-              </ListItemAvatar>
-              <ListItemText
-                primary="Telefon Numaranız"
-                secondary={user.data?.phoneNumber}
-              />
-            </ListItem>
-            <Divider variant="inset" component="li" />
-            <ListItem>
-              <ListItemAvatar>
-                <Avatar sx={{ backgroundColor: "black" }}>
-                  <CakeIcon></CakeIcon>
-                </Avatar>
-              </ListItemAvatar>
-              <ListItemText
-                primary="Doğum Tarihiniz"
-                secondary={user.data?.birthDate?.substring(0, 10)}
-              />
-            </ListItem>
-            <Divider variant="inset" component="li" />
-            {/* <ListItem>
+      <Grid
+        h="500px"
+        templateRows="repeat(4, 1fr)"
+        templateColumns="repeat(5, 1fr)"
+        gap={4}
+      >
+        {user.data?.status === true && (
+          <GridItem rowSpan={2} colSpan={1}>
+         
+              <Image
+                sx={{mt:20, height: 250, width: 250 }}
+                src={`${user.data?.image}`}
+              ></Image>
+            <Heading>Bilgilerim</Heading>
+            <List
+              sx={{
+                width: "100%",
+                maxWidth: 360,
+              }}
+            >
+              <ListItem>
+                <ListItemAvatar>
+                  <Avatar sx={{ backgroundColor: "black" }}></Avatar>
+                </ListItemAvatar>
+                <ListItemText
+                  primary="Kullanıcı Adınız"
+                  secondary={user.data?.userName}
+                />
+              </ListItem>
+              <Divider variant="inset" component="li" />
+              <ListItem>
+                <ListItemAvatar>
+                  <Avatar sx={{ backgroundColor: "black" }}>
+                    <EmailIcon></EmailIcon>
+                  </Avatar>
+                </ListItemAvatar>
+                <ListItemText
+                  primary="Email Adresiniz"
+                  secondary={user.data?.email}
+                />
+              </ListItem>
+              <Divider variant="inset" component="li" />
+              <ListItem>
+                <ListItemAvatar>
+                  <Avatar sx={{ backgroundColor: "black" }}>
+                    <PhoneIcon></PhoneIcon>
+                  </Avatar>
+                </ListItemAvatar>
+                <ListItemText
+                  primary="Telefon Numaranız"
+                  secondary={user.data?.phoneNumber}
+                />
+              </ListItem>
+              <Divider variant="inset" component="li" />
+              <ListItem>
+                <ListItemAvatar>
+                  <Avatar sx={{ backgroundColor: "black" }}>
+                    <CakeIcon></CakeIcon>
+                  </Avatar>
+                </ListItemAvatar>
+                <ListItemText
+                  primary="Doğum Tarihiniz"
+                  secondary={user.data?.birthDate?.substring(0, 10)}
+                />
+              </ListItem>
+              <Divider variant="inset" component="li" />
+              {/* <ListItem>
               <ListItemAvatar>
                 <Avatar sx={{ backgroundColor: "black" }}>
                   <LocationCityIcon></LocationCityIcon>
@@ -141,43 +134,42 @@ export default function User() {
               />
             </ListItem>
             <Divider variant="inset" component="li" /> */}
-          </List>
-          <Button
-            onClick={() => handleUserDeleted(user.data?.id)}
-            variant="contained"
-            color="error"
-          >
-            Hesabımı Sil
-          </Button>
-        </GridItem>
-      )}
+            </List>
+            <Button
+              onClick={() => handleUserDeleted(user.data?.id)}
+              variant="contained"
+              color="error"
+            >
+              Hesabımı Sil
+            </Button>
+          </GridItem>
+        )}
 
-      {user.data?.status === false && (
-        <div>
-          <Heading>Lütfen Giriş Yapın Yada Kayıt Olun</Heading>
-        </div>
-      )}
+        {user.data?.status === false && (
+          <div>
+            <Heading>Lütfen Giriş Yapın Yada Kayıt Olun</Heading>
+          </div>
+        )}
 
-      {user.data?.status === true && (
-        <GridItem colSpan={4}>
-          <UserReservationList></UserReservationList>
-        </GridItem>
-      )}
-      {user.data?.status === true && (
-        <GridItem colSpan={4}>
-          <UserCommentList></UserCommentList>
-        </GridItem>
-      )}
-      {user.data?.status === true && (
-        <GridItem colSpan={4}>
-          <UserContactList></UserContactList>
-        </GridItem>
-      )}
-    </Grid>
-    <div sx={{ marginTop: 1400 }}>
+        {user.data?.status === true && (
+          <GridItem colSpan={4}>
+            <UserReservationList></UserReservationList>
+          </GridItem>
+        )}
+        {user.data?.status === true && (
+          <GridItem colSpan={4}>
+            <UserCommentList></UserCommentList>
+          </GridItem>
+        )}
+        {user.data?.status === true && (
+          <GridItem colSpan={6}>
+            <UserContactList></UserContactList>
+          </GridItem>
+        )}
+      </Grid>
+      <div style={{ marginTop: 1200 }}>
         <Footer></Footer>
       </div>
     </>
-   
   );
 }

@@ -1,4 +1,4 @@
-import { Heading } from "@chakra-ui/react";
+import { Heading, Image } from "@chakra-ui/react";
 import {
   Button,
   Container,
@@ -48,7 +48,7 @@ export default function UserReservationList() {
   };
   return (
     <>
-      <Heading>Reservasyonlarım</Heading>
+      <Heading>Reservasyonlar</Heading>
       <Container sx={{ mt: 2 }}>
         {currentPost?.length === 0 && (
           <Typography>Reservasyonunuz Bulunmamaktadır</Typography>
@@ -74,16 +74,20 @@ export default function UserReservationList() {
                       {reservation.roomDetail?.room?.hotel?.hotelName}
                     </TableCell>
                     <TableCell>
-                      <img
+                      <Image
                         sx={{ width: 200, height: 100 }}
                         src={`${reservation.roomDetail?.room?.roomImage}`}
-                      ></img>
+                      ></Image>
                     </TableCell>
                     <TableCell>
                       {reservation.roomDetail?.room?.roomPrice}
                     </TableCell>
-                    <TableCell>{reservation.arrivalDate}</TableCell>
-                    <TableCell>{reservation.returnDate}</TableCell>
+                    <TableCell>
+                      {reservation.arrivalDate.substring(0, 10)}
+                    </TableCell>
+                    <TableCell>
+                      {reservation.returnDate.substring(0, 10)}
+                    </TableCell>
                     <TableCell>{reservation.numberPeople}</TableCell>
                     <TableCell>
                       <UserPay></UserPay>
@@ -106,12 +110,12 @@ export default function UserReservationList() {
             </TableBody>
           </TableContainer>
         )}
-         <Pagination
-        sx={{ mt: 1 }}
-        count={PageCount}
-        onChange={handleChange}
-        color="secondary"
-      />
+        <Pagination
+          sx={{ mt: 1 }}
+          count={PageCount}
+          onChange={handleChange}
+          color="secondary"
+        />
       </Container>
     </>
   );

@@ -1,4 +1,4 @@
-import { Grid, GridItem } from "@chakra-ui/react";
+import { Grid, GridItem, Image } from "@chakra-ui/react";
 import {
   Button,
   Container,
@@ -43,7 +43,7 @@ export default function AdminUserList() {
   const navigate = useNavigate();
   useEffect(() => {
     dispacth(getUserList());
-  }, []);
+  }, [dispacth]);
   const handleDeletedUser = (id) => {
     dispacth(deleteUser(id));
     dispacth(
@@ -85,10 +85,10 @@ export default function AdminUserList() {
                   <TableRow>
                     <TableCell>{user.id}</TableCell>
                     <TableCell>
-                      <img
+                      <Image
                         sx={{ width: 100, height: 100 }}
                         src={`${user.image}`}
-                      ></img>
+                      ></Image>
                     </TableCell>
                     <TableCell>{user.userName}</TableCell>
 
