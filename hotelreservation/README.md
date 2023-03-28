@@ -6,6 +6,13 @@ Bu projenin yaparken backend alanında Asp.NetCore Web Api kullandım .Fronted a
 
 
 
+## Kullanılan Teknolojiler
+
+**İstemci:** React, Redux
+
+**Sunucu:** .Net Core
+
+  
 ## Kullanıcı Neler Yapabilir Neler Görebilir
 
 - Otel adına göre,kategoriye göre,şehirlere göre,fiyata göre otel arayabilir
@@ -15,6 +22,12 @@ Bu projenin yaparken backend alanında Asp.NetCore Web Api kullandım .Fronted a
 - Otellere yorum yapabilir(admin onaylayınca yayınlancak)
 - Şikayet öneride bulunabilir
 - Kullanıcı üye olduktan sonra profilini güncelleyebilir,şifresini değiştirebilir,seyahat yazıları ekleyebilir(admin inceledikten sonra yayınlancak),yapmış olduğu rezervasyonları görebilir(ödeme buradan yapıcak),yapmış olduğu otel değerlemdirmelerini görebilir(silebilir),yapmış olduğu şikayet önerileri görebilir(silebilir)
+
+  
+## Projenin Canlıdaki Hali
+
+[React Hotel Reservation](https://reacthotelreservation.azurewebsites.net)
+
 
   
 ## Bilgisayarınızda Çalıştırın
