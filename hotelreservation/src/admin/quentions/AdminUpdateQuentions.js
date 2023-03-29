@@ -81,6 +81,7 @@ export default function AdminUpdateQuentions() {
           <form onSubmit={handleSubmit}>
             <Stack spacing={3}>
               <TextField
+              multiline
                 id="quentionsName"
                 name="quentionsName"
                 onChange={handleChange}
@@ -94,6 +95,7 @@ export default function AdminUpdateQuentions() {
                 value={values.quentionsName}
               ></TextField>
               <TextField
+              multiline
                 id="quentionsMessage"
                 name="quentionsMessage"
                 onChange={handleChange}

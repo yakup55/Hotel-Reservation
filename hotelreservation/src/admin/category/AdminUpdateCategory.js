@@ -75,6 +75,7 @@ export default function AdminUpdateCategory() {
           <form onSubmit={handleSubmit}>
             <Stack spacing={3}>
               <TextField
+               multiline
                 fullWidth
                 id="categoryName"
                 name="categoryName"
@@ -89,6 +90,7 @@ export default function AdminUpdateCategory() {
                 }
               ></TextField>
               <TextField
+               multiline
                 fullWidth
                 id="categoryImage"
                 name="categoryImage"

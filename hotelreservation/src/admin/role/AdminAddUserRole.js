@@ -48,6 +48,7 @@ export default function AdminAddUserRole() {
           <form onSubmit={handleSubmit}>
             <Stack spacing={3}>
               <TextField
+              multiline
                 id="userId"
                 name="userId"
                 label="userId "
@@ -60,6 +61,7 @@ export default function AdminAddUserRole() {
                 }
               ></TextField>
               <TextField
+              multiline
                 id="roleName"
                 name="roleName"
                 label="User Role "

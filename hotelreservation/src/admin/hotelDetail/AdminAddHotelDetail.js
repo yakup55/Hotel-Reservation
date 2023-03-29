@@ -60,6 +60,7 @@ dispacth(getHotelList())
             <form onSubmit={handleSubmit}>
                 <Stack spacing={3}>
                 <TextField
+                multiline
             fullWidth
             id="image1"
             name="image1"
@@ -71,6 +72,7 @@ dispacth(getHotelList())
             helperText={errors.image1 && touched.image1 ? errors.image1 : ""}
           ></TextField>
           <TextField
+          multiline
             fullWidth
             id="image2"
             name="image2"
@@ -82,6 +84,7 @@ dispacth(getHotelList())
             helperText={errors.image2 && touched.image2 ? errors.image2 : ""}
           ></TextField>
           <TextField
+          multiline
             fullWidth
             id="image3"
             name="image3"
@@ -93,6 +96,7 @@ dispacth(getHotelList())
             helperText={errors.image3 && touched.image3 ? errors.image3 : ""}
           ></TextField>
           <TextField
+          multiline
             fullWidth
             id="image4"
             name="image4"
@@ -104,6 +108,7 @@ dispacth(getHotelList())
             helperText={errors.image4 && touched.image4 ? errors.image4 : ""}
           ></TextField>
           <TextField
+          multiline
             fullWidth
             id="image5"
             name="image5"
@@ -115,6 +120,7 @@ dispacth(getHotelList())
             helperText={errors.image5 && touched.image5 ? errors.image5 : ""}
           ></TextField>
           <TextField
+          multiline
             fullWidth
             id="image6"
             name="image6"
@@ -126,6 +132,7 @@ dispacth(getHotelList())
             helperText={errors.image6 && touched.image6 ? errors.image6 : ""}
           ></TextField>
           <TextField
+          multiline
             fullWidth
             id="image7"
             name="image7"
@@ -137,6 +144,7 @@ dispacth(getHotelList())
             helperText={errors.image7 && touched.image7 ? errors.image7 : ""}
           ></TextField>
           <TextField
+          multiline
             fullWidth
             id="image8"
             name="image8"
@@ -148,6 +156,7 @@ dispacth(getHotelList())
             helperText={errors.image8 && touched.image8 ? errors.image8 : ""}
           ></TextField>
           <TextField
+          multiline
             fullWidth
             id="image9"
             name="image9"

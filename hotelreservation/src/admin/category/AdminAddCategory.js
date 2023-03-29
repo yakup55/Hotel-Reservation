@@ -47,6 +47,7 @@ export default function AdminAddCategory() {
           <form onSubmit={handleSubmit}>
             <Stack spacing={3}>
               <TextField
+               multiline
                 fullWidth
                 id="categoryName"
                 name="categoryName"
@@ -62,6 +63,7 @@ export default function AdminAddCategory() {
                 }
               ></TextField>
               <TextField
+               multiline
                 fullWidth
                 id="categoryImage"
                 name="categoryImage"

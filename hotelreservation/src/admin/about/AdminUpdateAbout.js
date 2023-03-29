@@ -76,6 +76,7 @@ export default function AdminUpdateAbout() {
           <form onSubmit={handleSubmit}>
             <Stack spacing={3}>
               <TextField
+               multiline
                 id="aboutName"
                 name="aboutName"
                 fullWidth
@@ -88,6 +89,7 @@ export default function AdminUpdateAbout() {
                 }
               ></TextField>
               <TextField
+               multiline
                 id="aboutImage"
                 name="aboutImage"
                 fullWidth
@@ -102,6 +104,7 @@ export default function AdminUpdateAbout() {
                 }
               ></TextField>
               <TextField
+               multiline
                 id="aboutDescription"
                 name="aboutDescription"
                 fullWidth

@@ -63,6 +63,7 @@ export default function AdminUpdateRole() {
           <form onSubmit={handleSubmit}>
             <Stack spacing={3}>
               <TextField
+              multiline
                 fullWidth
                 id="roleName"
                 name="roleName"

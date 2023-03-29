@@ -62,31 +62,31 @@ export default function AdminHome2() {
 
       <GridItem colSpan={4}>
         <SimpleGrid mr={40} mt={10} minChildWidth="270px" spacing="40px">
-          <Box bg="tomato" height="120px">
+          <Box bg="tomato" height="130px">
             <Heading>Toplam Kullanıcı Sayısı</Heading>
             <Typography variant="h5">{users.data?.length}</Typography>
           </Box>
-          <Box bg="tomato" height="120px">
+          <Box bg="tomato" height="130px">
             <Heading>Toplam Role Sayısı</Heading>
             <Typography variant="h5">{roles.data?.length}</Typography>
           </Box>
-          <Box bg="tomato" height="120px">
+          <Box bg="tomato" height="130px">
             <Heading>Toplam Rezervasyon Sayısı</Heading>
             <Typography variant="h5">{reservations.data?.length}</Typography>
           </Box>
-          <Box bg="tomato" height="120px">
+          <Box bg="tomato" height="130px">
             <Heading>Toplam Otel Sayısı</Heading>
             <Typography variant="h5">{hotels.data?.length}</Typography>
           </Box>
-          <Box bg="tomato" height="120px">
+          <Box bg="tomato" height="130px">
             <Heading>Toplam Oda Sayısı</Heading>
             <Typography variant="h5">{rooms.data?.length}</Typography>
           </Box>
-          <Box bg="tomato" height="120px">
+          <Box bg="tomato" height="130px">
             <Heading>Toplam Şehir Sayısı</Heading>
             <Typography variant="h5">{cities.data?.length}</Typography>
           </Box>
-          <Box bg="tomato" height="120px">
+          <Box bg="tomato" height="130px">
             <Heading>Toplam Kategorisi Sayısı</Heading>
             <Typography variant="h5">{categories.data?.length}</Typography>
           </Box>
@@ -94,15 +94,15 @@ export default function AdminHome2() {
             <Heading>Toplam Yorum Sayısı</Heading>
             <Typography variant="h5">{comments.data?.length}</Typography>
           </Box>
-          <Box bg="tomato" height="120px">
+          <Box bg="tomato" height="130px">
             <Heading>Şikayet Öneri Sayısı</Heading>
             <Typography variant="h5">{contacts.data?.length}</Typography>
           </Box>
-          <Box bg="tomato" height="120px">
+          <Box bg="tomato" height="130px">
             <Heading>Seyahat Yazıları Sayısı</Heading>
             <Typography variant="h5">{travelWritings.data?.length}</Typography>
           </Box>
-          <Box bg="tomato" height="120px">
+          <Box bg="tomato" height="130px">
             <Heading>Seyahat Yazıları İçerik Sayısı</Heading>
             <Typography variant="h5">{travelContents.data?.length}</Typography>
           </Box>

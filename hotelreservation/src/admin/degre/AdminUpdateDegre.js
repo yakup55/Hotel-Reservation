@@ -65,6 +65,7 @@ export default function AdminUpdateDegre() {
           <form onSubmit={handleSubmit}>
             <Stack spacing={3}>
               <TextField
+               multiline
                 id="degreName"
                 name="degreName"
                 onChange={handleChange}
@@ -76,6 +77,7 @@ export default function AdminUpdateDegre() {
                 }
               ></TextField>
               <TextField
+               multiline
                 id="degreValue"
                 name="degreValue"
                 onChange={handleChange}

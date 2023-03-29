@@ -48,6 +48,11 @@ namespace HotelReservationProject.Controllers
         public async Task<IActionResult> TravelPopularList()
         {
             return  ActionResultInstance(await service.TravelPopularList());
+        } 
+        [HttpGet("{id},{id2},{id3},{id4},{id5}")]
+        public async Task<IActionResult> TravelPopularList(int id,int id2,int id3,int id4,int id5)
+        {
+            return  ActionResultInstance(await service.TravelPopularList(id,id2,id3,id4,id5));
         }
         [HttpPost]
         public async Task<IActionResult> AddTravelWritings(TravelWritingDto dto)

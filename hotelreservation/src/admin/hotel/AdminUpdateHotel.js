@@ -94,6 +94,7 @@ export default function AdminUpdateHotel() {
           <form onSubmit={handleSubmit}>
             <Stack spacing={3}>
               <TextField
+              multiline
                 fullWidth
                 id="hotelName"
                 name="hotelName"
@@ -107,6 +108,7 @@ export default function AdminUpdateHotel() {
               ></TextField>
 
               <TextField
+              multiline
                 fullWidth
                 id="hotelPrice"
                 name="hotelPrice"
@@ -121,6 +123,7 @@ export default function AdminUpdateHotel() {
                 }
               ></TextField>
               <TextField
+              multiline
                 fullWidth
                 id="hotelImage"
                 name="hotelImage"
@@ -135,6 +138,7 @@ export default function AdminUpdateHotel() {
                 }
               ></TextField>
               <TextField
+              multiline
                 fullWidth
                 id="hotelLocation"
                 name="hotelLocation"

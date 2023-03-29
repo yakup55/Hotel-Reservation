@@ -19,11 +19,11 @@ export default function AdminAddHotel() {
   useEffect(() => {
     dispacth(getCategoryList());
     dispacth(getDegreList());
-    dispacth(getCityList())
+    dispacth(getCityList());
   }, []);
   const { categories } = useSelector((state) => state.category);
   const { degres } = useSelector((state) => state.degre);
-  const {cities}=useSelector((state)=>state.city)
+  const { cities } = useSelector((state) => state.city);
   const { handleSubmit, handleChange, handleBlur, values, errors, touched } =
     useFormik({
       initialValues: {
@@ -33,7 +33,7 @@ export default function AdminAddHotel() {
         hotelLocation: "",
         categoryId: 0,
         degreId: 0,
-        cityId:0
+        cityId: 0,
       },
       onSubmit: (values) => {
         dispacth(addHotel(values));
@@ -63,6 +63,7 @@ export default function AdminAddHotel() {
           <form onSubmit={handleSubmit}>
             <Stack spacing={3}>
               <TextField
+                multiline
                 fullWidth
                 id="hotelName"
                 name="hotelName"
@@ -77,6 +78,7 @@ export default function AdminAddHotel() {
               ></TextField>
 
               <TextField
+                multiline
                 fullWidth
                 id="hotelPrice"
                 name="hotelPrice"
@@ -92,7 +94,7 @@ export default function AdminAddHotel() {
                 }
               ></TextField>
               <TextField
-               multiline
+                multiline
                 fullWidth
                 id="hotelImage"
                 name="hotelImage"
@@ -108,6 +110,7 @@ export default function AdminAddHotel() {
                 }
               ></TextField>
               <TextField
+                multiline
                 fullWidth
                 id="hotelLocation"
                 name="hotelLocation"

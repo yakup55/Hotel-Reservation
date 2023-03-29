@@ -55,6 +55,7 @@ export default function AdminAddFacility() {
           <form onSubmit={handleSubmit}>
             <Stack spacing={3}>
               <TextField
+               multiline
                 id="facilityName"
                 name="facilityName"
                 label="Facility Name"
@@ -69,6 +70,7 @@ export default function AdminAddFacility() {
                 }
               ></TextField>
               <TextField
+               multiline
                 select
                 label="Select your Hotel"
                 defaultValue="Select Hotel"

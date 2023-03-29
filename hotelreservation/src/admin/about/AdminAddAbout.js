@@ -48,6 +48,7 @@ export default function AdminAddAbout() {
           <form onSubmit={handleSubmit}>
             <Stack spacing={3}>
               <TextField
+              multiline
                 fullWidth
                 id="aboutName"
                 name="aboutName"
@@ -61,6 +62,7 @@ export default function AdminAddAbout() {
                 }
               ></TextField>
               <TextField
+               multiline
                 fullWidth
                 id="aboutImage"
                 name="aboutImage"
@@ -76,6 +78,7 @@ export default function AdminAddAbout() {
                 }
               ></TextField>
               <TextField
+               multiline
                 fullWidth
                 id="aboutDescription"
                 name="aboutDescription"

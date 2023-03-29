@@ -47,6 +47,7 @@ export default function AdminAddDegre() {
           <form onSubmit={handleSubmit}>
             <Stack spacing={3}>
               <TextField
+               multiline
                 id="degreName"
                 name="degreName"
                 label="Degre Name"
@@ -59,6 +60,7 @@ export default function AdminAddDegre() {
                 }
               ></TextField>
               <TextField
+               multiline
                 id="degreValue"
                 name="degreValue"
                 label="Degre Value"

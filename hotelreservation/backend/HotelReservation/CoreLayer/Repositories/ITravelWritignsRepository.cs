@@ -11,5 +11,6 @@ namespace CoreLayer.Repositories
     {
         Task<List<TravelWritings>> TravelWritingsUserList(string userId);
         Task<List<TravelWritings>> TravelPopularList();
+        Task<List<TravelWritings>> TravelPopularList(int id, int id2, int id3, int id4, int id5);
     }
 }

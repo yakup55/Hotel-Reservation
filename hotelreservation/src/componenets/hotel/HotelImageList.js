@@ -25,7 +25,7 @@ export default function HotelImageList() {
             <ImageListItem>
               <img
                 src={`${item.image1}?w=164&h=164&fit=crop&auto=format`}
-                srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                srcSet={`${item.img1}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
                 alt={hotel.data?.hotelName}
                 loading="lazy"
               />
@@ -35,7 +35,7 @@ export default function HotelImageList() {
             <ImageListItem>
               <img
                 src={`${item.image2}?w=164&h=164&fit=crop&auto=format`}
-                srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                srcSet={`${item.img2}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
                 alt={item.title}
                 loading="lazy"
               />
@@ -45,7 +45,7 @@ export default function HotelImageList() {
             <ImageListItem>
               <img
                 src={`${item.image3}?w=164&h=164&fit=crop&auto=format`}
-                srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                srcSet={`${item.img3}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
                 alt={item.title}
                 loading="lazy"
               />
@@ -55,7 +55,7 @@ export default function HotelImageList() {
             <ImageListItem>
               <img
                 src={`${item.image4}?w=164&h=164&fit=crop&auto=format`}
-                srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                srcSet={`${item.img4}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
                 alt={item.title}
                 loading="lazy"
               />
@@ -65,7 +65,7 @@ export default function HotelImageList() {
             <ImageListItem>
               <img
                 src={`${item.image5}?w=164&h=164&fit=crop&auto=format`}
-                srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                srcSet={`${item.img5}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
                 alt={item.title}
                 loading="lazy"
               />
@@ -75,7 +75,7 @@ export default function HotelImageList() {
             <ImageListItem>
               <img
                 src={`${item.image6}?w=164&h=164&fit=crop&auto=format`}
-                srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                srcSet={`${item.img6}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
                 alt={item.title}
                 loading="lazy"
               />
@@ -85,7 +85,7 @@ export default function HotelImageList() {
             <ImageListItem>
               <img
                 src={`${item.image7}?w=164&h=164&fit=crop&auto=format`}
-                srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                srcSet={`${item.img7}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
                 alt={item.title}
                 loading="lazy"
               />
@@ -95,7 +95,7 @@ export default function HotelImageList() {
             <ImageListItem>
               <img
                 src={`${item.image8}?w=164&h=164&fit=crop&auto=format`}
-                srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                srcSet={`${item.img8}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
                 alt={item.title}
                 loading="lazy"
               />
@@ -105,7 +105,7 @@ export default function HotelImageList() {
             <ImageListItem>
               <img
                 src={`${item.image9}?w=164&h=164&fit=crop&auto=format`}
-                srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                srcSet={`${item.img9}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
                 alt={item.title}
                 loading="lazy"
               />
@@ -119,7 +119,7 @@ export default function HotelImageList() {
             <ImageListItem>
               <img
                 src={`${item.image1}?w=164&h=164&fit=crop&auto=format`}
-                srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                srcSet={`${item.img1}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
                 alt={hotel.data?.hotelName}
                 loading="lazy"
               />
@@ -129,7 +129,7 @@ export default function HotelImageList() {
             <ImageListItem>
               <img
                 src={`${item.image2}?w=164&h=164&fit=crop&auto=format`}
-                srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                srcSet={`${item.img2}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
                 alt={item.title}
                 loading="lazy"
               />
@@ -139,7 +139,7 @@ export default function HotelImageList() {
             <ImageListItem>
               <img
                 src={`${item.image3}?w=164&h=164&fit=crop&auto=format`}
-                srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                srcSet={`${item.img3}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
                 alt={item.title}
                 loading="lazy"
               />
@@ -149,7 +149,7 @@ export default function HotelImageList() {
             <ImageListItem>
               <img
                 src={`${item.image4}?w=164&h=164&fit=crop&auto=format`}
-                srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                srcSet={`${item.img4}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
                 alt={item.title}
                 loading="lazy"
               />
@@ -159,7 +159,7 @@ export default function HotelImageList() {
             <ImageListItem>
               <img
                 src={`${item.image5}?w=164&h=164&fit=crop&auto=format`}
-                srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                srcSet={`${item.img5}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
                 alt={item.title}
                 loading="lazy"
               />
@@ -169,7 +169,7 @@ export default function HotelImageList() {
             <ImageListItem>
               <img
                 src={`${item.image6}?w=164&h=164&fit=crop&auto=format`}
-                srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                srcSet={`${item.img6}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
                 alt={item.title}
                 loading="lazy"
               />
@@ -179,7 +179,7 @@ export default function HotelImageList() {
             <ImageListItem>
               <img
                 src={`${item.image7}?w=164&h=164&fit=crop&auto=format`}
-                srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                srcSet={`${item.img7}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
                 alt={item.title}
                 loading="lazy"
               />
@@ -189,7 +189,7 @@ export default function HotelImageList() {
             <ImageListItem>
               <img
                 src={`${item.image8}?w=164&h=164&fit=crop&auto=format`}
-                srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                srcSet={`${item.img8}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
                 alt={item.title}
                 loading="lazy"
               />
@@ -199,7 +199,7 @@ export default function HotelImageList() {
             <ImageListItem>
               <img
                 src={`${item.image9}?w=164&h=164&fit=crop&auto=format`}
-                srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                srcSet={`${item.img9}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
                 alt={item.title}
                 loading="lazy"
               />

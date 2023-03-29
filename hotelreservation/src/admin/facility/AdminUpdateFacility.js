@@ -82,6 +82,7 @@ export default function AdminUpdateFacility() {
           <form onSubmit={handleSubmit}>
             <Stack spacing={3}>
               <TextField
+               multiline
                 id="facilityName"
                 name="facilityName"
                 onChange={handleChange}

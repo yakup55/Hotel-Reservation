@@ -67,6 +67,7 @@ export default function AdminAddUser() {
           <form onSubmit={handleSubmit}>
             <Stack spacing={3}>
               <TextField
+              multiline
                 fullWidth
                 id="userName"
                 name="userName"
@@ -80,6 +81,7 @@ export default function AdminAddUser() {
                 }
               ></TextField>
               <TextField
+              multiline
                 fullWidth
                 id="userMail"
                 name="userMail"
@@ -94,6 +96,7 @@ export default function AdminAddUser() {
               ></TextField>
               <TextField
                 fullWidth
+                multiline
                 id="userNumber"
                 name="userNumber"
                 label=" Number"
@@ -112,6 +115,7 @@ export default function AdminAddUser() {
                   Password
                 </InputLabel>
                 <OutlinedInput
+                multiline
                   id="userPasword"
                   name="userPasword"
                   label="User Password"

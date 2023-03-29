@@ -31,9 +31,9 @@ export default function ResetEmailSend() {
       <form onSubmit={handleSubmit}>
         <Stack spacing={3}>
           <TextField
+            fullwidth
             id="email"
             name="email"
-            sx={{ width: 500 }}
             label="Email Adresiniz"
             placeholder="Email Adresiniz"
             onChange={handleChange}
@@ -41,8 +41,8 @@ export default function ResetEmailSend() {
             error={errors.email && touched.email}
             helperText={errors.email && touched.email ? errors.email : ""}
           ></TextField>
-          <Button sx={{ width: 500 }} type="submit" variant="contained">
-            Send
+          <Button type="submit" variant="contained">
+            Gönder
           </Button>
         </Stack>
       </form>

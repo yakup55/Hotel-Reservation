@@ -45,6 +45,7 @@ export default function AdminAddCity() {
           <form onSubmit={handleSubmit}>
             <Stack spacing={3}>
               <TextField
+               multiline
                 fullWidth
                 id="cityName"
                 name="cityName"
@@ -58,6 +59,7 @@ export default function AdminAddCity() {
                 }
               ></TextField>
               <TextField
+               multiline
                 fullWidth
                 id="cityImage"
                 name="cityImage"

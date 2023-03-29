@@ -79,6 +79,7 @@ export default function AdminUpdateRoom() {
           <form onSubmit={handleSubmit}>
             <Stack spacing={3}>
               <TextField
+              multiline
                 id="roomName"
                 name="roomName"
                 label="Room Name"
@@ -91,6 +92,7 @@ export default function AdminUpdateRoom() {
                 }
               ></TextField>
               <TextField
+              multiline
                 id="roomImage"
                 name="roomImage"
                 label="Room Image"
@@ -104,6 +106,7 @@ export default function AdminUpdateRoom() {
                 }
               ></TextField>
               <TextField
+              multiline
                 id="roomPrice"
                 name="roomPrice"
                 label="Room Price"

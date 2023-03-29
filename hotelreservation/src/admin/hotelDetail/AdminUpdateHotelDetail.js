@@ -103,6 +103,7 @@ export default function AdminUpdateHotelDetail() {
           <form onSubmit={handleSubmit}>
             <Stack spacing={3}>
               <TextField
+              multiline
                 fullWidth
                 id="image1"
                 name="image1"
@@ -115,6 +116,7 @@ export default function AdminUpdateHotelDetail() {
                 }
               ></TextField>
               <TextField
+              multiline
                 fullWidth
                 id="image2"
                 name="image2"
@@ -127,6 +129,7 @@ export default function AdminUpdateHotelDetail() {
                 }
               ></TextField>
               <TextField
+              multiline
                 fullWidth
                 id="image3"
                 name="image3"
@@ -139,6 +142,7 @@ export default function AdminUpdateHotelDetail() {
                 }
               ></TextField>
               <TextField
+              multiline
                 fullWidth
                 id="image4"
                 name="image4"
@@ -151,6 +155,7 @@ export default function AdminUpdateHotelDetail() {
                 }
               ></TextField>
               <TextField
+              multiline
                 fullWidth
                 id="image5"
                 name="image5"
@@ -163,6 +168,7 @@ export default function AdminUpdateHotelDetail() {
                 }
               ></TextField>
               <TextField
+              multiline
                 fullWidth
                 id="image6"
                 name="image6"
@@ -175,6 +181,7 @@ export default function AdminUpdateHotelDetail() {
                 }
               ></TextField>
               <TextField
+              multiline
                 fullWidth
                 id="image7"
                 name="image7"
@@ -187,6 +194,7 @@ export default function AdminUpdateHotelDetail() {
                 }
               ></TextField>
               <TextField
+              multiline
                 fullWidth
                 id="image8"
                 name="image8"
@@ -199,6 +207,7 @@ export default function AdminUpdateHotelDetail() {
                 }
               ></TextField>
               <TextField
+              multiline
                 fullWidth
                 id="image9"
                 name="image9"
@@ -211,6 +220,7 @@ export default function AdminUpdateHotelDetail() {
                 }
               ></TextField>
               <TextField
+              multiline
                 fullWidth
                 id="hotelMap"
                 name="hotelMap"
