@@ -10,7 +10,6 @@ import { openSnacbar } from "../../redux/actions/appActions";
 import { getCityList } from "../../redux/actions/cityActions";
 import { getByUserMail, updateUser } from "../../redux/actions/userActions";
 import Footer from "../footer/Footer";
-
 export default function UserUpdateProfile() {
   const { user } = useSelector((state) => state.user);
   const { cities } = useSelector((state) => state.city);
@@ -35,12 +34,27 @@ export default function UserUpdateProfile() {
     },
     onSubmit: (values) => {
       dispacth(updateUser(values));
-      dispacth(
-        openSnacbar({
-          message: "Profiliniz Güncellendi",
-          severity: "success",
-        })
-      );
+      if (
+        values.cityId == null ||
+        values.userImage == null ||
+        values.birthDate == null
+      ) {
+        dispacth(
+          openSnacbar({
+            message:
+              "Profiliniz Güncellenemedi(resiminizi veya şehirinizi veya doğum tarihinizi eklediğinizden emin olunuz)",
+            severity: "error",
+          })
+        );
+      } else {
+        dispacth(
+          openSnacbar({
+            message: "Profiliniz Güncellendi",
+            severity: "success",
+          })
+        );
+      }
+
       navigate(`/user/${user.data.email}`);
     },
   });
@@ -81,6 +95,10 @@ export default function UserUpdateProfile() {
               value={values.userImage}
               onChange={handleChange}
               onBlur={handleBlur}
+              error={errors.userImage && touched.userImage}
+              helperText={
+                errors.userImage && touched.userImage ? errors.userImage : ""
+              }
             ></TextField>
             <TextField
               label="Kullanıcı Adınız"

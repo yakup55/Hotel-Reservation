@@ -17,6 +17,7 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useMediaQuery } from "react-responsive";
 import { useNavigate, useParams } from "react-router-dom";
 import { roomHotel } from "../../redux/actions/roomActions";
 
@@ -37,27 +38,29 @@ export default function RoomHotelList() {
   useEffect(() => {
     dispacth(roomHotel(id));
   }, [dispacth, id]);
+  const isDestop2 = useMediaQuery({ query: "(max-width: 200px)" });
   return (
     <Container>
       {currentPost?.map((detail) => (
-        <Card
+        <Box height="250px">
+           <Card
           direction={{ base: "column", sm: "row" }}
           overflow="hidden"
           variant="outline"
         >
-          <Image
-            sx={{ width: 250, height: 150 }}
-            objectFit="cover"
-            onClick={() => navigate(`/roomdetail/${detail.roomId}`)}
-            src={`${detail?.roomImage}`}
-            alt={detail?.hotelName}
-          />
+            <Image
+              sx={{ width: 600, height: 200 }}
+              objectFit="cover"
+              onClick={() => navigate(`/roomdetail/${detail.roomId}`)}
+              src={`${detail?.roomImage}`}
+              alt={detail?.hotelName}
+            />
 
-          <Stack>
+          <Stack sx={{ margin: "auto", display: "block" }}>
             <CardBody>
-              <Heading size="md">{detail?.roomName}</Heading>
+              <Heading>{detail?.roomName}</Heading>
 
-              <Text py="2">{detail?.roomPrice}</Text>
+              <Typography variant="h6">{detail?.roomPrice}TL</Typography>
             </CardBody>
 
             <CardFooter>
@@ -71,36 +74,9 @@ export default function RoomHotelList() {
               </Button>
             </CardFooter>
           </Stack>
-          {/* <Card>
-              <CardBody>
-                <Image
-                  onClick={() => navigate(`/roomdetail/${detail.roomId}`)}
-                  src={`${detail?.roomImage}`}
-                  alt={detail?.hotelName}
-                  borderRadius="lg"
-                  sx={{ width: 200, height: 150 }}
-                />
-                <Stack mt="1">
-                  <Heading>{detail?.roomName}</Heading>
-                  <Typography variant="h10">{detail?.hotelLocation}</Typography>
-                  <Typography color="red" variant="h5">
-                    {detail?.roomPrice}
-                  </Typography>
-                </Stack>
-              </CardBody>
-              <Divider />
-              <CardFooter>
-                <Button
-                  onClick={() => navigate(`/roomdetail/${detail.roomId}`)}
-                  style={{ margin: "auto", display: "block" }}
-                  variant="contained"
-                  color="secondary"
-                >
-                  Odayı İncele
-                </Button>
-              </CardFooter>
-            </Card> */}
         </Card>
+        </Box>
+       
       ))}
 
       <Pagination

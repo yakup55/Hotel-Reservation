@@ -26,7 +26,7 @@ export default function RoomImageList() {
               <Img
                 sx={{ width: 300, height: 300 }}
                 src={`${item.image1}?w=164&h=164&fit=crop&auto=format`}
-                srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                srcSet={`${item.image1}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
                 alt={room.data?.roomName}
                 loading="lazy"
               />
@@ -37,7 +37,7 @@ export default function RoomImageList() {
               <Img
                 sx={{ width: 300, height: 300 }}
                 src={`${item.image2}?w=164&h=164&fit=crop&auto=format`}
-                srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                srcSet={`${item.image2}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
                 alt={room.data?.roomName}
                 loading="lazy"
               />
@@ -48,7 +48,7 @@ export default function RoomImageList() {
               <Img
                 sx={{ width: 300, height: 300 }}
                 src={`${item.image3}?w=164&h=164&fit=crop&auto=format`}
-                srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                srcSet={`${item.image3}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
                 alt={room.data?.roomName}
                 loading="lazy"
               />
@@ -63,7 +63,7 @@ export default function RoomImageList() {
               <Img
                 sx={{ width: 165, height: 175 }}
                 src={`${item.image1}?w=164&h=164&fit=crop&auto=format`}
-                srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                srcSet={`${item.image1}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
                 alt={room.data?.roomName}
                 loading="lazy"
               />
@@ -74,7 +74,7 @@ export default function RoomImageList() {
               <Img
                 sx={{ width: 165, height: 175 }}
                 src={`${item.image2}?w=164&h=164&fit=crop&auto=format`}
-                srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                srcSet={`${item.image2}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
                 alt={room.data?.roomName}
                 loading="lazy"
               />
@@ -85,7 +85,7 @@ export default function RoomImageList() {
               <Img
                 sx={{ width: 165, height: 175 }}
                 src={`${item.image3}?w=164&h=164&fit=crop&auto=format`}
-                srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                srcSet={`${item.image3}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
                 alt={room.data?.roomName}
                 loading="lazy"
               />

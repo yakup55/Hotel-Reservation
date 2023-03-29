@@ -62,7 +62,7 @@ export default function HotelDetail() {
     <>
       <Box>
         <Grid
-          h="2000"
+          h="1300"
           templateRows="repeat(2, 1fr)"
           templateColumns="repeat(5, 1fr)"
           gap={0}
@@ -119,14 +119,19 @@ export default function HotelDetail() {
             <HotelImageList></HotelImageList>
           </GridItem>
 
-          <GridItem mb={1100} colSpan={4}>
+          <GridItem mb={1200} colSpan={4}>
                 <RoomHotelList></RoomHotelList>
           </GridItem>
+          
+         
         </Grid>
-
-        <CommentAdd></CommentAdd>
+        <div style={{marginTop:200,marginBottom:20}}>
+          <CommentAdd></CommentAdd>
+        </div>
+             
+       
       </Box>
-      <div sx={{ marginTop: 250 }}></div>
+      <div style={{ marginTop: 400 }}></div>
       <Footer></Footer>
     </>
   );

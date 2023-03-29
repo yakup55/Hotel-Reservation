@@ -22,6 +22,7 @@ import { addUser } from "../../redux/actions/userActions";
 import { openSnacbar } from "../../redux/actions/appActions";
 import { validationSchema } from "../../admin/user/validationSchema";
 import Footer from "../footer/Footer";
+import UserService from "../../redux/services/userService";
 export default function Register() {
   const [showPassword, setShowPassword] = React.useState(false);
 
@@ -32,6 +33,7 @@ export default function Register() {
   };
   const navigate = useNavigate();
   const dispacth = useDispatch();
+  const service = new UserService();
   const { handleSubmit, handleChange, handleBlur, errors, touched } = useFormik(
     {
       initialValues: {
@@ -40,25 +42,35 @@ export default function Register() {
         userNumber: "",
         userPasword: "",
       },
-      onSubmit: (values) => {
-        dispacth(addUser(values));
-        dispacth(
-          openSnacbar({
-            message: `Kaydınız Alınmıştır Lütfen Mail Doğrulaması İçin Maillerinizi Kontrol Ediniz`,
-            severity: "success",
-          })
-        );
+      onSubmit: async (values) => {
+        // dispacth(addUser(values));
+        const result = await service.addUser(values);
+        if (result.status === 400) {
+          dispacth(
+            openSnacbar({
+              message: `Kayıtda Bir Hata Oldu`,
+              severity: "error",
+            })
+          );
+        } else {
+          dispacth(
+            openSnacbar({
+              message: `Kaydınız Alınmıştır Lütfen Mail Doğrulaması İçin Maillerinizi Kontrol Ediniz`,
+              severity: "success",
+            })
+          );
+        }
+
         navigate("/register");
       },
       validationSchema,
     }
   );
-
   return (
     <>
-      <Container style={{ marginBottom: 10 }}>
+      <Container maxWidth="xs" style={{ marginBottom: 10 }}>
         <form onSubmit={handleSubmit}>
-          <Stack spacing={3}>
+          <Stack spacing={2}>
             <AccountCircleIcon
               style={{
                 width: 100,
@@ -147,7 +159,7 @@ export default function Register() {
             </Button>
             <Alert severity="error">
               Şifre Kuralları şifrenizde kullanıcı adınız olmamalı,ardışık sayı
-              içermemeli!,En az 1 tane büyük harf içermeli
+              içermemeli,En az 1 tane büyük harf içermeli
             </Alert>
             <Alert severity="error">
               Kullanıcı Adınız Büyük Harf İçermemeli

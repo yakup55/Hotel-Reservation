@@ -58,6 +58,7 @@ export default function CommentAdd() {
             Yorum Yapmak İçin Giriş Yapmanız Gerekmektedir
           </Heading>
           <TextField
+          multiline
             fullWidth
             id="commentSubject"
             name="commentSubject"
@@ -74,6 +75,7 @@ export default function CommentAdd() {
             }
           ></TextField>
           <TextField
+          multiline
             id="commentMessage"
             name="commentMessage"
             label="Mesaj"

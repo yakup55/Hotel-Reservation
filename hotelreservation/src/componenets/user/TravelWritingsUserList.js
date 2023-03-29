@@ -152,7 +152,7 @@ export default function TravelWritingsUserList() {
           color="secondary"
         />
       </Container>
-      <div sx={{ marginTop: 30 }}>
+      <div style={{ marginTop: 255 }}>
         <Footer></Footer>
       </div>
     </>

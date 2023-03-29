@@ -48,10 +48,10 @@ export default function UserContactList() {
     );
   };
   return (
-    <Container sx={{margin:"auto",display:"block"}}>
-      <Heading >Geri Bildirimler</Heading>
+    <Container sx={{ margin: "auto", display: "block" }}>
+      <Heading ml={230}>Geri Bildirimler</Heading>
       {currentPost?.length === 0 && (
-        <Typography  variant="h6">
+        <Typography ml={30} variant="h6">
           Geri Bildiriminiz Bulunmamaktadır
         </Typography>
       )}

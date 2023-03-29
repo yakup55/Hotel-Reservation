@@ -17,10 +17,12 @@ import { Visibility, VisibilityOff } from "@mui/icons-material";
 import AuthenticationService from "../../redux/services/authenticationService";
 import { useFormik } from "formik";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { openSnacbar } from "../../redux/actions/appActions";
 import { validationSchema } from "./validationSchema";
 import Footer from "../footer/Footer";
+import { useEffect } from "react";
+import { getByUserMail } from "../../redux/actions/userActions";
 export default function Login() {
   const [showPassword, setShowPassword] = React.useState(false);
 
@@ -32,8 +34,9 @@ export default function Login() {
   const dispacth = useDispatch();
   const navigate = useNavigate();
   const service = new AuthenticationService();
-  const { handleSubmit, handleChange, handleBlur, errors, touched } = useFormik(
-    {
+  const { user } = useSelector((state) => state.user);
+  const { handleSubmit, handleChange, handleBlur, errors, touched, values } =
+    useFormik({
       initialValues: {
         userMail: "",
         userPassword: "",
@@ -52,18 +55,47 @@ export default function Login() {
         if (result.status === 400) {
           dispacth(
             openSnacbar({
-              message: "Giriş Başarısız",
+              message: "Giriş Başarısız ",
+              severity: "error",
+            })
+          );
+          navigate("/register");
+        }
+        if (user.data?.accessFailedCount === 2) {
+          dispacth(
+            openSnacbar({
+              message: "3 Dakika Giriş Yapamazsınız",
+              severity: "error",
+            })
+          );
+        }
+        if (user.data?.email === undefined) {
+          dispacth(
+            openSnacbar({
+              message: "Böyle Bir Kullanıcı Yok",
+              severity: "error",
+            })
+          );
+          navigate("/register");
+        }
+        if (user.data?.emailConfirmed === false) {
+          dispacth(
+            openSnacbar({
+              message: "Email Adresiniz  Doğrulanmamıştır",
               severity: "error",
             })
           );
         }
       },
       validationSchema,
-    }
-  );
+    });
+  useEffect(() => {
+    dispacth(getByUserMail(values.userMail));
+  }, [dispacth, values.userMail]);
+  console.log(user.data);
   return (
     <>
-      <Container style={{ marginBottom: 60 }}>
+      <Container maxWidth="xs" style={{ marginBottom: 60 }}>
         <form onSubmit={handleSubmit}>
           <Stack spacing={3}>
             <AccountCircleIcon
@@ -136,7 +168,7 @@ export default function Login() {
           </Stack>
         </form>
       </Container>
-        <Footer></Footer>
+      <Footer></Footer>
     </>
   );
 }

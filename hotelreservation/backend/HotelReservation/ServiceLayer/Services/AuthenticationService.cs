@@ -20,7 +20,7 @@ namespace ServiceLayer.Services
     public class AuthenticationService : IAuthenticationService
     {
         private readonly List<Client> clients;
-        private readonly UserManager<AppUser > userManager;
+        private readonly UserManager<AppUser> userManager;
         private readonly SignInManager<AppUser> signInManager;
         private readonly ITokenService tokenService;
         private IUnitOfWork unitOfWork;
@@ -38,30 +38,38 @@ namespace ServiceLayer.Services
 
         public async Task<ResponseDto<TokenDto>> CreateTokenAsync(UserLoginDto login)
         {
-            if (login ==null)
+            if (login == null)
             {
                 throw new ArgumentNullException(nameof(login));
             }
             var user = await userManager.FindByEmailAsync(login.UserMail);
-            user.Status = true;
-
-            if(userManager.IsEmailConfirmedAsync(user).Result==false)
+            if (user == null)
             {
+                user.Status = false;
+                return ResponseDto<TokenDto>.Fail("Kullanıcı Yok", 400);
+            }
+
+            if (userManager.IsEmailConfirmedAsync(user).Result == false)
+            {
+                user.Status = false;
                 return ResponseDto<TokenDto>.Fail("Emailiniz Doğrulanmamış", 400);
             }
 
-            var result = await signInManager.CheckPasswordSignInAsync(user,login.UserPassword,true);
+            var result = await signInManager.CheckPasswordSignInAsync(user, login.UserPassword, true);
             if (result.IsLockedOut)
             {
+                user.Status = false;
                 return ResponseDto<TokenDto>.Fail("3 dakika Giriş Yapamazsınız", 400);
             }
             if (!result.Succeeded)
             {
+                user.Status=false;
                 return ResponseDto<TokenDto>.Fail($"Başarısız giriş sayısı={await userManager.GetAccessFailedCountAsync(user)}", 400);
-              
+
             }
+            user.Status = true;
             var token = tokenService.CreateToken(user);
-            var userRefreshToken=await genericService.Where(x=>x.userId==user.Id).SingleOrDefaultAsync();
+            var userRefreshToken = await genericService.Where(x => x.userId == user.Id).SingleOrDefaultAsync();
             if (userRefreshToken == null)
             {
                 await genericService.AddAsync(new UserRefreshToken()
@@ -77,17 +85,18 @@ namespace ServiceLayer.Services
                 userRefreshToken.Expiration = token.RefreshTokenExpiration;
             }
             await unitOfWork.CommintAsync();
+         
             return ResponseDto<TokenDto>.Success(token, 200);
         }
 
         public ResponseDto<ClientTokenDto> CreateTokenByClient(ClientLoginDto clientLoginDto)
         {
-            var client = clients.SingleOrDefault(x => x.Id==clientLoginDto.ClientId && x.Secret==clientLoginDto.ClientSecret);
-            if (client==null)
+            var client = clients.SingleOrDefault(x => x.Id == clientLoginDto.ClientId && x.Secret == clientLoginDto.ClientSecret);
+            if (client == null)
             {
                 ResponseDto<ClientTokenDto>.Fail("ClientId Or ClientSecret not found", 404);
             }
-            var token=tokenService.CreateTokenByClient(client);
+            var token = tokenService.CreateTokenByClient(client);
             return ResponseDto<ClientTokenDto>.Success(token, 200);
         }
 
@@ -99,11 +108,11 @@ namespace ServiceLayer.Services
                 return ResponseDto<TokenDto>.Fail("RefreshToken Not Found", 404);
             }
             var user = await userManager.FindByIdAsync(existRefresToken.userId);
-            if (user==null)
+            if (user == null)
             {
                 return ResponseDto<TokenDto>.Fail("UserId Not Found", 404);
             }
-            var tokenDto=tokenService.CreateToken(user);
+            var tokenDto = tokenService.CreateToken(user);
             existRefresToken.Code = tokenDto.RefreshToken;
             existRefresToken.Expiration = tokenDto.RefreshTokenExpiration;
             await unitOfWork.CommintAsync();
@@ -118,17 +127,17 @@ namespace ServiceLayer.Services
             {
                 return ResponseDto<NoDataDto>.Fail("RefreshToken Not Found", 404);
             }
-             genericService.DeleteAsync(existRefresToken);
+            genericService.DeleteAsync(existRefresToken);
             return ResponseDto<NoDataDto>.Success(200);
         }
 
 
         public async Task<ResponseDto<NoDataDto>> LogOut(string id)
         {
-            var hasUser=await userManager.FindByIdAsync(id);
+            var hasUser = await userManager.FindByIdAsync(id);
             hasUser.Status = false;
             await userManager.UpdateAsync(hasUser);
-           await signInManager.SignOutAsync();
+            await signInManager.SignOutAsync();
             return ResponseDto<NoDataDto>.Success(200);
         }
     }

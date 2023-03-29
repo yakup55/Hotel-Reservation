@@ -14,7 +14,14 @@ class UserService {
   }
   async addUser(user) {
     const url = `${this.baseUrl}/CreateUser`;
-    return await axios.post(url, user).then((resp) => resp.data);
+    return await axios
+      .post(url, user)
+      .then((resp) => {
+        return { status: resp.status, data: resp.data };
+      })
+      .catch((err) => {
+        return { status: err.response.status };
+      });
   }
   async deleteUser(id) {
     const url = `${this.baseUrl}/DeleteUser/${id}`;
@@ -26,7 +33,7 @@ class UserService {
   }
   async resetPasswordEmailSend(email) {
     const url = `${this.baseUrl}/ResetPasswordEmailSend`;
-    return await axios.post(url,email).then((resp) => resp.data);
+    return await axios.post(url, email).then((resp) => resp.data);
   }
   async resetPassword(user) {
     const url = `${this.baseUrl}/ResetPassword`;
