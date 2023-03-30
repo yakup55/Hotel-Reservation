@@ -1,4 +1,3 @@
-import { Box } from "@chakra-ui/react";
 import {
   Alert,
   Button,
@@ -12,13 +11,17 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useFormik } from "formik";
-import { addUser } from "../../redux/actions/userActions";
+import {
+  getByUser,
+  getByUserMail,
+  getUserList,
+} from "../../redux/actions/userActions";
 import { openSnacbar } from "../../redux/actions/appActions";
 import { validationSchema } from "../../admin/user/validationSchema";
 import Footer from "../footer/Footer";
@@ -34,8 +37,9 @@ export default function Register() {
   const navigate = useNavigate();
   const dispacth = useDispatch();
   const service = new UserService();
-  const { handleSubmit, handleChange, handleBlur, errors, touched } = useFormik(
-    {
+  const { users } = useSelector((state) => state.user);
+  const { handleSubmit, handleChange, handleBlur, errors, touched, values } =
+    useFormik({
       initialValues: {
         userName: "",
         userMail: "",
@@ -45,7 +49,29 @@ export default function Register() {
       onSubmit: async (values) => {
         // dispacth(addUser(values));
         const result = await service.addUser(values);
-        if (result.status === 400) {
+
+        if (users.data?.find((x) => x.phoneNumber === values.userNumber)) {
+          dispacth(
+            openSnacbar({
+              message: `Bu Telefon Numarası Kayıtlıdır`,
+              severity: "error",
+            })
+          );
+        } else if (users.data?.find((x) => x.email === values.userMail)) {
+          dispacth(
+            openSnacbar({
+              message: `Bu Email Ardesi  Kayıtlıdır`,
+              severity: "error",
+            })
+          );
+        } else if (users.data?.find((x) => x.userName === values.userName)) {
+          dispacth(
+            openSnacbar({
+              message: `Bu Kullanıcı Adı Daha Önce Kullanılmış`,
+              severity: "error",
+            })
+          );
+        } else if (result.status === 400) {
           dispacth(
             openSnacbar({
               message: `Kayıtda Bir Hata Oldu`,
@@ -60,12 +86,13 @@ export default function Register() {
             })
           );
         }
-
         navigate("/register");
       },
       validationSchema,
-    }
-  );
+    });
+  useEffect(() => {
+    dispacth(getUserList());
+  }, [dispacth]);
   return (
     <>
       <Container maxWidth="xs" style={{ marginBottom: 10 }}>
