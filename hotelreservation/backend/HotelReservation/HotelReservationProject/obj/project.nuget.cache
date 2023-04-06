@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "iMnfwvzUSEOV8SxIE/T5ECM+f3sCwSMYbbsBVHB3oRisu9DVlf5zFyfCBbmQm6GgyGXSESVRvekEJo30vqEaXw==",
+  "dgSpecHash": "nL3QwoYz/xYwte40O56xUuWG4OqIIMv28l0ba7/mPhV6Ef2EJ4CPk6TNxe3ZIcTXFFIwz3Rs3cUXEGvj+yP7BA==",
   "success": true,
   "projectFilePath": "C:\\Users\\90544\\Desktop\\ReactProject\\HotelProject\\hotelreservation\\backend\\HotelReservation\\HotelReservationProject\\HotelReservationProject.csproj",
   "expectedPackageFiles": [
@@ -69,6 +69,7 @@
     "C:\\Users\\90544\\.nuget\\packages\\microsoft.identitymodel.protocols\\6.21.0\\microsoft.identitymodel.protocols.6.21.0.nupkg.sha512",
     "C:\\Users\\90544\\.nuget\\packages\\microsoft.identitymodel.protocols.openidconnect\\6.21.0\\microsoft.identitymodel.protocols.openidconnect.6.21.0.nupkg.sha512",
     "C:\\Users\\90544\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.21.0\\microsoft.identitymodel.tokens.6.21.0.nupkg.sha512",
+    "C:\\Users\\90544\\.nuget\\packages\\microsoft.net.build.containers\\0.3.2\\microsoft.net.build.containers.0.3.2.nupkg.sha512",
     "C:\\Users\\90544\\.nuget\\packages\\microsoft.net.http.headers\\2.2.0\\microsoft.net.http.headers.2.2.0.nupkg.sha512",
     "C:\\Users\\90544\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
     "C:\\Users\\90544\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",

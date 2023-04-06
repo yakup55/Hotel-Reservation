@@ -136,6 +136,11 @@
               "target": "Package",
               "version": "[7.0.2, )"
             },
+            "Microsoft.NET.Build.Containers": {
+              "target": "Package",
+              "version": "[0.3.2, )",
+              "autoReferenced": true
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.4.0, )"

@@ -11,6 +11,7 @@
           "Autofac.Extensions.DependencyInjection": "8.0.0",
           "Microsoft.AspNetCore.OpenApi": "7.0.2",
           "Microsoft.EntityFrameworkCore.Design": "7.0.2",
+          "Microsoft.NET.Build.Containers": "0.3.2",
           "ServiceLayer": "1.0.0",
           "SharedLibray": "1.0.0",
           "Swashbuckle.AspNetCore": "6.4.0",
@@ -630,6 +631,7 @@
           }
         }
       },
+      "Microsoft.NET.Build.Containers/0.3.2": {},
       "Microsoft.Net.Http.Headers/2.2.0": {
         "dependencies": {
           "Microsoft.Extensions.Primitives": "7.0.0",
@@ -1545,6 +1547,13 @@
       "sha512": "sha512-AAEHZvZyb597a+QJSmtxH3n2P1nIJGpZ4Q89GTenknRx6T6zyfzf592yW/jA5e8EHN4tNMjjXHQaYWEq5+L05w==",
       "path": "microsoft.identitymodel.tokens/6.21.0",
       "hashPath": "microsoft.identitymodel.tokens.6.21.0.nupkg.sha512"
+    },
+    "Microsoft.NET.Build.Containers/0.3.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-WkQ2M9PEUYDZM92Yfm6BBkHBTBQtET8Y30l5MOxU/IkiuAAnaGar/sMiNR5s4W+aMB3+S6lzndq9aMxUXw8hCA==",
+      "path": "microsoft.net.build.containers/0.3.2",
+      "hashPath": "microsoft.net.build.containers.0.3.2.nupkg.sha512"
     },
     "Microsoft.Net.Http.Headers/2.2.0": {
       "type": "package",
